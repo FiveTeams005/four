@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c8439f20-23ab-4c1c-b9cc-68738e5914c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php" afterPath="$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php" />
-    </list>
+    <list default="true" id="c8439f20-23ab-4c1c-b9cc-68738e5914c3" name="Default" comment="" />
     <ignored path="four.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -262,12 +260,12 @@
       <workItem from="1494988121815" duration="769000" />
       <workItem from="1495011675424" duration="34000" />
       <workItem from="1495013976963" duration="2623000" />
-      <workItem from="1495069161054" duration="8796000" />
+      <workItem from="1495069161054" duration="9468000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12222000" />
+    <option name="totallyTimeSpent" value="12894000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
