@@ -3290,3 +3290,751 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001874s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001975s ]
 
+[ 2017-05-18T20:53:27+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001669s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004142s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004488s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000312s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000605s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.075858s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077697s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002818s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003059s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003580s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003807s ]
+
+[ 2017-05-18T21:11:27+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000077s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003499s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007412s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007724s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000364s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001061s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.106301s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.106587s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002717s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003089s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003728s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003933s ]
+
+[ 2017-05-18T21:11:55+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000112s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003967s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005787s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001285s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001580s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.120384s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.120689s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003003s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003277s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004766s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005012s ]
+
+[ 2017-05-18T21:31:36+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002317s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006617s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007279s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000544s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000799s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.149250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.149730s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003239s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003937s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.006317s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008224s ]
+
+[ 2017-05-18T21:33:44+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002626s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010866s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011155s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000781s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001227s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.091891s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.092237s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004996s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005417s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004777s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005001s ]
+
+[ 2017-05-18T21:34:19+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000711s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002455s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002633s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000109s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000212s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033780s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033901s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000799s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000871s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002781s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002929s ]
+
+[ 2017-05-18T21:34:26+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000060s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001971s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002398s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002652s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000301s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000539s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.041194s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041473s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001394s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001595s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002505s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002715s ]
+
+[ 2017-05-18T21:34:29+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000101s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002435s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002687s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000319s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000704s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.060136s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.060434s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001382s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001555s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002286s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002716s ]
+
+[ 2017-05-18T21:34:55+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000091s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006998s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001881s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000198s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000390s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.069921s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.070130s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001413s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001670s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002430s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002578s ]
+
+[ 2017-05-18T21:35:00+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000099s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007684s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002625s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002886s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000350s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001560s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.049355s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049986s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001371s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001963s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002327s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002531s ]
+
+[ 2017-05-18T21:41:05+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000136s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003009s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003737s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004027s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000441s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000716s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.187095s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.187405s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.005198s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009963s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008602s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008909s ]
+
+[ 2017-05-18T21:43:11+08:00 ] 192.168.1.150 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000089s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003514s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003803s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000492s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000819s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.061914s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062329s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003392s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003785s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004999s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005283s ]
+
+[ 2017-05-18T22:37:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000077s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004235s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005037s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000651s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000871s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.071355s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.071650s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002704s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002950s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004025s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004278s ]
+
+[ 2017-05-18T22:38:14+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001665s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002880s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003098s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000284s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001518s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.113841s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.114166s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004431s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004777s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005593s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005891s ]
+
+[ 2017-05-18T22:38:57+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001578s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005782s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006032s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000345s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000605s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093174s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.094428s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001642s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001867s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005762s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006071s ]
+
+[ 2017-05-18T22:41:04+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002847s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006470s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007151s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000324s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000529s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.077472s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.078152s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003012s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003158s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005752s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005913s ]
+
+[ 2017-05-18T22:45:50+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005083s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005360s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000484s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000757s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.096491s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.096840s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003122s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003309s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002557s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002743s ]
+
+[ 2017-05-18T22:46:10+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000064s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001945s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002516s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002698s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000212s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000387s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.066440s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.067279s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003983s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004269s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003267s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003637s ]
+
+[ 2017-05-18T22:48:20+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000061s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003073s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003207s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003440s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000273s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000510s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.043253s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043644s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003493s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003975s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003148s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003387s ]
+
+[ 2017-05-18T22:48:23+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002636s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000261s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000454s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027333s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027732s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001103s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001362s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002038s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002170s ]
+
+[ 2017-05-18T22:48:24+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002710s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004829s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000414s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000864s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.041828s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044511s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002045s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002284s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002738s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002958s ]
+
+[ 2017-05-18T22:50:19+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000121s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009549s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005549s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005950s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001357s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001735s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.159396s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.161860s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003666s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004031s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002956s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003225s ]
+
+[ 2017-05-18T23:00:09+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005018s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005300s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000628s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.004461s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.141249s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.141553s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002144s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002307s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002980s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003152s ]
+
+[ 2017-05-18T23:03:38+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002193s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004633s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000411s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000673s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.078248s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.078489s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001418s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001549s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002344s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002502s ]
+
+[ 2017-05-18T23:03:42+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001618s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002922s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000316s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000546s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029085s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029374s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001420s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001605s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001909s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002083s ]
+
+[ 2017-05-18T23:03:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000065s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002009s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003406s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003717s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000345s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000623s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.042568s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.042846s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001233s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001430s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002217s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002414s ]
+
+[ 2017-05-18T23:08:41+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003554s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.010489s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.022585s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001335s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001713s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.148270s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.149230s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.007564s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008297s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008700s ]
+INFO: [ app_end ] --END-- [ RunTime:0.010439s ]
+
+[ 2017-05-18T23:08:43+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001318s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002481s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002656s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000193s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000356s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030246s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030590s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001889s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002026s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002104s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002239s ]
+
+[ 2017-05-18T23:08:44+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002107s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003013s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003420s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000434s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000719s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.045845s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046255s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001620s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001998s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003240s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003498s ]
+
+[ 2017-05-18T23:08:46+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002606s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000369s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000597s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027665s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027851s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001550s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001725s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001714s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001848s ]
+
+[ 2017-05-18T23:08:47+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002519s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002759s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000413s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000722s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.077991s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080386s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001571s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001843s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003212s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003500s ]
+
+[ 2017-05-18T23:10:12+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002455s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002469s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002920s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000259s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000462s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033718s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034013s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001386s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001568s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003098s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003302s ]
+
+[ 2017-05-18T23:10:14+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001868s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005135s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005942s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000364s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000662s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.042807s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.043094s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002394s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002643s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002757s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002992s ]
+
+[ 2017-05-18T23:11:44+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001635s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002427s ]
+NOTIC: [2] Missing argument 1 for Think\Controller::show(), called in D:\phpStudy\WWW\four\Application\Home\Controller\IndexController.class.php on line 12 and defined D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 68 行.
+NOTIC: [8] Undefined variable: content D:\phpStudy\WWW\four\ThinkPHP\Library\Think\Controller.class.php 第 69 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000313s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000479s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027168s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001526s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001669s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001816s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001940s ]
+

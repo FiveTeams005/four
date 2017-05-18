@@ -706,3 +706,201 @@ INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
 INFO: [ app_init ] --END-- [ RunTime:0.001474s ]
 ERR: 无法加载模块:Wp-content
 
+[ 2017-05-18T20:53:27+08:00 ] 127.0.0.1 /wp-content/uploads/2014/07/slide1.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000080s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004617s ]
+ERR: 无法加载模块:Wp-content
+
+[ 2017-05-18T20:53:28+08:00 ] 127.0.0.1 /wp-content/uploads/2014/07/slide2.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001972s ]
+ERR: 无法加载模块:Wp-content
+
+[ 2017-05-18T20:53:28+08:00 ] 127.0.0.1 /wp-content/uploads/2014/07/slide3.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002104s ]
+ERR: 无法加载模块:Wp-content
+
+[ 2017-05-18T21:31:37+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000069s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002147s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T21:33:45+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000061s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002222s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T21:34:19+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000949s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T21:34:27+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003671s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T21:34:30+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000140s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005325s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T21:34:56+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008875s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T21:35:01+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003033s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T21:41:06+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004375s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:37:44+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002981s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:38:15+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002884s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:38:57+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002822s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:41:05+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001361s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:45:50+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001320s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:46:10+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002008s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:48:21+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000074s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002725s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:48:24+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002750s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:48:25+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003336s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T22:50:20+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002890s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:00:09+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000121s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001581s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:03:40+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002214s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:03:43+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000060s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002172s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:03:44+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000056s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001657s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:08:41+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000080s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003063s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:08:44+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003680s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:08:45+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000051s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001734s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:08:47+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002385s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:08:48+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000069s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002691s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:10:13+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000068s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002404s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:10:14+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002870s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-18T23:11:45+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000087s ]
+INFO: [ app_init ] --END-- [ RunTime:0.011817s ]
+ERR: 无法加载模块:Public
+
