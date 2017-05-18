@@ -1,22 +1,42 @@
 /*底部样式*/
 footer{
     width: 100%;
-    /*height: 78px;*/
+    height: 54px;
     background-color: #fff;
     position: fixed;
-    bottom: -48px;
+    bottom: 0;
     left:0;
     border-top: 1px solid #eee;
-    padding-top: 10px;
+    padding-top: 4px;
 }
-
-.publish img{
-    width: 96px;
-    max-height: 96px;
-    position: relative;
-    top: -48px;
+@media (max-width:768px) {
+    footer img{
+        width: 28px;
+        max-height: 28px;
+    }
+    .publish img{
+        width: 56px;
+        max-height: 56px;
+        position: relative;
+        top: -28px;
+    }
+    .publish-txt{
+        position: relative;
+        top: -28px;
+    }
 }
-.publish-txt{
-    position: relative;
-    top: -48px;
+@media (min-width: 769px) and (max-width: 1200px) {
+    footer{
+        height: 78px;
+    }
+    .publish img{
+        width: 96px;
+        max-height: 96px;
+        position: relative;
+        top: -48px;
+    }
+    .publish-txt{
+        position: relative;
+        top: -48px;
+    }
 }
