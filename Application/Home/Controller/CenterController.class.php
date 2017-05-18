@@ -8,4 +8,13 @@ class CenterController extends Controller {
 	 * @param 参数2
 	 * @return 返回类型
 	 */
+
+	/**
+	 * 个人中心页面加载
+	 */
+	public function center(){
+		$this->display();
+	}
+	
+	
 }
