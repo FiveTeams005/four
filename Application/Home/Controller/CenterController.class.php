@@ -8,6 +8,11 @@ class CenterController extends Controller {
 	 * @param 参数2
 	 * @return 返回类型
 	 */
+<<<<<<< HEAD
+	public function center(){
+	    $this->show();
+    }
+=======
 
 	/**
 	 * 个人中心页面加载
@@ -17,4 +22,5 @@ class CenterController extends Controller {
 	}
 	
 	
+>>>>>>> origin/master
 }
