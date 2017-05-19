@@ -72,7 +72,7 @@
             </div>
         </div>
         <!--分类导航-->
-        <div class="row text-center">
+        <div class="row text-center classify-bar">
             <div class="col-sm-3 col-xs-3">
                 <a href="" class="indexcase">数码</a>
             </div>
@@ -121,7 +121,34 @@
 
             </div>
             <div class="col-sm-12 col-xs-12 show-goods">
-
+                <div class="row">
+                    <div class="col-sm-3 col-xs-3">
+                        <img src="" alt="头像" class="img-responsive img-circle">
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        <p><span>昵称</span><span class="icon"></span></p>
+                        <p><span class="icon"></span><span>已上架1小时</span></p>
+                    </div>
+                    <div class="col-sm-3 col-xs-3">
+                        <p style="color: red">￥<span>1000.00</span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-xs-4">
+                        <img src="" alt="showImg1"  class="img-responsive">
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                        <img src="" alt="showImg1"  class="img-responsive">
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                        <img src="" alt="showImg1"  class="img-responsive">
+                    </div>
+                </div>
+                <div clas="row">
+                    <div class="col-sm-12 col-xs-12">
+                        描述；
+                    </div>
+                </div>
             </div>
         </div>
     </div>

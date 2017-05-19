@@ -35,6 +35,14 @@ header #sec-btn{
 /*内容样式*/
 
 /*分类导航*/
+.classify-bar{
+    width: 100%;
+    height: auto;
+    max-height: 80px;
+}
+
+
+/*新鲜的、附近的样式*/
 #menu-wrap{
     height: 46px;
     width: 100%;

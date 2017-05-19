@@ -580,3 +580,15 @@ INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
 INFO: [ app_init ] --END-- [ RunTime:0.004383s ]
 ERR: 无法加载模块:Public
 
+[ 2017-05-19T11:03:50+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000106s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003693s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-19T11:15:36+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001227s ]
+ERR: 无法加载模块:Public
+
