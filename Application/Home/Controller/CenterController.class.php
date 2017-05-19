@@ -17,4 +17,7 @@ class CenterController extends Controller {
 	public function PersonalInfo(){
         $this->display();
     }
+    public function MyPublish(){
+	    $this->display();
+    }
 }
