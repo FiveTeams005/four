@@ -93,6 +93,17 @@
             font-size: 10px;
             color: #9d9d9d;
         }
+        .userMsg{
+            border-bottom: 1px solid #ccc;
+        }
+        .num1{
+            margin-top: 5px;
+        }
+        .num2{
+            margin-bottom: 10px;
+            font-size: 10px;
+            color: #9d9d9d;
+        }
     </style>
 </head>
 <body class="bg">
@@ -118,16 +129,28 @@
 </header>
 <!--登录状态显示头部-->
 <header style="display: block">
-    <div class="container">
+    <div class="container userMsg">
         <div class="row text-left main">
             <div class="col-xs-8">
-                <h5>我的昵称</h5>
+                <h4>我的昵称</h4>
                 <p class="detail">虽然没挣到钱，但在闲鱼开心就好</p>
             </div>
             <div class="col-xs-4  text3">
                 <div class="col-xs-6 text-right"><img src="/four/Public/home/img/xianyu/entry_icon_sold.png" class="img-circle"></div>
                 <div class="col-xs-2 col-xs-offset-1 text-right"><img src="/four/Public/home/img/xianyu/entry_arrow.png" class="logo3"></div>
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row text-center num1">
+            <div class="col-xs-4">0</div>
+            <div class="col-xs-4">0</div>
+            <div class="col-xs-4">0</div>
+        </div>
+        <div class="row text-center num2">
+            <div class="col-xs-4">被赞数</div>
+            <div class="col-xs-4">等级</div>
+            <div class="col-xs-4">信誉度</div>
         </div>
     </div>
 </header>
@@ -239,6 +262,5 @@
         </div>
     </div>
 </footer>
-
 </body>
 </html>
