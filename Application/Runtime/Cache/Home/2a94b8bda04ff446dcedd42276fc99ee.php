@@ -4,20 +4,43 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/four/Public/static/resetcss/normalize.css">
-    <link rel="stylesheet" href="/four/Public/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Public/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="/Public/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Public/Home/css/index/indexStyle.css">
+    <link rel="stylesheet" href="/Public/Home/css/static/footer/footerStyle.css">
 
-    <script src="/four/Public/static/jquery/jquery.min.js"></script>
-    <script src="/four/Public/static/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/four/Public/static/vue/vue.js"></script>
+    <script src="/Public/static/jquery/jquery.min.js"></script>
+    <script src="/Public/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Public/static/vue/vue.js"></script>
+    <script src="/Public/Home/js/index/index.js"></script>
+    <script src="/Public/Home/js/index/hammer.js"></script>
 </head>
 <body>
     <!--头部-->
     <header>
-
+        <div class="container-fluid theme-style" style="background-color: #ffda45;padding-top: 5px;padding-bottom: 3px;">
+            <div class="row">
+                <div class="col-sm-1 col-xs-1 text-center">
+                    <img src="/Public/Home/img/xianyu/city_for_search.png" alt="">
+                </div>
+                <div class="col-sm-2 col-xs-2  text-left" id="location">
+                    <nobr>乌鲁木齐市</nobr>
+                </div>
+                <div class="col-sm-7 col-xs-7">
+                    <form action="" method="post" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-sm" placeholder="输入要搜索的商品或用户">
+                            <button id="sec-btn"><img src="/Public/Home/img/xianyu/choose_city_search.png" ></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-2 col-xs-2 text-center " style="color:">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                </div>
+            </div>
+        </div>
     </header>
     <!--body部-->
-<<<<<<< HEAD
     <div class="container-fluid" id="content">
         <!--轮播-->
         <div class="row">
@@ -128,50 +151,47 @@
                 </div>
             </div>
         </div>
-=======
-    <div class="container" id="content">
 
->>>>>>> origin/master
     </div>
     <!--尾部，（底部固定导航）-->
     <footer >
         <div class="container">
-            <div class="row">
-                <div class="col-md-2 col-xs-2">
+            <div class="row text-center">
+                <div class="col-sm-2 col-xs-2">
                     <div class="row">
-                        <img src="" alt="" />
+                        <img src="/Public/Home/img/xianyu/comui_tab_home.png" alt="" />
                     </div>
                     <div class="row">
                         首页
                     </div>
                 </div>
-                <div class="col-md-2 col-xs-2">
+                <div class="col-sm-2 col-xs-2">
                     <div class="row">
-                        <img src="" alt="">
+                        <img src="/Public/Home/img/xianyu/comui_tab_custom_head.png" alt="">
                     </div>
                     <div class="row">
                         客服
                     </div>
                 </div>
-                <div class="col-md-4 col-xs-4">
+                <div class="col-sm-4 col-xs-4 publish">
                     <div class="row">
-                        <img src="" alt="">
+                        <img src="/Public/Home/img/xianyu/comui_tab_post.png" alt="">
                     </div>
-                    <div class="row">
+                    <div class="row publish-txt">
                         发布
                     </div>
                 </div>
-                <div class="col-md-2 col-xs-2">
+                <div class="col-sm-2 col-xs-2 ">
                     <div class="row">
-                        <img src="" alt="">
+                        <img src="/Public/Home/img/xianyu/comui_tab_message.png" alt="">
                     </div>
                     <div class="row">
                         信息
                     </div>
                 </div>
-                <div class="col-md-2 col-xs-2">
+                <div class="col-sm-2 col-xs-2">
                     <div class="row">
-                        <img src="" alt="">
+                        <img src="/Public/Home/img/xianyu/comui_tab_person.png" alt="">
                     </div>
                     <div class="row">
                         我的
