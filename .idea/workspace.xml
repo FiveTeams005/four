@@ -2,55 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8439f20-23ab-4c1c-b9cc-68738e5914c3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Admin/img/login/login_bgx.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Admin/img/login/login_m_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Admin/img/login/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Admin/img/login/site_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Admin/img/login/yzm.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/center/myImg/myImg1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/center/myImg/myImg2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/center/myImg/myImg3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/center/myImg/myImg4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/center/myImg/myImg5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/center/myImg/myImg6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/login/myImg/pwdImg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/login/myImg/userImg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/static/appcan/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Admin/View/login/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/Login/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/Login/reg.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/center/center.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Admin/css/style_log.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Admin/js/login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/center/center.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/login/login.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/reg/reg.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/static/appcan/appcan.control.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/static/appcan/appcan.icon.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/static/appcan/fonts/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/static/appcan/ui-base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/static/appcan/ui-box.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/css/static/appcan/ui-color.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/center/center.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/login/login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/reg/reg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/static/appcan/appcan.control.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/static/appcan/appcan.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/static/appcan/appcan.listview.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/static/appcan/appcan.optionList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/static/appcan/appcan.scrollbox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/static/appcan/appcan.slider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/static/appcan/appcan.tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/static/appcan/appcan.treeview.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/Home/js/static/appcan/template.import.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Admin/js/1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Home/css/1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/Home/js/1.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php" afterPath="$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/CenterController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/CenterController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/LoginController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/LoginController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/17_05_18.log" afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/17_05_18.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Common/17_05_18.log" afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Common/17_05_18.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Runtime/Logs/Home/17_05_18.log" afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Home/17_05_18.log" />
     </list>
     <ignored path="four.iws" />
@@ -594,16 +547,16 @@
       <workItem from="1495013976963" duration="2623000" />
       <workItem from="1495069161054" duration="10641000" />
       <workItem from="1495083504219" duration="51000" />
-      <workItem from="1495088635182" duration="6397000" />
+      <workItem from="1495088635182" duration="6930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20515000" />
+    <option name="totallyTimeSpent" value="21048000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
