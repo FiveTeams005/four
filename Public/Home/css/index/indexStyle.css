@@ -1,0 +1,37 @@
+/*
+*   首页样式
+**/
+
+/*头部样式*/
+
+header{
+    color: #000;
+}
+header [class^='col-sm'], header [class^='col-xs']{
+    padding:0 ;
+    line-height: 32px;
+}
+header #location{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+header .form-group{
+    margin: 0;
+}
+header form img{
+    width: 18px;
+    height: 18px;
+}
+header #sec-btn{
+    border: 0;
+    outline: none;
+    background-color:inherit ;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+/*内容样式*/
+
+
