@@ -11,7 +11,7 @@ class CenterController extends Controller {
 	/**
 	 * 个人中心页面加载
 	 */
-	public function center(){
+	public function Center(){
 		$this->display();
 	}
 	public function PersonalInfo(){
