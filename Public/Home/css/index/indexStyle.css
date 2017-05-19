@@ -34,4 +34,28 @@ header #sec-btn{
 
 /*内容样式*/
 
+/*分类导航*/
+#menu-wrap{
+    height: 46px;
+    width: 100%;
+    background-color: #fff;
+}
+.menu{
+    width: 100%;
+    z-index: 1;
+    background-color: #fff;
+}
+.menuFixed{
+    position: fixed;
+    top:0;
+    left:0;
+}
+nav ul li.active a{
+    border-bottom: 3px solid #ffda45;
+}
+.show-goods{
+    margin-top: 4px;
+    height: 800px;
+    background-color: #00CC66;
+}
 
