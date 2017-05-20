@@ -20,6 +20,10 @@ $(function(){
     }
     //自动轮播；每隔3秒自动轮播
     $('#myCarousel').carousel({interval:3000});
+    //获取拍卖商品；
+    $.post('',{},function (data){
+        console.log(data);
+    });    
     //导航滚动顶部置顶；
     $(window).scroll(function () {
         var menu_top = $('#menu-wrap').offset().top;
@@ -35,8 +39,10 @@ $(function(){
         $(this).addClass('active').siblings().removeClass('active');
         if($(this).index() == 0){   //新鲜的
             alert(1);
+            $.post();
         }else if($(this).index() == 1){     //附近的；
             alert(2);
+            $.post();
         }
     });
     //商品展示；
