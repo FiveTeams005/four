@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Title</title>
+    <title>个人中心</title>
     <link rel="stylesheet" href="/four/Public/static/resetcss/normalize.css">
     <link rel="stylesheet" href="/four/Public/static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"  href="/four/Public/Home/css/static/footer/footerStyle.css">
