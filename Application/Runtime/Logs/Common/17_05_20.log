@@ -4,3 +4,21 @@ INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000150s ]
 INFO: [ app_init ] --END-- [ RunTime:0.001894s ]
 ERR: 无法加载模块:Public
 
+[ 2017-05-20T13:49:26+08:00 ] 127.0.0.1 /Public/Home/css/detail/detailStyle.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000068s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002397s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-20T13:49:45+08:00 ] 127.0.0.1 /Public/Home/css/static/goods/GoodsStyle.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002446s ]
+ERR: 无法加载模块:Public
+
+[ 2017-05-20T13:49:45+08:00 ] 127.0.0.1 /Public/Home/js/index/hammer.min.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012370s ]
+ERR: 无法加载模块:Public
+

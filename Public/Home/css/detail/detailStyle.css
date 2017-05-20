@@ -1,0 +1,58 @@
+/* 头部用户信息 */
+header{
+	width: 100%;
+	height: 72px;
+	padding: 15px 10px 5px;
+	border-bottom: 1px solid #ddd;
+}
+header img.img-head{
+    width: 52px;
+    max-height: 52px;
+}
+.user-info p{
+	margin: 0;
+	line-height: 23px;
+}
+.user-info p span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.user-info p:nth-child(1) .nick{
+	font-size: 16px;
+}
+.user-info p:nth-child(1) span.icon img{
+	width: 21px;
+	max-height:21px;
+	vertical-align: middle;
+}
+.user-info p:nth-child(2) span.icon img{
+	width: 16px;
+	max-height:16px;
+}
+
+/* 中间商品信息 */
+
+
+
+/* 底部固定导航按钮 */
+footer{
+	width: 100%;
+	height: 45px;
+}
+footer .row img{
+	width: 24px;
+	max-height:24px;
+	display: inline-block;
+}
+
+footer span{
+	font-size: 11px;
+}
+footer .auction-btn,footer .want-btn{
+	line-height: 45px;
+	font-size: 16px;
+}
+footer .want-btn{
+	background-color: #FF4444;
+	color: #fff;
+}

@@ -35,10 +35,79 @@ header #sec-btn{
 /*内容样式*/
 
 /*分类导航*/
-.classify-bar{
+/* .classify-bar{
     width: 100%;
     height: auto;
     max-height: 80px;
+} */
+.classify-bar div[class^='col-']{
+	margin: 6px 0 3px 0;
+}
+.classify-bar div a{
+	color: #333;
+	display: inline-block;
+}
+.classify-bar div a img{
+	width: 48px;
+	max-height: 48px;
+}
+/* 拍卖栏样式 */
+.auction{
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #eee;
+}
+.auction h3 span{
+	display: inline-block;
+	background-color: #ffda45;
+	border-radius: 50%;
+	font-size: 18px;
+}
+.circle1{
+	width: 7px;
+	height: 7px;
+}
+.circle2{
+	width: 9px;
+	height: 9px;
+}
+.circle3{
+	width: 11px;
+	height: 11px;
+}
+
+.auction-goods a div img{
+	width: 100%;
+	max-height: 100%;
+}
+.auction-goods:nth-child(1){
+	border-right: 1px solid #eee;
+}
+.auction-goods a{
+	display: inline-block;
+	width: 100%;
+	height:auto;
+	padding: 10px 0;
+	position: relative;
+	
+}
+.auction-goods a h5{
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #fff;
+}
+.auction-goods a p{
+	width: 100%;
+	height: 21px;
+	line-height: 21px;
+	font-size: 15px;
+	white-space: nowrap;/*强制不换行*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.auction .more{
+	line-height: 24px;
+	font-size: 16px;
 }
 
 

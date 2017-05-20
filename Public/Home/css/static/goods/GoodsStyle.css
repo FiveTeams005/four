@@ -1,0 +1,33 @@
+/*商品展示样式*/
+.show-goods .signal-goods{
+	box-shadow: 0 0 12px #ededed;
+	background-color: #fff;
+	margin-top: 10px;
+}
+.show-goods img.img-head{
+    width: 52px;
+    max-height: 52px;
+}
+.user-info p{
+	margin: 0;
+	line-height: 23px;
+}
+.user-info p:nth-child(1) span{
+	display: inline-block;
+	vertical-align: middle;
+}
+.user-info p:nth-child(1) .nick{
+	font-size: 16px;
+}
+.user-info p:nth-child(1) span.icon img{
+	width: 21px;
+	max-height:21px;
+	vertical-align: middle;
+}
+.user-info p:nth-child(2) span.icon img{
+	width: 16px;
+	max-height:16px;
+}
+.goods-img{
+	margin: 6px 0;
+}
