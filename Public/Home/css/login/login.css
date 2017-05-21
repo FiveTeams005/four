@@ -1,6 +1,13 @@
 #Header {
-	color:rgba(255,255,255,1);
-	
+	background-color: #ffda45 !important;
+	color: #fff;
+}
+#Header p{
+	font-size: 21px;
+	padding: 10px;
+}
+.bc-bg{
+	background-color: #fff;
 }
 #ScrollContent {
 	padding:2.69em 0em 0em 0em;
@@ -54,4 +61,18 @@ padding: 1em 0.65em 0 0.65em;
 }
 .uinn-a4{
     padding:3.63em .5em 0em!important;
+}
+
+.ub-f1{
+	border: 0;
+	outline: none;
+}
+input#submit{
+	width: 100%;
+	height: 40px;
+	font-size: 17px;
+	border: 0;
+	outline: none;
+	background-color: #ffda45;
+	color: #fff;
 }
