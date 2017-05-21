@@ -4,13 +4,13 @@
         <title></title>
         <meta charset="utf-8">
         <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <link rel="stylesheet" href="/four/Public/Home/css/static/appcan/fonts/font-awesome.min.css">
-        <link rel="stylesheet" href="/four/Public/Home/css/static/appcan/ui-box.css">
-        <link rel="stylesheet" href="/four/Public/Home/css/static/appcan/ui-base.css">
-        <link rel="stylesheet" href="/four/Public/Home/css/static/appcan/ui-color.css">
-        <link rel="stylesheet" href="/four/Public/Home/css/static/appcan/appcan.icon.css">
-        <link rel="stylesheet" href="/four/Public/Home/css/static/appcan/appcan.control.css">
-        <link rel="stylesheet" href="/four/Public/Home/css/reg/reg.css">
+        <link rel="stylesheet" href="/Public/Home/css/static/appcan/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="/Public/Home/css/static/appcan/ui-box.css">
+        <link rel="stylesheet" href="/Public/Home/css/static/appcan/ui-base.css">
+        <link rel="stylesheet" href="/Public/Home/css/static/appcan/ui-color.css">
+        <link rel="stylesheet" href="/Public/Home/css/static/appcan/appcan.icon.css">
+        <link rel="stylesheet" href="/Public/Home/css/static/appcan/appcan.control.css">
+        <link rel="stylesheet" href="/Public/Home/css/reg/reg.css">
     </head>
     <body class="" ontouchstart>
         <div class="bc-bg" tabindex="0" data-control="PAGE" id="Page">
@@ -87,15 +87,15 @@
         <div class="uinn-4b"></div>
         </div>
         </div>
-        <script src="/four/Public/Home/js/static/appcan/appcan.js"></script>
-        <script src="/four/Public/Home/js/static/appcan/appcan.control.js"></script>
-        <script src="/four/Public/Home/js/static/appcan/appcan.scrollbox.js"></script>
-        <script src="/four/Public/Home/js/static/appcan/template.import.js"></script>
-        <script src="/four/Public/Home/js/static/appcan/appcan.listview.js"></script>
-        <script src="/four/Public/Home/js/static/appcan/appcan.optionList.js"></script>
-        <script src="/four/Public/Home/js/static/appcan/appcan.slider.js"></script>
-        <script src="/four/Public/Home/js/static/appcan/appcan.tab.js"></script>
-        <script src="/four/Public/Home/js/static/appcan/appcan.treeview.js"></script>
-        <script src="/four/Public/Home/js/reg/reg.js"></script>
+        <script src="/Public/Home/js/static/appcan/appcan.js"></script>
+        <script src="/Public/Home/js/static/appcan/appcan.control.js"></script>
+        <script src="/Public/Home/js/static/appcan/appcan.scrollbox.js"></script>
+        <script src="/Public/Home/js/static/appcan/template.import.js"></script>
+        <script src="/Public/Home/js/static/appcan/appcan.listview.js"></script>
+        <script src="/Public/Home/js/static/appcan/appcan.optionList.js"></script>
+        <script src="/Public/Home/js/static/appcan/appcan.slider.js"></script>
+        <script src="/Public/Home/js/static/appcan/appcan.tab.js"></script>
+        <script src="/Public/Home/js/static/appcan/appcan.treeview.js"></script>
+        <script src="/Public/Home/js/reg/reg.js"></script>
     </body>
 </html>
