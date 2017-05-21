@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/Public/Home/js/classify/classify.js"></script>
 </head>
 <body>
+	<!-- 头部 -->
 	<header >
 		<div class="container">
 			<div class="row">
@@ -37,9 +38,8 @@
 			<nav class="row">
 				<div class="col-xs-3 col-sm-3 text-center area-btn">
 					<div class="row">
-						<div class="text-center" id="gr_zone_ids">区域</div>
-						<div class="text-center"><span class="icon-1"></span></div>
-						
+						<div class="text-right" id="gr_zone_ids">区域</div>
+						<div class="text-center">&ensp;<span class="icon-1"></span></div>
 					</div>
 				</div>
 				<div class="col-xs-3 col-sm-3 text-center">
@@ -58,9 +58,22 @@
 			</nav>
 		</div>
 	</header>
-	<div id="content">
-		
+	<!-- 中间部分 -->
+	<div class="container-fluid" id="content">
+		<div class="row">
+			<div class="col-sm-6 col-xs-6 bg-primary one-goods">
+				<img src="/Public/Home/img/images/e.jpg" class="img-responsive">
+				<div>goodsname;jfasjflkjfasfjajoojfla</div>
+				<p class="text-danger">&yen;<span>12120.00</span></p>
+			</div>
+			<div class="col-sm-6 col-xs-6 bg-info one-goods">
+				<img src="/Public/Home/img/images/f.jpg" class="img-responsive">
+				<div>goodsname;jfasjflkjfasfjajoojfla</div>
+				<p class="text-danger">&yen;<span>12120.00</span></p>
+			</div>
+		</div>
 	</div>
+	<!-- 城市选择 框 -->
 	<div class="container city-box">
 		<div class="row current-city">
 			<div class="col-xs-2 col-sm-2 text-center">
