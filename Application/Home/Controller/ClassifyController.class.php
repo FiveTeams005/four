@@ -8,4 +8,7 @@ class ClassifyController extends Controller {
 	 * @param 参数2
 	 * @return 返回类型
 	 */
+	public function classify(){
+		$this -> display();
+	}
 }
