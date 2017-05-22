@@ -12,13 +12,11 @@
         <link rel="stylesheet" href="/Public/Home/css/static/appcan/appcan.control.css">
         <link rel="stylesheet" href="/Public/Home/css/login/login.css">
     </head>
-    <body class="" ontouchstart>
+    <body>
         <div class="bc-bg" tabindex="0" data-control="PAGE" id="Page">
             <div class="uh bc-head  ubb" data-control="HEADER" id="Header">
                 <div class="ub">
-                   
                     <p class=" ub-f1 ulev-3 ut-s tx-c" tabindex="0">用户登录</p>
-                    
                 </div>
             </div>
             <div class="bc-bg ub ub-ver ub-ac ub-con" data-control="FLEXBOXVER" id="ContentFlexVer">
@@ -27,15 +25,21 @@
                         <form method="post" action=" ">
                             <div class="umar-a uba bc-border c-wh">
                                 <div class="ub ub-ac ubb umh5 bc-border ">
-                                    <div class=" uinput ub ub-f1">
+                                    <div class="uinput ub ub-f1">
                                         <div class="uinn fa fa-user sc-text"></div>
                                         <input placeholder="手机/邮箱/用户名" type="text" name="account" class="ub-f1">
                                     </div>
                                 </div>
                                 <div class="ub ub-ac umh5 bc-border ">
-                                    <div class=" uinput ub ub-f1">
+                                    <div class="uinput ub ub-f1">
                                         <div class="uinn fa fa-lock sc-text"></div>
                                         <input placeholder="密码" type="password" name="pwd" class="umw4 ub-f1">
+                                    </div>
+                                </div>
+                                <div class="ub ub-ac umh5 bc-border">
+                                    <div class="uinput ub ub-f1">
+                                        <div class="uinn fa fa-num sc-text"></div>
+                                        <input placeholder="验证码" type="password" name="pwd" class="umw4 ub-f1">
                                     </div>
                                 </div>
                             </div>
