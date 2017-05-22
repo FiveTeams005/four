@@ -1,0 +1,36 @@
+.bg{
+    background-color: #f7f7f7;
+}
+.my-publish{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+.baby-span{
+    color: #ccc;
+}
+.logo1{
+    height: 130px;
+}
+.my-publish-title{
+    font-weight: 500;
+    font-size: 18px;
+}
+footer{
+    width: 100%;
+    position: fixed;
+    top:35%
+}
+.ban-my-publish{
+    background-color: #fff;
+}
+nav ul li.active a{
+    border-bottom: 3px solid #ffda45;
+    background-color: #fff !important;
+}
+nav ul li a{
+    color: #ccc;
+}
+.navbar-nav{
+    margin: 0px -15px;
+}

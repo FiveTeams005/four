@@ -7,104 +7,10 @@
     <link rel="stylesheet" href="/four/Public/static/resetcss/normalize.css">
     <link rel="stylesheet" href="/four/Public/static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"  href="/four/Public/Home/css/static/footer/footerStyle.css">
+    <link rel="stylesheet" href="/four/Public/home/css/center/centerStyle.css">
     <script src="/four/Public/static/jquery/jquery.min.js"></script>
     <script src="/four/Public/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="/four/Public/static/vue/vue.js"></script>
-    <style>
-        div{
-            background-color: #FFFFFF;
-        }
-        .logo1{
-            width: 100%;
-            height: 100%;
-        }
-        .logo2{
-            margin: 7px;
-            height: 16px;
-            line-height: 30px;
-        }
-        .logo3{
-            margin-top: 15px;
-            height: 16px;
-            line-height: 30px;
-        }
-        .main{
-            margin: 10px 0;
-        }
-        .main .text{
-            border-bottom: 1px solid #ccc;
-            padding: 0;
-            padding-bottom: 5px;
-        }
-        .main .text1{
-            padding: 0;
-            line-height: 30px;
-        }
-        .main .text2{
-            padding: 0;
-            line-height: 30px;
-        }
-        .main .text3{
-            padding: 0;
-        }
-        .main .text span{
-            height: 100%;
-            vertical-align: middle;
-        }
-        h4{
-            font-family: "Microsoft YaHei";
-        }
-        .btn-yel{
-            background-color: #ffda45;
-            border-radius: 0;
-            width: 100px;
-            height:25px;
-            line-height: 0px;
-            margin-top: 15px;
-        }
-        .moheader{
-         padding-top: 15px;
-        }
-        .bg{
-            background-color: #f7f7f7;
-            padding: 0;
-        }
-        .bg header{
-            padding: 0;
-        }
-        .text div[class ^='col-xs']{
-            padding: 0;
-        }
-        .text3 div[class ^='col-xs']{
-            padding: 0;
-        }
-        .content{
-            margin-top: 10px;
-        }
-        .bottom{
-            margin-top: 10px;
-            height: 45px;
-        }
-        .img-circle{
-            width: 45px;
-            height: 45px;
-        }
-        .detail{
-            font-size: 10px;
-            color: #9d9d9d;
-        }
-        .userMsg{
-            border-bottom: 1px solid #ccc;
-        }
-        .num1{
-            margin-top: 5px;
-        }
-        .num2{
-            margin-bottom: 10px;
-            font-size: 10px;
-            color: #9d9d9d;
-        }
-    </style>
 </head>
 <body class="bg">
 <!--未登录时显示头部-->
