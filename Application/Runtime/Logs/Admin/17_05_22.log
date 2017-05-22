@@ -1,0 +1,9 @@
+[ 2017-05-22T10:53:57+08:00 ] 127.0.0.1 /index.php/Admin/Test/code.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003980s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003062s ]
+ERR: 无法加载控制器:Test
+

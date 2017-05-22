@@ -30,7 +30,7 @@
                                         <input placeholder="手机/邮箱/用户名" type="text" name="account" class="ub-f1">
                                     </div>
                                 </div>
-                                <div class="ub ub-ac umh5 bc-border ">
+                                <div class="ub ub-ac ubb umh5 bc-border ">
                                     <div class="uinput ub ub-f1">
                                         <div class="uinn fa fa-lock sc-text"></div>
                                         <input placeholder="密码" type="password" name="pwd" class="umw4 ub-f1">
@@ -38,8 +38,13 @@
                                 </div>
                                 <div class="ub ub-ac umh5 bc-border">
                                     <div class="uinput ub ub-f1">
-                                        <div class="uinn fa fa-num sc-text"></div>
-                                        <input placeholder="验证码" type="password" name="pwd" class="umw4 ub-f1">
+                                        <div class="uinn fa  sc-text">
+                                            <img src="__PUBLIC__/Home/img/images/login_code_1.png" style="max-height: 17px;">
+                                        </div>
+                                        <input placeholder="验证码" type="text" name="code" class="ub-f1">
+                                        <div id="code-box">
+                                            <img src="{:U('Home/Test/code')}" alt='验证码' id="code" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
