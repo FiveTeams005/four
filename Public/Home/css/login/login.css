@@ -68,10 +68,14 @@ padding: 1em 0.65em 0 0.65em;
 	outline: none;
 }
 /* ÑéÖ¤Âë */
-#code-box{
-	width: 20%;
-	background:#333;
+.code-box{
+	width: 90px;
 	margin-right: 20px;
+}
+.code-box #code{
+	width: 90px;
+	height: 36px;
+	vertical-align: middle;
 }
 input#submit{
 	width: 100%;

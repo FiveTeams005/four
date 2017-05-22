@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>用户注册</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="__PUBLIC__/Home/css/reg/reg.css">
+    </head>
+    <body>
+        <header class="container code-header">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-xs-offset-3 col-sm-offset-3 text-center">
+                    获取验证码
+                </div>
+                <div class="col-xs-3 col-sm-3 text-center">
+                    <button >下一步</button>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row title">
+                <div class="col-sm-6 col-xs-6 text-center">
+                    <p class="actived">手 机 注 册</p>
+                </div>
+                <div class="col-sm-6 col-xs-6 text-center">
+                    <p>邮 箱 注 册</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 ">
+                            <div class="input-group input-div">
+                                <span class="input-group-addon">
+                                    <img src="__PUBLIC__/Home/img/images/tel_icon.png" >
+                                    手机号码
+                                </span>
+                                <input id="tel" type="text" class="form-control" placeholder="输入常用手机号码" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row tip">
+                        <span class="telInfo"></span>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-8">
+                            <div class="input-group input-div">
+                                <span class="input-group-addon">
+                                    <img src="__PUBLIC__/Home/img/images/code_icon.png" >
+                                    手机验证
+                                </span>
+                                <input id="tel-verify" type="text" class="form-control" placeholder="输入手机验证码" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-4">
+                            <input type="button" id="tel-verify-btn" value="获取验证码" />
+                        </div>
+                        
+                    </div> 
+                    <div class="row tip">
+                        <span class="telVerInfo"></span>
+                    </div>
+                </div>  
+            </div>
+ 
+        </div>
+
+        <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+        <script src="__PUBLIC__/Home/js/reg/reg.js"></script>
+    </body>
+</html>

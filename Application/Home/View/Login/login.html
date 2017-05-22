@@ -16,7 +16,8 @@
         <div class="bc-bg" tabindex="0" data-control="PAGE" id="Page">
             <div class="uh bc-head  ubb" data-control="HEADER" id="Header">
                 <div class="ub">
-                    <p class=" ub-f1 ulev-3 ut-s tx-c" tabindex="0">用户登录</p>
+                    <p class=" ub-f1 ulev-3 ut-s tx-c" tabindex="0">用户登录
+                    </p>
                 </div>
             </div>
             <div class="bc-bg ub ub-ver ub-ac ub-con" data-control="FLEXBOXVER" id="ContentFlexVer">
@@ -38,11 +39,11 @@
                                 </div>
                                 <div class="ub ub-ac umh5 bc-border">
                                     <div class="uinput ub ub-f1">
-                                        <div class="uinn fa  sc-text">
+                                        <div class="uinn sc-text">
                                             <img src="__PUBLIC__/Home/img/images/login_code_1.png" style="max-height: 17px;">
                                         </div>
                                         <input placeholder="验证码" type="text" name="code" class="ub-f1">
-                                        <div id="code-box">
+                                        <div class="code-box">
                                             <img src="{:U('Home/Test/code')}" alt='验证码' id="code" />
                                         </div>
                                     </div>
@@ -56,7 +57,7 @@
                                     <input type="submit" name="submit" value="登 录" id="submit" />
                                 </div>
                                 <div class="uinn-at2 ub sc-text-active ulev-4">
-                                    <a href="{:u('Home/Login/reg')}" class="ub-f1">
+                                    <a href="{:u('Home/Login/regGetCode')}" class="ub-f1">
                                         立即注册
                                     </a>
                                     <div class="ub-f1 tx-r">
