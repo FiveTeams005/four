@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>角色列表</title>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/roleList.css">
+
+  <link rel="stylesheet" href="__PUBLIC__/Admin/treecss/jquery.treeview.css" />
+  <link rel="stylesheet" href="__PUBLIC__/Admin/treecss/screen.css" />
+
+  <script type="text/javascript" src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="__PUBLIC__/Admin/treejs/jquery.cookie.js"></script>
+  <script src="__PUBLIC__/Admin/treejs//jquery.treeview.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/treejs/demo.js"></script>
+  <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
+  <script>var url = "__URL__/";</script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/myjs/roleList.js"></script>
+</head>
+<body>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12 tableList'>
+        <div class='tit'><span>角色列表</span><input type='button' class='btn btn-info btn-xs addRole' value='添加新角色'></div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>角色名</th>
+              <th>角色描述</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <foreach name='role' item='vo'>
+              <tr>
+                <td>{$key+1}</td>
+                <td>{$vo.r_name}</td>
+                <td>{$vo.r_decribe}</td>
+                <td><a href="{:U('Admin/role/updateRole',array("id"=>$vo['r_id']))}">修改</a>&nbsp;&nbsp;&nbsp;<a href="#" class='delete'>删除</a>&nbsp;&nbsp;&nbsp;<a class='authorityBtn' href="#" roleId="{$vo['r_id']}">权限管理</a></td>
+              </tr>
+            </foreach>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
