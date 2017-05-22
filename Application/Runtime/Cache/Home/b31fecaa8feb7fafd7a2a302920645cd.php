@@ -12,6 +12,7 @@
     <!--<script src="/four/Public/static/jquery/main.js"></script>-->
     <script src="/four/Public/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="/four/Public/static/vue/vue.js"></script>
+
     <style>
         .bg{
             background-color: #f7f7f7;
@@ -65,15 +66,22 @@
         .position-img img{
             width:10px;
         }
+        .middle-bg{
+            width: 100%;
+            height:10px;
+            background-color: #f7f7f7;
+        }
     </style>
     <script>
         $(function () {
             $(".publish-action").on("click",function () {
-                $(".publish-img").show()
+                $(".publish-img").show();
             })
             $(".close").on("click",function () {
                 $(".publish-img").hide()
             })
+            $('#target').distpicker();
+
         })
     </script>
 </head>
@@ -89,7 +97,7 @@
             <div class="col-xs-4 text-right"><span class="publish-action">发布秘笈</span></div>
         </div>
     </div>
-   <div class="container con-form">
+   <div class="container-fluid con-form">
        <form>
            <div class="form-group">
                <input type="text" class="form-control"  placeholder="标题&nbsp;品类品牌型号都是买家喜欢搜索的">
@@ -106,14 +114,21 @@
                <div class="col-xs-3 text-center describe-img"><img src="/four/Public/home/img/images/b.jpg" class="logo1"></div>
            </div>
            </div>
+           <div class="form-group">
            <div class="row position-img">
                    <div class="col-xs-1 text-left ">
                        <img src="/four/Public/home/img/xianyu/post_location_icon_black.png">
                    </div>
-                   <div class="col-xs-5 text-left">
-                       <span>福建</span><span>厦门</span><span>思明区</span>
+                   <div class="col-xs-11 text-left">
+                       <div data-toggle="distpicker">
+                           <select data-province="福建省"></select>
+                           <select data-city="厦门市"></select>
+                           <select data-district="思明区"></select>
+                       </div>
                    </div>
                </div>
+           </div>
+           <div class="middle-bg"></div>
        </form>
    </div>
 </body>
