@@ -6,47 +6,10 @@
     <title>我的拍卖</title>
     <link rel="stylesheet" href="/four/Public/static/resetcss/normalize.css">
     <link rel="stylesheet" href="/four/Public/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/four/Public/home/css/center/MyAuctionStyle.css">
     <script src="/four/Public/static/jquery/jquery.min.js"></script>
     <script src="/four/Public/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="/four/Public/static/vue/vue.js"></script>
-    <style>
-        .bg{
-            background-color: #f7f7f7;
-        }
-        .my-publish{
-            margin-top: 15px;
-            margin-bottom: 10px;
-            line-height: 20px;
-        }
-        .baby-span{
-            color: #ccc;
-        }
-        .logo1{
-            height: 130px;
-        }
-        .my-publish-title{
-            font-weight: 500;
-            font-size: 18px;
-        }
-        footer{
-            width: 100%;
-            position: fixed;
-            top:35%
-        }
-        .ban-my-publish{
-            background-color: #fff;
-        }
-        nav ul li.active a{
-            border-bottom: 3px solid #ffda45;
-            background-color: #fff !important;
-        }
-        nav ul li a{
-            color: #ccc;
-        }
-        .navbar-nav{
-            margin: 0px -15px;
-        }
-    </style>
     <script>
         $(function () {
             $('#menu-wrap').on('click','nav ul li',function () {

@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>我赞过的</title>
-    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
-    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="__PUBLIC__/home/css/center/MyZanStyle.css">
-    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
-    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
-    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <link rel="stylesheet" href="/four/Public/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="/four/Public/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/four/Public/home/css/center/MyZanStyle.css">
+    <script src="/four/Public/static/jquery/jquery.min.js"></script>
+    <script src="/four/Public/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/four/Public/static/vue/vue.js"></script>
         <script>
         $(function () {
             $('#menu-wrap').on('click','nav ul li',function () {
@@ -51,7 +51,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-xs-6 text-center col-xs-offset-3"><img src="__PUBLIC__/home/img/xianyu/page_empty.png" class="logo1"></div>
+            <div class="col-xs-6 text-center col-xs-offset-3"><img src="/four/Public/home/img/xianyu/page_empty.png" class="logo1"></div>
         </div>
         <div class="row">
             <div class="col-xs-6 text-center col-xs-offset-3"><span class="baby-span">还没有赞过宝贝哦~</span></div>

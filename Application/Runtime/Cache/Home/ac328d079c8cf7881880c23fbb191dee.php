@@ -4,15 +4,15 @@
 	<title>商品分类</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/Public/static/resetcss/normalize.css">
-    <link rel="stylesheet" href="/Public/static/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/Public/Home/css/classify/classifyStyle.css">
+    <link rel="stylesheet" href="/four/Public/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="/four/Public/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/four/Public/Home/css/classify/classifyStyle.css">
 
-    <script src="/Public/static/jquery/jquery.min.js"></script>
-    <script src="/Public/static/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/Public/Home/js/static/city/zepto.js"></script>
-    <script src="/Public/static/vue/vue.js"></script>
-    <script type="text/javascript" src="/Public/Home/js/classify/classify.js"></script>
+    <script src="/four/Public/static/jquery/jquery.min.js"></script>
+    <script src="/four/Public/static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/four/Public/Home/js/static/city/zepto.js"></script>
+    <script src="/four/Public/static/vue/vue.js"></script>
+    <script type="text/javascript" src="/four/Public/Home/js/classify/classify.js"></script>
 </head>
 <body>
 	<!-- 头部 -->
@@ -25,7 +25,7 @@
 				<div class="col-sm-8 col-xs-8 sec-group">
 					<!-- <div>
 						<input type="text" name="" id="sec">
-						<button class="sec-btn"><img src="/Public/Home/img/xianyu/menu_search.png"></button>
+						<button class="sec-btn"><img src="/four/Public/Home/img/xianyu/menu_search.png"></button>
 					</div> -->
 					<div class="input-group">
 						<input type="text" class="form-control" name="">
@@ -62,12 +62,12 @@
 	<div class="container-fluid" id="content">
 		<div class="row">
 			<div class="col-sm-6 col-xs-6 bg-primary one-goods">
-				<img src="/Public/Home/img/images/e.jpg" class="img-responsive">
+				<img src="/four/Public/Home/img/images/e.jpg" class="img-responsive">
 				<div>goodsname;jfasjflkjfasfjajoojfla</div>
 				<p class="text-danger">&yen;<span>12120.00</span></p>
 			</div>
 			<div class="col-sm-6 col-xs-6 bg-info one-goods">
-				<img src="/Public/Home/img/images/f.jpg" class="img-responsive">
+				<img src="/four/Public/Home/img/images/f.jpg" class="img-responsive">
 				<div>goodsname;jfasjflkjfasfjajoojfla</div>
 				<p class="text-danger">&yen;<span>12120.00</span></p>
 			</div>
@@ -77,7 +77,7 @@
 	<div class="container city-box">
 		<div class="row current-city">
 			<div class="col-xs-2 col-sm-2 text-center">
-				<img src="/Public/Home/img/xianyu/current_city.png">
+				<img src="/four/Public/Home/img/xianyu/current_city.png">
 			</div>
 			<div class="col-xs-8 col-sm-8 city-name">
 				北京
