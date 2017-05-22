@@ -62,10 +62,16 @@ padding: 1em 0.65em 0 0.65em;
 .uinn-a4{
     padding:3.63em .5em 0em!important;
 }
-
+/* È¥³ýinput±ß¿ò */
 .ub-f1{
 	border: 0;
 	outline: none;
+}
+/* ÑéÖ¤Âë */
+#code-box{
+	width: 20%;
+	background:#333;
+	margin-right: 20px;
 }
 input#submit{
 	width: 100%;
