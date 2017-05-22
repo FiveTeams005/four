@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>添加角色</title>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/roleAdd.css">
+
+  <link rel="stylesheet" href="__PUBLIC__/Admin/treecss/jquery.treeview.css" />
+  <link rel="stylesheet" href="__PUBLIC__/Admin/treecss/screen.css" />
+
+  <script type="text/javascript" src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+
+  <script src="__PUBLIC__/Admin/treejs/jquery.cookie.js"></script>
+  <script src="__PUBLIC__/Admin/treejs//jquery.treeview.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/treejs/demo.js"></script>
+  <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
+  <script>var url = "__URL__/";</script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/myjs/roleAdd.js"></script>
+</head>
+<body>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12 tableList'>
+        <div class='tit'><span>添加新角色</span></div>
+        <form class='inputBox' role='from'>
+          <div class="form-group">
+            <label for="name">角色名称</label>
+            <input type="text" class="form-control" id="name" placeholder="请输入角色名称">
+          </div>
+          <div class="form-group">
+            <label for="decribe">角色描述</label>
+            <textarea class="form-control" rows="10" id='decribe' placeholder="请输入角色描述"></textarea>
+          </div>
+          <input type='button' class='btn btn-info sureBtn' value='确定'>
+          <input type='button' class='btn btn-info cancelBtn' value='取消'>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
