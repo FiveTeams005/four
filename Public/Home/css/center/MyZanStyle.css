@@ -1,0 +1,44 @@
+.bg{
+    background-color: #f7f7f7;
+}
+.my-publish{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+.logo1{
+    height: 130px;
+}
+.my-publish-title{
+    font-weight: 500;
+    font-size: 18px;
+}
+.ban-my-publish{
+    background-color: #fff;
+}
+.btn-yel{
+    background-color: #ffda45;
+    border-radius: 0;
+    width: 100px;
+    height:25px;
+    line-height: 0px;
+    margin-top: 15px;
+}
+.baby-span{
+    color: #ccc;
+}
+nav ul li.active a{
+    border-bottom: 3px solid #ffda45;
+    background-color: #fff !important;
+}
+nav ul li a{
+    color: #ccc;
+}
+.navbar-nav{
+    margin: 2.5px -15px;
+}
+footer{
+    width: 100%;
+    position: fixed;
+    top:35%
+}

@@ -1,0 +1,124 @@
+.bg{
+    background-color: #f7f7f7;
+}
+.my-publish{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+.my-publish-title{
+    font-weight: 500;
+    font-size: 18px;
+}
+.publish-action{
+    font-size: 11px;
+}
+.publish-img{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: none;
+}
+.publish-img img{
+    width: 100%;
+    height:100%;
+}
+.close{
+    position: fixed;
+    z-index: 4;
+    width: 10%;
+    height: 6%;
+    bottom: 5%;
+    left: 45%;
+}
+.close img{
+    width: 100%;
+}
+.con-form{
+    background-color: #fff;
+}
+.logo1{
+    width:100%;
+}
+.close-logo{
+    position: absolute;
+    display: block;
+    top:0;
+    width: 20px;
+}
+.describe-img{
+    padding: 0 15px 10px 15px;
+    position: relative;
+}
+.insert-img{
+    padding: 0 15px 10px 15px;
+}
+.position-img{
+    padding-left: 0;
+}
+.position-img img{
+    width:10px;
+}
+.middle-bg{
+    width: 100%;
+    height:10px;
+    background-color: #f7f7f7;
+}
+.btn-yel{
+    background-color: #ffda45;
+    border-radius: 15px;
+    width: 100px;
+    height:30px;
+    margin-top: 15px;
+}
+.goods-price{
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance:none!important;
+    margin: 0;
+}
+.row-underline{
+    border-bottom: 1px solid #CCC;
+}
+.main{
+    margin: 5px 0;
+}
+.main .text{
+    padding: 0;
+}
+.main .text1{
+    padding: 0;
+    line-height: 30px;
+}
+.logo2{
+    margin: 7px;
+    height: 16px;
+    line-height: 30px;
+}
+.position-img div[class ^='col-xs']{
+    padding-right: 0;
+}
+.btn-red{
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 0;
+    color: #fff;
+    background-color: #fe4343;
+}
+/*城市弹层*/
+.city-box{width: 100%;position:absolute;top:0;left:0;background-color:#fff;z-index:9000;display:none;}
+.current-city{background-color: #FFda45;line-height: 36px;}
+.current-city div img{width: 14px; max-height:18px;}
+.letter{width:10%;overflow:hidden;line-height:20px;font-size:16px;position:fixed;top:72px;right:10px;text-align:center;}
+.letter ul{list-style-type:none;padding:0;}
+.city{width:90%;overflow:hidden;}
+.city-list{width:100%;overflow:hidden;}
+.city-list .city-letter{color:#000;font-size:16px;display:inline-block;padding:8px;border-bottom:1px solid #e8ecf1;width:100%;}
+.city-list p{color:#333;width:95%;height:32px;line-height:32px;border-bottom:1px solid #e8ecf1;}
+.UISelect{margin-top:5px}
