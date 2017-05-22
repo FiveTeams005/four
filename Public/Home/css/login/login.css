@@ -1,5 +1,5 @@
 #Header {
-	background-color: #ffda45 !important;
+	background-color: #FFC125 !important;
 	color: #fff;
 }
 #Header p{
@@ -73,6 +73,6 @@ input#submit{
 	font-size: 17px;
 	border: 0;
 	outline: none;
-	background-color: #ffda45;
+	background-color: #FFC125;
 	color: #fff;
 }
