@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>添加角色</title>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/roleAdd.css">
+
+  <script type="text/javascript" src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
+  <script>var url = "__URL__/";</script>
+  <script type="text/javascript" src="__PUBLIC__/Admin/myjs/roleUpdate.js"></script>
+</head>
+<body>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12 tableList'>
+        <div class='tit'><span>修改角色信息</span></div>
+        <form class='inputBox' role='from'>
+          <foreach name='role' item='vo'>
+            <div class="form-group">
+              <label for="name">角色名称</label>
+                <input type="text" class="form-control" id="name" placeholder="请输入角色名称" value="{$vo.r_name}">
+            </div>
+            <div class="form-group">
+              <label for="decribe">角色描述</label>
+              <textarea class="form-control" rows="10" id='decribe' placeholder="请输入角色描述">{$vo.r_decribe}</textarea>
+            </div>
+            <input type='hidden' value="{$vo.r_id}">
+            <input type='button' class='btn btn-info sureBtn' value='确定'>
+            <input type='button' class='btn btn-info cancelBtn' value='取消'>
+          </foreach>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
