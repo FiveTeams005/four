@@ -1,44 +1,149 @@
-#Header {
-	color:rgba(255,255,255,1);
+/* 注册样式 */
 	
-}
-#ScrollContent {
-	padding:2.69em 0em 0em 0em;
-}
-.uinn-at4{
-    padding: 2.69em 0.5em 0em !important;
-}
-.uinn-4a {
-    padding-top: 2.69em !important;
-}
-.uinn-a4{
-    padding:2.69em .5em 0 !important;
-}
-.b-gra3{
-	border-color:#d8d8d8;
-}
-.uinn-a6{
-	padding:1em 0.65em 0 0.65em;
-}
-.t-gra4{
-	color:#8c8c8c;
-}
-.uinn-a1{
-    padding:0.625em;
-}
-.uinn-a7{
-    padding:0 0.625em;
-}
-.c-wh
-{
-    background-color:#FFF;
-}
-.umar-at1{
-    margin-top:0.625em;
-}
-.uinn-at1{
-    padding-top:1em;
-}
-.uinn-4a{
-    padding-top:2.63em;
-}
+	header{
+		padding: 12px 0;
+		margin-bottom: 10px;
+		background-color: #ffda45;
+		color: #fff;
+		font-size: 19px;
+		border-bottom: 1px solid #eee;
+	}
+	
+	/* 获取验证码页面样式 */
+	header.code-header button{
+		width: 100%;
+		border: 0;
+		outline: none;
+		background-color: inherit;
+		font-size: 15px;
+		
+	}
+	.title{
+		line-height: 32px;
+		font-size: 16px;
+	}
+	.actived{
+		border-bottom: 2px solid #ffda45;
+	}
+	.input-div{
+		height: 43px;
+		border-bottom: 1px solid #ccc;
+	}
+	.input-div span img{
+		width: 18px;
+		max-height: 18px;
+	}
+	.input-div .input-group-addon{
+		border: 0;
+		background-color: #f5f5f5;
+	}
+	.input-div .form-control{
+		border: 0;
+		outline: none;
+		border-radius: 0;
+		/* border-left: 1px solid #ccc; */
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		height: 39px;
+	}
+	.form-control:foucs{
+		outline:none;
+	}
+	
+	/* 账号密码样式 */
+	.head-img{
+		margin: 10px 0 20px;
+	}
+	.container form label{
+		display: inline-block;
+		width: 100%;
+		text-align: right;
+		line-height: 34px;
+		font-size: 15px;
+		font-weight: 400;
+	}
+    #pwd1{
+		height: 42px;
+	}
+    .strong p{
+        margin:3px 20px 0;
+        font-size: 0;
+		
+    }
+    .strong p span{
+        display: inline-block;
+        font-weight: normal;
+        font-style: normal;
+        padding:0;
+        margin:0;
+        width:33%;
+        height:20px;
+        background: #f9d194;
+        font-size: 13px;
+        color:#fff;
+        text-align: center;
+        line-height: 20px;
+    }
+    .strong p .hover{
+        background-color: #ee0000;
+    }
+    .strong p .active {
+        background-color: #f97101;
+    }
+    .strong p .active1{
+        background-color: #0033CC;
+    }
+    .accInfo{
+        display: none;
+        font-size: 14px;
+        color:#888;
+    }
+	#tel-verify-btn{
+		width: 100%;
+		line-height:34px;
+		border: 1px solid #ccc;
+		text-align: center;
+		background-color: inherit;
+		font-size: 12px;
+		outline:none;
+		padding: 0;
+	}
+	
+	.tip{
+		height: 28px;
+		padding:5px 30px;
+		font-size: 12px;
+	}
+	.warn,.right,.cuo{
+		display: inline-block;
+        width:18px;
+        height:18px;
+	}
+    .warn{
+        background: url("../../img/images/warn.png");
+        background-repeat: no-repeat;
+        background-size:13px 13px;
+        vertical-align: middle;
+    }
+    .right{
+        background: url("../../img/images/right.png");
+        background-repeat: no-repeat;
+        background-size:13px 13px;
+        vertical-align: middle;
+    }
+    .cuo{
+        background: url("../../img/images/cuo.png");
+        background-repeat: no-repeat;
+        background-size:13px 13px;
+        vertical-align: middle;
+    }
+   
+    .btn-wrapper{
+        margin-top: 15px;
+    }
+	.btn-wrapper input{
+		border-radius: 0;
+		width: 100%;
+		height: 40px;
+		font-size: 16px;
+	}

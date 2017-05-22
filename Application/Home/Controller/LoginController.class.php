@@ -22,6 +22,12 @@ class LoginController extends Controller {
 	public function reg(){
 		$this->display('reg');
 	}
+	/**
+	 * 加载注册获取手机验证页面
+	 */
+	public function getCode(){
+		$this->display('regGetCode');
+	}
 
 
 }

@@ -1,101 +1,145 @@
 <!DOCTYPE html>
-<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+<html lang="en">
     <head>
         <title></title>
         <meta charset="utf-8">
         <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <link rel="stylesheet" href="__PUBLIC__/Home/css/static/appcan/fonts/font-awesome.min.css">
-        <link rel="stylesheet" href="__PUBLIC__/Home/css/static/appcan/ui-box.css">
-        <link rel="stylesheet" href="__PUBLIC__/Home/css/static/appcan/ui-base.css">
-        <link rel="stylesheet" href="__PUBLIC__/Home/css/static/appcan/ui-color.css">
-        <link rel="stylesheet" href="__PUBLIC__/Home/css/static/appcan/appcan.icon.css">
-        <link rel="stylesheet" href="__PUBLIC__/Home/css/static/appcan/appcan.control.css">
+        <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="__PUBLIC__/Home/css/reg/reg.css">
     </head>
-    <body class="" ontouchstart>
-        <div class="bc-bg" tabindex="0" data-control="PAGE" id="Page">
-            <div class="uh bc-head  ubb bc-border" data-control="HEADER" id="Header">
-                <div class="ub">
-                    <div class="nav-btn" id="nav-left">
-                        <div class="fa fa-1g ub-img1"></div>
-                    </div>
-                    <h1 class="ut ub-f1 ulev-3 ut-s tx-c" tabindex="0">登录</h1>
-                    <div class="nav-btn" id="nav-right">
-                        <div class="fa  fa-1g  ub-img1"></div>
-                    </div>
+    <body>
+        <header class="text-center">
+            用户会员注册
+        </header>
+        <div class="container">
+            <div class="row head-img">
+                <div class="col-sm-4 col-xs-4 col-sm-offset-4 col-xs-offset-4 text-center">
+                    <img src="__PUBLIC__/Home/img/xianyu/aliuser_place_holder.jpg" class="img-responsive img-circle">
                 </div>
             </div>
-            <div class="ub ub-ver ub-ac ub-con bc-bg" data-control="FLEXBOXVER" id="ContentFlexVer">
-<div class="ub ub-ver  ub-fh uinn-4a">
-    <div class="uinn-a1">
-            <div class="uba b-gra3 uc-a1 c-wh ub uinn-a7 ub-ac">
-                <div class="ulev-app1 umw4">
-                    邮箱
+            <form action="" method="POST">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 ">
+                                <div class="input-group input-div">
+                                    <span class="input-group-addon">
+                                        <img src="__PUBLIC__/Home/img/images/account_icon.png" >
+                                        用户账号
+                                    </span>
+                                    <input id="account" type="text" class="form-control" placeholder="输入用户账号" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row tip">
+                            <span class="accInfo"></span>
+                        </div>
+                    </div>  
+                   <!--  <div class="col-xs-12 col-sm-12 account-wrapper">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 label-0">
+                                <label for="account" class="text-justify">账号:</label>
+                            </div>
+                            <div class="col-xs-8 col-sm-8">
+                                <input type="text" id="account">
+                            </div>                       
+                        </div>
+                        <div class="row tip">
+                            <span class="accInfo"><i class="warn"></i></span>
+                        </div>
+                    </div>  --> 
                 </div>
-                <div class="ub ub-ac umh5 ub-f1">
-                    <div class="uinput ub ub-f1">
-                        <input placeholder="example@qq.com" type="text" class="ub-f1">
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 ">
+                                <div class="input-group input-div">
+                                    <span class="input-group-addon">
+                                        <img src="__PUBLIC__/Home/img/images/pwd_icon.png" >
+                                        登录密码
+                                    </span>
+                                    <input id="pwd" type="password" class="form-control" placeholder="输入登录密码" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="strong">
+                                <p class="fl">
+                                    <span class="">弱</span>
+                                    <span class="">中</span>
+                                    <span class="">强</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row tip">
+                            <span class="pwdInfo"></span>
+                        </div>
+                    </div>
+                    <!-- <div class="col-xs-12 col-sm-12 passWord-wrapper">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 label-0">
+                                <label for="pwd">登录密码:</label>
+                            </div>
+                            <div class="col-xs-8 col-sm-8">
+                                <input type="password" id="pwd" >
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="strong">
+                                <p class="fl">
+                                    <span class="hover">弱</span>
+                                    <span class="">中</span>
+                                    <span class="">强</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row tip">
+                            <span class="pwdInfo"></span>
+                        </div>  
+                    </div>  --> 
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 ">
+                        <div class="input-group input-div">
+                            <span class="input-group-addon">
+                                <img src="__PUBLIC__/Home/img/images/sure_pwd_icon.png" >
+                                确认密码
+                            </span>
+                            <input id="pwd1" type="password" class="form-control" disabled="" placeholder="再次输入密码" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 tip">
+                        <span class="pwd1Info"></span>
+                    </div>
+                    <!-- <div class="col-xs-12 col-sm-12 passWord1-wrapper">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 label-0">
+                                <label for="pwd1">确认密码:</label>
+                            </div>
+                            <div class="col-xs-8 col-sm-8">
+                                <input type="password" id="pwd1" disabled="">
+                            </div>
+                        </div>
+                        <div class="row tip">
+                            <span class="pwd1Info"></span>
+                        </div>
+                    </div> -->
+                </div>
+ 
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 btn-wrapper">
+                        <input type="submit" class="btn btn-warning" value="同意协议并注册">
                     </div>
                 </div>
-            </div>
-            <div class="uba b-gra3 uc-a1 c-wh ub uinn-a7 ub-ac umar-at1">
-                <div class="ulev-app1 umw4">
-                    用户名
-                </div>
-                <div class="ub ub-ac umh5 ub-f1">
-                    <div class="uinput ub ub-f1">
-                        <input placeholder="Jack" type="text" class="ub-f1">
-                    </div>
-                </div>
-            </div>
-            <div class="uba b-gra3 uc-a1 c-wh ub uinn-a7 ub-ac umar-at1">
-                <div class="ulev-app1 umw4">
-                    密码
-                </div>
-                <div class="ub ub-ac umh5 ub-f1">
-                    <div class="uinput ub ub-f1">
-                        <input placeholder="请输入密码" type="password" class="ub-f1">
-                    </div>
-                </div>
-            </div>
-            <div class="uba b-gra3 uc-a1 c-wh ub uinn-a7 ub-ac umar-at1">
-                <div class="ulev-app1 umw4">
-                    确认密码
-                </div>
-                <div class="ub ub-ac umh5 ub-f1">
-                    <div class="uinput ub ub-f1">
-                        <input placeholder="请重复输入密码" type="password" class="ub-f1">
-                    </div>
-                </div>
-            </div>
-            <div class="ub ub-ver">
-                <div class="ub ub-pe uinn-a6 ulev-4">
-                    <div class="sc-text">
-                        我同意
-                    </div>
-                    <div class="sc-text-active">
-                        用户服务协议
-                    </div>
-                </div>
-                <div class="uinn-at1">
-                    <div class="button ub ub-ac bc-text-head ub-pc bc-btn"  id="submit">
-                        注册
-                    </div>
-                </div>
-            </div>
-        </div></div>
-        <div class="uinn-4b"></div>
+            </form>  
         </div>
-        </div>
-        <script src="__PUBLIC__/Home/js/static/appcan/appcan.js"></script>
-        <script src="__PUBLIC__/Home/js/static/appcan/appcan.control.js"></script>
-        <script src="__PUBLIC__/Home/js/static/appcan/appcan.scrollbox.js"></script>
-        <script src="__PUBLIC__/Home/js/static/appcan/template.import.js"></script>
-        <script src="__PUBLIC__/Home/js/static/appcan/appcan.listview.js"></script>
-        <script src="__PUBLIC__/Home/js/static/appcan/appcan.optionList.js"></script>
-        <script src="__PUBLIC__/Home/js/static/appcan/appcan.slider.js"></script>
-        <script src="__PUBLIC__/Home/js/static/appcan/appcan.tab.js"></script>
-        <script src="__PUBLIC__/Home/js/static/appcan/appcan.treeview.js"></script>
+
+        <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+        <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/static/vue/vue.js"></script>
         <script src="__PUBLIC__/Home/js/reg/reg.js"></script>
     </body>
 </html>
