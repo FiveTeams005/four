@@ -1,6 +1,9 @@
 .bg{
     background-color: #f7f7f7;
 }
+.city-list p{
+    cursor: pointer;
+}
 .my-publish{
     margin-top: 15px;
     margin-bottom: 10px;
@@ -56,6 +59,7 @@
 }
 .insert-img{
     padding: 0 15px 10px 15px;
+    cursor: pointer;
 }
 .position-img{
     padding-left: 0;
@@ -90,7 +94,8 @@ input::-webkit-inner-spin-button{
     border-bottom: 1px solid #CCC;
 }
 .main{
-    margin: 5px 0;
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
 }
 .main .text{
     padding: 0;
@@ -98,6 +103,23 @@ input::-webkit-inner-spin-button{
 .main .text1{
     padding: 0;
     line-height: 30px;
+}
+.con-my-publish{
+    background-color:#f7f7f7;
+}
+.my-classify{
+   background-color:#fff;
+    display: none;
+    height: 110%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+}
+.classify p{
+    border-bottom: 1px solid #ccc;
+    margin:10px;
+    line-height: 25px;
 }
 .logo2{
     margin: 7px;
