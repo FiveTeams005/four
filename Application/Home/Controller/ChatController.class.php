@@ -8,4 +8,7 @@ class ChatController extends Controller {
 	 * @param 参数2
 	 * @return 返回类型
 	 */
+	public function chat(){
+		$this->display();
+	}
 }
