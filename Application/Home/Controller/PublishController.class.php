@@ -11,4 +11,7 @@ class PublishController extends Controller {
 	public function Publish(){
 	    $this->display();
     }
+    public function PublishAuction(){
+        $this->display();
+    }
 }
