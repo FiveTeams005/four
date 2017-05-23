@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我想要</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/chat/chatStyle.css">
+
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script type="text/javascript">
+    	function MVC(p,c,a){
+    		return "{:U('"+p+"/"+c+"/"+a+"')}";
+    	}
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/chat/chat.js"></script>
+</head>
+<body >
+<div id="app">
+	<header class="navbar-fixed-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 text-center">
+					<h4>昵称nick</h4>
+				</div>
+				<div class="col-sm-3 col-xs-3 text-right more">
+					<img src="__PUBLIC__/Home/img/xianyu/ic_more.png" v-on:click="moreClick">
+				</div>
+            </div>
+            <div class="row">
+				<div class="col-sm-3 col-xs-3 text-center">
+					<img src="__PUBLIC__/Home/img/images/e.jpg" class="img-responsive" v-on:click='goodsImgClick' >
+				</div>
+				<div class="col-sm-5 col-xs-5 text-left">
+					<span class="goods-money">￥</span><br>
+					<span>含运费00元</span><br>
+					<span>购买前聊一聊</span>
+				</div>
+				<div class="col-sm-4 col-xs-4 buy-btn-box">
+					<button class="buy-btn" v-on:click="buyClick">立即购买</button>
+				</div> 
+            </div>
+		</div>
+	</header>
+	<!-- 中间 -->
+	<div class="container" id="content">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12">
+				
+			</div>
+		</div>
+		
+	</div>
+	<!-- 底部 -->
+	<footer class="navbar-fixed-bottom" id="footer">
+		<div class="container">
+			<div class="row ">
+				<div class="col-sm-2 col-xs-2 text-center">
+					<img src="__PUBLIC__/Home/img/xianyu/im_open_chat_voice.png" v-on:click="voiceClick">
+				</div>
+				<div class="col-sm-6 col-xs-6">
+					<input type="text" name="" v-model="conn" v-on:keyup="showBtn" placeholder="想对Ta说点什么？" id="send-input">
+				</div>
+
+				<div class="col-sm-4 col-xs-4 text-center send-btn-box">
+					<div class="row">
+						<div class="col-xs-5 col-sm-5">
+							<img src="__PUBLIC__/Home/img/xianyu/search_user_icon.png" class="emoji-btn" v-on:click="emojiClick" >
+						</div>
+						<div class="col-xs-7 col-sm-7">
+							<img src="__PUBLIC__/Home/img/xianyu/message_gv_action_more.png" class="add-btn" v-on:click="addPicClick" v-show="!btnFlag">
+							<button class="send-btn" v-on:click="sendClick" v-show="btnFlag">发 送</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="container input-con" v-show="divFlag">
+			<input-con v-bind:msg="conn"></input-con>
+		</div>
+	</footer>
+</div>
+</body>
+</html>
