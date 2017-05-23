@@ -44,10 +44,10 @@
             })
            Vue.component('todo-item',{
                props:['todo'],
-               template:' <p class="col-xs-12" v-on:click="greet">{{todo.text}}</p>',
+               template:' <p class="col-xs-12" v-on:click="greet(todo.text)">{{todo.text}}</p>',
                methods:{
-                   greet:function() {
-                       alert($(this).text());
+                   greet:function(vue) {
+                       alert(vue);
                    }
                }
 

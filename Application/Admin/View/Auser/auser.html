@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>后台用户管理</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/huser.css">
+
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body >
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-12 header">
+				<h3 class="text-center">后台用户管理</h3>
+			</div>
+		</div>
+		<div class="row search-div">
+			<div class="col-md-2 col-lg-2 ">
+				<button class="btn btn-info">添 加 用 户</button>
+			</div>
+			<div class="col-md-2 col-lg-2 ">
+				<button class="btn btn-info">解锁 / 锁定</button>
+			</div>
+			<div class="col-md-2 col-lg-2 ">
+				<select class="selectpicker">
+					<option >用户状态</option>
+			    	<option value="1">正 常</option>
+			    	<option value="0">锁 定</option>
+			  	</select>
+			</div>
+			<div class="col-md-3 col-lg-3">
+				<input type="text" name="" class="form-control" placeholder="请输入要搜索的用户信息">
+			</div>
+			<div class="col-md-2 col-lg-2">
+				<button class="btn btn-success">搜 索</button>
+			</div>
+		</div>
+		<div class="row tableList">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th class="text-center">账号</th>
+						<th class="text-center">昵称</th>
+						<th class="text-center">职务</th>
+						<th class="text-center">状态</th>
+						<th class="text-center">权限</th>
+						<th class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td class="text-center">{$v.a_account}</td>
+							<td class="text-center">{$v.a_nick}</td>
+							<td class="text-center">{$v.a_tel}</td>
+							<td class="text-center">{$v.a_status}</td>
+							<td class="text-center">{$v.a_authority}</td>
+							<td class="text-center">
+								<a href="">查看详细信息</a>&nbsp;&nbsp;
+								<a href="">锁定 / 解锁</a>&nbsp;&nbsp;
+								<a href="">修改</a>
+							</td>
+						</tr>
+					<foreach name="data" item="v">
+						<tr>
+							<td class="text-center">
+								<div><label><input type="checkbox" name="checkOne"></label></div>
+							</td>
+							<td class="text-center">{$v.a_account}</td>
+							<td class="text-center">{$v.a_nick}</td>
+							<td class="text-center">{$v.h_tel}</td>
+							<td class="text-center">{$v.a_status}</td>
+							<td class="text-center">{$v.a_authority}</td>
+							<td class="text-center">
+								<a href="">查看详细信息</a>&nbsp;&nbsp;
+								<a href="">锁定 / 解锁</a>&nbsp;&nbsp;
+								<a href="">修改</a>
+							</td>
+						</tr>
+					</foreach>
+				</tbody>
+				<tfoot>
+					<tr >
+						<td colspan="6" class="text-center">页码</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
