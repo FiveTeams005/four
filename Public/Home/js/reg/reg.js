@@ -81,25 +81,33 @@
             $('.pwdInfo').html('<i class="warn"></i> 6-16个字符，请使用字母、数字、下划线.');
         });
         $('#pwd').keyup(function(){
-            if($(this).val().length > 5){
-                $("#pwd1").removeAttr("disabled");
-            }else{
-                $('.f1').attr("class","f1");
+            var len = $(this).val().length;
+            if(len >= 0 && len <= 5){
                 $("#pwd1").attr("disabled","disabled");
                 $('.pwd1Info').css('display',"");
                 $("#pwd1").val('');
-            }
-            if($(this).val().length > 0){
-                $('.strong p span').eq(0).attr("class","hover");
-            }else if($(this).val().length >= 8){
-                alert(2)
-                $('.strong p span').eq(1).attr("class","active");
-            }else if($(this).val().length > 12){ 
-                $('.strong p span').attr("class","active1");
+                $('.strong p span').eq(0).attr("class","hover").siblings().removeAttr('class');
+            }else if(len > 5){
+                $("#pwd1").removeAttr("disabled");
+                if(len > 5 && len <=11){
+                    $('.strong p span').eq(2).removeAttr('class').siblings().attr("class","active");
+                }else if(len > 11){
+                    $('.strong p span').attr("class","active1");
+                }
             }else{
-                $('.f1').attr("class","f1");
-                $("#pwd1").val('');
+                
             }
+            // if($(this).val().length > 0){
+            //     $('.strong p span').eq(0).attr("class","hover");
+            // }else if($(this).val().length >= 8){
+            //     alert(2)
+            //     $('.strong p span').eq(1).attr("class","active");
+            // }else if($(this).val().length > 12){ 
+            //     $('.strong p span').attr("class","active1");
+            // }else{
+            //     $('.f1').attr("class","f1");
+            //     $("#pwd1").val('');
+            // }
 
         });
         $('#pwd').blur(function(){
