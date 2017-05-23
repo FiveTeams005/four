@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"  href="__PUBLIC__/Home/css/static/footer/footerStyle.css">
     <link rel="stylesheet" href="__PUBLIC__/static/publish/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/aboutus/css/main.css">
     <link rel="stylesheet" href="__PUBLIC__/home/css/center/centerStyle.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/static/publish/js/main.js"></script>
+    <script src="__PUBLIC__/static/aboutus/js/aboutus.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
+
 </head>
 <body class="bg">
 <!--未登录时显示头部-->
@@ -122,11 +125,11 @@
     </div>
 </div>
 
-<div class="container bottom">
-    <div class="row text-left main">
-        <div class="col-xs-2"><img src="__PUBLIC__/home/img/xianyu/entry_icon_settings.png" class="logo1"></div>
+<div class="container bottom ">
+    <div class="row text-left main about-us">
+        <div class="col-xs-2"><img src="__PUBLIC__/home/img/xianyu/default_pond_logo.png" class="logo1"></div>
         <div class="col-xs-10 text3">
-            <div class="col-xs-8 text1">设置</div>
+            <div class="col-xs-8 text1">关于二货</div>
             <div class="col-xs-1 text-right text2"></div>
             <div class="col-xs-2  text-right"><img src="__PUBLIC__/home/img/xianyu/entry_arrow.png" class="logo2"></div>
         </div>
@@ -190,6 +193,18 @@
         </nav>
         <a href="#0" class="cd-close">Close modal</a>
     </div>
+</div>
+<!--关于我们弹窗插件-->
+<div id="goodcover"></div>
+
+<div id="code">
+    <div class="close1"><a href="javascript:void(0)" id="closebt"><img src="__PUBLIC__/static/aboutus/images/close.gif"></a></div>
+    <div class="goodtxt">
+        <p>'二货'由four团队开发</p>
+        <p>人人都有闲置，倒卖二手</p>
+        <p>二货让您感受买卖的最佳体验！</p>
+    </div>
+    <div class="code-img"> <img id="ewmsrc"  src="__PUBLIC__/home/img/images/logo.png"></div>
 </div>
 </body>
 </html>
