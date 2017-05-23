@@ -107,6 +107,9 @@ input::-webkit-inner-spin-button{
 .position-img div[class ^='col-xs']{
     padding-right: 0;
 }
+.city-list p{
+    cursor: pointer;
+}
 .btn-red{
     margin-top: 10px;
     width: 100%;
