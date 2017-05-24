@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="__PUBLIC__/Home/css/static/appcan/appcan.icon.css">
         <link rel="stylesheet" href="__PUBLIC__/Home/css/static/appcan/appcan.control.css">
         <link rel="stylesheet" href="__PUBLIC__/Home/css/login/login.css">
+        <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     </head>
     <body>
         <div class="bc-bg" tabindex="0" data-control="PAGE" id="Page">
@@ -28,13 +29,13 @@
                                 <div class="ub ub-ac ubb umh5 bc-border ">
                                     <div class="uinput ub ub-f1">
                                         <div class="uinn fa fa-user sc-text"></div>
-                                        <input placeholder="手机/邮箱/用户名" type="text" name="account" class="ub-f1">
+                                        <input id="user" placeholder="手机/邮箱/用户名" type="text" name="account" class="ub-f1">
                                     </div>
                                 </div>
                                 <div class="ub ub-ac ubb umh5 bc-border ">
                                     <div class="uinput ub ub-f1">
                                         <div class="uinn fa fa-lock sc-text"></div>
-                                        <input placeholder="密码" type="password" name="pwd" class="umw4 ub-f1">
+                                        <input id="pwd" placeholder="密码" type="password" name="pwd" class="umw4 ub-f1">
                                     </div>
                                 </div>
                                 <div class="ub ub-ac umh5 bc-border">
@@ -42,9 +43,9 @@
                                         <div class="uinn sc-text">
                                             <img src="__PUBLIC__/Home/img/images/login_code_1.png" style="max-height: 17px;">
                                         </div>
-                                        <input placeholder="验证码" type="text" name="code" class="ub-f1">
+                                        <input id="code2" placeholder="验证码" type="text" name="code" class="ub-f1">
                                         <div class="code-box">
-                                            <img src="{:U('Home/Test/code')}" alt='验证码' id="code" />
+                                            <img src="{:U('Home/Login/code')}" alt='验证码' id="code" />
                                         </div>
                                     </div>
                                 </div>
@@ -54,7 +55,7 @@
                                     忘记密码
                                 </a>
                                 <div class="uinn-at1">
-                                    <input type="submit" name="submit" value="登 录" id="submit" />
+                                    <input type="button" name="submit" value="登 录" id="submit" />
                                 </div>
                                 <div class="uinn-at2 ub sc-text-active ulev-4">
                                     <a href="{:u('Home/Login/regGetCode')}" class="ub-f1">
@@ -71,7 +72,13 @@
                 </div>
             </div>
         </div>
-        
-        <!-- <script src="__PUBLIC__/Home/js/login/login.js"></script> -->
+        <script>
+            function  MVC(a,b,c) {
+                var a1 = "{:U('"+a+"/"+b+"/"+c+"')}"
+                return a1;
+            }
+        </script>
+        <script src="__PUBLIC__/Home/js/login/login.js"></script>
+        <script src="__PUBLIC__/static/layer/layer.js"></script>
     </body>
 </html>
