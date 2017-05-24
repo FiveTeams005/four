@@ -46,11 +46,14 @@ header nav .icon-1{
 	transition: all 0.15s;
 	transform: rotate(0);
 }
-.area-btn .row div{
+header nav div[class^='col-']{
+	padding: 0 5px;
+}
+.area-btn div{
 	float: left;
 }
 #gr_zone_ids{
-	width: 80%;
+	width: 75%;
 	white-space: nowrap;/*强制不换行*/
 	overflow: hidden;
 	text-overflow: ellipsis;
