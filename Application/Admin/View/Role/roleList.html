@@ -16,7 +16,9 @@
   <script src="__PUBLIC__/Admin/static/tree/treejs/jquery.treeview.js"></script>
   <script type="text/javascript" src="__PUBLIC__/Admin/static/tree/treejs/demo.js"></script>
   <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
-  <script>var url = "__URL__/";</script>
+  <script>
+    var url = "__URL__/";
+  </script>
   <script type="text/javascript" src="__PUBLIC__/Admin/myjs/roleList.js"></script>
 </head>
 <body>
@@ -44,6 +46,7 @@
             </foreach>
           </tbody>
         </table>
+        <div id='pageBox'>{$page}</div>
       </div>
     </div>
   </div>

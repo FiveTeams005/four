@@ -91,7 +91,7 @@ $(function(){
 		if($(this).parent().find("input").prop("checked") == true){
 			$(this).parent().parent().siblings("input").prop("checked",true);
 		}
-		else if($(this).parent().siblings("li").find("input").prop("checked") == false){
+		else if($(this).parent().siblings("li").find("input").prop("checked") == false || $(this).parent().siblings("li").find("input").prop("checked") == undefined){
 			$(this).parent().parent().siblings("input").prop("checked",false);
 		}
 	})
