@@ -92,6 +92,9 @@ input::-webkit-inner-spin-button{
 .main{
     margin: 5px 0;
 }
+.add-png{
+    width:100%;
+}
 .main .text{
     padding: 0;
 }
