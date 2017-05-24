@@ -1,15 +1,20 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
-class RoleController extends Controller {
+use Common\Controller\BaseController;
+class RoleController extends BaseController {
 	/**
 	 * 角色列表
 	 */
 	public function roleList(){
-		$db = M('role');
-		$res = $db->select();
-		$this->assign('role',$res);
-		$this->display('Role/roleList');
+		$db = M('role'); // 实例化role对象
+		// 进行分页数据查询 注意page方法的参数的前面部分是当前的页数使用 $_GET[p]获取
+		$list = $db->page((isset($_GET['p'])?$_GET['p']:1).',5')->select();
+		$this->assign('role',$list);// 赋值数据集
+		$count      = $db->count();// 查询满足要求的总记录数
+		$Page       = new \Think\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数
+		$show       = $Page->show();// 分页显示输出
+		$this->assign('page',$show);// 赋值分页输出
+		$this->display('Role/roleList'); // 输出模板
 	}
 
 	/**
@@ -66,6 +71,7 @@ class RoleController extends Controller {
 
 	/**
 	 * 修改角色信息
+	 * @return boolen
 	 */
 	public function updateRole(){
 		if(IS_POST){
@@ -87,5 +93,33 @@ class RoleController extends Controller {
 			$this->assign('role',$res);
 			$this->display("Role/roleUpdate");
 		}
+	}
+
+	/**
+	 * 删除角色
+	 */
+	public function deleteRole(){
+		$r_id = $_POST['r_id'];
+		if($r_id == 1){
+			echo "超级管理员角色不能删除！";
+		}
+		else{
+			$user = M('auser');
+			$res = $user->where("r_id = {$r_id}")->select();
+			if($res){
+				echo "此角色存在用户，无法删除！";
+			}
+			else{
+				$role = M('role');
+				$result = $role->where("r_id = {$r_id}")->delete();
+				if($result){
+					echo "删除角色成功！";
+				}
+				else{
+					echo "删除角色失败！";
+				}
+			}
+		}
+		
 	}
 }

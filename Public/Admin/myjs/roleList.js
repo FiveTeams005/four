@@ -86,7 +86,7 @@ $(function(){
 		if($(this).parent().find("input").prop("checked") == true){
 			$(this).parent().parent().siblings("input").prop("checked",true);
 		}
-		else if($(this).parent().siblings("li").find("input").prop("checked") == false){
+		else if($(this).parent().siblings("li").find("input").prop("checked") == false || $(this).parent().siblings("li").find("input").prop("checked") == undefined){
 			$(this).parent().parent().siblings("input").prop("checked",false);
 		}
 	})
@@ -96,7 +96,32 @@ $(function(){
 	})
 	// 删除按钮点击事件
 	$("tbody").on('click','.delete',function(){
-		alert($(this).siblings('.authorityBtn').attr('roleId'));
-		
+		var r_id = $(this).siblings('.authorityBtn').attr('roleId');
+		layer.msg('确定删除？', {
+			time: 0 //不自动关闭
+			,btn: ['确定', '取消']
+			,yes: function(index){
+		    	layer.close(index);
+		    	$.ajax({
+		    		url:url+'deleteRole',
+		    		type:'POST',
+		    		data:{r_id:r_id},
+		    		success:function(data){
+		    			layer.alert(data,{
+		    				time:0,
+		    				btn: ['确定'],
+		    				yes:function(index){
+		    					layer.close(index);
+		    					if(data == '删除角色成功！'){
+		    						location.href = url+'roleList';
+		    					}
+		    				}
+		    			})
+		    		}
+		    	})
+		  	}
+		});
 	})
+	// 分页居中样式
+	$("#pageBox>div").css("margin-left",(parseFloat($("#pageBox>div").css("width"))/-2)+"px");
 })

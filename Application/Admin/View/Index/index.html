@@ -17,6 +17,10 @@
 <link rel="stylesheet" href="__PUBLIC__/Admin/mycss/index.css">
 <script src="__PUBLIC__/Admin/js/jquery.min.js"></script>
 <script src="__PUBLIC__/Admin/js/app.js"></script>
+<script>
+  var url = "__URL__/";
+  var urlLogin = "{:U('Admin/login/login')}";
+</script>
 <script src="__PUBLIC__/Admin/myjs/index.js"></script>
 </head>
 <body>
@@ -91,7 +95,14 @@
 <div class="am-cf admin-main"> 
 
 <div class="nav-navicon admin-main admin-sidebar">
-    <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：清风抚雪</div>
+    <foreach name='user' item='vo'>
+      <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;">
+        欢迎{$vo['r_name']}：
+        <if condition="empty($vo['a_nick']) neq true">{$vo['a_nick']}
+          <else />{$vo['a_account']}
+        </if>
+      </div>
+    </foreach>
     <div class="sideMenu">
       <foreach name='menu1' item='vo'>
         <if condition="$vo.b_id eq 1"><h3 class="am-icon-flag">
@@ -104,7 +115,7 @@
         <ul>
           <volist name='menu2' id='lo'>
             <if condition="$lo.b_pid - $vo.b_id eq 0">
-              <li>{$lo.b_name}</li>
+              <li path="{$lo['b_path']}"><a href="#">{$lo.b_name}</a></li>
             </if>
           </volist>
         </ul>
@@ -120,7 +131,7 @@
 				delayTime:300 , //效果时间
 				triggerTime:150, //鼠标延迟触发时间（默认150）
 				defaultPlay:true,//默认是否执行效果（默认true）
-				returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+				returnDefault:false //鼠标从.sideMen移走后返回默认状态（默认false）
 				});
 		</script>
 </div>
@@ -129,10 +140,7 @@
 	
 		<div class="daohang">
 			<ul>
-				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页 </li>
-				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
-				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
-				<li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+				<li path="{:U('admin/role/roleList')}"><button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页 </li>
 			</ul>
     </div>
 	

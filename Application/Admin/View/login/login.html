@@ -22,7 +22,7 @@
     <input type="password" name="textfield2" id="userpwd" class="txt_input" onfocus="if (value ==&#39;******&#39;){value =&#39;&#39;}" onblur="if (value ==&#39;&#39;){value=&#39;******&#39;}" value="******">
   </label>
     <p style="float: left;margin-top: 10px">Verification Code:</p><input id="codeIpt" type="text" >
-    <div id="code"><img id="img" src="__PUBLIC__/admin/img/login/login/yzm.png" alt=""></div>
+    <div id="code"><img id="img" src="{:U('Admin/login/checkCode')}" alt=""></div>
   <div class="rem_sub">
   <div class="rem_sub_l">
   <input type="checkbox" name="checkbox" id="save_me">
@@ -67,7 +67,12 @@
 </div><!--login_boder end-->
 </div><!--login_m end-->
 
-
+<script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
+<script>
+  var url = "{:U('Admin/login/login')}";
+  var urlIndex = "{:U('Admin/index/index')}";
+  var urlCheck = "{:U('Admin/login/checkCode')}";
+</script>
 <script src="__PUBLIC__/admin/myjs/login.js"></script>
 </body>
 </html>
