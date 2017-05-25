@@ -17,6 +17,7 @@
 	border: 0;
 	outline: none;
 	box-shadow: none;
+	border-radius: 0;
 }
 .search-div button:focus{
 	outline: none;

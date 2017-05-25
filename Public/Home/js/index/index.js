@@ -4,7 +4,14 @@
 
 $(function(){
     //获取定位；
-
+    var a = MVC('Home','Index','aaa');
+    $.ajax({
+        url:a,
+        type:'POST',
+        success:function (data) {
+            alert(data)
+        }
+    })
 
     // 轮播滑动函数
     slide();
@@ -48,4 +55,35 @@ $(function(){
     //商品展示；
 
 
+
+    //引入封装footer
+    var Obottom=new showBtm(0);
+    Obottom.setFather("footer")
+
+
+    //分类选择传值
+    $(".glyphicon-th-list").click(function () {
+        $(".my-classify").show();
+    })
+    Vue.component('todo-item',{
+        props:['todo'],
+        template:' <p class="col-xs-12" v-on:click="greet(todo.text)">{{todo.text}}</p>',
+        methods:{
+            greet:function(vue) {
+                $("#app1").hide();
+            }
+        }
+
+    })
+    var app1=new Vue({
+        el:'#app1',
+        data:{
+            List:[
+                {text:'男装'},
+                {text:'女装'},
+                {text:'童装'},
+                {text:'数码'}
+            ]
+        }
+    })
 })

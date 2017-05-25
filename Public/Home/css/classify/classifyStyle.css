@@ -11,7 +11,7 @@ header{
 	position: fixed;
 	top: 0;
 	left:0;
-	z-index: 9999;
+	z-index: 9000;
 }
 header .sec-group > div{
 	height: 28px;
@@ -111,4 +111,3 @@ header nav .icon-2-asc{
 .city-list p{color:#333;width:95%;height:32px;line-height:32px;border-bottom:1px solid #e8ecf1;}
 .UISelect{margin-top:5px}
 /* 价格筛选弹窗 */
-.price-box{width:100%;position:absolute;top:70px;left:0;background-color:rgba(255, 255, 255, 0.3);z-index:9000;}}
