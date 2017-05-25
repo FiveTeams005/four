@@ -1,5 +1,7 @@
 // 个人聊天信息列表
 $(function(){
+	var footer = new showBtm(2);//底部
+	footer.setFather('footer');
 	Vue.component('todo-item',{
 		props:['list'],
 		template:'<div :otherId="list.otherId" :goodsId="list.goodsId" v-on:click="listSingle(list.otherId,list.goodsId)" class="col-xs-12 col-sm-12 chat-list-single">\
