@@ -6,10 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/huser.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/auser.css">
 
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script type="text/javascript">
+    	function MVC(p,c,a){
+    		return "{:U('"+p+"/"+c+"/"+a+"')}",
+    	}
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/myjs/auser.js"></script>
+
     <script>
     	var url = "{:U('Admin/auser/auser')}";
     	var urlDel = "{:U('Admin/auser/auserDel')}";
@@ -17,17 +26,23 @@
     </script>
     <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
     <script type="text/javascript" src="__PUBLIC__/Admin/myjs/auser.js"></script>
+
 </head>
 <body >
-	<div class="container">
+	<div id="app" class="container">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 header">
 				<h3 class="text-center">后台用户管理</h3>
 			</div>
 		</div>
+
+
+		<div class="row search-div">
+
 		<form class="row search-div" method='get' action="{:U('Admin/auser/auser')}">
+
 			<div class="col-md-2 col-lg-2 ">
-				<button class="btn btn-info">添 加 用 户</button>
+				<button class="btn btn-info" v-on:click="addUser">添 加 用 户</button>
 			</div>
 			<div class="col-md-1 col-lg-1 ">
 				<input type='button' value='删除' class="btn btn-info" id='del' />
@@ -53,7 +68,11 @@
 			<div class="col-md-2 col-lg-2">
 				<button class="btn btn-success">搜 索</button>
 			</div>
-		</form>
+
+      </form>
+
+	
+
 		<div class="row tableList">
 			<table class="table table-bordered">
 				<thead>

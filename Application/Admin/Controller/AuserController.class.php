@@ -87,5 +87,6 @@ class AuserController extends BaseController {
 			echo $str."用户失败！";
 		}
 	}
+
 }
 ?>

@@ -1,3 +1,4 @@
+
 $(function(){
 	// 全选复选框点击事件
 	$("#chooseAll").click(function(){
