@@ -22,4 +22,12 @@ class IndexController extends BaseController {
 		$this->assign('menu2',$res2);
 		$this->display();
 	}
+
+	/**
+	 * 注销
+	 */
+	public function logout(){
+		cookie('auserid',null);
+		$this->display('Login/login');
+	}
 }
