@@ -12,7 +12,7 @@ footer{
 }
 .myspan{
     color: #2a3542;
-    font-size: 12px;
+    font-size: 10px;
 }
 @media (max-width:768px) {
     footer img{
