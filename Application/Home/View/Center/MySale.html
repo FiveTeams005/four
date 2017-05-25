@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>我卖出的</title>
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/center/MyBuyStyle.css">
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+        var path = "__PUBLIC__/";
+    </script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script src="__PUBLIC__/Home/static/Package.js"></script>
+    <script>
+        $(function () {
+            var goods=new  Package_MyBuy('__PUBLIC__/Home/img/xianyu/page_empty.png',"汉服","200","交易关闭")
+            goods.setFather("goods");
+        })
+    </script>
+</head>
+<body class="bg">
+<header>
+    <div class="container con-my-publish">
+        <div class="row my-publish">
+            <div class="col-xs-4 col-xs-offset-4 text-center my-publish-title">我卖出的</div>
+        </div>
+    </div>
+</header>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 text-center col-xs-offset-3"><img src="__PUBLIC__/Home/img/xianyu/page_empty.png" class="logo1"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 text-center col-xs-offset-3"><span class="baby-span">您还没有购买宝贝~</span></div>
+        </div>
+
+    </div>
+</footer>
+<div id="goods"></div>
+</body>
+</html>
