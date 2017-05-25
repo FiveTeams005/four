@@ -113,9 +113,9 @@ input::-webkit-inner-spin-button{
 .my-classify{
    background-color:#fff;
     display: none;
-    height: 110%;
+    height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 5;
 }
