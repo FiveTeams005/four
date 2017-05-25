@@ -1,44 +1,42 @@
-(function($) {
-    appcan.button("#nav-left", "btn-act",
-    function() {});
-    appcan.button("#nav-right", "btn-act",
-    function() {});
-
-    appcan.ready(function() {
-        $.scrollbox($("body")).on("releaseToReload",
-        function() { //After Release or call reload function,we reset the bounce
-            $("#ScrollContent").trigger("reload", this);
-        }).on("onReloading",
-        function(a) { //if onreloading status, drag will trigger this event
-        }).on("dragToReload",
-        function() { //drag over 30% of bounce height,will trigger this event
-        }).on("draging",
-        function(status) { //on draging, this event will be triggered.
-        }).on("release",
-        function() { //on draging, this event will be triggered.
-        }).on("scrollbottom",
-        function() { //on scroll bottom,this event will be triggered.you should get data from server
-            $("#ScrollContent").trigger("more", this);
-        }).hide();
+$(function () {
+    //点击切换验证码
+    $("#code").click(function () {
+        var code = MVC('Home','Login','code');
+        $("#code").attr("src",code);
     })
 
-	        appcan.button("#submit", "ani-act", function() {
-            $("form").submit();
-        })
-
-        $("form").on('submit', function() {
-            appcan.request.postForm($("form"), function() {
-                appcan.window.alert({
-                    title : "提醒",
-                    content : "您已经提交了表单:)",
-                    buttons : '确定',
-                    callback : function(err, data, dataType, optId) {
-                        console.log(err, data, dataType, optId);
+    //点击登录函数
+    $("#submit").click(function () {
+        if($("#user").val()==""  ||  $("#pwd").val()==""){
+            layer.alert('输入不为空！')
+        }else {
+            $.ajax({
+                url:MVC('Home','Login','checkCode'),
+                data:{code:$("#code2").val()},
+                type:'POST',
+                success:function(data){
+                    if(data==1){
+                        $.ajax({
+                            url:MVC('Home','Login','checkUser'),
+                            data:{user:$("#user").val(),pwd:$("#pwd").val()},
+                            type:'POST',
+                            success:function(data){
+                                if(data==1){
+                                    layer.alert('登录成功！')
+                                }else {
+                                    layer.alert('密码错误！')
+                                    var code = MVC('Home','Login','code');
+                                    $("#code").attr("src",code);
+                                }
+                            }
+                        })
+                    }else {
+                        layer.alert('验证码错误！')
                     }
-                });
-            }, function(err) {
+                }
+            })
+        }
 
-            });
-            return false;
-        });
-})($);
+    })
+    
+})

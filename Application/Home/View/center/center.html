@@ -12,11 +12,17 @@
     <link rel="stylesheet" href="__PUBLIC__/static/aboutus/css/main.css">
     <link rel="stylesheet" href="__PUBLIC__/home/css/center/centerStyle.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+        var path = "__PUBLIC__/";
+    </script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
-    <script src="__PUBLIC__/static/publish/js/main.js"></script>
+    <script src="__PUBLIC__/home/static/footer.js"></script>
     <script src="__PUBLIC__/static/aboutus/js/aboutus.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
-
+    <script src="__PUBLIC__/home/js/center/center.js"></script>
 </head>
 <body class="bg">
 <!--未登录时显示头部-->
@@ -136,64 +142,9 @@
     </div>
 </div>
 
-<footer >
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-sm-2 col-xs-2">
-                <div class="row">
-                    <img src="__PUBLIC__/Home/img/xianyu/comui_tab_home.png" alt="" />
-                </div>
-                <div class="row">
-                    首页
-                </div>
-            </div>
-            <div class="col-sm-2 col-xs-2">
-                <div class="row">
-                    <img src="__PUBLIC__/Home/img/xianyu/comui_tab_custom_head.png" alt="">
-                </div>
-                <div class="row">
-                    客服
-                </div>
-            </div>
-            <div class="col-sm-4 col-xs-4 publish cd-bouncy-nav-trigger">
-                <div class="row">
-                    <img src="__PUBLIC__/Home/img/xianyu/comui_tab_post.png" alt="">
-                </div>
-                <div class="row publish-txt">
-                    <span>发布</span>
-                </div>
-            </div>
-            <div class="col-sm-2 col-xs-2 ">
-                <div class="row">
-                    <img src="__PUBLIC__/Home/img/xianyu/comui_tab_message.png" alt="">
-                </div>
-                <div class="row">
-                    信息
-                </div>
-            </div>
-            <div class="col-sm-2 col-xs-2">
-                <div class="row">
-                    <img src="__PUBLIC__/Home/img/xianyu/comui_tab_person.png" alt="">
-                </div>
-                <div class="row">
-                    我的
-                </div>
-            </div>
-        </div>
-    </div>
+<footer id="footer">
 </footer>
-<div class="sucaihuo-container">
-    <div class="cd-bouncy-nav-modal">
-        <nav>
-            <ul class="cd-bouncy-nav">
-                <li><a href="#">卖二手</a></li>
-                <li><a href="#">拍卖</a></li>
-                <li><a href="#">发布流程</a></li>
-            </ul>
-        </nav>
-        <a href="#0" class="cd-close">Close modal</a>
-    </div>
-</div>
+
 <!--关于我们弹窗插件-->
 <div id="goodcover"></div>
 

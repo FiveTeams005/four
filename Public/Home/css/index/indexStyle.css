@@ -127,6 +127,10 @@ header #sec-btn{
     top:0;
     left:0;
 }
+nav ul.nav li a{
+	padding-left: 0;
+	padding-right:0;
+}
 nav ul li.active a{
     border-bottom: 3px solid #ffda45;
 }
@@ -134,5 +138,22 @@ nav ul li.active a{
     margin-top: 4px;
     height: 800px;
     background-color: #00CC66;
+}
+.con-my-publish{
+	background-color:#f7f7f7;
+}
+.my-classify{
+	background-color:#fff;
+	display: none;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 5;
+}
+.classify p{
+	border-bottom: 1px solid #ccc;
+	margin:10px;
+	line-height: 25px;
 }
 

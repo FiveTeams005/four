@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>商品购买</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pay/payStyle.css">
+
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script type="text/javascript">
+    	function MVC(p,c,a){
+    		return "{:U('"+p+"/"+c+"/"+a+"')}";
+    	}
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/pay/pay.js"></script>
+</head>
+<body >
+<div id="app">
+	<header>
+		<div class="container">
+			<div class="row">
+				<h4 class="col-xs-12 col-sm-12 text-center">
+					购买宝贝
+				</h4>
+			</div>
+		</div>
+	</header>
+	<div id="content">
+		<div class="container">
+
+			<div class="row goods-info">
+				<div class="col-sm-4 col-xs-4">
+					<img src="__PUBLIC__/Home/img/images/f.jpg" class="img-responsive">
+				</div>
+				<div class="col-sm-8 col-xs-8">
+					<p>goodsname</p>
+					<p>price</p>
+				</div> 
+			</div>
+
+			<div class="row address">
+				<div class="col-sm-4 col-xs-4">
+					<p class="title">收获地址</p>
+				</div>
+				<div class="col-sm-7 col-xs-7 show-address-div" style="padding-left: 0;">
+					<p><span>name</span>&nbsp;&nbsp;<span>tel</span></p>
+					<p>福建省 厦门市 思明区 软件园二期 xx号楼 xx楼</p>
+				</div>
+				<div class="col-xs-1 col-sm-1 select-address" v-on:click="showList" style="padding:0;">
+					<img src="__PUBLIC__/Home/img/xianyu/bottom_right.png" >
+				</div>
+			</div>
+
+			<div class="row carriage"><!--carriage(运费)-->
+				<div class="col-sm-4 col-xs-4">
+					运费
+				</div>
+				<div class="col-sm-8 col-xs-8 text-right">
+					<span class="text-danger">￥0.00</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="navbar-fixed-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-7 col-xs-7">
+					<p><b>实付款：</b><span class="text-danger">￥00.00</span></p>
+				</div>
+				<div class="col-sm-5 col-xs-5" style="padding-right: 0">
+					<button v-on:click="payment">确认付款</button>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+		<div id="address-list-box" class="container">
+			<h4 class="text-center">选择地址</h4>
+			<hr />
+			<todo-item v-for="v in addressList" v-bind:list="v"></todo-item>
+			<div class="row" style="border:0">
+				<div class="col-xs-6 col-sm-6 text-right">
+					<button class="btn-warning" @click="close">取消</button>
+				</div>
+				<div class="col-xs-6 col-sm-6 text-left">
+					<button class="btn-info">新增地址</button>
+				</div>
+			</div>
+		</div>
+</div>
+</body>
+</html>

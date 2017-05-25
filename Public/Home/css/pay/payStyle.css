@@ -1,0 +1,81 @@
+/*购买页面样式*/
+body{
+	background-color:#FAFAFA
+}
+header{
+	width: 100%;
+	padding:6px 0;
+	height: 52px;
+	background-color: #FAFAFA;
+	border-bottom: 1px solid #eee;
+	font-size: 16px;
+	position: fixed;
+	top: 0;
+	left:0;
+	z-index: 9000;
+}
+#content{
+	padding: 52px 0;
+}
+.goods-info [class="col-sm-4 col-xs-4"]{
+	padding:0;
+}
+
+.address{
+	min-height: 72px;
+	background-color:#fff;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.address p.title{
+	line-height:72px;
+	font-size: 16px;
+}
+.select-address{
+	min-height: 72px;
+}
+.select-address img{
+	margin: 26px 0;
+}
+.carriage{	/*运费*/
+	min-height: 32px;
+	line-height: 32px;
+	background-color:#fff;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+/* 底部 */
+footer{
+	height: 46px;
+	line-height: 46px;
+	background-color: #fff;
+}
+footer button{
+	width: 100%;
+	background-color:#E22018;
+	color: #fff;
+	border: 0;
+	outline: none;
+	
+}
+/* 地址列表； */
+#address-list-box{
+	position: absolute;
+	top:0;
+	left:100%;
+	width: 100%;
+	height: 100%;
+	z-index:9999;
+	background-color: #fff;
+	transition: all 0.5s;
+}
+#address-list-box .row{
+	font-size: 15px;
+	padding-top: 10px;
+	border-bottom: 1px solid #eee;
+}
+#address-list-box .row button{
+	border:0;
+	outline:none;
+	padding: 5px 21px;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>订单详情</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/orderDetail/orderDetailStyle.css">
+
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script type="text/javascript">
+    	function MVC(p,c,a){
+    		return "{:U('"+p+"/"+c+"/"+a+"')}";
+    	}
+    	var path = "__PUBLIC__/";
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/orderDetail/orderDetail.js"></script>
+</head>
+<body>
+	<header class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12">
+				<h4 class="text-center">订单详情</h4>
+			</div>
+		</div>
+	</header>
+	<div id="content">
+		<div class="container">
+			<div class="row order-status">
+				<div class="col-xs-12 col-sm-12">
+					<div v-if="">
+						<p>交易已关闭</p>
+					</div>
+				</div>
+			</div>
+			<div class="row sale-box">
+				<!-- 卖家信息 -->
+				<div class="col-sm-12 col-xs-12 sale-info-div">
+					<div class="row">
+						<div class="col-xs-8 col-sm-8">
+							<p><b>卖家 ：</b>userName</p>
+						</div>
+						<div class="col-xs-4 col-sm-4">
+							<button>联系卖家</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-12 col-xs-12 goods-info-div">
+					<div class="row">
+						<div class="col-sm-3 col-xs-3">
+							<img src="__PUBLIC__/Home/img/images/e.jpg" class="img-responsive">
+						</div>
+						<div class="col-sm-9 col-xs-9">
+							<p>goodsName</p>
+							<p style="margin:0">￥<span>price</span></p>
+						</div>
+					</div>
+					<hr />
+				</div>
+
+				<div class="col-sm-12 col-xs-12 my-info-div">
+					<div class="row">
+						<div class="col-sm-3 col-xs-3">
+							<p><b>收货人</b></p>
+							<p><b>收货地址</b></p>
+						</div>
+						<div class="col-sm-9 col-xs-9">
+							<p><span>username</span><span>telphone-number</span></p>
+							<p>address</p>
+						</div>
+					</div>
+					<hr />
+				</div>
+
+				<div class="col-sm-12 col-xs-12 order-info-div">
+					<div class="row">
+						<div class="col-sm-3 col-xs-3">
+							<p><b>订单编号</b></p>
+							<p><b>成交时间</b></p>
+						</div>
+						<div class="col-sm-9 col-xs-9">
+							<p><span>编号</span></p>
+							<p>时间</p>
+						</div>
+					</div>
+					<hr />
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p class="leader">交易提醒</p>
+		<p>1*卖家发货前，请向卖家充分了解商品情况，并约定交易细节。</p>
+		<p>2*请通过本客户端进行沟通约定，并保存相关聊天记录。</p>
+	</footer>
+</body>
+</html>
