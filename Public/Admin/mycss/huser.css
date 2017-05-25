@@ -17,7 +17,6 @@
 	border: 0;
 	outline: none;
 	box-shadow: none;
-	border-radius: 25px;
 }
 .search-div button:focus{
 	outline: none;
@@ -38,3 +37,18 @@
 	margin-bottom: 10px;
 }
 /*页码样式*/
+#pageBox>div{
+	position: relative;
+	float: left;
+	margin: 0 auto;
+	left: 50%;
+}
+#pageBox a,#pageBox span{
+	width: 30px;
+	height: 20px;
+	background: #ccc;
+	display: inline-block;
+	margin: 0 3px;
+	text-align: center;
+	line-height: 20px;
+}
