@@ -1,0 +1,33 @@
+/*用户详细信息样式*/
+
+#content{
+	width: 90%;
+}
+/* 左侧基本信息 */
+.lside{
+	background-color:#fafafa;
+	font-size: 15px;
+}
+.lside hr{
+	margin-top: 0;
+}
+.lside p{
+	margin: 20px 0 0;
+	padding: 5px;
+	background-color:#999;
+	color: #fff;
+}
+.lside .info-box .row{
+	margin: 10px 0;
+}
+.lside .info-box .row input{
+	width: 100%;
+}
+
+/* 
+*	右侧
+*/
+/* 导航条 */
+.navbar{
+	border-radius:0;
+}

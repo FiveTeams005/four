@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>用户详细信息</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/userInfo.css">
+
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script>
+    	var url = "{:U('Admin/huser/huser')}";
+    	var urlLock = "{:U('Admin/huser/huserLock')}";
+    </script>
+    <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
+    <script type="text/javascript" src='__PUBLIC__/Admin/myjs/huser.js'></script>
+</head>
+<body>
+	<div class="container" id="content">
+		<div class="row">
+			<!-- 用户信息 -->
+			<div class="col-md-4 col-lg-4 lside">
+				 <div class="row">
+				 	<div class="col-md-12 col-lg-12">
+				 		<img src="__PUBLIC__/Home/img/xianyu/aliuser_custom_head.png" class="img-responsive">
+				 	</div>
+				 </div>
+				 <p class="lead">基本信息</p>
+				 <hr>
+				 <div class="row info-box">
+				 	<div class="col-md-12 col-lg-12">
+				 		<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		昵称
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		xxx
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		性别
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		男
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		账号
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		xxx
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		等级
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		白银
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		信誉
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		1
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		注册时间
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		2017-7-7 07:07
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		上次登录时间
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		2017-7-7 07:07
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		上次登录地点
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		厦门
+						 	</div>
+						</div>
+				 	</div>
+				 </div>
+				 <p class="lead">金额</p>
+				 <hr>
+				 <div class="row info-box"> 
+				 	<div class="col-md-12 col-lg-12">
+				 		<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		余额
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		￥10000.00
+						 	</div>
+						</div>
+				 	</div>
+				 </div>
+				 <p class="lead">安全信息</p>
+				 <hr>
+				 <div class="row info-box">
+				 	<div class="col-md-12 col-lg-12">
+				 		<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		手机号码
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		18xxxxxxx
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		邮箱
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		example@qq.com
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		密码
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		<input type="password" value="123456" disabled style="border:0">
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		支付密码
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		<input type="password" value="123456" disabled style="border:0">
+						 	</div>
+						</div>
+						<div class="row">
+						 	<div class="col-md-5 col-lg-5">
+						 		openId
+						 	</div>
+						 	<div class="col-md-7 col-lg-7">
+						 		<input type="password" value="123456" disabled style="border:0">
+						 	</div>
+						</div>
+				 	</div>
+				 </div>
+						 
+			</div>
+			<!-- 用户订单 -->
+			<div class="col-md-8 col-lg-8 rside">
+				<nav class="navbar navbar-inverse">
+			      	<div class="container-fluid">
+			        <!-- Brand and toggle get grouped for better mobile display -->
+			        	<div class="navbar-header">
+			          		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+				            	<span class="sr-only">Toggle navigation</span>
+				            	<span class="icon-bar"></span>
+				            	<span class="icon-bar"></span>
+				            	<span class="icon-bar"></span>
+			          		</button>
+			          		<a class="navbar-brand" href="#">用户商品</a>
+			        	</div>
+
+			        <!-- Collect the nav links, forms, and other content for toggling -->
+				        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+				          	<ul class="nav navbar-nav">
+				            	<li class="active"><a href="#">Home</a></li>
+				            	<li><a href="#">Link</a></li>
+				            	<li><a href="#">Link</a></li>
+				          	</ul>
+				        </div><!-- /.navbar-collapse -->
+			      	</div><!-- /.container-fluid -->
+			    </nav>
+				 
+			</div>
+		</div>
+	</div>
+</body>
+</html>

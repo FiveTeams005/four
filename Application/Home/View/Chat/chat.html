@@ -63,7 +63,7 @@
 					<img src="__PUBLIC__/Home/img/xianyu/im_open_chat_voice.png" v-on:click="voiceClick">
 				</div>
 				<div class="col-sm-6 col-xs-6">
-					<input type="text" name="" v-model="conn" v-on:keyup="showBtn" placeholder="想对Ta说点什么？" id="send-input">
+					<input type="text" name="" v-model="conn" v-on:blur="hideBtn" v-on:keyup="showBtn" placeholder="想对Ta说点什么？" id="send-input">
 				</div>
 
 				<div class="col-sm-4 col-xs-4 text-center send-btn-box">

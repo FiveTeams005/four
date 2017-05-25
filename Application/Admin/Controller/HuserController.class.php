@@ -39,5 +39,12 @@ class HuserController extends BaseController {
 			echo "操作失败！";
 		}
 	}
+	/**
+	 * 用户详情
+	 * @return string
+	 */
+	public function userInfo(){
+		$this->display();
+	}
 }
 ?>
