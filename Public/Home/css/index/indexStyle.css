@@ -127,10 +127,12 @@ header #sec-btn{
     top:0;
     left:0;
 }
-nav ul li.active a{
-    border-bottom: 3px solid #ffda45;
+nav ul.nav li a{
 	padding-left: 0;
 	padding-right:0;
+}
+nav ul li.active a{
+    border-bottom: 3px solid #ffda45;
 }
 .show-goods{
     margin-top: 4px;
