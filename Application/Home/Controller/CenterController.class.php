@@ -23,6 +23,9 @@ class CenterController extends Controller {
     public function UnderSale(){
         $this->display();
     }
+    public function MySale(){
+        $this->display();
+    }
     public function MyBuy(){
         $this->display();
     }
@@ -30,6 +33,9 @@ class CenterController extends Controller {
         $this->display();
     }
     public function MyAuction(){
+        $this->display();
+    }
+    public function MyMoney(){
         $this->display();
     }
 }

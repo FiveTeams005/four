@@ -6,7 +6,7 @@ function lefttime(){
     }
 //        判断时间是否为0，若为0则跳转至首页
     else{
-        window.location.href=MVC("home","index","index");
+        window.location.href=MVC("Home","Index","index");
         clearTimeout($i);
     }
 };
@@ -14,7 +14,7 @@ $(document).ready(function(){
     lefttime();
 //            点击跳过跳转至首页
     $('.ad_time').click(function(){
-        window.location.href=MVC("home","index","index");
+        window.location.href=MVC("Home","Index","index");
         clearTimeout($i);
     })
 })

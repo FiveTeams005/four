@@ -16,8 +16,8 @@ class IndexController extends BaseController {
 		$this->assign('user',$res);
 
 		$db = M('menu');
-		$res1 = $db->where("b_pid = 0 AND b_id in({$roleRes[0]['r_authority']})")->select();
-		$res2 = $db->where("b_pid != 0 AND b_id in({$roleRes[0]['r_authority']})")->select();
+		$res1 = $db->where("b_pid = 0 AND b_id in({$roleRes[0]['r_authority']}) AND b_disable = 1")->select();
+		$res2 = $db->where("b_pid != 0 AND b_id in({$roleRes[0]['r_authority']}) AND b_disable = 1")->select();
 		$this->assign('menu1',$res1);
 		$this->assign('menu2',$res2);
 		$this->display();
