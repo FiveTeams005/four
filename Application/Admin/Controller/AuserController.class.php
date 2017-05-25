@@ -87,17 +87,90 @@ class AuserController extends BaseController {
 			echo $str."用户失败！";
 		}
 	}
-	/*
-	* 添加用户
-	*/
+
+	/**
+	 * 添加用户
+	 * @return json
+	 */
 	public function add(){
-		$this->display();
+		if(IS_POST){
+			$data = array();
+			$data['a_account'] = $_POST['account'];
+			$data['a_pwd'] = $_POST['pwd'];
+			$data['a_nick'] = $_POST['nick'];
+			$data['r_id'] = $_POST['roleid'];
+			$rules = array(
+				array('a_account','require','用户名格式不正确。'),
+		        array('a_account','/^[a-zA-z]\w{4,19}$/s','帐号格式不正确',1,'regex'),
+		        array('a_account','','帐号已经存在',1,'unique'),
+		        array('a_pwd','6,12','密码长度不正确',2,'length'),
+			);
+			$user = M("auser");
+	    	if($user->validate($rules)->create($data)){
+	    		$data['a_pwd'] = md5($data['a_pwd']);
+	    		$res = $user->add($data);
+	    		if($res){
+	    			$this->success('添加成功！');
+	    		}
+	    		else{
+		    		$this->error('添加失败！');
+		    	}
+	    	}
+	    	else{
+	    		$this->error($user->getError());
+	    	}
+		}
+		else{
+			$role = M('role');
+			$res = $role->select();
+			$this->assign('role',$res);
+			$this->display();
+		}
 	}
-	/*
-	* 添加修改
-	*/
+
+	/**
+	 * 添加修改
+	 */
 	public function update(){
-		$this->display();
+		$auser = M('auser');
+		if(IS_POST){
+			$aid = $_POST['aid'];
+			$data['a_nick'] = $_POST['nick'];
+			$data['r_id'] = $_POST['rid'];
+			$res = $auser->data($data)->where("a_id = {$aid}")->save();
+			if($res){
+				echo "修改成功！";
+			}
+			else{
+				echo "修改失败！";
+			}
+		}
+		else{
+			$role = M('role');
+			$res = $role->select();
+			$this->assign('role',$res);
+
+			$auserRes = $auser->where("a_id = {$_GET['aid']}")->select();
+			$this->assign('user',$auserRes);
+
+			$this->display();
+		}
+	}
+
+	/**
+	 * 重置密码
+	 */
+	public function auserReset(){
+		$aid = $_POST['aid'];
+		$auser = M('auser');
+		$data['a_pwd'] = md5('123456');
+		$res = $auser->data($data)->where("a_id = {$aid}")->save();
+		if($res){
+			echo "重置密码成功！";
+		}
+		else{
+			echo "重置密码失败！";
+		}
 	}
 }
 ?>

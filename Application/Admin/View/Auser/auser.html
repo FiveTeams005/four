@@ -12,12 +12,6 @@
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
 
     <script src="__PUBLIC__/static/vue/vue.js"></script>
-    <script type="text/javascript">
-    	function MVC(p,c,a){
-    		return "{:U('"+p+"/"+c+"/"+a+"')}",
-    	}
-    </script>
-    <script type="text/javascript" src="__PUBLIC__/Admin/myjs/auser.js"></script>
 
     <script>
     	var url = "{:U('Admin/auser/auser')}";
@@ -42,7 +36,7 @@
 		<form class="row search-div" method='get' action="{:U('Admin/auser/auser')}">
 
 			<div class="col-md-2 col-lg-2 ">
-				<button class="btn btn-info" v-on:click="addUser">添 加 用 户</button>
+				<a href="{:U('Admin/Auser/add')}"><input type='button' value='添 加 用 户' class="btn btn-info" /></a>
 			</div>
 			<div class="col-md-1 col-lg-1 ">
 				<input type='button' value='删除' class="btn btn-info" id='del' />
@@ -109,7 +103,7 @@
 										<else />解锁
 									</if>
 								</a>&nbsp;&nbsp;
-								<a href="">修改</a>&nbsp;&nbsp;
+								<a href="{:U('Admin/auser/update',array("aid"=>$v['a_id']))}">修改</a>&nbsp;&nbsp;
 								<a href="#" class='del' rId="{$v['a_id']}">删除</a>
 							</td>
 						</tr>

@@ -13,7 +13,7 @@ class LoginController extends Controller {
 			else{
 				$db = M('auser');
 				$where['a_account'] = $_POST['username'];
-				$where['a_pwd'] = $_POST['pwd'];
+				$where['a_pwd'] = md5($_POST['pwd']);
 				$res = $db->where($where)->select();
 				if($res){
 					if($res[0]['a_status'] == 1){
