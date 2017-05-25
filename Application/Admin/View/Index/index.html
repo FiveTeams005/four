@@ -100,7 +100,8 @@
         欢迎{$vo['r_name']}：
         <if condition="empty($vo['a_nick']) neq true">{$vo['a_nick']}
           <else />{$vo['a_account']}
-        </if>
+        </if>&nbsp;&nbsp;
+        <a href="{:U('Admin/index/logout')}">注销</a>
       </div>
     </foreach>
     <div class="sideMenu">
