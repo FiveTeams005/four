@@ -1,4 +1,4 @@
-/*后台用户管理样式*/
+/*潞贸脤篓脫脙禄搂鹿脺脌铆脩霉脢陆*/
 
 .header{
 	margin: 30px 0;
@@ -13,18 +13,18 @@
 	outline:none;
 	box-shadow: none;
 }
-.search-div button{
+.search-div input[type='button']{
 	width: 100%;
 	border: 0;
 	outline: none;
 	box-shadow: none;
 	border-radius: 0;
 }
-.search-div button:focus{
+.search-div input[type='button']:focus{
 	outline: none;
 	box-shadow: none;
 }
-.search-div button:active{
+.search-div input[type='button']:active{
 	outline: none;
 	box-shadow: none;
 	border: 0;
@@ -38,7 +38,7 @@
 .search-div{
 	margin-bottom: 10px;
 }
-/* 添加用户 */
+/* 脤铆录脫脫脙禄搂 */
 .add-user{
 	border-radius: 8px;
 	border: 1px solid #eee;
@@ -51,4 +51,20 @@
 }
 .add-user .form-control{
 	border-radius: 0;
+}
+
+#pageBox>div{
+	position: relative;
+	float: left;
+	margin: 0 auto;
+	left: 50%;
+}
+#pageBox a,#pageBox span{
+	width: 30px;
+	height: 20px;
+	background: #ccc;
+	display: inline-block;
+	margin: 0 3px;
+	text-align: center;
+	line-height: 20px;
 }
