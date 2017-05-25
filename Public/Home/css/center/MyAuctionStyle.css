@@ -27,6 +27,7 @@ footer{
 nav ul li.active a{
     border-bottom: 3px solid #ffda45;
     background-color: #fff !important;
+    color: #2a3542;
 }
 nav ul li a{
     color: #ccc;

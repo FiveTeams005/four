@@ -78,15 +78,17 @@
 .btn-yel{
     background-color: #ffda45;
     border-radius: 15px;
-    width: 100px;
-    height:30px;
-    margin-top: 15px;
+    width: 120px;
+    height:35px;
+    margin-top: 20px;
+    padding: 2px;
 }
 .goods-price{
     border: none;
     margin-top: 15px;
     margin-bottom: 15px;
     text-align: center;
+    font-size: 16px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
@@ -94,11 +96,12 @@ input::-webkit-inner-spin-button{
     margin: 0;
 }
 .row-underline{
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid #eee;
 }
 .main{
-    margin: 10px 0;
-    border-bottom: 1px solid #ccc;
+    margin: 13px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
 }
 .main .text{
     padding: 0;
@@ -133,11 +136,29 @@ input::-webkit-inner-spin-button{
     padding-right: 0;
 }
 .btn-red{
-    margin-top: 10px;
+    line-height: 25px;
     width: 100%;
     border-radius: 0;
     color: #fff;
     background-color: #fe4343;
+}
+.btn-hidden{
+    line-height: 30px;
+    width: 100%;
+    border-radius: 0;
+    color: #fff;
+    background-color: #fe4343;
+}
+.con-hidden{
+    visibility: hidden;
+}
+.con-sub{
+    position: fixed;
+    bottom: 5px;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    z-index: 5;
 }
 /*城市弹层*/
 .city-box{width: 100%;position:absolute;top:0;left:0;background-color:#fff;z-index:9000;display:none;}
