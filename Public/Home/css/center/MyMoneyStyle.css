@@ -1,0 +1,65 @@
+.bg{
+    background-color: #f7f7f7;
+}
+.my-publish{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+.my-publish-title{
+    font-weight: 300;
+    font-size: 16px;
+}
+.con-row{
+    margin: 25px 0 15px 0;
+}
+#money{
+    color:rgb(224, 18, 34);
+    font-weight: 600;
+    font-size: 18px;
+}
+.con-money{
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+.con-money img{
+    width:40px;
+    line-height: 30px;
+
+}
+.btn-money{
+    margin-top: 3px;
+    border-radius: 0;
+    background-color: #FFda45;
+    color: #fff;
+}
+.ban-my-publish{
+    background-color: #fff;
+}
+nav ul li.active a{
+    border-bottom: 3px solid #ffda45;
+    background-color: #fff !important;
+    color: #2a3542;
+}
+nav ul li a{
+    color: #ccc;
+    font-size: 14px;
+}
+.navbar-nav{
+    margin: 2.5px -15px;
+}
+.my-yhq{
+    position: relative;
+}
+.my-yhq img{
+    width: 100%;
+    height: 70px;
+    margin-top: 10px;
+}
+.price{
+    position: absolute;
+    top:50px;
+    left: 120px;
+    color: #fff;
+    font-size: 20px;
+}

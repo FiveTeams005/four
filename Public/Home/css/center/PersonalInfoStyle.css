@@ -14,7 +14,7 @@
     margin: 10px 0;
 }
 .main .text{
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
     padding: 0;
     padding-bottom: 5px;
 }
@@ -67,7 +67,7 @@ h4{
     color: #9d9d9d;
 }
 .userMsg{
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
 }
 .num1{
     margin-top: 5px;
@@ -88,3 +88,9 @@ footer{
     position: fixed;
     bottom: 0;
 }
+#sex_dummy{
+    border: 0;
+}
+/*.android-ics .dwwbm,.dwwbp{*/
+    /*display: none;*/
+/*}*/
