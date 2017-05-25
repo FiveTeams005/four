@@ -3,7 +3,6 @@ $(function(){
 	$(".sideMenu").on('click','li',function(){
 		var path = $(this).attr("path");
 		var name = $(this).children('a').text();
-		alert($(".daohang>ul li").length);
 		for(var i = 0;i < $(".daohang>ul li").length;i++){
 			if($(".daohang>ul>li:eq("+i+")").attr("path") == path){
 				$(".navTop").removeClass("navTop");

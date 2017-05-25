@@ -4,7 +4,7 @@ $(function(){
 	$("tbody").on('click','.authorityBtn',function(){
 		r_id = $(this).attr("roleId");
 		$.ajax({
-			url:"authority",
+			url:url+"authority",
 			type:'POST',
 			data:{roleId:r_id},
 			dataType:'json',
@@ -56,7 +56,7 @@ $(function(){
 		}
 		else{
 			$.ajax({
-				url:'updateAuthority',
+				url:url+'updateAuthority',
 				type:'POST',
 				data:{authority:str,id:r_id},
 				success:function(data){
