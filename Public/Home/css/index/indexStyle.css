@@ -129,6 +129,8 @@ header #sec-btn{
 }
 nav ul li.active a{
     border-bottom: 3px solid #ffda45;
+	padding-left: 0;
+	padding-right:0;
 }
 .show-goods{
     margin-top: 4px;
