@@ -135,4 +135,21 @@ nav ul li.active a{
     height: 800px;
     background-color: #00CC66;
 }
+.con-my-publish{
+	background-color:#f7f7f7;
+}
+.my-classify{
+	background-color:#fff;
+	display: none;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 5;
+}
+.classify p{
+	border-bottom: 1px solid #ccc;
+	margin:10px;
+	line-height: 25px;
+}
 

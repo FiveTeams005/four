@@ -18,8 +18,14 @@
         }
     </script>
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+        var path = "__PUBLIC__/";
+    </script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
-    <script src="__PUBLIC__/static/publish/js/main.js"></script>
+    <script src="__PUBLIC__/home/static/footer.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
     <script src="__PUBLIC__/Home/js/index/index.js"></script>
     <script src="__PUBLIC__/Home/js/index/hammer.js"></script>
@@ -43,7 +49,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-sm-2 col-xs-2 text-center " style="color:">
+                <div class="col-sm-2 col-xs-2 text-center ">
                     <span class="glyphicon glyphicon-th-list"></span>
                 </div>
             </div>
@@ -241,62 +247,20 @@
 
     </div>
     <!--尾部，（底部固定导航）-->
-    <footer >
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-sm-2 col-xs-2">
-                    <div class="row">
-                        <img src="__PUBLIC__/Home/img/xianyu/comui_tab_home.png" alt="" />
-                    </div>
-                    <div class="row">
-                        首页
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-2">
-                    <div class="row">
-                        <img src="__PUBLIC__/Home/img/xianyu/comui_tab_custom_head.png" alt="">
-                    </div>
-                    <div class="row">
-                        客服
-                    </div>
-                </div>
-                <div class="col-sm-4 col-xs-4 publish cd-bouncy-nav-trigger">
-                    <div class="row">
-                        <img src="__PUBLIC__/Home/img/xianyu/comui_tab_post.png" alt="">
-                    </div>
-                    <div class="row publish-txt">
-                        <span>发布</span>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-2 ">
-                    <div class="row">
-                        <img src="__PUBLIC__/Home/img/xianyu/comui_tab_message.png" alt="">
-                    </div>
-                    <div class="row">
-                        信息
-                    </div>
-                </div>
-                <div class="col-sm-2 col-xs-2">
-                    <div class="row">
-                        <img src="__PUBLIC__/Home/img/xianyu/comui_tab_person.png" alt="">
-                    </div>
-                    <div class="row">
-                        我的
-                    </div>
-                </div>
+    <footer  id="footer">
+
+    </footer>
+    <!--分类模块-->
+    <div class="my-classify" id="app1">
+        <div class="container con-my-publish">
+            <div class="row my-publish">
+                <div class="col-xs-4 col-xs-offset-4 text-center my-publish-title">类目</div>
             </div>
         </div>
-    </footer>
-    <div class="sucaihuo-container">
-        <div class="cd-bouncy-nav-modal">
-            <nav>
-                <ul class="cd-bouncy-nav">
-                    <li><a href="#">卖二手</a></li>
-                    <li><a href="#">拍卖</a></li>
-                    <li><a href="#">发布流程</a></li>
-                </ul>
-            </nav>
-            <a href="#0" class="cd-close">Close modal</a>
+        <div class="container classify">
+            <todo-item  v-for="item in List" v-bind:todo="item">
+
+            </todo-item>
         </div>
     </div>
 </body>
