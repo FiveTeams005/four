@@ -6,44 +6,16 @@
     <title>二手商品发布</title>
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="__PUBLIC__/home/css/publish/publishStyle.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/publish/publishAuctionStyle.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
-    <script>
-        $(function () {
-            //发布秘笈
-            $(".publish-action").on("click",function () {
-                $(".publish-img").show();
-            })
-            $(".close").on("click",function () {
-                $(".publish-img").hide()
-            })
-            //城市定位
-            $('body').on('click', '.city-list p', function () {
-                var type = $('.city-box').data('type');
-                $('#zone_ids').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-                $('#gr_zone_ids').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-                $('.city-box').hide();
-            });
-            $('body').on('click', '.letter li', function () {
-                var s = $(this).find('a').html();
-                $(window).scrollTop($('#' + s + '1').offset().top-56);
-            });
-            $('#gr_zone_ids').on("click",function () {
-                $(".city-box").show();
-            })
-            //点击添加图片按钮
-            $(".insert-img").on("click",function () {
-                if($(".img-content img").length>9){
-                    $(".insert-img").hide();
-                }
-            })
-        })
-    </script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
+    <script src="__PUBLIC__/home/js/publish/publish.js"></script>
+    <script src="__PUBLIC__/home/js/publish/priceRe.js"></script>
 </head>
-<body class="bg">
 
+<body class="bg">
     <div class="publish-img"><img src="__PUBLIC__/home/img/images/public_secret.png">
         <div class="close"><img src="__PUBLIC__/home/img/xianyu/welcome_ponds_close.png"></div>
     </div>
@@ -57,10 +29,10 @@
     <form>
    <div class="container con-form">
            <div class="form-group">
-               <input type="text" class="form-control input-title"  placeholder="标题&nbsp;品类品牌型号都是买家喜欢搜索的">
+               <input type="text" class="form-control input-title" id="publish-title" placeholder="标题&nbsp;品类品牌型号都是买家喜欢搜索的">
            </div>
            <div class="form-group">
-               <textarea class="form-control" rows="3" placeholder="描述一下你的宝贝"></textarea>
+               <textarea class="form-control" rows="3" id="publish-des" placeholder="描述一下你的宝贝"></textarea>
            </div>
            <div class="form-group">
                <div class="row">
@@ -75,7 +47,7 @@
                    </div>
                    </div>
                    <div class="col-xs-3 text-center insert-img">
-                       <img src="__PUBLIC__/home/img/images/add.png" class="logo1">
+                       <img src="__PUBLIC__/home/img/images/add.png" class="add-png">
                    </div>
                </div>
            </div>
@@ -100,14 +72,14 @@
                 <div class="row row-underline">
                     <div class="col-xs-4 col-xs-offset-4 text-center">
                         <div class="form-group">
-                        <input type="number" class="form-control goods-price" placeholder="￥0.00">
+                        <input type="number" class="form-control goods-price"  id="publish-price" placeholder="￥0.00" onKeyUp="amount(this)" onBlur="overFormat(this)" />
                         </div>
                     </div>
                 </div>
-                <div class="row text-left main">
-                    <div class="col-xs-3"><span class="text1">分类</span></div>
+                <div class="row text-left main" id="classify">
+                    <div class="col-xs-3"><span class="sort">分类</span></div>
                     <div class="col-xs-9 text">
-                        <div class="col-xs-8 col-xs-offset-2 text-right text1"><span class="text1">请选择分类</span></div>
+                        <div class="col-xs-8 col-xs-offset-2 text-right text1"><span id="sort"></span><span>请选择分类</span></div>
                         <div class="col-xs-2 text-right "><img src="__PUBLIC__/home/img/xianyu/entry_arrow.png" class="logo2"></div>
                     </div>
             </div>
@@ -115,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <button type="button" class="btn btn-red">确认发布</button>
+                    <button type="button" class="btn btn-red" id="sub">确认发布</button>
                 </div>
             </div>
         </div>
@@ -589,5 +561,20 @@
             </ul>
         </div>
     </div>
+    <!--分类模块-->
+    <div class="my-classify" id="app1">
+        <div class="container con-my-publish">
+            <div class="row my-publish">
+                <div class="col-xs-4 col-xs-offset-4 text-center my-publish-title">类目</div>
+            </div>
+        </div>
+        <div class="container classify">
+            <todo-item  v-for="item in List" v-bind:todo="item">
+
+            </todo-item>
+        </div>
+
+    </div>
+<div id="content"></div>
 </body>
 </html>

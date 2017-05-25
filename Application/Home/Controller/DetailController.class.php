@@ -12,3 +12,4 @@ class DetailController extends Controller {
 		$this->show();
 	}
 }
+?>

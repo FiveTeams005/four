@@ -15,8 +15,6 @@ class IndexController extends Controller {
     public function index(){
         $this->display();
     }
-
-
 	/**
 	 * 微信授权
 	 */
@@ -48,4 +46,5 @@ class IndexController extends Controller {
 		echo $_COOKIE['openid'];
 
 	}
+
 }

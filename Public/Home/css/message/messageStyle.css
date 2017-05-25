@@ -1,0 +1,36 @@
+/* <!-- 消息中心样式 --> */
+header{
+	width: 100%;
+	padding:6px 0;
+	height: 52px;
+	background-color: #FAFAFA;
+	border-bottom: 1px solid #eee;
+	font-size: 16px;
+	position: fixed;
+	top: 0;
+	left:0;
+	z-index: 9000;
+}
+
+#content{
+	padding: 70px 15px;
+}
+/* .chat-list-single{ */
+	/* padding-bottom: 8px; */
+	/* padding-top:8px; */
+	/* border-bottom : 1px solid #eee; */
+/* } */
+.chat-list-single hr{
+	margin-top: 10px;
+}
+.chat-list-single button{
+	border: 1px solid #ddd;
+	outline:none;
+	border-radius: 50%;
+	background-color: inherit;
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	top:-10px;
+	right: 15px;
+}
