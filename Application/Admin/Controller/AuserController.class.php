@@ -8,5 +8,10 @@ class AuserController extends Controller {
 	public function auser(){
 		$this->display();
 	}
+	//用户添加修改页面；
+	public function update(){
+		$this->display();
+	}
+	
 }
 ?>
