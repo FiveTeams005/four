@@ -87,6 +87,17 @@ class AuserController extends BaseController {
 			echo $str."用户失败！";
 		}
 	}
-
+	/*
+	* 添加用户
+	*/
+	public function add(){
+		$this->display();
+	}
+	/*
+	* 添加修改
+	*/
+	public function update(){
+		$this->display();
+	}
 }
 ?>
