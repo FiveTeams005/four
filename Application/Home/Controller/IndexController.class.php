@@ -15,6 +15,9 @@ class IndexController extends Controller {
     public function index(){
         $this->display();
     }
+    public function advert(){
+        $this->display();
+    }
 	/**
 	 * 微信授权
 	 */
