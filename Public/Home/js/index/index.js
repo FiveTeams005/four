@@ -4,7 +4,14 @@
 
 $(function(){
     //获取定位；
-
+    var a = MVC('Home','Index','aaa');
+    $.ajax({
+        url:a,
+        type:'POST',
+        success:function (data) {
+            alert(data)
+        }
+    })
 
     // 轮播滑动函数
     slide();
