@@ -6,11 +6,11 @@
     <title>我的发布</title>
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="__PUBLIC__/home/css/center/MyPublishStyle.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/center/MyPublishStyle.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
-    <script src="__PUBLIC__/home/static/Package.js"></script>
+    <script src="__PUBLIC__/Home/static/Package.js"></script>
     <script>
         $(function () {
             $('#menu-wrap').on('click','nav ul li',function () {
@@ -22,7 +22,7 @@
                 }
             })
             //测试封装商品
-            var mygoods=new Package_Publish('__PUBLIC__/home/img/xianyu/page_empty.png','汉服','300','20','20','0');
+            var mygoods=new Package_Publish('__PUBLIC__/Home/img/xianyu/page_empty.png','汉服','300','20','20','0');
             mygoods.setFather('goods');
         })
     </script>
@@ -32,7 +32,7 @@
     <div class="container con-my-publish">
         <div class="row my-publish">
             <div class="col-xs-4 col-xs-offset-4 text-center my-publish-title">我发布的</div>
-            <div class="col-xs-4 text-right">下架宝贝</div>
+            <a href="{:U('Home/Center/UnderSale')}" class="col-xs-4 text-right" style="display: block;color:#2a3542">下架宝贝</a>
         </div>
     </div>
 </header>
@@ -56,7 +56,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-xs-6 text-center col-xs-offset-3"><img src="__PUBLIC__/home/img/xianyu/page_empty.png" class="logo1"></div>
+            <div class="col-xs-6 text-center col-xs-offset-3"><img src="__PUBLIC__/Home/img/xianyu/page_empty.png" class="logo1"></div>
         </div>
         <div class="row">
             <div class="col-xs-6 text-center col-xs-offset-3"><span class="baby-span">还没有发布宝贝哦~</span></div>
