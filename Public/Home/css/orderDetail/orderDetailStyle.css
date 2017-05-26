@@ -32,28 +32,43 @@ header{
 .sale-box{
 	background-color: #eee;
 }
-.sale-info-div{	/*卖家信息*/
-	padding: 5px 20px;
-	background-color:#fff;
-	margin: 8px 0;
-}
-.sale-info-div p{
-	line-height: 24px;
-	margin: 0;
-}
-.sale-info-div button{
+.sale-box button{
 	border: 0;
-	background-color: #ffda45;
+	padding: 0 6px;
 	outline: none;
-	width: 100%;
-	height:24px;
+	background-color: #ffda45;
 	color: #fff;
 }
-.goods-info-div,.my-info-div,.order-info-div{
+/*卖家信息*/
+/* .sale-info-div{	 */
+	/* padding: 5px 20px; */
+	/* background-color:#fff; */
+	/* margin: 8px 0; */
+/* } */
+/* .sale-info-div p{ */
+	/* line-height: 24px; */
+	/* margin: 0; */
+/* } */
+/* .sale-info-div button{ */
+	/* border: 0; */
+	/* background-color: #ffda45; */
+	/* outline: none; */
+	/* width: 100%; */
+	/* height:24px; */
+	/* color: #fff; */
+/* } */
+.goods-info-div,.sale-info-div,.order-info-div,.p-div{
 	background-color: #fff;
-}
-.goods-info-div {
 	padding-top: 10px;
+	margin-top: 5px;
+}
+.p-div {
+	padding: 6px 15px;
+}
+.p-div button{
+	width: 100%;
+	padding: 5px;
+	background-color:#E22018;
 }
 
 
