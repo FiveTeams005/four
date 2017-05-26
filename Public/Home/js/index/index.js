@@ -3,16 +3,6 @@
  */
 
 $(function(){
-    //获取定位；
-    var a = MVC('Home','Index','aaa');
-    $.ajax({
-        url:a,
-        type:'POST',
-        success:function (data) {
-            alert(data)
-        }
-    })
-
     // 轮播滑动函数
     slide();
     function slide(){
@@ -49,7 +39,7 @@ $(function(){
             $.post();
         }else if($(this).index() == 1){     //附近的；
             alert(2);
-            $.post();
+            $.post(map);
         }
     });
     //商品展示；
@@ -62,28 +52,41 @@ $(function(){
 
 
     //分类选择传值
+    var List = [];
     $(".glyphicon-th-list").click(function () {
         $(".my-classify").show();
+        var classfiy = MVC('Home','Index','classfiy');
+        $.post(classfiy,{},function (data) {
+            for(var i=0;i<data.length;i++){
+                var a = {text:data[i]['c_name'],id:data[i]['c_id']};
+                List.push(a);
+            }
+        },'json');
     })
     Vue.component('todo-item',{
         props:['todo'],
-        template:' <p class="col-xs-12" v-on:click="greet(todo.text)">{{todo.text}}</p>',
+        template:' <p class="col-xs-12" v-on:click="greet(todo.id)">{{todo.text}}</p>',
         methods:{
             greet:function(vue) {
-                $("#app1").hide();
+                var classID = MVC('Home','Classify','classify');
+                $.post(classID,{classID:vue},function () {
+                    window.location.href = classID;
+                });
             }
         }
 
     })
+
     var app1=new Vue({
         el:'#app1',
         data:{
-            List:[
-                {text:'男装'},
-                {text:'女装'},
-                {text:'童装'},
-                {text:'数码'}
-            ]
+            List: List,
         }
     })
 })
+
+//点击定位显示地图
+    function map(){
+        var map = MVC("Home",'Index','map');
+        window.location.href = map;
+    }

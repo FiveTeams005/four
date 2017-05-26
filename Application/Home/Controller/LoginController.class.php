@@ -27,6 +27,7 @@ class LoginController extends Controller {
 	 */
 	public function getCode(){
 		$this->display('regGetCode');
+		var_dump(cookie('openid'));
 	}
 
 	/**
@@ -141,12 +142,17 @@ class LoginController extends Controller {
 		$user = I('user');
 		$pwd = md5(I('pwd'));
 		$phone = $_COOKIE['phone'];
+		$openid = cookie('openid');
 		$ary = array();
 		$ary['h_account'] = $user;
 		$ary['h_pwd'] = $pwd;
 		$ary['h_tel'] = $phone;
-		$res = $db->add($ary);
+		$res = $db->data($ary)->where("openid = '{$openid}'")->save();
 		if($res){
+			cookie('flag',1);
+			$user = $db->where("openid = '{$openid}'")->select();
+			$string=serialize($user);
+			cookie('user',$string);
 			echo 1;
 		}
 	}

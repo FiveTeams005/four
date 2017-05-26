@@ -8,7 +8,15 @@ class ClassifyController extends Controller {
 	 * @param 参数2
 	 * @return 返回类型
 	 */
+
+	/**
+	 * 跳转到分类页面
+	 */
 	public function classify(){
-		$this -> display();
+		$classID = I('classID');
+		cookie('classID',$classID);
+		$this->display();
 	}
+
+
 }
