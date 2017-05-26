@@ -4,7 +4,6 @@
         //手机验证码全局棉量
         var phoneCode;
         var phone;
-
         //验证信息全局变量
         var user1;
         // 手机验证
@@ -70,6 +69,7 @@
                                 data:{phone:$("#tel").val()},
                                 success:function (data) {
                                     phoneCode = data;
+                                    $("#aaa").html(data);
                                     phone=$("#tel").val();
                                 }
                             })
@@ -194,7 +194,7 @@
 
         //点击注册函数
         $("#reg").click(function(){
-            var success = MVC('Home','Login','login');
+            var success = MVC('Home','Index','index');
             var regUser = MVC('Home','Login','regUser');
             var pwd = $("#pwd").val();
             var pwd2 = $("#pwd1").val();
@@ -204,7 +204,7 @@
                     data:{user:$("#account").val(),pwd:pwd},
                     type:'POST',
                     success:function (data) {
-                        window.location.href = success
+                        window.location.href = success;
                     }
                 })
             }else {
