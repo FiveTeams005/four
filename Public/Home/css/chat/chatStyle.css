@@ -1,7 +1,7 @@
 /* <!-- 聊天窗口样式 --> */
 header{
 	padding: 5px 0;
-	
+	background-color: #fff;
 }
 header .row{
 	border-bottom: 1px solid #eee;
@@ -43,7 +43,21 @@ header .buy-btn{
 	outline: none;
 	background-color: #E22018;
 }
-
+/* 主要内容 信息展示框 */
+#content{
+	padding-top: 130px;
+	background-color: #fafafa;
+}
+/* 聊天气泡样式 */
+.q-div,.a-div{margin-bottom:1rem;min-height:60px;}
+.q-text,.a-text{padding:5px 15px;}
+.q-text p,.a-text p{margin-top: 10px;border-radius:6px;padding:.5rem;margin:0;font-size:14px;line-height:28px;box-sizing:border-box;vertical-align:middle;display:table-cell;word-wrap:break-word;max-width:100%;}
+.a-text p{background:#fff;}
+.q-text p{background:#42929d;color:#fff;}
+.q-text i,.a-text i{width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;position:absolute;top:20px;}
+.a-text i{border-right:10px solid #fff;left:5px;}
+.q-text i{border-left:10px solid #42929d;right:5px;}
+.a-text p a{color:#42929d;display:inline-block;}
 
 footer{
 	width: 100%;
