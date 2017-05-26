@@ -71,15 +71,17 @@
 .btn-yel{
     background-color: #ffda45;
     border-radius: 15px;
-    width: 100px;
-    height:30px;
-    margin-top: 15px;
+    width: 120px;
+    height:40px;
+    margin-top: 20px;
+    padding: 2px;
 }
 .goods-price{
     border: none;
     margin-top: 15px;
     margin-bottom: 15px;
     text-align: center;
+    font-size: 16px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
