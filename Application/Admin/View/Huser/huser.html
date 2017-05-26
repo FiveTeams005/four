@@ -82,7 +82,7 @@
 							<td class="text-center">{$v.h_loginlasttime}</td>
 							<td class="text-center">{$v.h_regtime}</td>
 							<td class="text-center">
-								<a href="">查看详细信息</a>&nbsp;&nbsp;
+								<a href="{:U('Admin/huser/userInfo',array("hid"=>$v['h_id']))}">查看详细信息</a>&nbsp;&nbsp;
 								<a href="#" class='lock' hId="{$v['h_id']}" status="{$v['h_status']}">
 									<if condition="$v['h_status'] eq 1">锁定
 										<else />解锁
