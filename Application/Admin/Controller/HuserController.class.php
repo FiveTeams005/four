@@ -44,6 +44,9 @@ class HuserController extends BaseController {
 	 * @return string
 	 */
 	public function userInfo(){
+		$huser = M('huser');
+		$res = $huser->where("h_id = {$_GET['hid']}")->select();
+		$this->assign("user",$res);
 		$this->display();
 	}
 }
