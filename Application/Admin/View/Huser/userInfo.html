@@ -10,14 +10,13 @@
 
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
-    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
     <script>
     	var url = "{:U('Admin/huser/huser')}";
     	var urlLock = "{:U('Admin/huser/huserLock')}";
     </script>
     <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
-    <script type="text/javascript" src='__PUBLIC__/Admin/myjs/huser.js'></script>
+    <script type="text/javascript" src='__PUBLIC__/Admin/myjs/userInfo.js'></script>
 </head>
 <body>
 	<div class="container" id="content">
@@ -27,8 +26,11 @@
 
 				<foreach name='user' item='vo'>
 					<div class="row">
-					 	<div class="col-md-12 col-lg-12">
-					 		<img src="__PUBLIC__/Home/img/xianyu/aliuser_custom_head.png" class="img-responsive">
+						<div class="col-md-4 col-lg-4">
+					 		<a href="{:U('Admin/huser/huser')}">返回</a>
+					 	</div>
+					 	<div class="col-md-4 col-lg-4">
+					 		<img src="{$vo.h_head}" class="img-responsive">
 					 	</div>
 					</div>
 					<p class="lead">基本信息</p>
@@ -66,9 +68,10 @@
 							 		等级
 							 	</div>
 							 	<div class="col-md-7 col-lg-7">
-							 		<if condition="$vo['h_grade'] lt 4">白银
-							 			<elseif condition="$vo['h_grade'] lt 6" />黄金
-							 			<else />钻石
+							 		<if condition="$vo['h_grade'] lt 4">白银{$vo['h_grade']}
+							 			<elseif condition="$vo['h_grade'] lt 7" />黄金{$vo['h_grade'] - 3}
+							 			<elseif condition="$vo['h_grade'] lt 10" />钻石{$vo['h_grade'] - 6}
+							 			<else />最强王者
 							 		</if>
 							 	</div>
 							</div>
@@ -101,7 +104,7 @@
 							 		上次登录地点
 							 	</div>
 							 	<div class="col-md-7 col-lg-7">
-							 		厦门
+							 		{$vo.h_add}
 							 	</div>
 							</div>
 					 	</div>
@@ -145,7 +148,7 @@
 							 		密码
 							 	</div>
 							 	<div class="col-md-7 col-lg-7">
-							 		<input type="password" value="123456" disabled style="border:0">
+							 		<input type="password" value="******" disabled style="border:0">
 							 	</div>
 							</div>
 							<div class="row">
@@ -153,7 +156,7 @@
 							 		支付密码
 							 	</div>
 							 	<div class="col-md-7 col-lg-7">
-							 		<input type="password" value="123456" disabled style="border:0">
+							 		<input type="password" value="******" disabled style="border:0">
 							 	</div>
 							</div>
 							<div class="row">
@@ -161,13 +164,13 @@
 							 		openId
 							 	</div>
 							 	<div class="col-md-7 col-lg-7">
-							 		<input type="password" value="123456" disabled style="border:0">
+							 		<input type="password" value="******" disabled style="border:0">
 							 	</div>
 							</div>
 					 	</div>
 					</div>
 				</foreach>	 
-
+			</div>
 
 			<!-- 用户商品信息 -->
 			<div class="col-md-8 col-lg-8 rside">
@@ -187,33 +190,67 @@
 			        <!-- Collect the nav links, forms, and other content for toggling -->
 				        <div class="navbar-collapse collapse">
 				          	<ul class="nav navbar-nav" role="tablist">
-				            	<li class="active"><a role="tab" data-toggle="tab" href="#tab-buy">&nbsp;&nbsp;购买的&nbsp;&nbsp;</a></li>
-				            	<li><a role="tab" data-toggle="tab" href="#tab-sale">&nbsp;&nbsp;发布的&nbsp;&nbsp;</a></li>
+				          		<if condition="$_GET['tab'] eq 1 or isset($_GET['tab']) neq true">
+					            	<li class="active"><a href="{:U('Admin/huser/userInfo',array("tab"=>1,"hid"=>$_GET['hid']))}">&nbsp;&nbsp;购买的&nbsp;&nbsp;</a></li>
+					            	<else />
+					            	<li><a href="{:U('Admin/huser/userInfo',array("tab"=>1,"hid"=>$_GET['hid']))}">&nbsp;&nbsp;购买的&nbsp;&nbsp;</a></li>
+				            	</if>
+				            	<if condition="$_GET['tab'] eq 2">
+				            		<li class="active"><a href="{:U('Admin/huser/userInfo',array("tab"=>2,"hid"=>$_GET['hid']))}">&nbsp;&nbsp;拍到的&nbsp;&nbsp;</a></li>
+				            		<else />
+				            		<li><a href="{:U('Admin/huser/userInfo',array("tab"=>2,"hid"=>$_GET['hid']))}">&nbsp;&nbsp;拍到的&nbsp;&nbsp;</a></li>
+				            	</if>
+				            	<if condition="$_GET['tab'] eq 3">
+				            		<li class="active"><a href="{:U('Admin/huser/userInfo',array("tab"=>3,"hid"=>$_GET['hid']))}">&nbsp;&nbsp;发布的商品&nbsp;&nbsp;</a></li>
+				            		<else />
+				            		<li><a href="{:U('Admin/huser/userInfo',array("tab"=>3,"hid"=>$_GET['hid']))}">&nbsp;&nbsp;发布的商品&nbsp;&nbsp;</a></li>
+				            	</if>
+				            	<if condition="$_GET['tab'] eq 4">
+				            		<li class="active"><a href="{:U('Admin/huser/userInfo',array("tab"=>4,"hid"=>$_GET['hid']))}">&nbsp;&nbsp;发布的拍品&nbsp;&nbsp;</a></li>
+				            		<else />
+				            		<li><a href="{:U('Admin/huser/userInfo',array("tab"=>4,"hid"=>$_GET['hid']))}">&nbsp;&nbsp;发布的拍品&nbsp;&nbsp;</a></li>
+				            	</if>
 				          	</ul>
-				        </div><!-- /.navbar-collapse -->
-			      	</div><!-- /.container-fluid -->
+				        </div>
+			      	</div>
 			    </nav>
-				 <div class="tab-content">
-				 	<div class="tab-pane active" id="tab-buy">
-				 		<table class="table table-bordered">
-				 			<tr>
-				 				<th class="text-center">订单编号</th>
-				 				<th class="text-center">图片</th>
-				 				<th class="text-center">名称</th>
-				 				<th class="text-center">价格</th>
-				 				<th class="text-center">数量</th>
-				 				<th class="text-center">类型</th>
-				 				<th class="text-center">购买时间</th>
-				 			</tr>
-				 			<!-- <foreach></foreach> -->
-				 			<tr>
-				 				<td colspan="7">
-				 					页码
-				 				</td>
-				 			</tr>
-				 		</table>
-				 	</div>
-				 	<div class="tab-pane" id="tab-sale">
+
+				<div class="tab-content">
+				 	<if condition="$_GET['tab'] lt 3">
+					 	<div class="tab-pane active" id="tab-buy">
+					 		<table class="table table-bordered">
+					 			<tr>
+					 				<th class="text-center">订单编号</th>
+					 				<th class="text-center">图片</th>
+					 				<th class="text-center">名称</th>
+					 				<th class="text-center">价格</th>
+					 				<th class="text-center">数量</th>
+					 				<th class="text-center">类型</th>
+					 				<th class="text-center">下单时间</th>
+					 			</tr>
+					 			<foreach name='order' item='vo'>
+					 				<tr>
+					 					<td class="text-center">{$vo['o_number']}</td>
+						 				<td class="text-center">图片</td>
+						 				<td class="text-center">
+						 					<if condition="empty($vo['n_name']) neq true">{$vo.n_name}
+						 						<else />{$vo.p_name}
+						 					</if>
+						 				</td>
+						 				<td class="text-center">{$vo['o_money']}</td>
+						 				<td class="text-center">{$vo['o_count']}</td>
+						 				<td class="text-center">{$classify[$vo['c_id']['c_name']]}</td>
+						 				<td class="text-center">{$vo['o_time']}</td>
+					 				</tr>
+					 			</foreach>
+					 			<tr>
+					 				<td colspan="7">
+					 					<div class='pageBox'>{$page}</div>
+					 				</td>
+					 			</tr>
+					 		</table>
+					 	</div>
+					<else />
 				 		<table class="table table-bordered ">
 				 			<tr >
 				 				<th class="text-center">图片</th>
@@ -223,16 +260,33 @@
 				 				<th class="text-center">类型</th>
 				 				<th class="text-center">发布时间</th>
 				 			</tr>
-				 			<!-- <foreach></foreach> -->
+				 			<foreach name='order' item='vo'>
+				 				<tr>
+				 					<if condition="$_GET['tab'] eq 3">
+						 				<td class="text-center">图片</td>
+						 				<td class="text-center">{$vo.n_name}</td>
+						 				<td class="text-center">{$vo.n_price}</td>
+						 				<td class="text-center">1</td>
+						 				<td class="text-center">{$classify[$vo['c_id']['c_name']]}</td>
+						 				<td class="text-center">{$vo.n_time}</td>
+						 				<else />
+						 				<td class="text-center">图片</td>
+						 				<td class="text-center">{$vo.p_name}</td>
+						 				<td class="text-center">{$vo.p_price}</td>
+						 				<td class="text-center">1</td>
+						 				<td class="text-center">{$classify[$vo['c_id']['c_name']]}</td>
+						 				<td class="text-center">{$vo.p_time}</td>
+					 				</if>
+					 			</tr>
+				 			</foreach>
 				 			<tr>
 				 				<td colspan="6">
-				 					页码
+				 					<div class='pageBox'>{$page}</div>
 				 				</td>
 				 			</tr>
 				 		</table>
-				 	</div>
-				 	
-				 </div>
+				 	</if>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -2,6 +2,7 @@
 
 #content{
 	width: 90%;
+	margin-top: 20px;
 }
 /* 左侧基本信息 */
 .lside{
@@ -30,4 +31,21 @@
 /* 导航条 */
 .navbar{
 	border-radius:0;
+}
+
+
+.pageBox>div{
+	position: relative;
+	float: left;
+	margin: 0 auto;
+	left: 50%;
+}
+.pageBox a,.pageBox span{
+	width: 30px;
+	height: 20px;
+	background: #ccc;
+	display: inline-block;
+	margin: 0 3px;
+	text-align: center;
+	line-height: 20px;
 }
