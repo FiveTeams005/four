@@ -48,7 +48,8 @@ $(function(){
 
     //引入封装footer
     var Obottom=new showBtm(0);
-    Obottom.setFather("footer")
+    Obottom.setFather("footer");
+
 
 
     //分类选择传值
@@ -62,8 +63,9 @@ $(function(){
                 List.push(a);
             }
         },'json');
-    })
-    //
+
+    });
+  
     Vue.component('todo-item',{
         props:['todo'],
         template:' <p class="col-xs-12" v-on:click="greet(todo.id)">{{todo.text}}</p>',
@@ -118,7 +120,6 @@ $(function(){
 
     });
 })
-
 //点击定位显示地图
     function map(){
         var map = MVC("Home",'Index','map');
