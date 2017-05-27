@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>普通商品管理</title>
+	<title>拍卖商品管理</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
@@ -14,7 +14,7 @@
     <script type="text/javascript" src="__PUBLIC__/Admin/myjs/goodsDetail.js"></script>
 </head>
 <body >
-	<h4 style="padding-left: 30px;">普通商品详情</h4>
+	<h4 style="padding-left: 30px;">拍卖商品详情</h4>
 	<hr>
 	<div class="container">
 		
@@ -26,7 +26,12 @@
 					<th class="text-center">商品价格</th>
 					<th class="text-center">商品状态</th>
 					<th class="text-center">商品分类</th>
-					<th class="text-center">赞</th>
+					<th class="text-center">起拍价</th>
+					<th class="text-center">开拍时间</th>
+					<th class="text-center">结束时间</th>
+					<th class="text-center">加价幅度</th>
+					<th class="text-center">手续费</th>
+					<th class="text-center">保证金</th>
 					<th class="text-center">商品发布时间</th>
 				</tr>
 				<foreach>
@@ -43,14 +48,14 @@
 					<div class="col-md-2 col-lg-2 text-center" >
 						<p class="lead">商品名称</p>
 					</div>
-					<div class="col-md-10 col-lg-10" >
+					<div class="col-md-10 col-lg-10">
 							<p style="line-height: 28px;">名称</p>
 						<hr>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-2 col-lg-2 text-center" >
-						<p class="lead" >商品详情</p>
+						<p class="lead">商品详情</p>
 					</div>
 					<div class="col-md-10 col-lg-10">
 						<p style="line-height: 28px;">详情</p>
