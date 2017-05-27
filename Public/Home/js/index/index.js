@@ -18,9 +18,9 @@ $(function(){
     //自动轮播；每隔3秒自动轮播
     $('#myCarousel').carousel({interval:3000});
     //获取拍卖商品；
-    $.post('',{},function (data){
+    /*$.post('',{},function (data){
         console.log(data);
-    });    
+    }); */   
     //导航滚动顶部置顶；
     $(window).scroll(function () {
         var menu_top = $('#menu-wrap').offset().top;
@@ -106,16 +106,33 @@ $(function(){
             searchGoods:function(){
                 if(this.v != ''){
                     this.hideDiv = false;
-                    // $.post(s)
+                    $.post(MVC('Home','Index','searchGoods'),{goodsname:this.v},function(data){
+                        if(data){
+                            window.location.href = "index.php?p=Home&c=Classify&a=classify&name="+header.v;
+                        }else{
+                            // alert('搜索的'+this.v+'不存在');
+                            layer.open({
+                                content:'搜索的'+header.v+'不存在',
+                            });
+                        }
+                    });
                 }
             },
             //点击搜索用户；
             searchUser:function(){
                 if(this.v != ''){
                     this.hideDiv = false;
-                    // $.post(s)
+                    $.post(MVC('Home','Index','schUser'),{username:this.v},function(data){
+                        if(data){
+                            window.location.href = '';
+                        }else{
+                            layer.open({
+                                content:'搜索的'+header.v+'用户不存在',
+                            });
+                        }
+                    });
                 }
-            }
+            },
         },
 
     });
