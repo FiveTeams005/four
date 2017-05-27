@@ -23,6 +23,15 @@
             return "{:U('"+p+"/"+c+"/"+a+"')}";
         }
         var path = "__PUBLIC__/";
+
+        //点击商品跳转到详情页
+        function detail(id){
+            var classID = MVC('Home','Classify','classify');
+            $.post(classID,{classID:id},function () {
+                window.location.href = classID;
+            });
+        }
+
     </script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/Home/static/footer.js"></script>
@@ -112,49 +121,49 @@
         <!--分类导航-->
         <div class="row text-center classify-bar">
             <div class="col-sm-3 col-xs-3">
-                <a href="" class="indexcase text-center">
+                <a href="#" onclick='detail(1)' class="indexcase text-center">
                     <img src="__PUBLIC__/Home/img/images/bar_icon_2.png" class="img-responsive" />
                     <span>数码</span>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="" >
+                <a href="#" onclick='detail(2)' >
                     <img src="__PUBLIC__/Home/img/images/bar_icon_1.png" class="img-responsive" />
                     <span>户外</span>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="" >
+                <a href="#" onclick='detail(3)' >
                     <img src="__PUBLIC__/Home/img/images/bar_icon_3.png" class="img-responsive" />
                     <span>服饰</span>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="" >
+                <a href="#" onclick='detail(4)' >
                     <img src="__PUBLIC__/Home/img/images/bar_icon_4.png" class="img-responsive" />
                     <span>家具</span>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="" >
+                <a href="#" onclick='detail(5)' >
                     <img src="__PUBLIC__/Home/img/images/bar_icon_5.png" class="img-responsive" />
                     <span>手表</span>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="" >
+                <a href="#" onclick='detail(6)' >
                     <img src="__PUBLIC__/Home/img/images/bar_icon_6.png" class="img-responsive" />
                     <span>箱包</span>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="" >
+                <a href="#" onclick='detail(7)' >
                     <img src="__PUBLIC__/Home/img/images/bar_icon_7.png" class="img-responsive" />
                     <span>家电</span>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="" >
+                <a href="#" onclick='detail(8)' >
                     <img src="__PUBLIC__/Home/img/images/bar_icon_1.png" class="img-responsive" />
                     <span>玩具</span>
                 </a>

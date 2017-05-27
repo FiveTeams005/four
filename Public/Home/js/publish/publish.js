@@ -29,19 +29,34 @@ $(function () {
             $(".insert-img").hide();
         }
     })
+
+    var List = [];
     $("#classify").click(function () {
+        $("#showClass").html("");
         $(".my-classify").show();
+        var classfiy = MVC('Home','Index','classfiy');
+        $.post(classfiy,{},function (data) {
+            for(var i=0;i<data.length;i++){
+                var a = {text:data[i]['c_name'],id:data[i]['c_id']};
+                List.push(a);
+            }
+        },'json');
     })
 
+    
+    
     //分类选择传值
     Vue.component('todo-item',{
         props:['todo'],
-        template:' <p class="col-xs-12"  v-on:click="greet(todo.text)">{{todo.text}}</p>',
+        template:' <p class="col-xs-12" v-on:click="greet(todo)">{{todo.text}}</p>',
         methods:{
             greet:function(vue) {
-                $("#sort").text(vue);
+                $("#sort").text(vue.text);
                 $("#sort").siblings().text("");
                 $("#app1").hide();
+                var setClassId = MVC('Home','Publish','setClassId');
+                $.post(setClassId,{setClassId:vue.id},function (data) {
+                });
             }
         }
 
@@ -49,12 +64,7 @@ $(function () {
     var app1=new Vue({
         el:'#app1',
         data:{
-            List:[
-                {text:'男装'},
-                {text:'女装'},
-                {text:'童装'},
-                {text:'数码'}
-            ]
+            List:List
         }
     })
     //发布按钮点击判断内容值
@@ -91,6 +101,8 @@ $(function () {
         }
 //                满足发布条件后将数据传输到后台
         else{
+
         }
     })
+    
 })

@@ -74,5 +74,20 @@ $(function(){
 		var s = $(this).find('a').html();
 		$(window).scrollTop($('#' + s + '1').offset().top-56);
 	});
+	
+	
+	//进来加载商品东西
+	var showGoods = MVC('Home','Classify','showGoods');
+	$.post(showGoods,{},function (data) {
+		for(var i=0;i<data.length;i++){
+			var oDiv = $("<div onclick='detail("+data[i]['n_id']+")' class='col-sm-6 col-xs-6 bg-primary one-goods'>\
+							<img src='"+data[i]['n_src']+"' class='img-responsive'>\
+								<div>"+data[i]['n_name']+"</div>\
+							<p class='text-danger'>&yen;<span>"+data[i]['n_praise']+"</span></p>\
+							</div>");
+			$("#showGoods").append(oDiv);
+		}
 
+	},'json');
+	
 })

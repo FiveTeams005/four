@@ -61,8 +61,8 @@ class IndexController extends Controller {
 					cookie('flag',2);
 				}
 				$user = $db->where("openid = '{$openid}'")->select();
-				$string=serialize($user);
-				cookie('user',$string);
+//				$string=serialize($user);
+				cookie('user',$user[0]['h_id']);
 //			var_dump(unserialize(cookie('user')));
 				$this->display('index');
 			}else{

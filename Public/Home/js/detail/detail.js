@@ -3,6 +3,9 @@
 */
 
 $(document).ready(function(){
-	//判断登陆；
+        var detail = MVC('Home','Detail','show')
+        $.post(detail,{},function (data) {
+            alert(data);
+        })
 	
 })

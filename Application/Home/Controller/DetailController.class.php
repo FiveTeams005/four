@@ -9,7 +9,14 @@ class DetailController extends Controller {
 	 * @return 返回类型
 	 */
 	public function detail(){
-		$this->show();
+		cookie('detailID',I('id'));
+		$this->display();
+	}
+	/*
+ 	* 获取商品id显示商品
+ 	*/
+	public function show(){
+		echo cookie('detailID');
 	}
 }
 ?>
