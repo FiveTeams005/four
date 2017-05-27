@@ -3,36 +3,71 @@ namespace Admin\Controller;
 use Common\Controller\BaseController;
 class NgoodsController extends BaseController {
 	/**
-	 * 登录用户对应的权限菜单
+	 * 普通商品
 	 */
 	public function ngoods(){
 		$classify = M('classify');
 		$cRes = $classify->getfield("c_id,c_name","");
 		$this->assign('classify',$cRes);
 
+		$this->assign('status',C('NG_STATUS'));
+
 		$huser = M('huser');
 		$huserRes = $huser->getfield("h_id,h_account");
 		$this->assign('huser',$huserRes);
 
-		$goods = M('ngoods');
-		$res = $goods->page((isset($_GET['p'])?$_GET['p']:1).',10')->select();
-		$this->assign('goods',$res);
-		$this->display();
+		$img = M('images');
+		$imgRes = $img->group('n_id')->getfield('n_id,n_img');
+		$this->assign('img',$imgRes);
 
-		// $huser = M('huser'); // 实例化auser对象
-		// $list = $huser->page((isset($_GET['p'])?$_GET['p']:1).',5')->where($where)->select();
-		// $this->assign('data',$list);// 赋值数据集
-		// $count = $huser->where($where)->count();// 查询满足要求的总记录数
-		// $Page = new \Think\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数
-		// $show = $Page->show();// 分页显示输出
-		// $this->assign('page',$show);// 赋值分页输出
-		// $this->display();
+		$where = "";
+		if(isset($_GET['goodsStatus']) && $_GET['goodsStatus'] != "none"){
+			$where['n_status'] = array('eq',$_GET['goodsStatus']);
+		}
+		if(isset($_GET['classify']) && $_GET['classify'] != ""){
+			$where['c_id'] = $_GET['classify'];
+		}
+		if(isset($_GET['selectInp'])){
+			$where['_string'] = "(n_name like '%{$_GET['selectInp']}%') OR (n_info like '%{$_GET['selectInp']}%')";
+		}
+
+		$goods = M('ngoods');
+
+		if($_GET['publishTime'] == 'asc'){
+			$res = $goods->where($where)->page((isset($_GET['p'])?$_GET['p']:1).',6')->order('n_time asc')->select();
+		}
+		else{
+			$res = $goods->where($where)->page((isset($_GET['p'])?$_GET['p']:1).',6')->order('n_time desc')->select();
+		}
+		$this->assign('goods',$res);
+		$count = $goods->where($where)->count();
+		$Page = new \Think\Page($count,6);
+		$show = $Page->show();
+		$this->assign('page',$show);
+
+		$this->display();
 	}
 
 	/**
-	 * 登录用户对应的权限菜单
+	 * 商品详情
 	 */
 	public function ngoodsDetail(){
 		$this->display();
+	}
+
+	/**
+	 * 删除用户
+	 * @return string
+	 */
+	public function ngoodsDel(){
+		$n_id = $_POST['n_id'];
+		$ngoods = M('ngoods');
+		$delRes = $ngoods->where("n_id in({$n_id})")->delete();
+		if($delRes){
+			echo "删除商品成功！";
+		}
+		else{
+			echo "删除商品失败！";
+		}
 	}
 }
