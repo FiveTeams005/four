@@ -41,7 +41,6 @@ class HuserController extends BaseController {
 	}
 	/**
 	 * 用户详情
-	 * @return string
 	 */
 	public function userInfo(){
 		$huser = M('huser');
@@ -63,13 +62,11 @@ class HuserController extends BaseController {
 			$goods = M('ngoods');
 			$list = $goods->page((isset($_GET['p'])?$_GET['p']:1).',10')->where("h_id = {$_GET['hid']}")->select();
 			$count = $goods->where("h_id = {$_GET['hid']}")->count();
-			// var_dump($list);die();
 		}
 		else if($_GET['tab'] == 4){
 			$goods = M('pgoods');
 			$list = $goods->page((isset($_GET['p'])?$_GET['p']:1).',10')->where("h_id = {$_GET['hid']}")->select();
 			$count = $goods->where("h_id = {$_GET['hid']}")->count();
-			// var_dump($list);die();
 		}
 		else{
 			$list = $order->join("join f_ngoods on f_order.n_id = f_ngoods.n_id")->page((isset($_GET['p'])?$_GET['p']:1).',10')->where("f_order.h_id = {$_GET['hid']}")->select();
