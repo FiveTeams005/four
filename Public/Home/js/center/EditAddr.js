@@ -8,6 +8,18 @@ $(function() {
     $("#areaMask, #closeArea").click(function() {
         clockArea();
     });
+    //点击删除地址，layer弹出询问框，点击确定则删除
+    $("#add-del").on("click",function () {
+        layer.open({
+            content: '确定该删除地址吗？'
+            ,btn: ['删除', '取消']
+            ,skin: 'footer'
+            ,yes: function(index){
+                alert(1);
+                window.location.href=MVC("Home","Center","MyAddr");
+            }
+        })
+    })
     //点击保存地址，判断输入的地址是否符合要求
     $(".btn-add").on("click",function () {
         var flag=0;

@@ -26,10 +26,8 @@ header{
 .chat-list-single hr{
 	margin-top: 10px;
 }
-.chat-list-single button{
-	border: 1px solid #ddd;
+.del-btn{
 	outline:none;
-	border-radius: 50%;
 	background-color: inherit;
 	width: 21px;
 	height: 21px;
