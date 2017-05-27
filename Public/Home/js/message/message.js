@@ -17,7 +17,7 @@ $(function(){
 						<img :src="list.goodsImg" class="img-responsive" >\
 					</div>\
 				</div>\
-				<button @click.stop="delList(list.otherId)"><img src="'+path+'Home/img/xianyu/alipay_msp_close.png" class="img-responsive"></button>\
+				<div @click.stop="delList(list.otherId)" class="del-btn"><img src="'+path+'Home/img/xianyu/template_clean_icon.png" class="img-responsive"></div>\
 				<hr />\
 			</div>',
 		methods:{
