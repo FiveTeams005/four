@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>后台用户管理</title>
+	<title>普通商品管理</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
@@ -16,7 +16,7 @@
     	var urlLock = "{:U('Admin/auser/auserLock')}";
     </script>
     <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
-    <script type="text/javascript" src="__PUBLIC__/Admin/myjs/auser.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/myjs/ngoods.js"></script>
 </head>
 <body >
 	<div class="container">
@@ -25,27 +25,34 @@
 				<h3 class="text-center">普通商品管理</h3>
 			</div>
 		</div>
-		<form class="row search-div" method='get' action="{:U('Admin/auser/auser')}">
+		<form class="row search-div" method='get' action="{:U('Admin/ngoods/ngoods')}">
 			<div class="col-md-1 col-lg-1 ">
 				<input type='button' value='删除' class="btn btn-info" id='del' />
 			</div>
 			<div class="col-md-2 col-lg-2 ">
-				<select class="selectpicker" name='userStatus' onchange="this.form.submit()">
+				<select class="selectpicker" name='goodsStatus' onchange="this.form.submit()">
 					<option value="">商品状态</option>
-			    	<option value="1">正 常</option>
-			    	<option value="0">锁 定</option>
+			    	<option value="1">上 架</option>
+			    	<option value="0">下 架</option>
 			  	</select>
 			</div>
 			<div class="col-md-2 col-lg-2 ">
-				<select class="selectpicker" name='userRole' onchange="this.form.submit()">
-					<option value="">用户角色</option>
+				<select class="selectpicker" name='classify' onchange="this.form.submit()">
+					<option value="">商品类别</option>
 					<foreach name='role' item='vo'>
-						<option value="{$vo['r_id']}">{$vo.r_name}</option>
+						<option value="{$vo['c_id']}">{$vo.c_name}</option>
 					</foreach>
 			  	</select>
 			</div>
+			<div class="col-md-2 col-lg-2 ">
+				<select class="selectpicker" name='publishTime' onchange="this.form.submit()">
+					<option value="">发布时间</option>
+			    	<option value="1">升序显示</option>
+			    	<option value="0">降序显示</option>
+			  	</select>
+			</div>
 			<div class="col-md-3 col-lg-3">
-				<input type="text" name="selectInp" class="form-control" placeholder="请输入要搜索的用户信息">
+				<input type="text" name="selectInp" class="form-control" placeholder="请输入要搜索的商品信息">
 			</div>
 			<div class="col-md-2 col-lg-2">
 				<button class="btn btn-success">搜 索</button>
@@ -59,9 +66,8 @@
 							<input type='checkbox' id='chooseAll'>
 						</th>
 						<th class="text-center">id</th>
-						<th class="text-center">商品名</th>
 						<th class="text-center">商品图片</th>
-						<th class="text-center">商品详情</th>
+						<th class="text-center">商品名</th>						
 						<th class="text-center">商品价格</th>
 						<th class="text-center">商品分类</th>
 						<th class="text-center">发布用户</th>
@@ -75,24 +81,31 @@
 					<foreach name="data" item="v">
 						<tr>
 							<td class="text-center">
-								<input type='checkbox' rid="{$v['a_id']}">
+								<input type='checkbox' rid="{$v['n_id']}">
 							</td>
 							<td class="text-center">{$key+1}</td>
-							<td class="text-center">{$v.a_account}</td>
-							<td class="text-center">{$v.a_nick}</td>
-							<td class="text-center">{$v.r_name}</td>
-							<td class="text-center">
-								<if condition="$v['a_status'] eq 1">正常
-									<else />锁定
-								</if>
-							</td>
+							<td class="text-center">{$v.n_src}</td>
+							<td class="text-center">{$v.n_name}</td>
+							<td class="text-center">{$v.n_price}</td>
+							<td class="text-center">分类</td>
+							<td class="text-center">发布用户</td>
+							<td class="text-center">{$v.n_time}</td>
+							<td class="text-center">{$v.n_praise}</td>
 							<td class="text-center">
 								<a href="#" class='lock' rId="{$v['a_id']}" status="{$v['a_status']}">
-									<if condition="$v['a_status'] eq 1">锁定
-										<else />解锁
+									<if condition="$v['n_status'] eq 1">已上架
+										<else />已下架
+									</if>
+								</a>
+							</td>
+
+							<td class="text-center">
+								<a href="#" class='lock' rId="{$v['a_id']}" status="{$v['a_status']}">
+									<if condition="$v['n_status'] eq 1">下架
+										<else />上架
 									</if>
 								</a>&nbsp;&nbsp;
-								<a href="">修改</a>&nbsp;&nbsp;
+								<a href="">查看详情</a>&nbsp;&nbsp;
 								<a href="#" class='del' rId="{$v['a_id']}">删除</a>
 							</td>
 						</tr>
