@@ -1,0 +1,61 @@
+.bg{
+    background-color: #f7f7f7;
+}
+.con-my-publish{
+    background-color: #fff;
+}
+.my-publish{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+.my-publish-title{
+    font-weight: 500;
+    font-size: 18px;
+}
+.addr-detail{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#addr .row{
+    border-bottom: 1px solid #eee;
+}
+.addr-name{
+    padding-left: 5px;
+    font-size: 18px;
+}
+.addr-tel{
+    font-size: 18px;
+}
+.addr-addr{
+    font-size: 12px;
+    padding-left: 5px;
+    margin-top: 5px;
+}
+.active{
+    background-color: #5e6b85;
+    color: #fff;
+}
+.addr-img{
+    padding-left: 0;
+    padding-right: 0;
+}
+.addr-img img{
+    width: 30px;
+    margin-top: 22px;
+}
+footer{
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.btn-add{
+    line-height: 30px;
+    font-size: 18px;
+    width: 100%;
+    border-radius: 0;
+    color: #fff;
+    background-color: #fe4343;
+}
