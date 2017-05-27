@@ -36,7 +36,7 @@ $(function () {
     //分类选择传值
     Vue.component('todo-item',{
         props:['todo'],
-        template:' <p class="col-xs-12" v-on:click="greet(todo.text)">{{todo.text}}</p>',
+        template:' <p class="col-xs-12"  v-on:click="greet(todo.text)">{{todo.text}}</p>',
         methods:{
             greet:function(vue) {
                 $("#sort").text(vue);
@@ -81,7 +81,7 @@ $(function () {
             $("#content").append(p4);
             flag=1;
         }
-        if(flag=1){
+        if(flag==1){
             layer.open({
                 title: '完成发布需要以下几个条件'
                 ,content: $("#content").html()
@@ -91,7 +91,6 @@ $(function () {
         }
 //                满足发布条件后将数据传输到后台
         else{
-
         }
     })
 })

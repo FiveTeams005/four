@@ -41,4 +41,7 @@ class CenterController extends Controller {
     public function MyAddr(){
         $this->display();
     }
+    public function AddAddr(){
+        $this->display();
+    }
 }
