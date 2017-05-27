@@ -1,7 +1,7 @@
 // 个人聊天信息列表
 $(function(){
 	var footer = new showBtm(2);//底部
-	footer.setFather('footer');
+		footer.setFather('footer');
 	Vue.component('todo-item',{
 		props:['list'],
 		template:'<div :otherId="list.otherId" :goodsId="list.goodsId" v-on:click="listSingle(list.otherId,list.goodsId)" class="col-xs-12 col-sm-12 chat-list-single">\
@@ -9,7 +9,7 @@ $(function(){
 					<div class="col-xs-3 col-sm-3">\
 						<img :src="list.headImg" class="img-responsive img-circle">\
 					</div>\
-					<div class="col-xs-6 col-sm-6">\
+					<div class="col-xs-6 col-sm-6" style="padding:0">\
 						<p><b>{{list.username}}</b></p>\
 						<span>{{list.lastMessage}}</span> | <span>{{list.lastTime}}</span>\
 					</div>\
@@ -17,17 +17,17 @@ $(function(){
 						<img :src="list.goodsImg" class="img-responsive" >\
 					</div>\
 				</div>\
-				<button @click.stop="delList(list.otherId)"><img src="'+path+'Home/img/xianyu/alipay_msp_close.png" class="img-responsive"></button>\
+				<div @click.stop="delList(list.otherId)" class="del-btn"><img src="'+path+'Home/img/xianyu/template_clean_icon.png" class="img-responsive"></div>\
 				<hr />\
 			</div>',
 		methods:{
 			//聊天列表点击事件（跳转至聊天页面）；
 			listSingle:function(uId,goodsId){
-				// window.location.href = MVC('Home','Chat','chat',a,b);
-				$.post(MVC('Home','Chat','getInfo'),{meId:1,otherId:uId,goodsId:goodsId},function(){
-					//
+				window.location.href = MVC('Home','Chat','chat');
+				// $.post(MVC('Home','Chat','getInfo'),{meId:1,otherId:uId,goodsId:goodsId},function(){
+				// 	//
 
-				});
+				// });
 			},
 			//删除该聊天列表；
 			delList:function(uId){

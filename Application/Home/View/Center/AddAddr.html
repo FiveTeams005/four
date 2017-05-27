@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>添加地址</title>
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/center/AddAddrStyle.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/mapchoose/css/style.css">
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+        var path = "__PUBLIC__/";
+    </script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script src="__PUBLIC__/Home/js/center/AddAddr.js"></script>
+</head>
+<body >
+<header>
+    <div class="container con-my-publish">
+        <div class="row my-publish">
+            <div class="col-xs-8 col-xs-offset-2 text-center my-publish-title">添加收货地址</div>
+        </div>
+    </div>
+</header>
+<form>
+<div class="iphone">
+    <div class="browser">
+        <!--选择地区-->
+        <section class="express-area">
+            <a id="expressArea" href="javascript:void(0)">
+                <dl>
+                    <dt>选择地区：</dt>
+                    <dd id="add-city"></dd>
+                </dl>
+            </a>
+        </section>
+    </div>
+</div>
+<div class="container addr-msg">
+    <div class="form-group">
+        <div class="col-xs-12"><input type="text" id="add-detail" class="form-control" placeholder="请输入详细地址"></div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12"><input type="text" id="add-name" class="form-control" placeholder="请输入收货人姓名"></div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12"><input type="tel" id="add-tel" class="form-control" placeholder="请输入联系人电话"></div>
+    </div>
+</div>
+</div>
+</form>
+<footer>
+    <div class="container-fulid">
+        <div class="row">
+                <button type="button" class="btn btn-add">保存地址</button>
+        </div>
+    </div>
+</footer>
+        <!--选择地区弹层-->
+        <section id="areaLayer" class="express-area-box">
+            <header>
+                <h3>选择地区</h3>
+                <a id="backUp" class="back" href="javascript:void(0)" title="返回"></a>
+                <a id="closeArea" class="close" href="javascript:void(0)" title="关闭"></a>
+            </header>
+            <article id="areaBox">
+                <ul id="areaList" class="area-list"></ul>
+            </article>
+        </section>
+        <!--遮罩层-->
+        <div id="areaMask" class="mask"></div>
+        <script src="__PUBLIC__/static/mapchoose/js/jquery.area.js"></script>
+<div id="content"></div>
+</body>
+</html>

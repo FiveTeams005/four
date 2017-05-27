@@ -19,11 +19,12 @@
 .publish-action{
     font-size: 11px;
 }
+/*发布秘籍*/
 .publish-img{
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 3;
+    z-index: 6;
     display: none;
 }
 .publish-img img{

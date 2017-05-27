@@ -38,4 +38,13 @@ class CenterController extends Controller {
     public function MyMoney(){
         $this->display();
     }
+    public function MyAddr(){
+        $this->display();
+    }
+    public function AddAddr(){
+        $this->display();
+    }
+    public function EditAddr(){
+        $this->display();
+    }
 }

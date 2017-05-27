@@ -67,5 +67,42 @@ $(function () {
             List:List
         }
     })
+    //发布按钮点击判断内容值
+    var flag=0
+//            console.log($(".logo1").length);
+    $("#sub").on("click",function () {
+        if($.trim($("#publish-title").val())==""){
+            var p1="<p>标题一定要填写</p>";
+            $("#content").append(p1);
+            flag=1;
+        }
+        if($(".logo1").length==0){
+            var p2="<p>至少上传一张图片</p>";
+            $("#content").append(p2);
+            flag=1;
+        }
+        if($("#publish-price").val()==""||$("#publish-price").val()<0||$("#publish-price").val()>100000000){
+            var p3="<p>宝贝价格必须在0元与1亿元之间</p>";
+            $("#content").append(p3);
+            flag=1;
+        }
+        if($("#sort").text()==""){
+            var p4="<p>选择一个分类</p>";
+            $("#content").append(p4);
+            flag=1;
+        }
+        if(flag==1){
+            layer.open({
+                title: '完成发布需要以下几个条件'
+                ,content: $("#content").html()
+                ,type:2
+            })
+            $("#content").html("");
+        }
+//                满足发布条件后将数据传输到后台
+        else{
+
+        }
+    })
     
 })

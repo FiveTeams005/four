@@ -48,7 +48,8 @@ $(function(){
 
     //引入封装footer
     var Obottom=new showBtm(0);
-    Obottom.setFather("footer")
+    Obottom.setFather("footer");
+
 
 
     //分类选择传值
@@ -62,7 +63,9 @@ $(function(){
                 List.push(a);
             }
         },'json');
-    })
+
+    });
+  
     Vue.component('todo-item',{
         props:['todo'],
         template:' <p class="col-xs-12" v-on:click="greet(todo.id)">{{todo.text}}</p>',
@@ -82,9 +85,41 @@ $(function(){
         data:{
             List: List,
         }
-    })
-})
+    });
 
+    
+    var header = new Vue({
+        el:'#header',
+        data:{
+            hideDiv :false,
+            v       :'',//输入框的值；
+        },
+        
+        methods:{
+            //输入框有值时，显示相关div；
+            showDiv:function(){
+                if(this.v !== ''){
+                    this.hideDiv = true;
+                }
+            },
+            //点击搜索商品；
+            searchGoods:function(){
+                if(this.v != ''){
+                    this.hideDiv = false;
+                    // $.post(s)
+                }
+            },
+            //点击搜索用户；
+            searchUser:function(){
+                if(this.v != ''){
+                    this.hideDiv = false;
+                    // $.post(s)
+                }
+            }
+        },
+
+    });
+})
 //点击定位显示地图
     function map(){
         var map = MVC("Home",'Index','map');

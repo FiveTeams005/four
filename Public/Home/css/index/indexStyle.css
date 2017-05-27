@@ -31,6 +31,30 @@ header #sec-btn{
     right: 0;
     bottom: 0;
 }
+header .list img{
+	width: 24px;
+	max-height: 24px;
+	margin: 2px 8px 0 0 ;
+}
+
+/* 搜索框内容显示样式 */
+.search-info{
+	position: absolute;
+	top: 40px;
+	left:0;
+	background-color: #fff;
+	z-index:9999;
+	width: 100%;
+}
+.search-info img{
+	max-width: 32px;
+}
+.search-info .row{
+	padding: 6px 0;
+	border-bottom: 1px solid #ddd;
+	font-size: 13px;
+	line-height: 28px;
+}
 
 /*内容样式*/
 
@@ -155,5 +179,12 @@ nav ul li.active a{
 	border-bottom: 1px solid #ccc;
 	margin:10px;
 	line-height: 25px;
+}
+.my-publish img{
+	width: 20px;
+	margin-top: 10px;
+}
+.my-publish-title{
+	font-size: 18px;
 }
 
