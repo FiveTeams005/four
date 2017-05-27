@@ -103,5 +103,43 @@ class IndexController extends Controller {
 		$res = $db->select();
 		echo json_encode($res);
 	}
+	/*
+ 	* 查询商品
+ 	*/
+ 	public function searchGoods(){
+ 		$g_name = I('goodsname');
+ 		$ngoods = M('ngoods');
+ 		$pgoods = M('pgoods');
+ 		$res1 = $ngoods->where("n_name like '%{$g_name}%'")->select();
+ 		$res2 = $pgoods->where("p_name like '%{$g_name}%'")->select();
+ 		
+ 		$result = array();
+ 		if(count($res1) != 0 && count($res2) != 0){
+ 			$result = array_merge($res2,$res1);
+ 		}elseif(count($res1) > 0 && count($res2) == 0){
+ 			$result = $res1;
+ 		}elseif(count($res2) > 0 && count($res1) == 0){
+ 			$result = $res2;
+ 		}
+ 		// $this->redirect('Classify/classify');
+ 		if(count($result) > 0){
+ 			$this->ajaxreturn(true);
+ 		}else{
+ 			$this->ajaxreturn(false);
+ 		}
+ 	}
+ 	/*
+ 	* 查询用户
+ 	*/
+ 	public function schUser(){
+ 		$u_name = I('username');
+ 		$huser = M('huser');
+ 		$res = $huser->where("h_nick = '{$u_name}'")->select();
+ 		if(empty($res)){
+ 			$this->ajaxreturn(false);
+ 		}else{
+ 			$this->ajaxreturn(true);
+ 		}
+ 	}
 	
 }
