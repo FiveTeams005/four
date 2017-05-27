@@ -53,3 +53,8 @@
 	text-align: center;
 	line-height: 20px;
 }
+
+/*商品列表图片*/
+tbody img{
+	width: 50px;
+}
