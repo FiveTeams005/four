@@ -46,6 +46,7 @@
 }
 .logo1{
     width:100%;
+    height: 100%;
 }
 .add-png{
     width:100%;
@@ -57,7 +58,9 @@
     width: 20px;
 }
 .describe-img{
-    padding: 0 15px 10px 15px;
+    width: 22%;
+    height: 73px;
+    padding: 0 10px 10px 15px;
     position: relative;
 }
 .insert-img{

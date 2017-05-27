@@ -12,6 +12,20 @@
     <script src="/four/Public/static/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/four/Public/Home/js/static/city/zepto.js"></script>
     <script src="/four/Public/static/vue/vue.js"></script>
+	<script>
+		function MVC(p,c,a){
+			return "<?php echo U('"+p+"/"+c+"/"+a+"');?>";
+		}
+
+		//点击商品跳转到详情页
+		function detail(id){
+			var detail = MVC('Home','Detail','detail');
+			$.post(detail,{id:id},function () {
+				window.location.href = detail;
+			})
+		}
+
+	</script>
     <script type="text/javascript" src="/four/Public/Home/js/classify/classify.js"></script>
 </head>
 <body>
@@ -58,17 +72,17 @@
 	</header>
 	<!-- 中间部分 -->
 	<div class="container-fluid" id="content">
-		<div class="row">
-			<div class="col-sm-6 col-xs-6 bg-primary one-goods">
-				<img src="/four/Public/Home/img/images/e.jpg" class="img-responsive">
-				<div>goodsname;jfasjflkjfasfjajoojfla</div>
-				<p class="text-danger">&yen;<span>12120.00</span></p>
-			</div>
-			<div class="col-sm-6 col-xs-6 bg-info one-goods">
-				<img src="/four/Public/Home/img/images/f.jpg" class="img-responsive">
-				<div>goodsname;jfasjflkjfasfjajoojfla</div>
-				<p class="text-danger">&yen;<span>12120.00</span></p>
-			</div>
+		<div id="showGoods" class="row">
+			<!--<div class="col-sm-6 col-xs-6 bg-primary one-goods">-->
+				<!--<img src="/four/Public/Home/img/images/e.jpg" class="img-responsive">-->
+				<!--<div>goodsname;jfasjflkjfasfjajoojfla</div>-->
+				<!--<p class="text-danger">&yen;<span>12120.00</span></p>-->
+			<!--</div>-->
+			<!--<div class="col-sm-6 col-xs-6 bg-info one-goods">-->
+				<!--<img src="/four/Public/Home/img/images/f.jpg" class="img-responsive">-->
+				<!--<div>goodsname;jfasjflkjfasfjajoojfla</div>-->
+				<!--<p class="text-danger">&yen;<span>12120.00</span></p>-->
+			<!--</div>-->
 		</div>
 	</div>
 	<!-- 城市选择 框 -->

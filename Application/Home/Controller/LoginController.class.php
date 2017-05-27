@@ -150,9 +150,9 @@ class LoginController extends Controller {
 		$res = $db->data($ary)->where("openid = '{$openid}'")->save();
 		if($res){
 			cookie('flag',1);
-			$user = $db->where("openid = '{$openid}'")->select();
-			$string=serialize($user);
-			cookie('user',$string);
+//			$user = $db->where("openid = '{$openid}'")->select();
+//			$string=serialize($user);
+//			cookie('user',$string);
 			echo 1;
 		}
 	}
