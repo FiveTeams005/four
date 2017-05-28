@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>普通待审核商品管理</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/huser.css">
+
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+    	var url = "{:U('Admin/ngoods/ngoods')}";
+    	var urlDel = "{:U('Admin/ngoods/ngoodsDel')}";
+    </script>
+    <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/myjs/ngoods.js"></script>
+</head>
+<body >
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-12 header">
+				<h3 class="text-center">普通待审核商品管理</h3>
+			</div>
+		</div>
+		<form class="row search-div" method='get' action="{:U('Admin/ngoods/ngoods')}">
+			<div class="col-md-1 col-lg-1 ">
+				<input type='button' value='删除' class="btn btn-info" id='del' />
+			</div>
+			<div class="col-md-2 col-lg-2 ">
+				<select class="selectpicker" name='goodsStatus' onchange="this.form.submit()">
+					<option value="none">商品状态</option>
+					<foreach name='status' item="vo">
+						<if condition="$_GET['goodsStatus'] neq 'none' and isset($_GET['goodsStatus']) and $_GET['goodsStatus'] - $key eq 0">
+							<option value="{$key}" selected>{$vo}</option>
+							<else /><option value="{$key}">{$vo}</option>
+						</if>
+				    </foreach>
+			  	</select>
+			</div>
+			<div class="col-md-2 col-lg-2 ">
+				<select class="selectpicker" name='classify' onchange="this.form.submit()">
+					<option value="">商品类别</option>
+					<foreach name='classify' item='vo'>
+						<if condition="$_GET['classify'] - $key eq 0">
+							<option value="{$key}" selected>{$vo}</option>
+							<else /><option value="{$key}">{$vo}</option>
+						</if>
+					</foreach>
+			  	</select>
+			</div>
+			<div class="col-md-2 col-lg-2 ">
+				<select class="selectpicker" name='publishTime' onchange="this.form.submit()">
+					<option value="">发布时间</option>
+					<if condition="$_GET['publishTime'] eq 'asc'">
+						<option value="asc" selected>升序显示</option>
+						<else /><option value="asc">升序显示</option>
+					</if>
+			    	<if condition="$_GET['publishTime'] eq 'desc'">
+						<option value="desc" selected>降序显示</option>
+						<else /><option value="desc">降序显示</option>
+					</if>
+			  	</select>
+			</div>
+			<div class="col-md-3 col-lg-3">
+				<input type="text" name="selectInp" class="form-control" placeholder="请输入要搜索的商品信息">
+			</div>
+			<div class="col-md-2 col-lg-2">
+				<button class="btn btn-success">搜 索</button>
+			</div>
+		</form>
+		<div class="row tableList">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th class="text-center">
+							<input type='checkbox' id='chooseAll'>
+						</th>
+						<th class="text-center">id</th>
+						<th class="text-center">商品图片</th>
+						<th class="text-center">商品名</th>						
+						<th class="text-center">商品价格</th>
+						<th class="text-center">商品分类</th>
+						<th class="text-center">发布用户</th>
+						<th class="text-center">发布时间</th>
+						<th class="text-center">商品状态</th>
+						<th class="text-center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<foreach name="goods" item="v">
+						<tr>
+							<td class="text-center">
+								<input type='checkbox' rid="{$v['n_id']}">
+							</td>
+							<td class="text-center">{$key+1}</td>
+							<td class="text-center"><img src="{$img[$v['n_id']]}"></td>
+							<td class="text-center">{$v.n_name}</td>
+							<td class="text-center">{$v.n_price}</td>
+							<td class="text-center">{$classify[$v['c_id']]}</td>
+							<td class="text-center">{$huser[$v['h_id']]}</td>
+							<td class="text-center">{$v.n_time}</td>
+							<td class="text-center">
+								<if condition="$v['n_status'] eq 0">下架
+									<elseif condition="$v['n_status'] eq 1" />上架
+									<elseif condition="$v['n_status'] eq 2" />审核中
+									<elseif condition="$v['n_status'] eq 3" />审核失败
+									<elseif condition="$v['n_status'] eq 4" />交易关闭
+									<elseif condition="$v['n_status'] eq 5" />交易中
+									<elseif condition="$v['n_status'] eq 6" />交易成功
+								</if>
+							</td>
+
+							<td class="text-center">
+								
+								<a href="{:U('Admin/ngoods/nPendDetail')}">查看详情</a>&nbsp;&nbsp;
+								
+								<a href="#" class='del' nId="{$v['n_id']}">删除</a>
+							</td>
+						</tr>
+					</foreach>
+				</tbody>
+			</table>
+			<div id='pageBox'>{$page}</div>
+		</div>
+	</div>
+</body>
+</html>

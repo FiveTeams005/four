@@ -122,6 +122,7 @@ class IndexController extends Controller {
  			$result = $res2;
  		}
  		// $this->redirect('Classify/classify');
+ 		// var_dump($result);
  		if(count($result) > 0){
  			$this->ajaxreturn(true);
  		}else{
