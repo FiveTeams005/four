@@ -45,6 +45,7 @@ header .list img{
 	background-color: #fff;
 	z-index:9999;
 	width: 100%;
+	display: none;
 }
 .search-info img{
 	max-width: 32px;
