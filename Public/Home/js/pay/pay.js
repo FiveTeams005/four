@@ -13,7 +13,7 @@ $(function(){
 			//获取地址；
 			getAddress:function(event){
 				// console.log(event.currentTarget.innerHTML);
-				$('#address-list-box').css({'left':'100%',});
+				$('#address-list-box').css({'display':'none'});
 				$('.show-address-div').html(event.currentTarget.innerHTML);
 			},
 		}
@@ -32,7 +32,7 @@ $(function(){
 		methods:{
 			//显示获取地址列表；
 			showList:function(){
-				$('#address-list-box').css({'left':0,});
+				$('#address-list-box').css({'display':'block'});
 			},
 			//确认付款；
 			payment:function(){
@@ -40,7 +40,7 @@ $(function(){
 			},
 			//地址列表的取消按钮 点击事件；
 			close:function(){
-				$('#address-list-box').css({'left':'100%',});
+				$('#address-list-box').css({'display':'none'});
 			},
 			//地址列表 新增按钮 点击事件；
 
