@@ -6,74 +6,73 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/goodsDetail.css">
 
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
-    <script type="text/javascript" src="__PUBLIC__/Admin/myjs/goodsDetail.js"></script>
 </head>
 <body >
-	<h4 style="padding-left: 30px;">拍卖商品详情</h4>
+	<h4 style="padding-left: 30px;"><a href="{:U('Admin/pgoods/pgoods')}">返回</a></h4>
 	<hr>
 	<div class="container">
-		
-		<div class="row">
-			<table class="table">
-				<tr style="height:40px;background-color:#2A3542;color:#fff; ">
-					<th class="text-center">商品ID</th>
-					<th class="text-center">商品发布人</th>
-					<th class="text-center">商品价格</th>
-					<th class="text-center">商品状态</th>
-					<th class="text-center">商品分类</th>
-					<th class="text-center">起拍价</th>
-					<th class="text-center">开拍时间</th>
-					<th class="text-center">结束时间</th>
-					<th class="text-center">加价幅度</th>
-					<th class="text-center">手续费</th>
-					<th class="text-center">保证金</th>
-					<th class="text-center">商品发布时间</th>
-				</tr>
-				<foreach>
-					<tr>
-						<td></td>
+		<foreach name='goods' item='vo'>
+			<div class="row">
+				<table class="table">
+					<tr style="height:40px;background-color:#2A3542;color:#fff; ">
+						<th class="text-center">商品发布人</th>
+						<th class="text-center">商品状态</th>
+						<th class="text-center">商品分类</th>
+						<th class="text-center">起拍价</th>
+						<th class="text-center">开拍时间</th>
+						<th class="text-center">结束时间</th>
+						<th class="text-center">加价幅度</th>
+						<th class="text-center">手续费</th>
+						<th class="text-center">保证金</th>
+						<th class="text-center">商品发布时间</th>
 					</tr>
-				</foreach>
-			</table>
-		</div>
-		<div class="row">
-			<h4 class="text-center" style="padding:7px;background-color:#2A3542;color:#fff; ">商品详情</h4>
-			<div class="col-lg-12 col-md-12">
-				<div class="row">
-					<div class="col-md-2 col-lg-2 text-center" >
-						<p class="lead">商品名称</p>
+					<tr>
+						<td class="text-center">{$huser}</td>
+						<td class="text-center">{$status[$vo['p_status']]}</td>
+						<td class="text-center">{$classify[$vo['c_id']]}</td>
+						<td class="text-center">{$vo['p_bprice']}</td>
+						<td class="text-center">{$vo['p_btime']}</td>
+						<td class="text-center">{$vo['p_etime']}</td>
+						<td class="text-center">{$vo['p_step']}</td>
+						<td class="text-center">{$vo['p_procedure']}</td>
+						<td class="text-center">{$vo['p_bail']}</td>
+						<td class="text-center">{$vo['p_time']}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="row">
+				<h4 class="text-center" style="padding:7px;background-color:#2A3542;color:#fff; ">商品详情</h4>
+				<div class="col-lg-12 col-md-12">
+					<div class="row">
+						<div class="col-md-2 col-lg-2 text-center" >
+							<p class="lead">商品名称</p>
+						</div>
+						<div class="col-md-10 col-lg-10">
+								<p style="line-height: 28px;">{$vo['p_name']}</p>
+							<hr>
+						</div>
 					</div>
-					<div class="col-md-10 col-lg-10">
-							<p style="line-height: 28px;">名称</p>
-						<hr>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2 col-lg-2 text-center" >
-						<p class="lead">商品详情</p>
-					</div>
-					<div class="col-md-10 col-lg-10">
-						<p style="line-height: 28px;">详情</p>
-						<hr>
-						<div class="row">
-
-							<div class="col-md-6 col-lg-6">
-								<img src="__PUBLIC__/Home/img/images/e.jpg" >
+					<div class="row">
+						<div class="col-md-2 col-lg-2 text-center" >
+							<p class="lead">商品详情</p>
+						</div>
+						<div class="col-md-10 col-lg-10">
+							<p style="line-height: 28px;">{$vo['p_info']}</p>
+							<hr>
+							<div class="row">
+								<foreach name='img' item='io'>
+									<img src="{$io['n_img']}" style='width:300px;margin:10px' />
+								</foreach>
 							</div>
-							<div class="col-md-6 col-lg-6">
-								<img src="__PUBLIC__/Home/img/images/f.jpg" >
-							</div>
-
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</foreach>
 	</div>
 </body>
 </html>

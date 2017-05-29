@@ -19,7 +19,7 @@
     <script type="text/javascript" src="__PUBLIC__/Admin/myjs/order.js"></script>
 </head>
 <body >
-	<h4 style="padding-left: 30px;">订单详细信息</h4>
+	<h4 style="padding-left: 30px;"><a href="{:U('Admin/order/order')}">返回</a></h4>
 	<hr>
 	<div class="container">
 		<h3><small>订单详情</small></h3>
@@ -35,7 +35,14 @@
 						<th class="text-center">发货时间</th>
 						<th class="text-center">收货时间</th>
 					</tr>
-					<foreach></foreach>
+					<tr>
+						<td class="text-center">{$order[0]['o_number']}</td>
+						<td class="text-center">{$order[0]['o_time']}</td>
+						<td class="text-center">{$order[0]['o_ptime']}</td>
+						<td class="text-center">{$status[$order[0]['o_status']]}</td>
+						<td class="text-center">{$order[0]['o_stime']}</td>
+						<td class="text-center">{$order[0]['o_rtime']}</td>
+					</tr>
 				</table>
 			</div>
 		</div>
@@ -48,7 +55,7 @@
 						账号
 					</div>
 					<div class="col-md-10 col-lg-10">
-						XXXX
+						{$huser}
 					</div>
 				</div>
 				<div class="row">
@@ -56,7 +63,7 @@
 						收货人
 					</div>
 					<div class="col-md-10 col-lg-10">
-						XXXX
+						{$address[0]['d_name']}
 					</div>
 				</div>
 				<div class="row">
@@ -64,7 +71,7 @@
 						联系方式
 					</div>
 					<div class="col-md-10 col-lg-10">
-						XXXX
+						{$address[0]['d_tel']}
 					</div>
 				</div>
 				<div class="row">
@@ -72,7 +79,7 @@
 						收货地址
 					</div>
 					<div class="col-md-10 col-lg-10">
-						XXXX，xxx
+						{$address[0]['d_address']}
 					</div>
 				</div>
 			</div>
@@ -86,7 +93,9 @@
 						购买价格
 					</div>
 					<div class="col-md-10 col-lg-10">
-						XXXX（含运费￥5.00）
+						<if condition="$order[0]['n_id'] neq 0">{$goods[0]['n_price']}
+							<else />{$goods[0]['p_price']}
+						</if>
 					</div>
 				</div>
 				<div class="row">
@@ -94,7 +103,9 @@
 						购买类型
 					</div>
 					<div class="col-md-10 col-lg-10">
-						普通
+						<if condition="$order[0]['n_id'] neq 0">普通
+							<else />拍卖
+						</if>
 					</div>
 				</div>
 				<div class="row">
@@ -102,7 +113,9 @@
 						商品名称
 					</div>
 					<div class="col-md-10 col-lg-10">
-						XXXX
+						<if condition="$order[0]['n_id'] neq 0">{$goods[0]['n_name']}
+							<else />{$goods[0]['p_name']}
+						</if>
 					</div>
 				</div>
 				<div class="row">
@@ -111,15 +124,9 @@
 					</div>
 					<div class="col-md-10 col-lg-10">
 						<div class="row">
-							<div class="col-md-4 col-lg-4">
-								<img src="__PUBLIC__/Home/img/images/e.jpg" class="img-responsive img-thumbnail"> 
-							</div>
-							<div class="col-md-4 col-lg-4">
-								<img src="__PUBLIC__/Home/img/images/f.jpg" class="img-responsive img-thumbnail"> 
-							</div>
-							<div class="col-md-4 col-lg-4">
-								<img src="__PUBLIC__/Home/img/images/e.jpg" class="img-responsive img-thumbnail"> 
-							</div>
+							<foreach name='img' item='io'>
+								<img src="{$io['n_img']}" style='width:300px;margin:10px' />
+							</foreach>
 						</div>
 					</div>
 				</div>

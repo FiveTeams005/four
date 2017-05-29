@@ -11,6 +11,10 @@
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
+    <script>
+    	var url = "{:U('Admin/order/order')}";
+    	var urlDel = "{:U('Admin/order/orderDel')}";
+    </script>
     <script type="text/javascript" src="__PUBLIC__/Admin/myjs/order.js"></script>
 </head>
 <body >
@@ -20,32 +24,45 @@
 				<h3 class="text-center">订单管理</h3>
 			</div>
 		</div>
-		<form class="row search-div" method='get' action="{:U('Admin/ngoods/ngoods')}">
+		<form class="row search-div" method='get' action="{:U('Admin/order/order')}">
 			<div class="col-md-1 col-lg-1 ">
 				<input type='button' value='删除' class="btn btn-info" id='del' />
 			</div>
 			<div class="col-md-2 col-lg-2 ">
-				<select class="selectpicker" name='goodsStatus' onchange="this.form.submit()">
-					<option value="">订单状态</option>
-			    	<option value="1">未付款</option>
-			    	<option value="0">已付款</option>
-			    	<option value="0">已发货</option>
-			    	<option value="0">已收货</option>
+				<select class="selectpicker" name='orderStatus' onchange="this.form.submit()">
+					<option value="none">订单状态</option>
+					<foreach name='status' item="vo">
+						<if condition="$_GET['orderStatus'] neq 'none' and isset($_GET['orderStatus']) and $_GET['orderStatus'] - $key eq 0">
+							<option value="{$key}" selected>{$vo}</option>
+							<else /><option value="{$key}">{$vo}</option>
+						</if>
+				    </foreach>
 			  	</select>
 			</div>
 			<div class="col-md-2 col-lg-2 ">
-				<select class="selectpicker" name='classify' onchange="this.form.submit()">
+				<select class="selectpicker" name='orderType' onchange="this.form.submit()">
 					<option value="">商品类别</option>
-					<foreach name='role' item='vo'>
-						<option value="{$vo['c_id']}">{$vo.c_name}</option>
-					</foreach>
+					<if condition="$_GET['orderType'] eq 'n_id'">
+						<option value="n_id" selected>普通</option>
+						<else /><option value="n_id">普通</option>
+					</if>
+					<if condition="$_GET['orderType'] eq 'p_id'">
+						<option value="p_id" selected>拍卖</option>
+						<else /><option value="p_id">拍卖</option>
+					</if>
 			  	</select>
 			</div>
 			<div class="col-md-2 col-lg-2 ">
-				<select class="selectpicker" name='publishTime' onchange="this.form.submit()">
+				<select class="selectpicker" name='payTime' onchange="this.form.submit()">
 					<option value="">购买时间</option>
-			    	<option value="1">升序显示</option>
-			    	<option value="0">降序显示</option>
+			    	<if condition="$_GET['payTime'] eq 'asc'">
+						<option value="asc" selected>升序显示</option>
+						<else /><option value="asc">升序显示</option>
+					</if>
+			    	<if condition="$_GET['payTime'] eq 'desc'">
+						<option value="desc" selected>降序显示</option>
+						<else /><option value="desc">降序显示</option>
+					</if>
 			  	</select>
 			</div>
 			<div class="col-md-3 col-lg-3">
@@ -65,7 +82,7 @@
 						<th class="text-center">订单号</th>
 						<th class="text-center">商品名</th>
 						<th class="text-center">商品类别</th>
-						<th class="text-center">购买类型（普通/拍卖）</th>			
+						<th class="text-center">购买类型</th>			
 						<th class="text-center">订单状态</th>
 						<th class="text-center">支付金额</th>
 						<th class="text-center">购买时间</th>
@@ -73,31 +90,33 @@
 					</tr>
 				</thead>
 				<tbody>
-					<foreach name="goods" item="v">
+					<foreach name="order" item="v">
 						<tr>
 							<td class="text-center">
-								<input type='checkbox' rid="{$v['n_id']}">
+								<input type='checkbox' oid="{$v['o_id']}">
 							</td>
 							<td class="text-center">{$v.o_number}</td>
-							<td class="text-center">{$v.n_name}</td>
-							<td class="text-center">{$classify[$v['c_id']]}</td>
-							<td class="text-center">{$v.n_id}购买类型</td>
-							<td class="text-center">{$huser[$v['h_id']]}</td>
 							<td class="text-center">
-								<if condition="$v['o_status'] eq 0">未付款
-									<elseif condition="$v['n_status'] eq 1" />上架
-									<elseif condition="$v['n_status'] eq 2" />审核中
-									<elseif condition="$v['n_status'] eq 3" />审核失败
-									<elseif condition="$v['n_status'] eq 4" />交易关闭
-									<elseif condition="$v['n_status'] eq 5" />交易中
-									<elseif condition="$v['n_status'] eq 6" />交易成功
+								<if condition="$v.n_id neq 0">{$n_name[$v['n_id']]}
+									<else />{$p_name[$v['p_id']]}
 								</if>
 							</td>
+							<td class="text-center">
+								<if condition="$v.n_id neq 0">{$classify[$n_cid[$v['n_id']]]}
+									<else />{$classify[$p_cid[$v['p_id']]]}
+								</if>
+							</td>
+							<td class="text-center">
+								<if condition="$v.n_id neq 0">普通
+									<else />拍卖
+								</if>
+							</td>
+							<td class="text-center">{$status[$v['o_status']]}</td>
 							<td class="text-center">{$v.o_money}</td>
 							<td class="text-center">{$v.o_ptime}</td>
 							<td class="text-center">
-								<a href="{:U('Admin/order/orderDetail')}">查看详情</a>&nbsp;&nbsp;
-								<a href="#" class='del' rId="{$v['o_id']}">删除</a>
+								<a href="{:U('Admin/order/orderDetail',array("id"=>$v['o_id']))}">查看详情</a>&nbsp;&nbsp;
+								<a href="#" class='del' oId="{$v['o_id']}">删除</a>
 							</td>
 						</tr>
 					</foreach>
