@@ -77,6 +77,11 @@ $(document).ready(function(){
         $(".con-input").show();
         $("#input-msg").focus();
     })
+
+    var detail=MVC('home','Detail','show')
+    $.post(detail,{},function (data) {
+        alert(data);
+    })
 })//ready
 	
 
