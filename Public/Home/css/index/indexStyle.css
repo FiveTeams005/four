@@ -45,6 +45,7 @@ header .list img{
 	background-color: #fff;
 	z-index:9999;
 	width: 100%;
+	display: none;
 }
 .search-info img{
 	max-width: 32px;
@@ -81,6 +82,12 @@ header .list img{
 	border-top: 1px solid #eee;
 }
 .auction h3 span{
+	font-size: 18px;
+}
+.auction h3 img{
+	max-width: 22px;
+}
+/* .auction h3 span{
 	display: inline-block;
 	background-color: #ffda45;
 	border-radius: 50%;
@@ -98,7 +105,7 @@ header .list img{
 	width: 11px;
 	height: 11px;
 }
-
+ */
 .auction-goods a div img{
 	width: 100%;
 	max-height: 100%;

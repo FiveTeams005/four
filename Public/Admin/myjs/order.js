@@ -25,7 +25,7 @@ $(function(){
 		var ary = [];
 		for(var i = 0;i < $("tbody input[type='checkbox']").length;i++){
 			if($("tbody input[type='checkbox']:eq("+i+")").prop("checked")){
-				ary.push($("tbody input[type='checkbox']:eq("+i+")").attr("rid"));
+				ary.push($("tbody input[type='checkbox']:eq("+i+")").attr("oid"));
 			}
 		}
 		if(ary.length != 0){
@@ -33,14 +33,14 @@ $(function(){
 			$.ajax({
 				url:urlDel,
 				type:'POST',
-				data:{n_id:str},
+				data:{o_id:str},
 				success:function(data){
 					layer.alert(data,{
 	    				time:0,
 	    				btn: ['确定'],
 	    				yes:function(index){
 	    					layer.close(index);
-	    					if(data == '删除商品成功！'){
+	    					if(data == '删除订单成功！'){
 	    						location.href = url;
 	    					}
 	    				}
@@ -54,14 +54,14 @@ $(function(){
 		$.ajax({
 			url:urlDel,
 			type:'POST',
-			data:{n_id:$(this).attr("nId")},
+			data:{o_id:$(this).attr("oId")},
 			success:function(data){
 				layer.alert(data,{
     				time:0,
     				btn: ['确定'],
     				yes:function(index){
     					layer.close(index);
-    					if(data == '删除商品成功！'){
+    					if(data == '删除订单成功！'){
     						location.href = url;
     					}
     				}
@@ -69,7 +69,6 @@ $(function(){
 			}
 		})
 	})
-
 
 	// 分页居中样式
 	$("#pageBox>div").css("margin-left",(parseFloat($("#pageBox>div").css("width"))/-2)+"px");

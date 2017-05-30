@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>普通商品管理</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/goodsDetail.css">
+    <style type="text/css">
+    	.btn-box{
+    		margin-top: 30px;
+    	}
+    	.btn-box button{
+    		border: 0;
+    		padding: 8px 23px;
+    	}
+    </style>
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/myjs/goodsDetail.js"></script>
+</head>
+<body >
+	<h4 style="padding-left: 30px;">普通商品详情</h4>
+	<hr>
+	<div class="container">
+		
+		<div class="row">
+			<table class="table">
+				<tr style="height:40px;background-color:#2A3542;color:#fff; ">
+					<th class="text-center">商品ID</th>
+					<th class="text-center">商品发布人</th>
+					<th class="text-center">商品价格</th>
+					<th class="text-center">商品状态</th>
+					<th class="text-center">商品分类</th>
+					<th class="text-center">赞</th>
+					<th class="text-center">商品发布时间</th>
+				</tr>
+				<foreach>
+					<tr>
+						<td></td>
+					</tr>
+				</foreach>
+			</table>
+		</div>
+		<div class="row">
+			<h4 class="text-center" style="padding:7px;background-color:#2A3542;color:#fff; ">商品详情</h4>
+			<div class="col-lg-12 col-md-12">
+				<div class="row">
+					<div class="col-md-2 col-lg-2 text-center" >
+						<p class="lead">商品名称</p>
+					</div>
+					<div class="col-md-10 col-lg-10" >
+							<p style="line-height: 28px;">名称</p>
+						<hr>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-lg-2 text-center" >
+						<p class="lead" >商品详情</p>
+					</div>
+					<div class="col-md-10 col-lg-10">
+						<p style="line-height: 28px;">详情</p>
+						<hr>
+						<div class="row">
+
+							<div class="col-md-6 col-lg-6">
+								<img src="__PUBLIC__/Home/img/images/e.jpg" >
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<img src="__PUBLIC__/Home/img/images/f.jpg" >
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row btn-box" >
+			<div class="col-md-3 col-md-offset-3 text-center">
+				<button class="btn-success">通过</button>
+			</div>
+			<div class="col-md-3 text-center">
+				<button class="btn-warning">驳回</button>
+			</div>
+		</div
+	</div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>普通商品管理</title>
+	<title>普通待审核商品管理</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-lg-12 header">
-				<h3 class="text-center">普通商品管理</h3>
+				<h3 class="text-center">普通待审核商品管理</h3>
 			</div>
 		</div>
 		<form class="row search-div" method='get' action="{:U('Admin/ngoods/ngoods')}">
@@ -84,7 +84,6 @@
 						<th class="text-center">商品分类</th>
 						<th class="text-center">发布用户</th>
 						<th class="text-center">发布时间</th>
-						<th class="text-center">赞</th>
 						<th class="text-center">商品状态</th>
 						<th class="text-center">操作</th>
 					</tr>
@@ -102,12 +101,21 @@
 							<td class="text-center">{$classify[$v['c_id']]}</td>
 							<td class="text-center">{$huser[$v['h_id']]}</td>
 							<td class="text-center">{$v.n_time}</td>
-							<td class="text-center">{$v.n_praise}</td>
-							<td class="text-center">{$status[$v['n_status']]}</td>
+							<td class="text-center">
+								<if condition="$v['n_status'] eq 0">下架
+									<elseif condition="$v['n_status'] eq 1" />上架
+									<elseif condition="$v['n_status'] eq 2" />审核中
+									<elseif condition="$v['n_status'] eq 3" />审核失败
+									<elseif condition="$v['n_status'] eq 4" />交易关闭
+									<elseif condition="$v['n_status'] eq 5" />交易中
+									<elseif condition="$v['n_status'] eq 6" />交易成功
+								</if>
+							</td>
 
 							<td class="text-center">
-								<a href="#">推送</a>&nbsp;&nbsp;
-								<a href="{:U('Admin/ngoods/ngoodsDetail',array("id"=>$v['n_id']))}">查看详情</a>&nbsp;&nbsp;
+								
+								<a href="{:U('Admin/ngoods/nPendDetail')}">查看详情</a>&nbsp;&nbsp;
+								
 								<a href="#" class='del' nId="{$v['n_id']}">删除</a>
 							</td>
 						</tr>

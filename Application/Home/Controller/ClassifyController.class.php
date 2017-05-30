@@ -19,4 +19,15 @@ class ClassifyController extends Controller {
 	}
 
 
+	/**
+	 * 根据商品分类显示商品
+	 */
+	public function showGoods(){
+		$db = M('ngoods');
+		$c_id = cookie('classID');
+		$res = $db->where("c_id='{$c_id}'")->select();
+		echo json_encode($res);
+	}
+
+
 }

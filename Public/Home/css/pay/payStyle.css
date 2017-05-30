@@ -1,6 +1,12 @@
 /*购买页面样式*/
 body{
-	background-color:#FAFAFA
+	background-color:#FAFAFA;
+	overflow: hidden;
+}
+#app{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 header{
 	width: 100%;
@@ -61,13 +67,13 @@ footer button{
 /* 地址列表； */
 #address-list-box{
 	position: absolute;
-	top:0;
-	left:100%;
+	left:0;
+	top: 0;
 	width: 100%;
 	height: 100%;
 	z-index:9999;
 	background-color: #fff;
-	transition: all 0.5s;
+	display: none;
 }
 #address-list-box .row{
 	font-size: 15px;
