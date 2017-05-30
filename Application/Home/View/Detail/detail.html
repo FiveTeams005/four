@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail/detailStyle.css">
-
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+	<script type="text/javascript">
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+        var path = "__PUBLIC__/";
+	</script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
-	<script>
-		function MVC(p,c,a){
-			return "{:U('"+p+"/"+c+"/"+a+"')}";
-		}
-	</script>
 	<script src="__PUBLIC__/Home/js/detail/detail.js"></script>
 </head>
 <body>
@@ -51,12 +51,48 @@
 	<!-- 中间 -->
 	<div class="container" id="content">
 		<div class="row">
-			<div class="col-xs-12 col-sm-12">
-				
+			<div class="col-xs-12">
+				<blockquote>TOMFORD！！99新低价转！显脸小！超有气质！ 在美国买的Tomford！超帅显脸小！超百搭！因为买太多太阳眼镜，最近又看中一款新的GM，只能转卖几副我心爱的来换一副新欢真的只去新疆旅游的时候戴过一次～希望它能找到一个懂它欣赏它好好照顾它的主人～^_^什么都齐全！</blockquote>
 			</div>
 		</div>
-		
+		<div class="row myimg">
+			<!--后台传值图片src-->
+			<!--<volist name='list' id='vo'>-->
+				<!--<div class="col-xs-12 con-img">-->
+
+				<!--</div>-->
+			<!--</volist>-->
+			<div class="col-xs-12 con-img" style="background: url('__PUBLIC__/Home/img/images/a.jpg') no-repeat;">
+			</div>
+			<div class="col-xs-12 con-img" style="background: url('__PUBLIC__/Home/img/images/a.jpg') no-repeat;">
+			</div>
+		</div>
+
+		<div class="row row-zan">
+			<div class="col-xs-1">
+				<img src="__PUBLIC__/Home/img/xianyu/detail_alipay_icon.png" class="zhifu">
+			</div>
+			<div class="col-xs-5 text-left danbao">担保交易</div>
+			<div class="col-xs-6 text-right">点赞<span id="zan">99+</span></div>
+		</div>
+<!--灰色div区别颜色-->
+		<div class="row row-bg">
+		</div>
 	</div>
+	<!--留言板-->
+	<div class="container" id="app1">
+		<div class="row">
+			<div class="col-xs-12 text-left con-msg"><p style="border-left: 2px solid #ffda45;line-height: 25px;font-size:16px;">留言·<span id="message-num">99+</span></p></div>
+		</div>
+		<!--此处加入该商品留言信息-->
+		<todo-item v-for="item in List" v-bind:todo="item"></todo-item>
+	</div>
+	<div class="con-input">
+			<textarea id="input-msg"></textarea>
+	</div>
+
+
+	<div class="kb-space"></div>
 	<!-- 底部 -->
 	<footer class="navbar-fixed-bottom">
 		<div class="container-fluit">
