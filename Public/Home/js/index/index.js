@@ -3,6 +3,10 @@
  */
 
 $(function(){
+    new Loading();//加载等待
+    setTimeout(function(){
+        $('#loading').remove();
+    },1000);
     // 轮播滑动函数
     slide();
     function slide(){
