@@ -1,4 +1,3 @@
-/* Í·²¿ÓÃ»§ÐÅÏ¢ */
 header{
 	width: 100%;
 	height: 72px;
@@ -30,14 +29,20 @@ header img.img-head{
 	max-height:16px;
 }
 
-/* ÖÐ¼äÉÌÆ·ÐÅÏ¢ */
+/* ï¿½Ð¼ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ï¢ */
 
 
 
-/* µ×²¿¹Ì¶¨µ¼º½°´Å¥ */
+/* ï¿½×²ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ */
+.kb-space{
+	height: 50px;
+	width: 100%;
+	background-color: #fff;
+}
 footer{
 	width: 100%;
 	height: 45px;
+	background-color: #fff;
 }
 footer .row img{
 	width: 24px;
@@ -55,4 +60,81 @@ footer .auction-btn,footer .want-btn{
 footer .want-btn{
 	background-color: #FF4444;
 	color: #fff;
+}
+blockquote{
+	padding: 10px 0;
+	padding-bottom: 0;
+	border: 0;
+	font-size: 16px;
+	line-height: 25px;
+}
+.myimg{
+	padding: 0 15px;
+}
+.con-img{
+	height: 400px;
+	margin-bottom: 10px;
+	background-size: 100% 100% !important;
+}
+.row-zan{
+	font-size: 12px;
+	color: #8acfff;
+}
+.danbao{
+	padding-left: 0;
+}
+.zhifu{
+	height: 15px;
+}
+.row-bg{
+	height: 15px;
+	background-color: #f7f7f7;
+}
+.block-msg{
+	display: block;
+	border-left:2px solid #FFda45;
+}
+.con-msg{
+	padding-top: 5px;
+	border-bottom: 1px solid #eee;
+}
+.user-head{
+	width: 20px;
+	height: 20px;
+}
+.row-msg{
+	border-bottom: 1px solid #eee;
+}
+.col-hn{
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.col-img{
+	width: 30px;
+	height:30px;
+	vertical-align: center;
+}
+.col-nick{
+	font-weight: 600;
+	font-size: 16px;
+}
+.col-msg{
+	padding-left: 15px;
+	margin-bottom: 15px;
+}
+.con-input{
+	position: absolute;
+	background-color: #fff;
+	display: none;
+	width: 100%;
+	height: 40px;
+	bottom: 0;
+	left: 0;
+}
+#input-msg{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 40%;
+	border: 0;
 }
