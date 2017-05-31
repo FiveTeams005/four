@@ -1,5 +1,7 @@
 // 支付页面脚本
 $(function(){
+	new Loading();
+	$('#loading').remove();
 	Vue.component('todo-item',{
 		props:['list'],
 		template:

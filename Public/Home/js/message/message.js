@@ -1,5 +1,10 @@
 // 个人聊天信息列表
 $(function(){
+	new Loading();
+	setTimeout(function(){
+        $('#loading').remove();
+    },1000);
+
 	var footer = new showBtm(2);//底部
 		footer.setFather('footer');
 	Vue.component('todo-item',{

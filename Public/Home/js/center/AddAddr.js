@@ -1,4 +1,5 @@
 $(function() {
+    new Loading();//加载等待
     /*打开省市区选项*/
     $("#expressArea").click(function() {
         $("#areaMask").fadeIn();
@@ -46,4 +47,5 @@ $(function() {
             window.location.href=MVC("Home","Center","MyAddr");
         }
     })
+    $('#loading').remove();
 });

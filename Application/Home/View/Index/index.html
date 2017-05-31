@@ -41,7 +41,7 @@
     <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
     <script src="__PUBLIC__/Home/js/index/hammer.js"></script>
     <script src="__PUBLIC__/Home/static/BubbleTip.js"></script> <!--气泡提示-->
-    <script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--气泡提示-->
+    <script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--页面加载等待-->
     <script src="__PUBLIC__/Home/js/index/index.js"></script>
 
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=5dfe3acbd9f803a2de729dada42b04da"></script>
@@ -176,36 +176,36 @@
             </div>
         </div>
         <!-- 拍卖品 -->
-        <div class="row">
+        <div class="row" id="auction">
             <div class="col-xs-12 col-sm-12 auction">
                 <h3 class='text-center'>
                     <img src="__PUBLIC__/Home/img/images/star2.png">
-                    <span>拍卖品</span>
-                     
+                    <span>拍卖品</span>  
                 </h3>
                 <div class='row auction'>
-                    <div class="col-xs-6 col-sm-6 auction-goods">
+                    <template v-for="v in resivedGoods">
+                        <div class="col-xs-6 col-sm-6 auction-goods" :p_id="v.p_id" @click="goodsDetail(v.p_id)">
+                            <a href="javascript:">
+                                <img :src="v.img" class='img-responsive' >
+                                <h5 class="text-right text-danger">正在拍卖...</h5>
+                                <p class="text-left">
+                                    {{v.p_name}}
+                                </p>
+                            </a>
+                        </div>
+                    </template>
+                    <!-- <div class="col-xs-6 col-sm-6 auction-goods">
                         <a href="">
                             <img src="__PUBLIC__/Home/img/images/e.jpg" class='img-responsive' >
                             <h5 class="text-right text-danger">正在拍卖...</h5>
                             <p class="text-left">
                                     info开机连接上了飞机啊林凤娇
-                                </p>
+                            </p>
                         </a>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 auction-goods">
-                        <a href="" >
-                            <img src="__PUBLIC__/Home/img/images/f.jpg" class='img-responsive'>
-                            <h5 class="text-right text-danger">正在拍卖...</h5>
-                             <p class="text-left">
-                                    info
-                                </p>
-                            
-                        </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-sm-12 col-xs-12 text-right more">
-                    <a href="">more >>></a>
+                    <a href="">更多拍卖 >>></a>
                 </div>
             </div> 
         </div>
@@ -220,11 +220,11 @@
                 <div class="menu">
                     <nav class="navbar navbar-default" role="navigation">
                         <ul class="nav navbar-nav">
-                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-1 col-xs-offset-1 active text-center" v-on:click="get()">
+                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-1 col-xs-offset-1 active text-center" flag='0' v-on:click="get($event)">
                                 <a href="javascript:">新鲜的</a>
                             </li>
 
-                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-2 col-xs-offset-2 text-center" v-on:click='get()'>
+                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-2 col-xs-offset-2 text-center" flag='1' v-on:click='get($event)'>
                                 <a href="javascript:">附近的</a>
                             </li>
                         </ul>
@@ -276,7 +276,7 @@
                         </div>
                     </div>
                 </div>
-                <signal-goods v-for="val in goodsList" :goods="val"></signal-goods>
+                <signal-goods v-for="val in goodsList" :goods="val" :imgs='imgArr'></signal-goods>
             </div>
 
         </div>
