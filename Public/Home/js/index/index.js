@@ -112,7 +112,8 @@ $(function(){
 
     //分类选择传值
     var List = [];
-    $(".glyphicon-th-list").click(function () {
+
+    $("#classify").click(function () {
         $(".my-classify").show();
         var classfiy = MVC('Home','Index','classfiy');
         $.post(classfiy,{},function (data) {
