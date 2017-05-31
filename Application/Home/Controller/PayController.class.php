@@ -8,4 +8,13 @@ class PayController extends Controller {
 	 * @param 参数2
 	 * @return 返回类型
 	 */
+	public function paySuccess(){
+	    $this->display();
+    }
+    public function payFail(){
+	    $this->display();
+    }
+    public function payIndex(){
+        $this->display();
+    }
 }

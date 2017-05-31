@@ -36,7 +36,7 @@ $(function(){
 			},
 			//确认付款；
 			payment:function(){
-				alert(123);
+				  window.location.href=MVC('Home','Pay','payIndex');
 			},
 			//地址列表的取消按钮 点击事件；
 			close:function(){
