@@ -72,15 +72,50 @@ $(document).ready(function(){
 
 
     //点击留言按钮
-    $(".l-btn").click(function () {
-        $(".kb-space").hide();
-        $(".con-input").show();
-        $("#input-msg").focus();
+    $("footer").on("click",".l-btn",function () {
+       $("footer").html("");
+       var div1='<div class="container-fluit">' +
+           '<div class="row text-center">' +
+           '<div class="col-xs-8 want-input"><input type="text" class="form-control msg-input" placeholder="我想说点啥">' +
+           '</div><div class="col-xs-4  want-btn" rel="0">发 送</div></div></div>'
+        $("footer").append(div1);
+       $("footer").find('input').focus();
+    });
+    $("footer").on("blur",".want-input",function () {
+        $("footer").html("");
+        var div2='<div class="container-fluit"><div class="row text-center">' +
+            '<div class="col-xs-2 col-sm-2 text-right l-btn">' +
+            '<img src="'+path+'Home/img/xianyu/comment.png" class="img-responsive"><br>' +
+            '<span>留言&nbsp;</span></div>' +
+            '<div class="col-xs-2 col-sm-2 text-center z-btn">' +
+            '<img src="'+path+'Home/img/xianyu/love_gray.png" class="img-responsive"><br>' +
+            '<span>点赞</span></div><div class="col-xs-4 col-sm-4 auction-btn"></div>' +
+            '<div class="col-xs-4 col-sm-4 want-btn" rel="1">我 想 要</div></div></div>'
+        $('footer').append(div2);
     })
+   $('footer').on("click",".want-btn",function () {
+       // 点击发送留言按钮
+       if($(this).attr("rel")==0){
+           $("footer").html("");
+           var div2='<div class="container-fluit"><div class="row text-center">' +
+               '<div class="col-xs-2 col-sm-2 text-right l-btn">' +
+               '<img src="'+path+'Home/img/xianyu/comment.png" class="img-responsive"><br>' +
+               '<span>留言&nbsp;</span></div>' +
+               '<div class="col-xs-2 col-sm-2 text-center z-btn">' +
+               '<img src="'+path+'Home/img/xianyu/love_gray.png" class="img-responsive"><br>' +
+               '<span>点赞</span></div><div class="col-xs-4 col-sm-4 auction-btn"></div>' +
+               '<div class="col-xs-4 col-sm-4 want-btn" rel="1">我 想 要</div></div></div>'
+           $('footer').append(div2);
+       }
+       // 点击我想要按钮
+       else if($(this).attr("rel")==1){
+           window.location.href=MVC('Home','Chat','chat');
+       }
+   })
 
     var detail=MVC('home','Detail','show')
     $.post(detail,{},function (data) {
-        alert(data);
+        // alert(data);
     })
 })//ready
 	
