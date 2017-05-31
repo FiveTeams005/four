@@ -13,7 +13,8 @@ class IndexController extends Controller {
 	 * 加载主页
 	 */
     public function index(){
-        $this->display();
+		cookie('user',1);
+        $this->display('index');
     }
     public function advert(){
         $this->display();
@@ -64,7 +65,7 @@ class IndexController extends Controller {
 //				$string=serialize($user);
 				cookie('user',$user[0]['h_id']);
 //			var_dump(unserialize(cookie('user')));
-				$this->display('index');
+				$this->display('index2');
 			}else{
 				var_dump('无法获取openid');
 			}
@@ -76,6 +77,33 @@ class IndexController extends Controller {
 		}
 	}
 
+	
+	//测试
+	public function userid(){
+		echo cookie('user');
+	}
+	public function msg(){
+		// 指明给谁推送，为空表示向所有在线用户推送
+		$to_uid = I('id');
+		$con = I('con');
+// 推送的url地址，使用自己的服务器地址
+		$push_api_url = "http://eh.liuzhi66.top:2121/";
+		$post_data = array(
+			"type" => "publish",
+			"content" => $con,
+			"to" => $to_uid,
+		);
+		$ch = curl_init ();
+		curl_setopt ( $ch, CURLOPT_URL, $push_api_url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, $post_data );
+		curl_setopt ($ch, CURLOPT_HTTPHEADER, array("Expect:"));
+		$return = curl_exec ( $ch );
+		curl_close ( $ch );
+		echo $return;
+	}
 	/**
 	 * 记录当前位置
 	 */

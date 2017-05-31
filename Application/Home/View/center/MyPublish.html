@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="__PUBLIC__/Home/css/center/MyPublishStyle.css">
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
     <script src="__PUBLIC__/Home/static/Package.js"></script>
     <script>
         $(function () {
+            function MVC(p,c,a){
+                return "{:U('"+p+"/"+c+"/"+a+"')}";
+            }
+
             $('#menu-wrap').on('click','nav ul li',function () {
                 $(this).addClass('active').siblings().removeClass('active');
                 if($(this).index() == 0){   //宝贝
@@ -21,9 +26,43 @@
                     alert(2);
                 }
             })
-            //测试封装商品
-            var mygoods=new Package_Publish('__PUBLIC__/Home/img/xianyu/page_empty.png','汉服','300','20','20','0');
-            mygoods.setFather('goods');
+            //便利发布商品
+            var RelGoods = MVC('Home','Center','RelGoods');
+            $.post(RelGoods,{},function (data) {
+                var falg = 0;
+                if(data!=''){
+                    for(var i=0;i<data[0].length;i++){
+                        if(data[0][i]['n_status']==1){
+                            for(var j=0;j<data[1].length;j++){
+                                if(data[0][i]['n_id']==data[1][j]['n_id']){
+                                    var mygoods=new Package_Publish(""+data[1][j]['n_img']+"",""+data[0][i]['n_name']+"",""+data[0][i]['n_price']+"",'20','20','99',""+data[0][i]['n_id']+"");
+                                    mygoods.setFather('goods');
+                                    falg=1;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                if(falg==1){
+                    $("#boxDiv").html("");
+                }
+            },'json')
+            $("body").on('click','.shelves',function () {
+                var shelves = MVC('Home','Center','shelves');
+                $.post(shelves,{n_id:$(this).attr("sign")},function () {
+                    layer.open({
+                        content:'下架成功！',
+                        time:0,
+                        btn:['确定'],
+                        yes:function(index){
+                            layer.close(index);
+                            window.location.reload();
+                        }
+                    })
+                })
+            })
+
         })
     </script>
 </head>
@@ -53,7 +92,7 @@
         </div>
     </div>
 <footer>
-    <div class="container">
+    <div id="boxDiv" class="container">
         <div class="row">
             <div class="col-xs-6 text-center col-xs-offset-3"><img src="__PUBLIC__/Home/img/xianyu/page_empty.png" class="logo1"></div>
         </div>

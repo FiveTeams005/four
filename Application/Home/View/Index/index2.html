@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <script src='//cdn.bootcss.com/socket.io/1.3.7/socket.io.js'></script>
+    <script src='//cdn.bootcss.com/jquery/1.11.3/jquery.js'></script>
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src='../web/notify.js'></script>
+</head>
+<body>
+
+<div class="notification sticky hide">
+    <p id="content"> </p>
+    <a class="close" href="javascript:"> <img src="/icon-close.png" /></a>
+</div>
+<div class="wrapper">
+    <div style="width:850px;">
+        当前用户uid：<b class="uid"></b><br>
+        可以通过url：<a id="send_to_one" href="http://www.workerman.net:2121/?type=publish&to=1445590039000&content=%E6%B6%88%E6%81%AF%E5%86%85%E5%AE%B9" target="_blank"><font style="color:#91BD09">http://<font class="domain"></font>:2121?type=publish&to=<b class="uid"></b>&content=消息内容</font></a>  向当前用户发送消息<br>
+        可以通过url：<a href="http://www.workerman.net:2121/?type=publish&to=&content=%E6%B6%88%E6%81%AF%E5%86%85%E5%AE%B9" target="_blank"  id="send_to_all" ><font style="color:#91BD09">http://<font class="domain"></font>:2121?type=publish&to=&content=消息内容</font></a> 向所有在线用户推送消息<br>
+        <script>
+            // 使用时替换成真实的uid，这里方便演示使用时间戳
+            function MVC(p,c,a){
+                return "{:U('"+p+"/"+c+"/"+a+"')}";
+            }
+            var userid = MVC('Home','index','userid');
+            var uid;
+            $.ajax({
+                url:userid,
+                type:'POST',
+                async:false,
+                success:function (data) {
+                    uid = data;
+                }
+            })
+            $('#send_to_one').attr('href', 'http://'+document.domain+':2121/?type=publish&content=%E6%B6%88%E6%81%AF%E5%86%85%E5%AE%B9&to='+uid);
+            $('.uid').html(uid);
+            $('#send_to_all').attr('href', 'http://'+document.domain+':2121/?type=publish&content=%E6%B6%88%E6%81%AF%E5%86%85%E5%AE%B9');
+            $('.uid').html(uid);
+            $('.domain').html(document.domain);
+        </script>
+    </div>
+    <p id="a">1</p>
+    <p id="b">139</p>
+    <input id="msg" type="text">
+    <button id="send">send</button>
+    <div id="show"></div>
+
+    <script>
+        $(document).ready(function () {
+            // 连接服务端
+            var socket = io('http://'+document.domain+':2120');
+            // 连接后登录
+            socket.on('connect', function(){
+                socket.emit('login', uid);
+            });
+            // 后端推送来消息时
+            socket.on('new_msg', function(msg){
+                $('#content').html('收到消息：'+msg);
+                $('.notification.sticky').notify();
+            });
+            // 后端推送来在线数据时
+            socket.on('update_online_count', function(online_stat){
+                $('#online_box').html(online_stat);
+            });
+
+            $("#send").click(function(){
+//                window.location.href="http://"+document.domain+":2121/?type=publish&content="+$("#msg").val()+"&to="+$("#b").text()+"";
+                var b=MVC('Home','index','msg');
+                $.post(b,{id:$("#b").text(),con:$("#msg").val()},function (data) {
+                    alert(data);
+                })
+                var a =$("#msg").val()
+                $("#show").append(a);
+                $("#msg").val("");
+            })
+        });
+    </script>
+    <div id="footer">
+        <center id="online_box"></center>
+        <center><p style="font-size:11px;color:#555;"> Powered by <a href="http://www.workerman.net/web-sender" target="_blank"><strong>web-msg-sender!</strong></a></p></center>
+    </div>
+</body>
+</html>

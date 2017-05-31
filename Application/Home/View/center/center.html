@@ -50,20 +50,20 @@
     <div class="container userMsg">
         <a href="{:U('Home/Center/PersonalInfo')}" class="row text-left main" style="display: block;">
             <div class="col-xs-8">
-                <h4>小二货</h4>
+                <h4 id="nickName">小二货</h4>
                 <p class="detail">虽然没挣到钱，但在二货开心就好</p>
             </div>
             <div class="col-xs-4  text3">
-                <div class="col-xs-6 text-right"><img src="__PUBLIC__/Home/img/xianyu/aliuser_place_holder.jpg" class="img-circle"></div>
+                <div class="col-xs-6 text-right"><img id="head_por" src="__PUBLIC__/Home/img/xianyu/aliuser_place_holder.jpg" class="img-circle"></div>
                 <div class="col-xs-2 col-xs-offset-1 text-right"><img src="__PUBLIC__/Home/img/xianyu/entry_arrow.png" class="logo3"></div>
             </div>
         </a>
     </div>
     <div class="container">
         <div class="row text-center num1">
-            <div class="col-xs-4">0</div>
-            <div class="col-xs-4">0</div>
-            <div class="col-xs-4">0</div>
+            <div id="b_praised" class="col-xs-4">0</div>
+            <div id="grade" class="col-xs-4">0</div>
+            <div id="reputation" class="col-xs-4">0</div>
         </div>
         <div class="row text-center num2">
             <div class="col-xs-4">被赞数</div>
@@ -77,7 +77,7 @@
         <div class="col-xs-2"><img src="__PUBLIC__/Home/img/xianyu/entry_icon_on_shelf.png" class="logo1"></div>
         <a href="{:U('Home/Center/MyPublish')}" class="col-xs-10 text" style="display: block">
             <div class="col-xs-8 text1">我发布的</div>
-            <div class="col-xs-1 text-right text2">0</div>
+            <div id="release" class="col-xs-1 text-right text2">0</div>
             <div class="col-xs-2 text-right"><img src="__PUBLIC__/Home/img/xianyu/entry_arrow.png" class="logo2"></div>
         </a>
     </div>
@@ -85,7 +85,7 @@
         <div class="col-xs-2"><img src="__PUBLIC__/Home/img/xianyu/entry_icon_sold.png" class="logo1"></div>
         <a href="{:U('Home/Center/MySale')}" class="col-xs-10 text" style="display: block">
             <div class="col-xs-8 text1">我卖出的</div>
-            <div class="col-xs-1 text-right text2">0</div>
+            <div id="sellOut" class="col-xs-1 text-right text2">0</div>
             <div class="col-xs-2 text-right"><img src="__PUBLIC__/Home/img/xianyu/entry_arrow.png" class="logo2"></div>
         </a>
     </div>
@@ -93,7 +93,7 @@
         <div class="col-xs-2"><img src="__PUBLIC__/Home/img/xianyu/entry_icon_bought.png" class="logo1"></div>
         <a href="{:U('Home/Center/MyBuy')}" class="col-xs-10 text" style="display: block">
             <div class="col-xs-8 text1">我买到的</div>
-            <div class="col-xs-1 text-right text2">0</div>
+            <div id="buyOne" class="col-xs-1 text-right text2">0</div>
             <div class="col-xs-2 text-right"><img src="__PUBLIC__/Home/img/xianyu/entry_arrow.png" class="logo2"></div>
         </a>
     </div>
@@ -101,7 +101,7 @@
         <div class="col-xs-2"><img src="__PUBLIC__/Home/img/xianyu/entry_icon_favourite.png" class="logo1"></div>
         <a href="{:U('Home/Center/MyZan')}" class="col-xs-10 text" style="display: block">
             <div class="col-xs-8 text1">我赞过的</div>
-            <div class="col-xs-1 text-right text2">0</div>
+            <div id="zan" class="col-xs-1 text-right text2">0</div>
             <div class="col-xs-2 text-right"><img src="__PUBLIC__/Home/img/xianyu/entry_arrow.png" class="logo2"></div>
         </a>
     </div>

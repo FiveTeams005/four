@@ -94,7 +94,7 @@ class PublishController extends Controller {
 		$resource = fopen("upimg/".$img,"w+");
 		$db = M('images');
 		$ary['n_id'] = cookie('n_id');
-		$ary['n_img'] = 'eh.liuzhi66.top/upimg/'.$img;
+		$ary['n_img'] = 'http://eh.liuzhi66.top/upimg/'.$img;
 		$res = $db->add($ary);
 		fwrite($resource,$ret);
 		fclose($resource);
@@ -114,7 +114,7 @@ class PublishController extends Controller {
 		$resource = fopen("upimg/".$img,"w+");
 		$db = M('images');
 		$ary['p_id'] = cookie('p_id');
-		$ary['n_img'] = 'eh.liuzhi66.top/upimg/'.$img;
+		$ary['n_img'] = 'http://eh.liuzhi66.top/upimg/'.$img;
 		$res = $db->add($ary);
 		fwrite($resource,$ret);
 		fclose($resource);
