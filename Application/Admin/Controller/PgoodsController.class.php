@@ -74,7 +74,7 @@ class PgoodsController extends BaseController {
 	}
 
 	/**
-	 * 删除用户
+	 * 删除商品
 	 * @return string
 	 */
 	public function pgoodsDel(){

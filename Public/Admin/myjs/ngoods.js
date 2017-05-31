@@ -25,7 +25,7 @@ $(function(){
 		var ary = [];
 		for(var i = 0;i < $("tbody input[type='checkbox']").length;i++){
 			if($("tbody input[type='checkbox']:eq("+i+")").prop("checked")){
-				ary.push($("tbody input[type='checkbox']:eq("+i+")").attr("rid"));
+				ary.push($("tbody input[type='checkbox']:eq("+i+")").attr("nid"));
 			}
 		}
 		if(ary.length != 0){
@@ -69,7 +69,6 @@ $(function(){
 			}
 		})
 	})
-
 
 	// 分页居中样式
 	$("#pageBox>div").css("margin-left",(parseFloat($("#pageBox>div").css("width"))/-2)+"px");
