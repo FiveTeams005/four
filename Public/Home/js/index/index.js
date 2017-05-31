@@ -118,8 +118,15 @@ $(function(){
         methods:{
             greet:function(vue) {
                 var classID = MVC('Home','Classify','classify');
-                $.post(classID,{classID:vue},function () {
-                    window.location.href = classID;
+                $.post(MVC('Home','Classify','saveClassify'),{classID:vue},function (data) {
+                    if(data){
+                        window.location.href = classID;
+                    }else{
+                        layer.open({
+                            content:'页面跳转失败',
+                        })
+                    }
+                    
                 });
             }
         }
