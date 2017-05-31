@@ -11,9 +11,8 @@
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script>
-    	var url = "{:U('Admin/auser/auser')}";
-    	var urlDel = "{:U('Admin/auser/auserDel')}";
-    	var urlLock = "{:U('Admin/auser/auserLock')}";
+    	var url = "{:U('Admin/PendGoods/pPendGoods')}";
+    	var urlDel = "{:U('Admin/pgoods/pgoodsDel')}";
     </script>
     <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
     <script type="text/javascript" src="__PUBLIC__/Admin/myjs/pgoods.js"></script>
@@ -25,30 +24,32 @@
 				<h3 class="text-center">拍卖商品审核管理</h3>
 			</div>
 		</div>
-		<form class="row search-div" method='get' action="{:U('Admin/Pgoods/pgoods')}">
+		<form class="row search-div" method='get' action="{:U('Admin/PendGoods/pPendGoods')}">
 			<div class="col-md-1 col-lg-1 ">
 				<input type='button' value='删除' class="btn btn-info" id='del' />
 			</div>
 			<div class="col-md-2 col-lg-2 ">
-				<select class="selectpicker" name='goodsStatus' onchange="this.form.submit()">
-					<option value="">商品状态</option>
-			    	<option value="1">上 架</option>
-			    	<option value="0">下 架</option>
-			  	</select>
-			</div>
-			<div class="col-md-2 col-lg-2 ">
 				<select class="selectpicker" name='classify' onchange="this.form.submit()">
 					<option value="">商品类别</option>
-					<foreach name='role' item='vo'>
-						<option value="{$vo['c_id']}">{$vo.p_name}</option>
+					<foreach name='classify' item='vo'>
+						<if condition="$_GET['classify'] - $key eq 0">
+							<option value="{$key}" selected>{$vo}</option>
+							<else /><option value="{$key}">{$vo}</option>
+						</if>
 					</foreach>
 			  	</select>
 			</div>
 			<div class="col-md-2 col-lg-2 ">
 				<select class="selectpicker" name='publishTime' onchange="this.form.submit()">
 					<option value="">发布时间</option>
-			    	<option value="1">升序显示</option>
-			    	<option value="0">降序显示</option>
+			    	<if condition="$_GET['publishTime'] eq 'asc'">
+						<option value="asc" selected>升序显示</option>
+						<else /><option value="asc">升序显示</option>
+					</if>
+			    	<if condition="$_GET['publishTime'] eq 'desc'">
+						<option value="desc" selected>降序显示</option>
+						<else /><option value="desc">降序显示</option>
+					</if>
 			  	</select>
 			</div>
 			<div class="col-md-3 col-lg-3">
@@ -77,34 +78,22 @@
 					</tr>
 				</thead>
 				<tbody>
-					<foreach name="data" item="v">
+					<foreach name="goods" item="v">
 						<tr>
 							<td class="text-center">
-								<input type='checkbox' rid="{$v['p_id']}">
+								<input type='checkbox' pid="{$v['p_id']}">
 							</td>
 							<td class="text-center">{$key+1}</td>
-							<td class="text-center">{$v.p_src}</td>
+							<td class="text-center"><img src="{$img[$v['p_id']]}"></td>
 							<td class="text-center">{$v.p_name}</td>
-							<td class="text-center">{$v.p_price}</td>
-							<td class="text-center">分类</td>
-							<td class="text-center">发布用户</td>
+							<td class="text-center">{$v.p_bprice}</td>
+							<td class="text-center">{$classify[$v['c_id']]}</td>
+							<td class="text-center">{$huser[$v['h_id']]}</td>
 							<td class="text-center">{$v.p_time}</td>
+							<td class="text-center">{$status[$v['p_status']]}</td>
 							<td class="text-center">
-								<a href="#" class='lock' rId="{$v['a_id']}" status="{$v['p_status']}">
-									<if condition="$v['p_status'] eq 1">已上架
-										<else />已下架
-									</if>
-								</a>
-							</td>
-
-							<td class="text-center">
-								<a href="#" class='lock' rId="{$v['a_id']}" status="{$v['p_status']}">
-									<if condition="$v['p_status'] eq 1">下架
-										<else />上架
-									</if>
-								</a>&nbsp;&nbsp;
-								<a href="">查看详情</a>&nbsp;&nbsp;
-								<a href="#" class='del' rId="{$v['a_id']}">删除</a>
+								<a href="{:U('Admin/PendGoods/pPendDetail',array("id"=>$v['p_id']))}">查看详情</a>&nbsp;&nbsp;
+								<a href="#" class='del' pId="{$v['p_id']}">删除</a>
 							</td>
 						</tr>
 					</foreach>

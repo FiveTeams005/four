@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="__PUBLIC__/Home/css/center/MyBuyStyle.css">
     <link rel="stylesheet" href="__PUBLIC__/static/loading/css/loading.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
     <script type="text/javascript">
         function MVC(p,c,a){
             return "{:U('"+p+"/"+c+"/"+a+"')}";
@@ -21,9 +22,51 @@
     <script src="__PUBLIC__/Home/static/Package.js"></script>
     <script>
         $(function () {
-            var goods=new  Package_MyBuy('__PUBLIC__/Home/img/xianyu/page_empty.png',"汉服","200","交易关闭")
-            goods.setFather("goods");
+            var buy = MVC('Home','Center','buy');
+            $.post(buy,{},function (data) {
+                var flag = 0;
+                for(var i=0;i<data[2].length;i++){
+                    if(data[2][i]['o_status']==0){var state='交易关闭'}
+                    if(data[2][i]['o_status']==1){var state='未付款'}
+                    if(data[2][i]['o_status']==2){var state='已付款'}
+                    if(data[2][i]['o_status']==3){var state='已发货'}
+                    if(data[2][i]['o_status']==4){var state='已收货'}
+                    if(data[2][i]['o_status']==5){var state='交易成功'}
+                }
+                for(var i=0;i<data[0].length;i++){
+                    for(var j=0;j<data[1].length;j++){
+                        if(data[0][i]['n_id']==data[1][j]['n_id']){
+                            var goods=new  Package_MyBuy(""+data[1][j]['n_img']+"",""+data[0][i]['n_name']+"",""+data[0][i]['n_price']+"",state,""+data[0][i]['n_id']+"");
+                            goods.setFather("goods");
+                            flag = 1;
+                            break;
+                        }
+                    }
+                }
+                if(flag==1){
+                    $("#boxDiv").html("");
+                }
+            },'json')
+
         })
+        //删除订单
+        function fun1(id) {
+            var del = MVC('Home','Center','delOrder2');
+            layer.open({
+                content: '您确定要删除订单吗？'
+                ,btn: ['确定', '取消']
+                ,yes: function(index){
+                    $.post(del,{id:id},function (data) {
+                        layer.open({
+                            content: '删除成功！'
+                        })
+                        window.location.reload();
+                    })
+                }
+            });
+
+        }
+
     </script>
 </head>
 <body class="bg">
@@ -35,7 +78,7 @@
     </div>
 </header>
 <footer>
-    <div class="container">
+    <div id="boxDiv" class="container">
         <div class="row">
             <div class="col-xs-6 text-center col-xs-offset-3"><img src="__PUBLIC__/Home/img/xianyu/page_empty.png" class="logo1"></div>
         </div>

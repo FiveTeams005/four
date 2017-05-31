@@ -25,12 +25,17 @@
     <script src="__PUBLIC__/static/vue/vue.js"></script>
     <script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--页面加载等待-->
     <script src="__PUBLIC__/Home/js/center/PersonalInfo.js"></script>
+    <script>
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+    </script>
 </head>
 <body class="bg">
 <div class="container con-my-publish">
     <div class="row my-publish">
         <div class="col-xs-4 text-left">
-            <button type="button" class="btn btn-yel">保存</button>
+            <button id="save" type="button" class="btn btn-yel">保存</button>
         </div>
         <div class="col-xs-4 text-center my-publish-title">我的资料</div>
         <div class="col-xs-4 text-right">
@@ -52,7 +57,7 @@
         <div class="col-xs-1"></div>
         <div class="col-xs-11 text">
             <div class="col-xs-2 text1">头像</div>
-            <div class="col-xs-3 text-center text2"><img src="__PUBLIC__/Home/img/xianyu/aliuser_place_holder.jpg" class="img-circle"></div>
+            <div class="col-xs-3 text-center text2"><img id="tx" src="__PUBLIC__/Home/img/xianyu/aliuser_place_holder.jpg" class="img-circle"></div>
             <div class="col-xs-2 col-xs-offset-5"><img src="__PUBLIC__/Home/img/xianyu/entry_arrow.png" class="logo2"></div>
         </div>
     </div>
@@ -74,7 +79,7 @@
         <div class="col-xs-11 text">
             <div class="col-xs-2 text1">手机</div>
             <div class="col-xs-3 text-center text2">
-                <input type="tel" value="18750590000" />
+                <input id="tel" type="tel" value="" />
             </div>
             <div class="col-xs-2 col-xs-offset-5"><img src="__PUBLIC__/Home/img/xianyu/entry_arrow.png" class="logo2"></div>
         </div>
@@ -84,7 +89,7 @@
         <div class="col-xs-11 text">
             <div class="col-xs-2 text1">邮箱</div>
             <div class="col-xs-3 text-center text2">
-                <input type="email" value="727751846@qq.com"></div>
+                <input id="email" type="email" value=""></div>
             <div class="col-xs-2 col-xs-offset-5"><img src="__PUBLIC__/Home/img/xianyu/entry_arrow.png" class="logo2"></div>
         </div>
     </div>
