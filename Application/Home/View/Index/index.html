@@ -24,7 +24,6 @@
             return "{:U('"+p+"/"+c+"/"+a+"')}";
         }
         var path = "__PUBLIC__/";
-
         //点击商品跳转到详情页
         function detail(id){
             var classID = MVC('Home','Classify','classify');
@@ -38,6 +37,7 @@
     <script src="__PUBLIC__/Home/static/footer.js"></script>
 
     <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script src="__PUBLIC__/static/vue/vue-resource.js"></script>
     <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
     <script src="__PUBLIC__/Home/js/index/hammer.js"></script>
     <script src="__PUBLIC__/Home/static/BubbleTip.js"></script> <!--气泡提示-->
@@ -214,17 +214,17 @@
             <img src="__PUBLIC__/Home/img/xianyu/ad.jpg" class="img-responsive" style="width:100%">
         </div>
         <!--新鲜的、附近的-->
-        <div class="row">
+        <div class="row" id="app2">
             <!-- 标题 -->
             <div class="col-sm-12 col-xs-12" id="menu-wrap">
                 <div class="menu">
                     <nav class="navbar navbar-default" role="navigation">
                         <ul class="nav navbar-nav">
-                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-1 col-xs-offset-1 active text-center">
+                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-1 col-xs-offset-1 active text-center" v-on:click="get()">
                                 <a href="javascript:">新鲜的</a>
                             </li>
 
-                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-2 col-xs-offset-2 text-center">
+                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-2 col-xs-offset-2 text-center" v-on:click='get()'>
                                 <a href="javascript:">附近的</a>
                             </li>
                         </ul>
@@ -276,7 +276,7 @@
                         </div>
                     </div>
                 </div>
-                
+                <signal-goods v-for="val in goodsList" :goods="val"></signal-goods>
             </div>
 
         </div>

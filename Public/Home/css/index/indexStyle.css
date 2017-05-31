@@ -166,9 +166,14 @@ nav ul li.active a{
     border-bottom: 3px solid #ffda45;
 }
 .show-goods{
-    margin-top: 4px;
-    height: 800px;
-    background-color: #00CC66;
+    height: auto;
+	width:100%;
+	padding-top: 4px;
+	padding-bottom: 78px;
+}
+.signal-goods{
+	padding-top: 8px;
+	padding-bottom: 8px;
 }
 .con-my-publish{
 	background-color:#f7f7f7;
