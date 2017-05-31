@@ -163,8 +163,6 @@ class IndexController extends Controller {
 					array_push($res1,$result[$i]);
 				}
 			}
-
-		    // echo GetDistance($address[1]['h_loginlongitude'],$address[1]['h_loginlatitude'],24.1111,118.1111);die();
  		}
  		// var_dump($address);die();
  		$res2 = $img -> select();//图片；
@@ -178,6 +176,7 @@ class IndexController extends Controller {
  	*/
  	public function searchGoods(){
  		$g_name = I('goodsname');
+ 		cookie('clickVal',$g_name);//把搜索内容存入cookie
  		$ngoods = M('ngoods');
  		$pgoods = M('pgoods');
  		$res1 = $ngoods->where("n_name like '%{$g_name}%'")->select();

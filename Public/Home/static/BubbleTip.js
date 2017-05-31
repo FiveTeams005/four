@@ -10,19 +10,8 @@ function BubbleTip(num,appendID,top,left){
 	this.left = left;
 	this.appendID = appendID;//要添加到的父元素；
 
-	this.span = '<span class="bubble-tip" style="display:inline-block;padding:0 4px; background-color: #E20000;color:#fff;border-radius:14px;font-size:6px;position:absolute;top:'+this.top+';left:'+this.left+'">'+this.num+'</span>';
-	// $('.bubble-tip').css({
-	// 	'display':'inline-block',
-	// 	'padding:':'5px',
-	// 	'background-color':'#E20000',
-	// 	'color':"#fff",
-	// 	'font-size':'10px',
-	// 	'border-radius':'16px',
-	// 	'position':'absolute',
-	// 	'top':this.top,
-	// 	'left':this.left,
-	// 	'z-index':'9999',
-	// });
+	this.span = '<span class="bubble-tip" style="display:inline-block;padding:0 4px; background-color: #E20000;color:#fff;border-radius:14px;font-size:9px;position:absolute;top:'+this.top+';left:'+this.left+'">'+this.num+'</span>';
+	
 	if($(this.appendID).css('position') == 'static' || 
 		$(this.appendID).css('position') == '' || 
 		$(this.appendID).css('position') == null || 
