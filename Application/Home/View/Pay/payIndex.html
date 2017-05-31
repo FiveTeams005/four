@@ -14,53 +14,12 @@
             return "{:U('"+p+"/"+c+"/"+a+"')}";
         }
     </script>
-    <script type="text/javascript">
-        $(function(){
-            //出现浮动层
-            $(".ljzf_but").click(function(){
-                $(".ftc_wzsf").show();
-            });
-            //关闭浮动
-            $(".close").click(function(){
-                $(".ftc_wzsf").hide();
-            });
-            //数字显示隐藏
-            $(".xiaq_tb").click(function(){
-                $(".numb_box").slideUp(500);
-            });
-            $(".mm_box").click(function(){
-                $(".numb_box").slideDown(500);
-            });
-            //----
-            var i = 0;
-            $(".nub_ggg li a").click(function(){
-                i++
-                if(i<6){
-                    $(".mm_box li").eq(i-1).addClass("mmdd");
-                }else{
-                    $(".mm_box li").eq(i-1).addClass("mmdd");
-                    setTimeout(function(){
-                        location.href=MVC("Home","Pay","paySuccess");
-                    },500);
-                }
-            });
-
-            $(".nub_ggg li .del").click(function(){
-
-                if(i>0){
-                    i--
-                    $(".mm_box li").eq(i).removeClass("mmdd");
-                    i==0;
-                }
-                //alert(i);
-            });
-        });
-    </script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/pay/payIndex.js"></script>
 </head>
 <body>
 <div class="header">
     <div class="all_w ">
-        <div class="gofh"> <a href="#"><img src="__PUBLIC__/Home/img/images/jt_03.jpg" ></a> </div>
+        <div class="gofh"> <a href="{:U('Home/Pay/pay')}"><img src="__PUBLIC__/Home/img/images/jt_03.jpg" ></a> </div>
         <div class="ttwenz">
             <h4>确认交易</h4>
             <h5>二货安全支付</h5>
