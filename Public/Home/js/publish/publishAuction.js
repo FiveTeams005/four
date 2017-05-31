@@ -2,6 +2,8 @@
  * Created by Administrator on 2017/5/24.
  */
 $(function () {
+    new Loading();
+    $('#loading').remove();
     //发布秘笈
     $(".publish-action").on("click",function () {
         $(".publish-img").show();

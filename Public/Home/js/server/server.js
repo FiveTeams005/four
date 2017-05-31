@@ -2,6 +2,8 @@
 *聊天页面脚本；
 **/
 $(function(){
+	new Loading();
+    $('#loading').remove();
 	Vue.component("input-con",{
 			props:['msg'],
 			template:"<div>{{msg}}</div>",

@@ -1,6 +1,8 @@
 /*分类页脚本*/
 
 $(function(){
+	new Loading();
+	
 	//搜索按钮点击事件；
 	$('.sec-btn').click(function(){
 		//请求数据；
@@ -67,7 +69,7 @@ $(function(){
 		var type = $('.city-box').data('type');
 		$('#zone_ids').html($(this).html()).attr('data-id', $(this).attr('data-id'));
 		$('#gr_zone_ids').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-		$(this).find('.icon-1').css({'transform':'rotate(0)'});
+		$('.icon-1').css({'transform':'rotate(0)'});
 		$('.city-box').css('display','');
 	});
 	$('body').on('click', '.letter li', function () {
@@ -87,7 +89,7 @@ $(function(){
 							</div>");
 			$("#showGoods").append(oDiv);
 		}
-
+		$('#loading').remove();
 	},'json');
 	
 })
