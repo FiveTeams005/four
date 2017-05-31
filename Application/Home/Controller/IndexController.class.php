@@ -104,6 +104,17 @@ class IndexController extends Controller {
 		echo json_encode($res);
 	}
 	/*
+ 	* 进入首页加载商品
+ 	*/
+ 	public function loadGoods(){
+
+ 		$ngoods = M('ngoods');
+ 
+ 		$res = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id left join f_images on f_ngoods.n_id=f_images.n_id')->select();
+
+ 		$this->ajaxreturn($res);
+ 	}
+	/*
  	* 查询商品
  	*/
  	public function searchGoods(){
