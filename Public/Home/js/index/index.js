@@ -253,7 +253,7 @@ $(function(){
         methods:{
             //点击商品跳转详情页；
             goodsDetail:function(key){
-                alert(key)
+                var detail = MVC('Home','Index','detail')
                 window.location.href = MVC('Home','Detail','detail');
             },
             //判断图片显示；

@@ -28,7 +28,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 text-center">
-					<h4>昵称nick</h4>
+					<h4 id="nick"></h4>
 				</div>
 				<div class="col-sm-3 col-xs-3 text-right more">
 					<img src="__PUBLIC__/Home/img/xianyu/ic_more.png" v-on:click="moreClick">
@@ -39,7 +39,7 @@
 					<img src="__PUBLIC__/Home/img/images/e.jpg" class="img-my" v-on:click='goodsImgClick' >
 				</div>
 				<div class="col-sm-5 col-xs-5 text-left" @click='infoClick' >
-					<span class="goods-money">￥</span><br>
+					<span id="price" class="goods-money">￥</span><br>
 					<span>含运费00元</span><br>
 					<span>购买前聊一聊</span>
 				</div>
@@ -52,25 +52,26 @@
 	<!-- 中间 -->
 	<div class="container" id="content">
 		<div class="row">
-			<div class="col-xs-12 col-sm-12">
+			<div id="chat" class="col-xs-12 col-sm-12">
 				
-					<div class="row q-div">
-						<div class="q-text col-sm-10 col-xs-10">
-							<p class="pull-right">家啊for了发酵粉的加我额发 哦欸少放辣椒来说佛法就啊师傅发生了的开发交付</p><i></i>
-						</div>
-						<div class="heard_img col-sm-2 col-xs-2" style="padding: 0;">
-							<img src="__PUBLIC__/Home/img/xianyu/aliuser_custom_head.png" class="img-responsive">
-						</div>
-					</div>
-					<div class="row a-div">
-						<div class="heard_img col-sm-2 col-xs-2" style="padding: 0;">
-							<img src="__PUBLIC__/Home/img/xianyu/aliuser_custom_head.png" class="img-responsive">
-						</div>
-						<div class="a-text col-sm-10 col-xs-10">
-							<i></i><p class="pull-left">ddfdfaafda </p>
-						</div>
-						
-					</div>
+					<!--<div class="row q-div">-->
+						<!--<div class="q-text col-sm-10 col-xs-10">-->
+							<!--<p class="pull-right">家啊for了发酵粉的加我额发 哦欸少放辣椒来说佛法就啊师傅发生了的开发交付</p><i></i>-->
+						<!--</div>-->
+						<!--<div class="heard_img col-sm-2 col-xs-2" style="padding: 0;">-->
+							<!--<img src="__PUBLIC__/Home/img/xianyu/aliuser_custom_head.png" class="img-responsive">-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="row a-div">-->
+						<!--<div class="heard_img col-sm-2 col-xs-2" style="padding: 0;">-->
+							<!--<img src="__PUBLIC__/Home/img/xianyu/aliuser_custom_head.png" class="img-responsive">-->
+						<!--</div>-->
+						<!--<div class="a-text col-sm-10 col-xs-10">-->
+							<!--<i></i><p class="pull-left">ddfdfaafda </p>-->
+						<!--</div>-->
+
+					<!--</div>-->
+
 			</div>
 		</div>
 		
