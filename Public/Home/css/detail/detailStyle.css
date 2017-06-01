@@ -3,6 +3,11 @@ header{
 	height: 72px;
 	padding: 15px 10px 5px;
 	border-bottom: 1px solid #ddd;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index:9000;
+	background-color:#fff;
 }
 header img.img-head{
     width: 52px;
@@ -25,12 +30,17 @@ header img.img-head{
 	vertical-align: middle;
 }
 .user-info p:nth-child(2) span.icon img{
-	width: 16px;
-	max-height:16px;
+	width: 14px;
+	max-height:14px;
+}
+.user-info p:nth-child(2) span{
+	font-size:12px;
 }
 
 /* �м���Ʒ��Ϣ */
-
+#content{
+	padding-top: 72px;
+}
 
 
 /* �ײ��̶�������ť */
@@ -61,6 +71,10 @@ footer .want-btn{
 	background-color: #FF4444;
 	color: #fff;
 }
+footer .auction-btn{
+	background-color: #FFDA44;
+	color: #fff;
+}
 blockquote{
 	padding: 10px 0;
 	padding-bottom: 0;
@@ -69,12 +83,15 @@ blockquote{
 	line-height: 25px;
 }
 .myimg{
-	padding: 0 15px;
+	/* padding: 0 15px; */
 }
 .con-img{
-	height: 400px;
+	width: 100%;
+	height: auto;
 	margin-bottom: 10px;
-	background-size: 100% 100% !important;
+}
+.con-img img{
+	width: 100%;
 }
 .row-zan{
 	font-size: 12px;

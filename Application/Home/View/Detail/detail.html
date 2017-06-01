@@ -19,12 +19,6 @@
 	</script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
-
-	<script>
-		function MVC(p,c,a){
-			return "{:U('"+p+"/"+c+"/"+a+"')}";
-		}
-	</script>
 	<script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--页面加载等待-->
 
 	<script src="__PUBLIC__/Home/js/detail/detail.js"></script>
@@ -34,26 +28,29 @@
 		<div class="container">
 			<div class="row">
                 <div class="col-sm-3 col-xs-3 text-center">
-                    <img src="__PUBLIC__/Home/img/xianyu/aliuser_place_holder.jpg" alt="头像" class="img-responsive img-circle img-head">
+                    <img :src="userInfo.head" alt="头像" class="img-responsive img-circle img-head">
                 </div>
-                <div class="col-sm-6 col-xs-6 user-info">
+                <div class="col-sm-6 col-xs-6 user-info" style="padding:0">
                     <p>
-                        <span class="nick">昵称</span>
+                        <span class="nick">{{userInfo.nick}}</span>
                         <span class="icon">
                             <img src="__PUBLIC__/Home/img/xianyu/person_confirmed.png" class="img-responsive">
                         </span>
                     </p>
-                    <p>
-                        <span class="icon">
+                    <p v-if="userInfo.type == 'n'">
+                        <span class="icon" >
                             <img src="__PUBLIC__/Home/img/xianyu/items_exposure_care.png" class="img-responsive">
                         </span>
-                        <span>已上架1小时</span>
+                        <span>已上架{{userInfo.time | diffTime}}</span>
+                    </p>
+                    <p v-else style="background-color: #E21918;color:#fff;" class="text-center">
+                    	<span>{{timeStr}}</span>
                     </p>
                 </div>
                 <div class="col-sm-3 col-xs-3 text-right">
                     <p>
-                    	<span>一口价</span>
-                    	<span class="text-danger">￥<span class="price">1000.00</span></span>
+                    	<span v-if="userInfo.type == 'n'">一口价</span><span v-else>起拍价</span>
+                    	<span class="text-danger">￥<span class="price">{{userInfo.price}}</span></span>
                     </p>
                 </div>
             </div>
@@ -63,20 +60,16 @@
 	<div class="container" id="content">
 		<div class="row">
 			<div class="col-xs-12">
-				<blockquote>TOMFORD！！99新低价转！显脸小！超有气质！ 在美国买的Tomford！超帅显脸小！超百搭！因为买太多太阳眼镜，最近又看中一款新的GM，只能转卖几副我心爱的来换一副新欢真的只去新疆旅游的时候戴过一次～希望它能找到一个懂它欣赏它好好照顾它的主人～^_^什么都齐全！</blockquote>
+				<blockquote>{{goodsInfo.info}}</blockquote>
 			</div>
 		</div>
-		<div class="row myimg">
+		<div class="row myimg" >
 			<!--后台传值图片src-->
-			<!--<volist name='list' id='vo'>-->
-				<!--<div class="col-xs-12 con-img">-->
+			
+			<div v-for="img of imgs" class="col-xs-12 con-img" >
+				<img :src="img.n_img" class="img-responsive">
+			</div>
 
-				<!--</div>-->
-			<!--</volist>-->
-			<div class="col-xs-12 con-img" style="background: url('__PUBLIC__/Home/img/images/a.jpg') no-repeat;">
-			</div>
-			<div class="col-xs-12 con-img" style="background: url('__PUBLIC__/Home/img/images/a.jpg') no-repeat;">
-			</div>
 		</div>
 
 		<div class="row row-zan">
@@ -114,7 +107,10 @@
 					<br>
 					<span>点赞</span>
 				</div>
-				<div class="col-xs-4 col-sm-4 auction-btn">
+				<!-- <div class="col-xs-4 col-sm-4 auction-btn" v-if="userInfo.type == 'p'">
+					出 个 价
+				</div> -->
+				<div class="col-xs-4 col-sm-4" v-else>
 					
 				</div>
 				<div class="col-xs-4 col-sm-4 want-btn" rel="1">
