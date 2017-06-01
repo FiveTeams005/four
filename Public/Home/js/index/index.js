@@ -252,7 +252,7 @@ $(function(){
                         <div class="col-sm-12 col-xs-12">
                             {{goods.n_name}}
                         </div>
-                    </div>
+                   </div>
                 </div>
             </div> `,
         data: function () {
@@ -263,6 +263,7 @@ $(function(){
         methods:{
             //点击商品跳转详情页;
             goodsDetail:function(key){
+
                 this.$http.post(MVC('Home','Detail','saveInfo'),{goods_flag:'n',goods_id:key},{emulateJSON:true}).then(function(res){
                     if(res.body){
                         window.location.href = MVC('Home','Detail','detail');
@@ -275,6 +276,7 @@ $(function(){
                     console.log(res.status);
                 });
                 
+
             },
             //判断图片显示；
             showImg:function(arr,goodsIndex){

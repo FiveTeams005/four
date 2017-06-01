@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/server/rl_exp.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/chat/chatStyle.css">
 	<link rel="stylesheet" href="__PUBLIC__/static/loading/css/loading.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
@@ -16,6 +17,7 @@
     	function MVC(p,c,a){
     		return "{:U('"+p+"/"+c+"/"+a+"')}";
     	}
+        var path = "__PUBLIC__/";
     </script>
     <script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--页面加载等待-->
     <script type="text/javascript" src="__PUBLIC__/Home/js/chat/chat.js"></script>
@@ -26,7 +28,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 text-center">
-					<h4>昵称nick</h4>
+					<h4 id="nick"></h4>
 				</div>
 				<div class="col-sm-3 col-xs-3 text-right more">
 					<img src="__PUBLIC__/Home/img/xianyu/ic_more.png" v-on:click="moreClick">
@@ -34,22 +36,22 @@
             </div>
             <div class="row">
 				<div class="col-sm-3 col-xs-3 text-center">
-					<img src="__PUBLIC__/Home/img/images/e.jpg" class="img-responsive" v-on:click='goodsImgClick' >
+					<img src="__PUBLIC__/Home/img/images/e.jpg" class="img-my" v-on:click='goodsImgClick' >
 				</div>
 				<div class="col-sm-5 col-xs-5 text-left" @click='infoClick' >
-					<span class="goods-money">￥</span><br>
+					<span id="price" class="goods-money">￥</span><br>
 					<span>含运费00元</span><br>
 					<span>购买前聊一聊</span>
 				</div>
 				<div class="col-sm-4 col-xs-4 buy-btn-box">
 					<button class="buy-btn" v-on:click="buyClick">立即购买</button>
-				</div> 
-            </div>
+				</div>             </div>
 		</div>
 	</header>
 	<!-- 中间 -->
 	<div class="container" id="content">
 		<div class="row">
+
 			<div class="col-xs-12 col-sm-12">
 				
 					<div class="row q-div">
@@ -70,6 +72,27 @@
 						
 					</div>
 					
+
+			<div id="chat" class="col-xs-12 col-sm-12">
+				<!---->
+					<!--<div class="row q-div">-->
+						<!--<div class="q-text col-sm-10 col-xs-10">-->
+							<!--<p class="pull-right">家啊for了发酵粉的加我额发 哦欸少放辣椒来说佛法就啊师傅发生了的开发交付</p><i></i>-->
+						<!--</div>-->
+						<!--<div class="heard_img col-sm-2 col-xs-2" style="padding: 0;">-->
+							<!--<img src="__PUBLIC__/Home/img/xianyu/aliuser_custom_head.png" class="img-responsive">-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="row a-div">-->
+						<!--<div class="heard_img col-sm-2 col-xs-2" style="padding: 0;">-->
+							<!--<img src="__PUBLIC__/Home/img/xianyu/aliuser_custom_head.png" class="img-responsive">-->
+						<!--</div>-->
+						<!--<div class="a-text col-sm-10 col-xs-10">-->
+							<!--<i></i><p class="pull-left">ddfdfaafda </p>-->
+						<!--</div>-->
+
+					<!--</div>-->
+
 			</div>
 		</div>
 		
@@ -82,27 +105,40 @@
 					<img src="__PUBLIC__/Home/img/xianyu/im_open_chat_voice.png" v-on:click="voiceClick">
 				</div>
 				<div class="col-sm-6 col-xs-6">
-					<input type="text" name="" v-model="conn" v-on:blur="hideBtn" v-on:keyup="showBtn" placeholder="想对Ta说点什么？" id="send-input">
+					<div contenteditable="true" name=""   id="send-input">
+					</div>
 				</div>
 
 				<div class="col-sm-4 col-xs-4 text-center send-btn-box">
 					<div class="row">
 						<div class="col-xs-5 col-sm-5">
-							<img src="__PUBLIC__/Home/img/xianyu/search_user_icon.png" class="emoji-btn" v-on:click="emojiClick" >
+							<img src="__PUBLIC__/Home/img/xianyu/comui_emoji.png" class="emoji-btn" id="emojiClick">
 						</div>
 						<div class="col-xs-7 col-sm-7">
-							<img src="__PUBLIC__/Home/img/xianyu/message_gv_action_more.png" class="add-btn" v-on:click="addPicClick" v-show="!btnFlag">
-							<button class="send-btn" v-on:click="sendClick" v-show="btnFlag">发 送</button>
+							<img src="__PUBLIC__/Home/img/xianyu/message_gv_action_more.png" class="add-btn" id="addPicClick">
+							<button class="send-btn" style="display: none" id="sendClick">发 送</button>
 						</div>
 					</div>
 				</div>
 
 			</div>
 		</div>
-		<div class="container input-con" v-show="divFlag">
-			<input-con v-bind:msg="conn"></input-con>
-		</div>
+
 	</footer>
+</div>
+
+<div class="rl_exp" id="rl_bq" style="display:none;">
+	<ul class="rl_exp_tab clearfix">
+		<li><a href="javascript:void(0);" class="selected">默认</a></li>
+		<li><a href="javascript:void(0);">拜年</a></li>
+		<li><a href="javascript:void(0);">浪小花</a></li>
+		<li><a href="javascript:void(0);">暴走漫画</a></li>
+	</ul>
+	<ul class="rl_exp_main clearfix rl_selected"></ul>
+	<ul class="rl_exp_main clearfix" style="display:none;"></ul>
+	<ul class="rl_exp_main clearfix" style="display:none;"></ul>
+	<ul class="rl_exp_main clearfix" style="display:none;"></ul>
+	<a href="javascript:void(0);" class="close">×</a>
 </div>
 </body>
 </html>

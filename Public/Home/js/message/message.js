@@ -22,42 +22,52 @@ $(function(){
 						<img :src="list.goodsImg" class="img-responsive" >\
 					</div>\
 				</div>\
-				<div @click.stop="delList(list.otherId)" class="del-btn"><img src="'+path+'Home/img/xianyu/template_clean_icon.png" class="img-responsive"></div>\
+				<div @click.stop="delList(list.otherId,list.goodsId)" class="del-btn"><img src="'+path+'Home/img/xianyu/template_clean_icon.png" class="img-responsive"></div>\
 				<hr />\
 			</div>',
 		methods:{
 			//聊天列表点击事件（跳转至聊天页面）；
 			listSingle:function(uId,goodsId){
-				window.location.href = MVC('Home','Chat','chat');
-				// $.post(MVC('Home','Chat','getInfo'),{meId:1,otherId:uId,goodsId:goodsId},function(){
-				// 	//
-
-				// });
+				
+				$.post(MVC('Home','Chat','getInfo'),{otherId:uId,goodsId:goodsId},function(){
+					window.location.href = MVC('Home','Chat','chat');
+				});
 			},
 			//删除该聊天列表；
-			delList:function(uId){
+			delList:function(uId,goodId){
 				layer.open({
 				    content: '确定要删除么，删除后聊天信息将不能找回'
 				    ,btn: ['删除', '取消']
 				    ,yes: function(index){
-				    	$.post(MVC('Home','Message','delList'),{meId:1,otherId:uId},function(){
-
-					  		layer.open({content: '执行删除操作'});
-
-						});
+                        // $.post(MVC('Home','Message','delList'),{meId:1,otherId:uId},function(){
+                        //
+					  		layer.open({content: '删除成功！'});
+                        //
+						// });
 				    }
 				});
 			},
 		}
 
 	});
+	var chat = MVC('Home','Chat','show');
+	var chatList=[];
+	$.post(chat,{},function (data) {
+		for(var i=0;i<data[0].length;i++){
+			for(var j=0;j<data[1].length;j++){
+				if((data[1][j]['h_id']==data[0][i]['f_h_id'] || data[1][j]['h_id']==data[0][i]['t_h_id'])&&data[1][j]['h_id']!=data[3]){
+					var a = {goodsId:data[0][i]['n_id'],otherId:data[1][j]['h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
+					chatList.push(a);
+				}
+			}
+
+		}
+	},'json')
+	
 	var vm = new Vue({
 		el:"#content",
 		data:{
-			chatList:[
-						{goodsId:2,otherId:12,headImg:path+'Home/img/xianyu/aliuser_place_holder.jpg',username:'username1',lastMessage:'lastMessage1',lastTime:'time1',goodsImg:path+'Home/img/images/f.jpg'},
-					  	{goodsId:3,otherId:13,headImg:path+'Home/img/xianyu/aliuser_place_holder.jpg',username:'username2',lastMessage:'lastMessage2',lastTime:'time2',goodsImg:path+'Home/img/images/e.jpg'}
-					 ],
+			chatList:chatList,
 		},
 		
 	});

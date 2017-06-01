@@ -1,56 +1,112 @@
-/*
-*聊天页面脚本；
-**/
 $(function(){
-	new Loading();
-    $('#loading').remove();
-	Vue.component("input-con",{
-			props:['msg'],
-			template:"<div>{{msg}}</div>",
-			
-	});
-	var vm = new Vue({
-		el:"#app",
-		data:{
-			divFlag	:false,
-			btnFlag	:false,
-			conn 	:"",
-			msg		:[],
-		},
-		methods:{
-			//同步显示输入内容 及 显示发送按钮；
-			showBtn:function(){
-				if(vm.conn != ''){
-					vm.btnFlag = true;//显示按钮
-					vm.divFlag = true;//显示文本内容
-				}else{
-					vm.btnFlag = false;//隐藏按钮
-					vm.divFlag = false;//隐藏显示文本div；
-				}
-			},
-			//输入框失焦事件；
-			hideBtn:function(){
-				if(vm.conn == ''){
-					vm.btnFlag = false;//隐藏按钮
-					vm.divFlag = false;//隐藏显示文本div；
-				}
-			},
-			
-			//表情包点击事件；
-			emojiClick:function(){
-				alert('biaoqingbao');
-			},
-			//添加图pain按钮点击事件；
-			addPicClick:function(){
-				alert("正在开发，敬请期待。。。");
-			},
-			//发送消息按钮点击事件；
-			sendClick:function(){
-				alert('zhengzaifasong..')
-			},
-			
-			
-		}
-	});
-	
-})
+
+    /*
+     *		pace:		【数字】表情弹出层淡入淡出的速度
+     *		dir:		【数组】保存表情包文件夹名字
+     *		text:		【二维数组】保存表情包title文字
+     *		num:		【数组】保存表情包表情个数
+     *		isExist:	【数组】保存表情是否加载过,对于加载过的表情包不重复请求。
+     */
+    var rl_exp = {
+        pace:		200,
+        dir:		['mr','gnl','lxh','bzmh'],
+        num:		[30,30,30,30],
+        isExist:	[0,0,0,0],
+        bind:	function(i){
+            $("#rl_bq .rl_exp_main").eq(i).find('.rl_exp_item').each(function(){
+                $(this).bind('click',function(){
+                    var Oimg=$("<img src="+$(this).find('img').attr('src')+">")
+                    $('#send-input').append(Oimg);
+                    // $('#rl_bq').fadeOut(rl_exp.pace);
+                    // $('footer').removeClass('up-bottom');
+                    $("#sendClick").show();
+                    $("#addPicClick").hide();
+                });
+            });
+        },
+        /*加载表情包函数*/
+        loadImg:function(i){
+            var node = $("#rl_bq .rl_exp_main").eq(i);
+            for(var j = 0; j<rl_exp.num[i];j++){
+                var domStr = 	'<li class="rl_exp_item">' +
+                    '<img src="' + path + 'Home/img/face/' + rl_exp.dir[i] + '/' + j + '.gif"/>' +
+                    '</li>';
+                $(domStr).appendTo(node);
+            }
+            rl_exp.isExist[i] = 1;
+            rl_exp.bind(i);
+        },
+        /*在div里光标后面插入文字*/
+        insertText:function(obj,str){
+            obj.focus();
+            if (document.selection) {
+                var sel = document.selection.createRange();
+                sel.text = str;
+            } else if (typeof obj.selectionStart == 'number' && typeof obj.selectionEnd == 'number') {
+                var startPos = obj.selectionStart,
+                    endPos = obj.selectionEnd,
+                    cursorPos = startPos,
+                    tmpStr = obj.value;
+                obj.value = tmpStr.substring(0, startPos) + str + tmpStr.substring(endPos, tmpStr.length);
+                cursorPos += str.length;
+                obj.selectionStart = obj.selectionEnd = cursorPos;
+            } else {
+                obj.value += str;
+            }
+        },
+        init:function(){
+            $("#rl_bq > ul.rl_exp_tab > li > a").each(function(i){
+                $(this).bind('click',function(){
+                    if( $(this).hasClass('selected') )
+                        return;
+                    if( rl_exp.isExist[i] == 0 ){
+                        rl_exp.loadImg(i);
+                    }
+                    $("#rl_bq > ul.rl_exp_tab > li > a.selected").removeClass('selected');
+                    $(this).addClass('selected');
+                    $('#rl_bq .rl_selected').removeClass('rl_selected').hide();
+                    $('#rl_bq .rl_exp_main').eq(i).addClass('rl_selected').show();
+                });
+            });
+            /*绑定表情弹出按钮响应，初始化弹出默认表情。*/
+            $("#emojiClick").bind('click',function(){
+                if( rl_exp.isExist[0] == 0 ){
+                    rl_exp.loadImg(0);
+                }
+                var w = $(this).position();
+                $('footer').toggleClass('up-bottom');
+                $('#rl_bq').slideToggle(400);
+            });
+            /*绑定关闭按钮*/
+            $('#rl_bq a.close').bind('click',function(){
+                $('#rl_bq').fadeOut(rl_exp.pace);
+                $('footer').removeClass('up-bottom');
+            });
+            /*绑定document点击事件，对target不在rl_bq弹出框上时执行rl_bq淡出，并阻止target在弹出按钮的响应。*/
+            $(document).bind('click',function(e){
+                var target = $(e.target);
+                if( target.closest("#emojiClick").length == 1 )
+                    return;
+                if( target.closest("#rl_bq").length == 0 ){
+                    $('#rl_bq').fadeOut(rl_exp.pace);
+                    $('footer').removeClass('up-bottom');
+                }
+            });
+        }
+    };
+    rl_exp.init();	//调用初始化函数。
+
+
+    //输入框判定隐藏/显示发送btn
+    $('#send-input').on('keyup',function () {
+        if($(this).html()==""){
+            $("#sendClick").hide();
+            $("#addPicClick").show();
+        }
+        else{
+            $("#sendClick").show();
+            $("#addPicClick").hide();
+        }
+    })
+});
+

@@ -65,7 +65,7 @@ class IndexController extends Controller {
 //				$string=serialize($user);
 				cookie('user',$user[0]['h_id']);
 //			var_dump(unserialize(cookie('user')));
-				$this->display('index2');
+				$this->display('index');
 			}else{
 				var_dump('无法获取openid');
 			}
