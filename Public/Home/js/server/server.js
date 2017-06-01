@@ -15,12 +15,8 @@ $(function(){
         bind:	function(i){
             $("#rl_bq .rl_exp_main").eq(i).find('.rl_exp_item').each(function(){
                 $(this).bind('click',function(){
-                    $("#send-input").focus();
-                    var Oimg=document.createElement('img');
-                    Oimg.setAttribute('src',$(this).find('img').attr('src'));
-                    insertHtmlAtCaret(Oimg);
-                    $("#send-input").blur();
-                    // $('#send-input').append();
+                    var Oimg=$("<img src="+$(this).find('img').attr('src')+">")
+                    $('#send-input').append(Oimg);
                     // $('#rl_bq').fadeOut(rl_exp.pace);
                     // $('footer').removeClass('up-bottom');
                     $("#sendClick").show();
@@ -112,38 +108,5 @@ $(function(){
             $("#addPicClick").hide();
         }
     })
-
-
-    function insertHtmlAtCaret(childElement) {
-        var sel, range;
-        if (window.getSelection) {
-            // IE9 and non-IE
-            sel = window.getSelection();
-            if (sel.getRangeAt && sel.rangeCount) {
-                range = sel.getRangeAt(0);
-                range.deleteContents();
-
-                var el = document.createElement("div");
-                el.appendChild(childElement);
-                var frag = document.createDocumentFragment(), node, lastNode;
-                while ((node = el.firstChild)) {
-                    lastNode = frag.appendChild(node);
-                }
-
-                range.insertNode(frag);
-                if (lastNode) {
-                    range = range.cloneRange();
-                    range.setStartAfter(lastNode);
-                    range.collapse(true);
-                    sel.removeAllRanges();
-                    sel.addRange(range);
-                }
-            }
-        }
-        else if (document.selection && document.selection.type != "Control") {
-            // IE < 9
-            //document.selection.createRange().pasteHTML(html);
-        }
-    }
 });
 
