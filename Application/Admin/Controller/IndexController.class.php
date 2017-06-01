@@ -30,4 +30,49 @@ class IndexController extends BaseController {
 		cookie('auserid',null);
 		$this->display('Login/login');
 	}
+
+	/**
+	 * 首页
+	 */
+	public function main(){
+		$huser = M('huser');
+		$huserAll = $huser->count();
+		$huserOne = $huser->where("h_grade < 4")->count();
+		$huserTwo = $huser->where("h_grade between 4 and 6")->count();
+		$huserThr = $huser->where("h_grade between 7 and 9")->count();
+		$huserFour = $huser->where("h_grade > 9")->count();
+		$huserAllLock = $huser->where("h_status = 0")->count();
+		$huserOneLock = $huser->where("h_grade < 4 and h_status = 0")->count();
+		$huserTwoLock = $huser->where("(h_grade between 4 and 6) and h_status = 0")->count();
+		$huserThrLock = $huser->where("(h_grade between 7 and 9) and h_status = 0")->count();
+		$huserFourLock = $huser->where("h_grade > 9 and h_status = 0")->count();
+		$regCount = $huser->where("date(h_regtime) = curdate()")->count();
+		$regScale = (round($regCount/$huserAll,4)*100).'%';
+		$this->assign('huserAll',$huserAll);
+		$this->assign('huserOne',$huserOne);
+		$this->assign('huserTwo',$huserTwo);
+		$this->assign('huserThr',$huserThr);
+		$this->assign('huserFour',$huserFour);
+		$this->assign('huserAllLock',$huserAllLock);
+		$this->assign('huserOneLock',$huserOneLock);
+		$this->assign('huserTwoLock',$huserTwoLock);
+		$this->assign('huserThrLock',$huserThrLock);
+		$this->assign('huserFourLock',$huserFourLock);
+		$this->assign('regCount',$regCount);
+		$this->assign('regScale',$regScale);
+
+		$ngoods = M('ngoods');
+		$pgoods = M('pgoods');
+		$ngoodsCount = $ngoods->count();
+		$pgoodsCount = $pgoods->count();
+		$ngoodsOnsole = $ngoods->where("n_status = 1")->count();
+		$pgoodsOnsole = $pgoods->where("p_status = 1 or p_status = 0")->count();
+		$this->assign('ngoodsCount',$ngoodsCount);
+		$this->assign('pgoodsCount',$pgoodsCount);
+		$this->assign('ngoodsOnsole',$ngoodsOnsole);
+		$this->assign('pgoodsOnsole',$pgoodsOnsole);
+
+		
+		$this->display("Main/main");
+	}
 }
