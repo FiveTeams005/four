@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/classify/classifyStyle.css">
-
+	<link rel="stylesheet" href="__PUBLIC__/static/loading/css/loading.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/Home/js/static/city/zepto.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
@@ -16,7 +17,7 @@
 		function MVC(p,c,a){
 			return "{:U('"+p+"/"+c+"/"+a+"')}";
 		}
-
+		var path = '__PUBLIC__/';
 		//点击商品跳转到详情页
 		function detail(id){
 			var detail = MVC('Home','Detail','detail');
@@ -26,15 +27,17 @@
 		}
 
 	</script>
+	<script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--页面加载等待-->
     <script type="text/javascript" src="__PUBLIC__/Home/js/classify/classify.js"></script>
 </head>
 <body>
+
 	<!-- 头部 -->
-	<header >
+	<header>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4 col-xs-4 text-center">
-					<span class="title">电脑</span>
+					<span class="sec-name" v-text="secConn"></span>
 				</div>
 				<div class="col-sm-8 col-xs-8 sec-group">
 					<!-- <div>
@@ -42,25 +45,25 @@
 						<button class="sec-btn"><img src="__PUBLIC__/Home/img/xianyu/menu_search.png"></button>
 					</div> -->
 					<div class="input-group">
-						<input type="text" class="form-control" name="">
-						<span class="input-group-addon sec-btn">
+						<input type="text" class="form-control" name="" id="input-box">
+						<span class="input-group-addon sec-btn" v-on:click="sec">
 							<span class="glyphicon glyphicon-search"></span>
 						</span>
 					</div>
 				</div>
 			</div>
 			<nav class="row">
-				<div class="col-xs-3 col-sm-3 text-center area-btn">
+				<div class="col-xs-3 col-sm-3 text-center area-btn" v-on:click="areaClick">
 						<div class="text-right" id="gr_zone_ids">区域</div>
 						<div class="text-center">&ensp;<span class="icon-1"></span></div>
 				</div>
-				<div class="col-xs-3 col-sm-3 text-center">
+				<div class="col-xs-3 col-sm-3 text-center" v-on:click="synthClick">
 					综合
 				</div>
-				<div class="col-xs-3 col-sm-3 text-center">
+				<div class="col-xs-3 col-sm-3 text-center" v-on:click="timeClick">
 					发布时间
 				</div>
-				<div class="col-xs-3 col-sm-3 text-center sort-price">
+				<div class="col-xs-3 col-sm-3 text-center sort-price" v-on:click="priceClick">
 					价格 
 					<span class="icon-2">
 						<span class="icon-2-desc"></span>
@@ -78,11 +81,11 @@
 				<!--<div>goodsname;jfasjflkjfasfjajoojfla</div>-->
 				<!--<p class="text-danger">&yen;<span>12120.00</span></p>-->
 			<!--</div>-->
-			<!--<div class="col-sm-6 col-xs-6 bg-info one-goods">-->
-				<!--<img src="__PUBLIC__/Home/img/images/f.jpg" class="img-responsive">-->
-				<!--<div>goodsname;jfasjflkjfasfjajoojfla</div>-->
-				<!--<p class="text-danger">&yen;<span>12120.00</span></p>-->
-			<!--</div>-->
+			<div class="col-sm-6 col-xs-6 bg-info one-goods" v-for='v in dataList'>
+				<img :src="noneImg(v.img)" class="img-responsive">
+				<div>{{v.n_name}}</div>
+				<p class="text-danger">&yen;<span>{{v.n_price}}</span></p>
+			</div>
 		</div>
 	</div>
 	<!-- 城市选择 框 -->
@@ -555,6 +558,6 @@
 	    </ul>
 	  </div>
 	</div>
-	
+
 </body>
 </html>

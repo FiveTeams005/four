@@ -134,11 +134,40 @@ class IndexController extends Controller {
 	/*
  	* 进入首页加载商品
  	*/
- 	public function loadGoods(){
+ 	//拍卖商品；
+ 	public function loadAuctionGoods(){
+ 		$pgoods = M('pgoods');
+ 		$res1 = $pgoods ->order("p_time desc")->limit(0,2)-> select();
+ 		$img = M('images');	
+		$res2 = $img -> select();//图片；
+		$this->ajaxreturn( array($res1,$res2) );
+ 	}
 
+ 	//普通商品
+ 	public function loadGoods(){
+ 		$flag = I('flag',0,'intval');
+ 		
+ 		$me_id = cookie('user');
  		$ngoods = M('ngoods');
- 
- 		$res = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id left join f_images on f_ngoods.n_id=f_images.n_id')->select();
+ 		$img = M('images');
+ 		$res1 = array();
+ 		if($flag == 0){
+ 			$res1 = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->order("n_time desc")->select();
+ 		}else if($flag == 1){
+ 			$user = M('huser');
+ 			$address = $user -> where("h_id = $me_id") -> getField('h_id,h_loginlongitude,h_loginlatitude');
+			$result = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->select();
+			for($i = 0; $i <count($result); $i++){
+				$distance = GetDistance($address[1]['h_loginlongitude'],$address[1]['h_loginlatitude'],$result[$i]['lng'],$result[$i]['lat']);
+				if(floor ($distance) <= 5){
+					array_push($res1,$result[$i]);
+				}
+			}
+ 		}
+ 		// var_dump($address);die();
+ 		$res2 = $img -> select();//图片；
+
+ 		$res = array($res1,$res2);
 
  		$this->ajaxreturn($res);
  	}
@@ -147,6 +176,7 @@ class IndexController extends Controller {
  	*/
  	public function searchGoods(){
  		$g_name = I('goodsname');
+ 		cookie('clickVal',$g_name);//把搜索内容存入cookie
  		$ngoods = M('ngoods');
  		$pgoods = M('pgoods');
  		$res1 = $ngoods->where("n_name like '%{$g_name}%'")->select();

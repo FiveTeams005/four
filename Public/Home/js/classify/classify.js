@@ -1,73 +1,14 @@
 /*分类页脚本*/
 
 $(function(){
-	//搜索按钮点击事件；
-	$('.sec-btn').click(function(){
-		//请求数据；
-		$.post('url',{conn:$('#sec').val()},function(){
-
-		});
-	});
-	//筛选按钮点击事件；
-	$('header nav>div').click(function(){
-
-		$(this).addClass('bold').siblings().removeClass('bold');
-		var index = $(this).index();
-		
-		if(index == 0){
-			//清除价格样式；
-			$('.icon-2-desc').css('border-bottom-color','');
-			$('.icon-2-asc').css('border-top-color','');
-			var rotate = $(this).find('.icon-1').css('transform');
-			if(rotate == 'matrix(1, 0, 0, 1, 0, 0)'){ 
-				$(this).find('.icon-1').css({'transform':'rotate(180deg)'});
-				$('.city-box').css('display','block');
-			}else{
-				$(this).find('.icon-1').css({'transform':'rotate(0)'});
-				$('.city-box').css('display','');
-			}
-		}else if (index == 1) {
-			//清除价格样式；
-			$('.icon-2-desc').css('border-bottom-color','');
-			$('.icon-2-asc').css('border-top-color','');
-			//清楚区域样式；
-			$(this).siblings().find('.icon-1').css({'transform':'rotate(0)'});
-			$('.city-box').css('display','');
-
-		}else if (index == 2) {
-			//清除价格样式；
-			$('.icon-2-desc').css('border-bottom-color','');
-			$('.icon-2-asc').css('border-top-color','');
-			//清楚区域样式；
-			$(this).siblings().find('.icon-1').css({'transform':'rotate(0)'});
-			$('.city-box').css('display','');
-
-		}else if (index == 3) {	//价格排序；
-			//清楚区域样式；
-			$(this).siblings().find('.icon-1').css({'transform':'rotate(0)'});
-			$('.city-box').css('display','');
-
-			var c1 = $('.icon-2-desc').css('border-bottom-color');
-			var c2 = $('.icon-2-asc').css('border-top-color');
-
-			if(c1 == 'rgb(204, 204, 204)' && c2 == 'rgb(204, 204, 204)'){
-				$('.icon-2-desc').css('border-bottom-color','#ffda45');
-			}else if (c1 == 'rgb(255, 218, 69)') {
-				$('.icon-2-desc').css('border-bottom-color','');
-				$('.icon-2-asc').css('border-top-color','#ffda45');
-			}else if(c2 == 'rgb(255, 218, 69)'){
-				$('.icon-2-desc').css('border-bottom-color','#ffda45');
-				$('.icon-2-asc').css('border-top-color','');
-			}
-			
-		}
-	});
+	new Loading();
+	
 	//选择城市 start
 	$('body').on('click', '.city-list p', function () {
 		var type = $('.city-box').data('type');
 		$('#zone_ids').html($(this).html()).attr('data-id', $(this).attr('data-id'));
 		$('#gr_zone_ids').html($(this).html()).attr('data-id', $(this).attr('data-id'));
-		$(this).find('.icon-1').css({'transform':'rotate(0)'});
+		$('.icon-1').css({'transform':'rotate(0)'});
 		$('.city-box').css('display','');
 	});
 	$('body').on('click', '.letter li', function () {
@@ -76,18 +17,170 @@ $(function(){
 	});
 	
 	
-	//进来加载商品东西
-	var showGoods = MVC('Home','Classify','showGoods');
-	$.post(showGoods,{},function (data) {
-		for(var i=0;i<data.length;i++){
-			var oDiv = $("<div onclick='detail("+data[i]['n_id']+")' class='col-sm-6 col-xs-6 bg-primary one-goods'>\
-							<img src='"+data[i]['n_src']+"' class='img-responsive'>\
-								<div>"+data[i]['n_name']+"</div>\
-							<p class='text-danger'>&yen;<span>"+data[i]['n_praise']+"</span></p>\
-							</div>");
-			$("#showGoods").append(oDiv);
-		}
+	// //进来加载商品东西
+	// var showGoods = MVC('Home','Classify','showGoods');
+	// $.post(showGoods,{},function (data) {
+	// 	for(var i=0;i<data.length;i++){
+	// 		var oDiv = $("<div onclick='detail("+data[i]['n_id']+")' class='col-sm-6 col-xs-6 bg-primary one-goods'>\
+	// 						<img src='"+data[i]['n_src']+"' class='img-responsive'>\
+	// 							<div>"+data[i]['n_name']+"</div>\
+	// 						<p class='text-danger'>&yen;<span>"+data[i]['n_praise']+"</span></p>\
+	// 						</div>");
+	// 		$("#showGoods").append(oDiv);
+	// 	}
+	// 	$('#loading').remove();
+	// },'json');
 
-	},'json');
-	
+	var bus = new Vue();//中转组件；
+	//头部组件；
+	var header = new Vue({
+		el:"header",
+		data:{
+			secConn:'',//显示当前商品的分类或搜索的条件；
+			list:[],
+		},
+		mounted:function(){
+			bus.$on('secConn',function(data){
+				header.$set(header.$data,'secConn',data);
+			})
+		},
+		methods:{
+			//搜索；
+			sec:function(){
+				var conn = document.getElementById('input-box').value;
+				if(conn != ''){
+					this.secConn = conn;
+					$.post(MVC('Home','Classify','secGoods'),{conn:conn},function(res){
+						this.list = res;
+						var dataArr = res[0];
+						if(dataArr.length > 0){
+							for(let j = 0; j < dataArr.length;j++){
+			                    for(let i=0; i < res[1].length; i ++){
+			                        if(res[1][i].n_id == dataArr[j].n_id){
+			                            dataArr[j]['img'] = res[1][i].n_img;
+			                            break;
+			                        }
+			                    }
+			                } 
+							bus.$emit("list",dataArr);
+						}else{
+							layer.open({
+								content:'暂无数据',
+							});
+						}
+					});
+				}
+			},
+			//区域点击事件；
+			areaClick:function(){
+				//清除价格样式；
+				$('.icon-2-desc').css('border-bottom-color','');
+				$('.icon-2-asc').css('border-top-color','');
+				$(event.currentTarget).addClass('bold').siblings().removeClass('bold');;
+				var rotate = $('.icon-1').css('transform');
+				if(rotate == 'matrix(1, 0, 0, 1, 0, 0)'){ 
+					$('.icon-1').css({'transform':'rotate(180deg)'});
+					$('.city-box').css('display','block');
+				}else{
+					$('.icon-1').css({'transform':'rotate(0)'});
+					$('.city-box').css('display','');
+				}
+			},
+			//综合按钮点击事件；
+			synthClick:function(){
+				//清除价格样式；
+				$('.icon-2-desc').css('border-bottom-color','');
+				$('.icon-2-asc').css('border-top-color','');
+				//清楚区域样式；
+				$(event.currentTarget).siblings().find('.icon-1').css({'transform':'rotate(0)'});
+				$('.city-box').css('display','');
+				$(event.currentTarget).addClass('bold').siblings().removeClass('bold');
+			},
+			//发布时间 按钮点击事件；
+			timeClick:function(){
+				$(event.currentTarget).addClass('bold').siblings().removeClass('bold');
+				//清除价格样式；
+				$('.icon-2-desc').css('border-bottom-color','');
+				$('.icon-2-asc').css('border-top-color','');
+				//清楚区域样式；
+				$(this).siblings().find('.icon-1').css({'transform':'rotate(0)'});
+				$('.city-box').css('display','');
+			},
+			//价格排序按钮点击事件；
+			priceClick: function(){
+				$(event.currentTarget).addClass('bold').siblings().removeClass('bold');
+				//清楚区域样式；
+				$(event.currentTarget).siblings().find('.icon-1').css({'transform':'rotate(0)'});
+				$('.city-box').css('display','');
+
+				var c1 = $('.icon-2-desc').css('border-bottom-color');
+				var c2 = $('.icon-2-asc').css('border-top-color');
+
+				if(c1 == 'rgb(204, 204, 204)' && c2 == 'rgb(204, 204, 204)'){
+					$('.icon-2-desc').css('border-bottom-color','#ffda45');
+				}else if (c1 == 'rgb(255, 218, 69)') {
+					$('.icon-2-desc').css('border-bottom-color','');
+					$('.icon-2-asc').css('border-top-color','#ffda45');
+				}else if(c2 == 'rgb(255, 218, 69)'){
+					$('.icon-2-desc').css('border-bottom-color','#ffda45');
+					$('.icon-2-asc').css('border-top-color','');
+				}
+			},
+
+		}
+	});
+
+	//内容显示组件；
+	var content = new Vue({
+		el: "#content",
+		data:{
+			dataList:[],
+		},
+		created: function(){
+			bus.$on('list',function(data){
+				content.$set(content.$data,'dataList',data);
+			})
+		},
+		methods:{
+			noneImg:function(val){
+				// console.log(val);
+				if(val == undefined){
+					val = path+'Home/img/xianyu/page_item_deleted.png';
+				}
+				return val;
+			}
+		},
+		mounted: function (){
+			//进来加载商品东西
+			var showGoods = MVC('Home','Classify','showGoods');
+			$.post(showGoods,function (res) {
+				var data = '';
+				if(typeof res[2] == 'string'){
+					data = res[2];
+				}else{
+					data = res[2][0].c_name;
+				}
+				bus.$emit('secConn',data);
+				var dataArr = res[0];
+						// console.log(dataArr);
+				for(let j = 0; j < dataArr.length;j++){
+					for(let i=0; i < res[1].length; i ++){
+						if(res[1][i].n_id == dataArr[j].n_id){
+							dataArr[j]['img'] = res[1][i].n_img;
+							break;
+						}
+					}
+				}
+				// this.dataList = dataArr;
+				content.$set(content.$data,'dataList',dataArr);
+				$('#loading').remove();
+			},'json');
+		},
+
+
+
+
+	});
+
+
 })

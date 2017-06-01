@@ -3,6 +3,15 @@
 */
 
 $(document).ready(function(){
+
+	new Loading();
+
+        var detail = MVC('Home','Detail','show')
+        $.post(detail,{},function (data) {
+            alert(data);
+            $('#loading').remove();
+        })
+
 	//判断登陆；
 
 
@@ -118,5 +127,6 @@ $(document).ready(function(){
         // alert(data);
     })
 })//ready
+
 	
 
