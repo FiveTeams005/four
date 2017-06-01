@@ -11,7 +11,7 @@ header{
 	position: fixed;
 	top: 0;
 	left:0;
-	z-index: 9000;
+	z-index: 9001;
 }
 header .sec-group > div{
 	height: 28px;
@@ -91,6 +91,8 @@ header nav .icon-2-asc{
 }
 #content .one-goods img{
 	margin-top: 6px;
+	width:100%;
+	/* max-height: 90px; */
 }
 #content .one-goods div{
 	line-height: 23px;
@@ -100,7 +102,7 @@ header nav .icon-2-asc{
 }
 
 /*城市弹层*/
-.city-box{width: 100%;position:absolute;top:70px;left:0;background-color:#ddd;z-index:9000;display:none;}
+.city-box{width: 100%;position:absolute;top:70px;left:0;background-color:#fff;z-index:9000;display:none;}
 .current-city{background-color: #eee;line-height: 36px;}
 .current-city div img{width: 14px; max-height:18px;}
 .letter{width:10%;overflow:hidden;line-height:20px;font-size:16px;position:fixed;top:72px;right:10px;text-align:center;}

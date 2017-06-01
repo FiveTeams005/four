@@ -21,10 +21,7 @@ $(function(){
     }
     //自动轮播；每隔3秒自动轮播
     $('#myCarousel').carousel({interval:3000});
-    //获取拍卖商品；
-    /*$.post('',{},function (data){
-        console.log(data);
-    }); */   
+  
     //导航滚动顶部置顶；
     $(window).scroll(function () {
         var menu_top = $('#menu-wrap').offset().top;
@@ -35,18 +32,8 @@ $(function(){
             $('.menu').removeClass('menuFixed');
         }
     });
-    //（新鲜的、附近的）导航点击事件；
-    $('#menu-wrap').on('click','nav ul li',function () {
-        $(this).addClass('active').siblings().removeClass('active');
-        if($(this).index() == 0){   //新鲜的
-            alert(1);
-            $.post();
-        }else if($(this).index() == 1){     //附近的；
-            alert(2);
-            $.post(map);
-        }
-    });
-    //商品展示；
+
+   /* 商品展示；*/
 
     //头部搜索；
     $('#sch-input').keyup(function(){//输入内容时；
@@ -131,8 +118,15 @@ $(function(){
         methods:{
             greet:function(vue) {
                 var classID = MVC('Home','Classify','classify');
-                $.post(classID,{classID:vue},function () {
-                    window.location.href = classID;
+                $.post(MVC('Home','Classify','saveClassify'),{classID:vue},function (data) {
+                    if(data){
+                        window.location.href = classID;
+                    }else{
+                        layer.open({
+                            content:'页面跳转失败',
+                        })
+                    }
+                    
                 });
             }
         }
@@ -147,6 +141,56 @@ $(function(){
             List:List,
         }
     });
+
+    //拍卖商品加载；
+    var app3 = new Vue({
+        el: "#auction",
+        data:{
+            auctionGoods:[],
+            imgArr:[],
+        },
+        mounted: function(){
+             this.$http.post(MVC('Home','Index','loadAuctionGoods')).then(function(res){
+                this.auctionGoods = res.body[0];
+                this.imgArr = res.body[1];
+                $('#loading').remove();
+            },function(res){
+                console.log(res.status);
+            });
+        },
+        computed: {
+            resivedGoods:function(){
+                for(let j = 0; j < this.auctionGoods.length;j++){
+                    for(let i=0; i < this.imgArr.length; i ++){
+                        if(this.imgArr[i].p_id == this.auctionGoods[j].p_id){
+                            this.auctionGoods[j]['img'] = this.imgArr[i].n_img;
+                            break;
+                        }
+                    }
+                }
+                 return this.auctionGoods;
+            }
+               
+        },
+        methods: {
+            //点击商品跳转详情页；
+            goodsDetail:function(key){
+                window.location.href = MVC('Home','Detail','detail');
+            },
+            //图片显示；
+            showImg:function(arr,goodsIndex){
+                var resArr = [];
+                for(let i=0; i < arr.length; i ++){
+                    if(arr[i].n_id == goodsIndex ){
+                        resArr.push(arr[i]);
+                    }
+                    if(resArr.length >= 1) break;
+                }
+                return resArr;
+            }
+        }
+
+    });
     //时间差过滤器；
     Vue.filter('diffTime',function(value){
         var timestamp1 = Date.parse(new Date(new Date()));
@@ -159,12 +203,11 @@ $(function(){
         h = h == 0 ? '' : h + "小时";
         m = m + '分';
         return d+h+m;
-        // console.log(111+":::"+d+':'+h+':'+m);
-        // console.log(222+":::"+'timestamp1:'+timestamp1+" "+'timestamp2:'+timestamp2);
+
     });
 // 商品加载；
     var signalGoods = {
-        props:['goods'],
+        props:['goods','imgs'],
         template : `
             <div class="row signal-goods" :ng="goods.n_id" v-on:click="goodsDetail(goods.n_id)">
                 <div class="col-sm-12 col-xs-12">
@@ -191,8 +234,8 @@ $(function(){
                         </div>
                     </div>
                     <div class="row goods-img">
-                        <div class="col-sm-4 col-xs-4">
-                            <img :src="goods.n_img" alt="showImg1"  class="img-responsive">
+                        <div class="col-sm-4 col-xs-4" v-for="val in showImg(imgs,goods.n_id)">
+                            <img :src="val.n_img" alt="showImg1"  class="img-responsive">
                         </div>
                     </div>
                     <div clas="row">
@@ -202,10 +245,27 @@ $(function(){
                     </div>
                 </div>
             </div> `,
+        data: function () {
+                return {
+
+                }
+        },
         methods:{
+            //点击商品跳转详情页；
             goodsDetail:function(key){
                 var detail = MVC('Home','Index','detail')
                 window.location.href = MVC('Home','Detail','detail');
+            },
+            //判断图片显示；
+            showImg:function(arr,goodsIndex){
+                var resArr = [];
+                for(let i=0; i < arr.length; i ++){
+                    if(arr[i].n_id == goodsIndex ){
+                        resArr.push(arr[i]);
+                    }
+                    if(resArr.length >= 3) break;
+                }
+                return resArr;
             }
         },
     };
@@ -215,13 +275,14 @@ $(function(){
             'signalGoods':signalGoods
         },
         data:{
-            goodsList:'',
+            goodsList:[],
+            imgArr: []
         },
         mounted: function () {
-            this.$http.post(MVC('Home','Index','loadGoods'),{},{emulateJSON:true}).then(function(res){
-                this.goodsList = res.body;
+            this.$http.post(MVC('Home','Index','loadGoods'),{flag:0},{emulateJSON:true}).then(function(res){
+                this.goodsList = res.body[0];
+                this.imgArr = res.body[1];
                 $('#loading').remove();
-                console.log(this.goodsList);
             },function(res){
                 console.log(res.status);
             });
@@ -229,9 +290,13 @@ $(function(){
         methods:{
             //获取商品；
             get: function () {
-                this.$http.post(MVC('Home','Index','loadGoods'),{},{emulateJSON:true}).then(function(res){
-                    this.goodsList = res.body;
-                    console.log(this.goodsList)  
+                var index = event.currentTarget.getAttribute('flag');
+                this.$http.post(MVC('Home','Index','loadGoods'),{flag:index},{emulateJSON:true}).then(function(res){
+                    
+                    if(res.body[0]) {
+                        this.goodsList = res.body[0];
+                        this.imgArr = res.body[1];
+                    }  
                 },function(res){
                     console.log(res.status);
                 }).bind(this)

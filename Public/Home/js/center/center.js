@@ -1,6 +1,10 @@
 $(function () {
+	new Loading();
     var Obottom=new showBtm(3);
     Obottom.setFather("footer");
+
+    $('#loading').remove();
+
     var user = MVC('Home','Center','info');
     $.post(user,{},function (data) {
         $("#nickName").text(data[0][0]['h_nick']);
@@ -24,5 +28,4 @@ $(function () {
         $("#zan").text(data[4].length)
     },'json');
 
-    
 })
