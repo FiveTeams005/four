@@ -175,7 +175,17 @@ $(function(){
         methods: {
             //点击商品跳转详情页；
             goodsDetail:function(key){
-                window.location.href = MVC('Home','Detail','detail');
+                this.$http.post(MVC('Home','Detail','saveInfo'),{goods_flag:'p',goods_id:key},{emulateJSON:true}).then(function(res){
+                    if(res.body){
+                        window.location.href = MVC('Home','Detail','detail');
+                    }else{
+                        layer.open({
+                            content:'页面跳转失败',
+                        });
+                    }
+                },function(res){
+                    console.log(res.status);
+                });
             },
             //图片显示；
             showImg:function(arr,goodsIndex){
@@ -251,10 +261,20 @@ $(function(){
                 }
         },
         methods:{
-            //点击商品跳转详情页；
+            //点击商品跳转详情页;
             goodsDetail:function(key){
-                alert(key)
-                window.location.href = MVC('Home','Detail','detail');
+                this.$http.post(MVC('Home','Detail','saveInfo'),{goods_flag:'n',goods_id:key},{emulateJSON:true}).then(function(res){
+                    if(res.body){
+                        window.location.href = MVC('Home','Detail','detail');
+                    }else{
+                        layer.open({
+                            content:'页面跳转失败',
+                        });
+                    }
+                },function(res){
+                    console.log(res.status);
+                });
+                
             },
             //判断图片显示；
             showImg:function(arr,goodsIndex){

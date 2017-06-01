@@ -6,13 +6,135 @@ $(document).ready(function(){
 
 	new Loading();
 
-        var detail = MVC('Home','Detail','show')
-        $.post(detail,{},function (data) {
-            alert(data);
-            $('#loading').remove();
+var g_flag = '';
+//时间差过滤器；
+    Vue.filter('diffTime',function(value){
+        var timestamp1 = Date.parse(new Date(new Date()));
+        var timestamp2 = Date.parse(new Date(value));
+        var t = timestamp1 - timestamp2;
+        var d = Math.floor(t/1000/60/60/24);//天数；
+        var h = Math.floor(t/1000/60/60%24);//小时；
+        var m = Math.floor(t/1000/60%60);//分钟；
+        d = d == 0 ? '' : d + "天";
+        h = h == 0 ? '' : h + "小时";
+        m = m + '分';
+        return d+h+m;
+
+    });
+  var bus = new Vue();//中转组件;
+        //头部组件；
+        var header = new Vue({
+          el:'header',
+          data:{
+            flag : false,
+            userInfo:'',
+            bTime:'',//拍卖开始时间；
+            eTime:'',//拍卖结束时间；
+            timeStr: '',
+          },
+          mounted:function(){
+            bus.$on('info',function(res){
+              header.userInfo = res;
+              header.bTime = res.bTime;
+              header.eTime = res.eTime;
+            });
+            let time = setInterval(()=>{
+              if(this.flag == true){
+                  clearInterval(time);
+              }
+              this.timeDown();
+            },500)
+
+          },
+          methods:{
+            timeDown () {
+              const nowTime   = new Date();
+              const beginTime = new Date(this.userInfo.bTime);
+              const endTime   = new Date(this.userInfo.eTime);
+              var leftTime = '';
+              var title = '';
+              if(beginTime.getTime() > nowTime.getTime()){
+                title = '距拍卖开始';
+                leftTime = parseInt((nowTime.getTime()-beginTime.getTime())/1000);
+              }else if(beginTime.getTime() <= nowTime.getTime() && endTime.getTime() >= nowTime.getTime()){
+                title = '距拍卖结束';
+                leftTime = parseInt((endTime.getTime() - nowTime.getTime())/1000);
+              }else{
+                title = '拍卖结束';
+                leftTime = '';
+              }
+              // let d = parseInt(leftTime/(24*60*60))
+              let h = this.formate(parseInt(leftTime/(60*60)%24))
+              let m = this.formate(parseInt(leftTime/60%60))
+              let s = this.formate(parseInt(leftTime%60))
+              if(leftTime <= 0){
+                  this.flag = true
+              }
+              header.timeStr = `${title}:${h}小时${m}分${s}秒`;
+            },
+            formate (time) {
+              if(time>=10){
+                  return time
+              }else{
+                  return `0${time}`
+              }
+            },
+          }
+        });
+        //中间组件；
+        var content = new Vue({
+          el:'#content',
+          data:{
+            addPrice:false,//显示加价按钮；
+            goodsInfo:'',
+            imgs:'',
+          },
+          beforeCreate:function(){
+            $.post(MVC('Home','Detail','getInfo'),function(data){
+                var sellInfo = '';
+                g_flag = data[0];
+                if(data[0] == 'p'){
+                  // content.timeShow = true;
+                  content.addPrice = true;
+                  sellInfo= {
+                    type:data[0],
+                    head:data[1][0].h_head,
+                    nick:data[1][0].h_nick,
+                    price:data[1][0].p_bprice,
+                    time:data[1][0].p_time,
+                    info:data[1][0].p_info,
+                    bTime:data[1][0].p_btime,
+                    eTime:data[1][0].p_etime,
+                  }
+                }else{
+                  // content.timeShow = false;
+                  content.addPrice = false;
+                  sellInfo= {
+                    type:data[0],
+                    head:data[1][0].h_head,
+                    nick:data[1][0].h_nick,
+                    price:data[1][0].n_price,
+                    time:data[1][0].n_time,
+                    info:data[1][0].n_info,
+                  }
+                }
+                console.log(sellInfo);
+                bus.$emit('info',sellInfo);
+                content.goodsInfo = sellInfo;
+                content.imgs = data[2];
+
+
+                console.log(data);
+                $('#loading').remove();
+            })
+          },
+          methods:{
+            
+
+          }
         })
 
-	//判断登陆；
+	//判断登陆;
 
 
     //留言信息组件；
@@ -35,7 +157,8 @@ $(document).ready(function(){
                 {nick:'流川枫的猪',msg:'嘻嘻嘻嘻嘻',id:'3'},
                 {nick:'耳边的呢喃细语',msg:'哈哈哈哈红红火火',id:'4'},
             ]
-        }
+        },
+
     })
 
   //判断滚动条状态，是否滑动到底部
@@ -79,7 +202,7 @@ $(document).ready(function(){
         }
     };
 
-
+    alert(g_flag);
     //点击留言按钮
     $("footer").on("click",".l-btn",function () {
        $("footer").html("");
@@ -122,10 +245,7 @@ $(document).ready(function(){
        }
    })
 
-    var detail=MVC('home','Detail','show')
-    $.post(detail,{},function (data) {
-        // alert(data);
-    })
+   
 })//ready
 
 	
