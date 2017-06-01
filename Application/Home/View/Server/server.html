@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/server/rl_exp.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/server/serverStyle.css">
 	<link rel="stylesheet" href="__PUBLIC__/static/loading/css/loading.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
@@ -16,12 +17,13 @@
     	function MVC(p,c,a){
     		return "{:U('"+p+"/"+c+"/"+a+"')}";
     	}
+        var path = "__PUBLIC__/";
     </script>
     <script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--页面加载等待-->
     <script type="text/javascript" src="__PUBLIC__/Home/js/server/server.js"></script>
 </head>
 <body >
-<div id="app">
+<div >
 	<header class="navbar-fixed-top">
 		<div class="container">
 			<!-- <div class="row">
@@ -54,26 +56,38 @@
 		<div class="container">
 			<div class="row ">
 				<div class="col-sm-8 col-xs-8">
-					<input type="text" name="" v-model="conn" v-on:blur="hideBtn" v-on:keyup="showBtn" placeholder="说点什么。。" id="send-input">
+					<div contenteditable="true" name=""  placeholder="说点什么。。" id="send-input">
+					</div>
 				</div>
 				<div class="col-sm-4 col-xs-4 text-center send-btn-box">
 					<div class="row">
 						<div class="col-xs-5 col-sm-5">
-							<img src="__PUBLIC__/Home/img/xianyu/search_user_icon.png" class="emoji-btn" v-on:click="emojiClick" >
+							<img src="__PUBLIC__/Home/img/xianyu/comui_emoji.png" class="emoji-btn" id="emojiClick" >
 						</div>
 						<div class="col-xs-7 col-sm-7">
-							<button class="send-btn" v-on:click="sendClick" v-if="btnFlag">发 送</button>
-							<img src="__PUBLIC__/Home/img/xianyu/message_gv_action_more.png" class="add-btn" v-on:click="addPicClick" v-else>
+							<button class="send-btn" id="sendClick" v-if="btnFlag">发 送</button>
+							<!--<img src="__PUBLIC__/Home/img/xianyu/message_gv_action_more.png" class="add-btn" id="addPicClick" v-else>-->
 						</div>
 					</div>
 				</div>
 
 			</div>
 		</div>
-		<div class="container input-con" v-if="divFlag">
-			<input-con v-bind:msg="conn"></input-con>
-		</div>
 	</footer>
 </div>
+
+	<div class="rl_exp" id="rl_bq" style="display:none;">
+		<ul class="rl_exp_tab clearfix">
+			<li><a href="javascript:void(0);" class="selected">默认</a></li>
+			<li><a href="javascript:void(0);">拜年</a></li>
+			<li><a href="javascript:void(0);">浪小花</a></li>
+			<li><a href="javascript:void(0);">暴走漫画</a></li>
+		</ul>
+		<ul class="rl_exp_main clearfix rl_selected"></ul>
+		<ul class="rl_exp_main clearfix" style="display:none;"></ul>
+		<ul class="rl_exp_main clearfix" style="display:none;"></ul>
+		<ul class="rl_exp_main clearfix" style="display:none;"></ul>
+		<a href="javascript:void(0);" class="close">×</a>
+	</div>
 </body>
 </html>
