@@ -204,7 +204,7 @@ $(function(){
             </div> `,
         methods:{
             goodsDetail:function(key){
-                alert(key)
+                var detail = MVC('Home','Index','detail')
                 window.location.href = MVC('Home','Detail','detail');
             }
         },
