@@ -1,11 +1,6 @@
-/*
-*聊天页面脚本；
-**/
 $(function(){
 
     /*
-     *		参数说明
-     *		baseUrl:	【字符串】表情路径的基地址
      *		pace:		【数字】表情弹出层淡入淡出的速度
      *		dir:		【数组】保存表情包文件夹名字
      *		text:		【二维数组】保存表情包title文字
@@ -20,10 +15,16 @@ $(function(){
         bind:	function(i){
             $("#rl_bq .rl_exp_main").eq(i).find('.rl_exp_item').each(function(){
                 $(this).bind('click',function(){
-                    var Oimg='<img src="'+$(this).find('img').attr('src')+'">';
-                    $('#send-input').append(Oimg);
-                    $('#rl_bq').fadeOut(rl_exp.pace);
-                    $('footer').removeClass('up-bottom');
+                    $("#send-input").focus();
+                    var Oimg=document.createElement('img');
+                    Oimg.setAttribute('src',$(this).find('img').attr('src'));
+                    insertHtmlAtCaret(Oimg);
+                    $("#send-input").blur();
+                    // $('#send-input').append();
+                    // $('#rl_bq').fadeOut(rl_exp.pace);
+                    // $('footer').removeClass('up-bottom');
+                    $("#sendClick").show();
+                    $("#addPicClick").hide();
                 });
             });
         },
@@ -39,7 +40,7 @@ $(function(){
             rl_exp.isExist[i] = 1;
             rl_exp.bind(i);
         },
-        /*在textarea里光标后面插入文字*/
+        /*在div里光标后面插入文字*/
         insertText:function(obj,str){
             obj.focus();
             if (document.selection) {
@@ -98,5 +99,51 @@ $(function(){
         }
     };
     rl_exp.init();	//调用初始化函数。
+
+
+    //输入框判定隐藏/显示发送btn
+    $('#send-input').on('keyup',function () {
+        if($(this).html()==""){
+            $("#sendClick").hide();
+            $("#addPicClick").show();
+        }
+        else{
+            $("#sendClick").show();
+            $("#addPicClick").hide();
+        }
+    })
+
+
+    function insertHtmlAtCaret(childElement) {
+        var sel, range;
+        if (window.getSelection) {
+            // IE9 and non-IE
+            sel = window.getSelection();
+            if (sel.getRangeAt && sel.rangeCount) {
+                range = sel.getRangeAt(0);
+                range.deleteContents();
+
+                var el = document.createElement("div");
+                el.appendChild(childElement);
+                var frag = document.createDocumentFragment(), node, lastNode;
+                while ((node = el.firstChild)) {
+                    lastNode = frag.appendChild(node);
+                }
+
+                range.insertNode(frag);
+                if (lastNode) {
+                    range = range.cloneRange();
+                    range.setStartAfter(lastNode);
+                    range.collapse(true);
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                }
+            }
+        }
+        else if (document.selection && document.selection.type != "Control") {
+            // IE < 9
+            //document.selection.createRange().pasteHTML(html);
+        }
+    }
 });
 
