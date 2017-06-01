@@ -6,7 +6,17 @@ header{
 header .row{
 	border-bottom: 1px solid #eee;
 }
-
+#send-input{
+	height: 32px;
+	border: 1px solid #FFda45;
+	box-shadow: 1px 1px 2px #eee;
+	line-height: 32px;
+	overflow: auto;
+}
+.img-my{
+	width: 56px;
+	height: 56px;
+}
 header .more {
 	height: 39px;
 	padding: 5px 20px;
