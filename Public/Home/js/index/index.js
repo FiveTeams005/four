@@ -175,7 +175,17 @@ $(function(){
         methods: {
             //点击商品跳转详情页；
             goodsDetail:function(key){
-                window.location.href = MVC('Home','Detail','detail');
+                this.$http.post(MVC('Home','Detail','saveInfo'),{goods_flag:'p',goods_id:key},{emulateJSON:true}).then(function(res){
+                    if(res.body){
+                        window.location.href = MVC('Home','Detail','detail');
+                    }else{
+                        layer.open({
+                            content:'页面跳转失败',
+                        });
+                    }
+                },function(res){
+                    console.log(res.status);
+                });
             },
             //图片显示；
             showImg:function(arr,goodsIndex){
@@ -242,7 +252,7 @@ $(function(){
                         <div class="col-sm-12 col-xs-12">
                             {{goods.n_name}}
                         </div>
-                    </div>
+                   </div>
                 </div>
             </div> `,
         data: function () {
@@ -251,10 +261,22 @@ $(function(){
                 }
         },
         methods:{
-            //点击商品跳转详情页；
+            //点击商品跳转详情页;
             goodsDetail:function(key){
-                var detail = MVC('Home','Index','detail')
-                window.location.href = MVC('Home','Detail','detail');
+
+                this.$http.post(MVC('Home','Detail','saveInfo'),{goods_flag:'n',goods_id:key},{emulateJSON:true}).then(function(res){
+                    if(res.body){
+                        window.location.href = MVC('Home','Detail','detail');
+                    }else{
+                        layer.open({
+                            content:'页面跳转失败',
+                        });
+                    }
+                },function(res){
+                    console.log(res.status);
+                });
+                
+
             },
             //判断图片显示；
             showImg:function(arr,goodsIndex){

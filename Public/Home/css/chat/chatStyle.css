@@ -6,7 +6,17 @@ header{
 header .row{
 	border-bottom: 1px solid #eee;
 }
-
+#send-input{
+	height: 32px;
+	border: 1px solid #FFda45;
+	box-shadow: 1px 1px 2px #eee;
+	line-height: 32px;
+	overflow: auto;
+}
+.img-my{
+	width: 56px;
+	height: 56px;
+}
 header .more {
 	height: 39px;
 	padding: 5px 20px;
@@ -46,6 +56,7 @@ header .buy-btn{
 /* 主要内容 信息展示框 */
 #content{
 	padding-top: 130px;
+	padding-bottom: 50px;
 	background-color: #fafafa;
 }
 /* 聊天气泡样式 */

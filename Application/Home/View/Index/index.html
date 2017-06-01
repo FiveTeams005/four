@@ -27,8 +27,14 @@
         //点击商品跳转到详情页
         function detail(id){
             var classID = MVC('Home','Classify','classify');
-            $.post(classID,{classID:id},function () {
-                window.location.href = classID;
+            $.post(MVC('Home','Classify','saveClassify'),{classID:id},function (data) {
+                    if(data){
+                        window.location.href = classID;
+                    }else{
+                        layer.open({
+                            content:'页面跳转失败',
+                        })
+                    }
             });
         }
 
