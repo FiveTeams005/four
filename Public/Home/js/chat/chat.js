@@ -7,6 +7,47 @@ $(function(){
 	setTimeout(function(){
         $('#loading').remove();
     },600);
+//进来加载信息
+    var chatDes = MVC('Home','Chat','chatDes');
+    $.post(chatDes,{},function (data) {
+        $("#nick").html(data[1][0]['h_nick']);
+        $("#price").html("￥"+data[0][0]['n_price']);
+        $("#img").attr("src",data[4][0]['n_img']);
+    },'json');
+
+    //加载聊天记录
+    function chatLog() {
+        var ChatLog = MVC('Home','Chat','ChatLog');
+        $.post(ChatLog,{},function (data) {
+            $("#chat").html("");
+            for(var i=0;i<data[2].length;i++){
+                if(data[2][i]['f_h_id']==data[3]){
+                    var a = $("\
+				<div class='row q-div'>\
+					<div class='q-text col-sm-10 col-xs-10'>\
+						<p class='pull-right'>"+data[2][i]['l_message']+"</p><i></i>\
+					</div>\
+					<div class='heard_img col-sm-2 col-xs-2' style='padding: 0;'>\
+						<img src='"+data[1][0]['h_head']+"' class='img-responsive'>\
+					</div>\
+				</div>")
+                    $("#chat").append(a);
+                }else {
+                    var b = $('\
+				<div class="row a-div">\
+					<div class="heard_img col-sm-2 col-xs-2" style="padding: 0;">\
+						<img src="'+data[0][0]['h_head']+'" class="img-responsive">\
+					</div>\
+					<div class="a-text col-sm-10 col-xs-10">\
+						<i></i><p class="pull-left">'+data[2][i]['l_message']+'</p>\
+					</div>\
+				</div>')
+                    $("#chat").append(b);
+                }
+            }
+        },'json');
+    }
+    chatLog();
 
 	var vm = new Vue({
 		el:"#app",
@@ -152,50 +193,5 @@ $(function(){
         }
     })
 })
-=======
-/*
-*聊天页面脚本；
-**/
-$(function(){
-	//进来加载信息
-	var chatDes = MVC('Home','Chat','chatDes');
-	$.post(chatDes,{},function (data) {
-		$("#nick").html(data[1][0]['h_nick']);
-		$("#price").html("￥"+data[0][0]['n_price']);
-		$("#img").attr("src",data[4][0]['n_img']);
-	},'json');
 
-	//加载聊天记录
-	function chatLog() {
-		var ChatLog = MVC('Home','Chat','ChatLog');
-		$.post(ChatLog,{},function (data) {
-			$("#chat").html("");
-			for(var i=0;i<data[2].length;i++){
-				if(data[2][i]['f_h_id']==data[3]){
-					var a = $("\
-				<div class='row q-div'>\
-					<div class='q-text col-sm-10 col-xs-10'>\
-						<p class='pull-right'>"+data[2][i]['l_message']+"</p><i></i>\
-					</div>\
-					<div class='heard_img col-sm-2 col-xs-2' style='padding: 0;'>\
-						<img src='"+data[1][0]['h_head']+"' class='img-responsive'>\
-					</div>\
-				</div>")
-					$("#chat").append(a);
-				}else {
-					var b = $('\
-				<div class="row a-div">\
-					<div class="heard_img col-sm-2 col-xs-2" style="padding: 0;">\
-						<img src="'+data[0][0]['h_head']+'" class="img-responsive">\
-					</div>\
-					<div class="a-text col-sm-10 col-xs-10">\
-						<i></i><p class="pull-left">'+data[2][i]['l_message']+'</p>\
-					</div>\
-				</div>')
-					$("#chat").append(b);
-				}
-			}
-		},'json');
-	}
-	chatLog();
-})
+
