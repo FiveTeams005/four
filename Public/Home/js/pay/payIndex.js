@@ -1,4 +1,8 @@
 $(function(){
+    var price = MVC('Home','Pay','price');
+    $.post(price,{},function (data) {
+        $("#price").html(data);
+    })
     //出现浮动层
     $(".ljzf_but").click(function(){
         $(".ftc_wzsf").show();
@@ -23,7 +27,10 @@ $(function(){
         }else{
             $(".mm_box li").eq(i-1).addClass("mmdd");
             setTimeout(function(){
-                location.href=MVC("Home","Pay","paySuccess");
+                var buy = MVC('Home','Pay','buy')
+                $.post(buy,{},function (data) {
+                    location.href=MVC("Home","Pay","paySuccess");
+                })
             },500);
         }
     });
