@@ -260,7 +260,16 @@ form .form-group:last-child{padding-bottom:0;}
 .admin-bread .bread{margin-bottom:0;}
 .admin-bread span{float:right;font-size:12px;color:#666;line-height:36px;}*/
 
-.admin{position:fixed;right:0;bottom:0;top:85px;left:210px; overflow-y:auto; overflow-x:hidden; background-color: #f1f2f7;}
+.admin{
+	position:fixed;
+	right:0;
+	bottom:0;
+	top:85px;
+	left:210px; 
+	overflow-y:auto; 
+	overflow-x:hidden; 
+	background-color: #f1f2f7;
+}
 
 /*.alert{margin-bottom:20px;}
 .admin-panel td{line-height:24px;}
