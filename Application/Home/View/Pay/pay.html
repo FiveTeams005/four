@@ -36,11 +36,11 @@
 
 			<div class="row goods-info">
 				<div class="col-sm-4 col-xs-4">
-					<img src="__PUBLIC__/Home/img/images/f.jpg" class="img-responsive">
+					<img id="img" src='' class="img-responsive">
 				</div>
 				<div class="col-sm-8 col-xs-8">
-					<p>goodsname</p>
-					<p>price</p>
+					<p id="goodsName">goodsname</p>
+					<p id="price">price</p>
 				</div> 
 			</div>
 
@@ -49,8 +49,8 @@
 					<p class="title">收货地址</p>
 				</div>
 				<div class="col-sm-7 col-xs-7 show-address-div" style="padding-left: 0;">
-					<p><span>name</span>&nbsp;&nbsp;<span>tel</span></p>
-					<p>福建省 厦门市 思明区 软件园二期 xx号楼 xx楼</p>
+					<p><span id="nick"></span>&nbsp;&nbsp;<span id="phone"></span></p>
+					<p id="add">福建省 厦门市 思明区 软件园二期 xx号楼 xx楼</p>
 				</div>
 				<div class="col-xs-1 col-sm-1 select-address" v-on:click="showList" style="padding:0;">
 					<img src="__PUBLIC__/Home/img/xianyu/bottom_right.png" >

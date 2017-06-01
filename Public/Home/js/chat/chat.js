@@ -74,6 +74,26 @@ $(function(){
 			voiceClick:function(){
 				alert("正在开发，敬请期待。。。");
 			},
+			//表情包点击事件；
+			emojiClick:function(){
+				alert('biaoqingbao');
+			},
+			//添加图pain按钮点击事件；
+			addPicClick:function(){
+				alert("正在开发，敬请期待。。。");
+			},
+			//发送消息按钮点击事件；
+			sendClick:function(){
+				if($("#send-input").val()==''){
+					layer.open({content:'输入不为空！'})
+				}else {
+					var send = MVC('Home','Chat','send');
+					$.post(send,{chat:$("#send-input").val()},function (data) {
+						chatLog();
+						$("#send-input").val("");
+					})
+				}
+			},
 			//点击 商品信息跳转页面事件；
 			infoClick:function(){
 				alert(2);
@@ -90,6 +110,16 @@ $(function(){
 			
 		}
 	});
+	
+	// $('#send-input').keyup(function(){
+	// 	if($('.input-con').length == 1){
+	// 		$('.input-con').html($('#send-input').val());
+			
+	// 	}else{
+	// 		console.log($('.input-con').length);
+	// 	}
+	// });
+})
 
     var rl_exp = {
         pace:		200,
