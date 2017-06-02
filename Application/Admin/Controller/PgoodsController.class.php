@@ -80,8 +80,21 @@ class PgoodsController extends BaseController {
 	public function pgoodsDel(){
 		$p_id = $_POST['p_id'];
 		$pgoods = M('pgoods');
+
+		// 日志
+		$pgoodsName = $pgoods->where("p_id in({$p_id})")->select();
+		$name = array();
+		for($i = 0;$i < count($pgoodsName);$i++){
+			array_push($name,$pgoodsName[$i]['p_name']);
+		}
+		$name = implode("、",$name);
+
 		$delRes = $pgoods->where("p_id in({$p_id})")->delete();
 		if($delRes){
+			$log = M('log');
+			$data['a_id'] = $_COOKIE['auserid'];
+			$data['manipulation'] = "删除了拍卖商品:{$name}";
+			$logres = $log->data($data)->add();
 			echo "删除商品成功！";
 		}
 		else{

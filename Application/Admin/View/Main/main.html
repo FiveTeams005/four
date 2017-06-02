@@ -30,17 +30,17 @@
       </dl>
       <dl data-am-scrollspy="{animation: 'slide-right', delay: 300}">
         <dt class="cs"><i class="am-icon-area-chart"></i></dt>
-        <dd>455</dd>
+        <dd>{$orderNow}</dd>
         <dd class="f12">今日交易数</dd>
       </dl>
       <dl data-am-scrollspy="{animation: 'slide-right', delay: 600}">
         <dt class="hs"><i class="am-icon-shopping-cart"></i></dt>
-        <dd>455</dd>
+        <dd>{$ngoodsCount+$pgoodsCount}</dd>
         <dd class="f12">商品数量</dd>
       </dl>
       <dl data-am-scrollspy="{animation: 'slide-right', delay: 900}">
         <dt class="ls"><i class="am-icon-cny"></i></dt>
-        <dd>455</dd>
+        <dd>{$orderAll}</dd>
         <dd class="f12">全部交易数</dd>
       </dl>
     </div>
@@ -118,54 +118,6 @@
           </tr>
         </tbody>
       </table>
-      <table class="am-table">
-        <thead>
-          <tr>
-            <th>资金统计</th>
-            <th>账户总收入</th>
-            <th>账户总支出</th>
-            <th>账户余额</th>
-            <th>今日收入</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>普卡</td>
-            <td>普卡</td>
-            <td>4534</td>
-            <td>+20</td>
-            <td> 4534 </td>
-          </tr>
-          <tr>
-            <td>银卡</td>
-            <td>银卡</td>
-            <td>4534</td>
-            <td>+2</td>
-            <td> 4534 </td>
-          </tr>
-          <tr>
-            <td>金卡</td>
-            <td>金卡</td>
-            <td>4534</td>
-            <td>+10</td>
-            <td> 4534 </td>
-          </tr>
-          <tr>
-            <td>钻卡</td>
-            <td>钻卡</td>
-            <td>4534</td>
-            <td>+50</td>
-            <td> 4534 </td>
-          </tr>
-          <tr>
-            <td>合计</td>
-            <td>合计</td>
-            <td>4534</td>
-            <td>+50</td>
-            <td> 4534 </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
     <div class="shuju">
       <div class="shujuone">
@@ -175,127 +127,23 @@
         </dl>
         <ul>
           <h2>{$regScale}</h2>
-          <li>占比例</li>
+          <li>新会员</li>
         </ul>
       </div>
       <div class="shujutow">
         <dl>
           <dt>全部商品：  {$ngoodsCount+$pgoodsCount}</dt>
-          <dt>今日发布普通商品：   5646465.98</dt>
-          <dt>今日发布拍卖商品：  546464</dt>
+          <dt>今日发布普通商品：   {$newNgoods}</dt>
+          <dt>今日发布拍卖商品：  {$newPgoods}</dt>
         </dl>
         <ul>
-          <h2>26.83%</h2>
-          <li>全盘拨出</li>
+          <h2>{$goodsScale}</h2>
+          <li>新商品</li>
         </ul>
       </div>
-      <div class="slideTxtBox">
-        <div class="hd">
-          <ul>
-            <li>其他信息</li>
-            <li>工作进度表</li>
-          </ul>
-        </div>
-        <div class="bd">
-          <ul>
-            <table width="100%" class="am-table">
-              <tbody>
-                <tr>
-                  <td width="7%"  align="center">1 </td>
-                  <td width="83%" >工作进度名称</td>
-                  <td width="10%"  align="center"><a href="#">10%</a></td>
-                </tr>
-                <tr>
-                  <td align="center">1 </td>
-                  <td>工作进度名称</td>
-                  <td  align="center"><a href="#">10%</a></td>
-                </tr>
-                <tr>
-                  <td  align="center">1 </td>
-                  <td>工作进度名称</td>
-                  <td  align="center"><a href="#">10%</a></td>
-                </tr>
-                <tr>
-                  <td  align="center">1 </td>
-                  <td>工作进度名称</td>
-                  <td  align="center"><a href="#">10%</a></td>
-                </tr>
-                
-                <tr>
-                  <td  align="center">1 </td>
-                  <td>工作进度名称</td>
-                  <td  align="center"><a href="#">10%</a></td>
-                </tr>
-                
-                <tr>
-                  <td  align="center">1 </td>
-                  <td>工作进度名称</td>
-                  <td  align="center"><a href="#">10%</a></td>
-                </tr>
-                
-                <tr>
-                  <td  align="center">1 </td>
-                  <td>工作进度名称</td>
-                  <td  align="center"><a href="#">10%</a></td>
-                </tr>
-                
-                
-                
-                
-                
-                
-                
-                
-              </tbody>
-            </table>
-          </ul>
-          <ul>
-            <table class="am-table">
-              <tbody>
-                <tr>
-                  <td>普卡</td>
-                  <td>普卡</td>
-                  <td><a href="#">4534</a></td>
-                  <td>+20</td>
-                  <td> 4534 </td>
-                </tr>
-                <tr>
-                  <td>银卡</td>
-                  <td>银卡</td>
-                  <td>4534</td>
-                  <td>+2</td>
-                  <td> 4534 </td>
-                </tr>
-                <tr>
-                  <td>金卡</td>
-                  <td>金卡</td>
-                  <td>4534</td>
-                  <td>+10</td>
-                  <td> 4534 </td>
-                </tr>
-                <tr>
-                  <td>钻卡</td>
-                  <td>钻卡</td>
-                  <td>4534</td>
-                  <td>+50</td>
-                  <td> 4534 </td>
-                </tr>
-                <tr>
-                  <td>合计</td>
-                  <td>合计</td>
-                  <td>4534</td>
-                  <td>+50</td>
-                  <td> 4534 </td>
-                </tr>
-              </tbody>
-            </table>
-          </ul>
-        </div>
-      </div>
-      <script type="text/javascript">jQuery(".slideTxtBox").slide();</script> 
     </div>
     <div class="foods">
-    	<ul>版权所有@2015 .模板收集自 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> -  More Templates<a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></ul>
+    	<ul>二货市场</ul>
     	<dl><a href="" title="返回头部" class="am-icon-btn am-icon-arrow-up"></a></dl>
     </div>
 </div>

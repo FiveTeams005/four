@@ -67,12 +67,23 @@ class IndexController extends BaseController {
 		$pgoodsCount = $pgoods->count();
 		$ngoodsOnsole = $ngoods->where("n_status = 1")->count();
 		$pgoodsOnsole = $pgoods->where("p_status = 1 or p_status = 0")->count();
+		$newNgoods = $ngoods->where("date(n_time) = curdate()")->count();
+		$newPgoods = $pgoods->where("date(p_time) = curdate()")->count();
+		$goodsScale = (round(($newNgoods+$newPgoods)/($ngoodsCount+$pgoodsCount),4)*100).'%';
 		$this->assign('ngoodsCount',$ngoodsCount);
 		$this->assign('pgoodsCount',$pgoodsCount);
 		$this->assign('ngoodsOnsole',$ngoodsOnsole);
 		$this->assign('pgoodsOnsole',$pgoodsOnsole);
+		$this->assign('newNgoods',$newNgoods);
+		$this->assign('newPgoods',$newPgoods);
+		$this->assign('goodsScale',$goodsScale);
 
-		
+		$order = M('order');
+		$orderNow = $order->where("date(o_rtime) = curdate() and o_status = 5")->count();
+		$orderAll = $order->where("o_status = 5")->count();
+		$this->assign('orderNow',$orderNow);
+		$this->assign('orderAll',$orderAll);
+
 		$this->display("Main/main");
 	}
 }
