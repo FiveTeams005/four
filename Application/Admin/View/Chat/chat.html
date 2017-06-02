@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/rl_exp.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/chat.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
@@ -22,6 +24,7 @@
  <div id="chat">
      <div class="sidebar">
          <div class="m-card">
+             <!--客服头像、搜索输入框-->
              <header>
                  <img class="avatar" width="40" height="40" src="__PUBLIC__/Admin/img/1.jpg">
                  <p class="name">刘梽~</p>
@@ -30,14 +33,24 @@
                  <input class="search" placeholder="搜索用户..">
              </footer>
          </div>
+         <!--好友列表-->
          <div class="m-list">
              <ul>
-                 <li><img class="avatar" width="30" height="30" src="__PUBLIC__/Admin/img/user.jpg"><p class="name">小明</p></li>
-                 <li class="active"><img class="avatar" width="30" height="30" src="__PUBLIC__/Admin/img/user.jpg"><p class="name">小川</p></li>
+                 <li>
+                     <img class="avatar" width="30" height="30" src="__PUBLIC__/Admin/img/user.jpg">
+                     <p class="name">小明</p>
+                     <span class="badge">6</span>
+                 </li>
+                 <li class="active">
+                     <img class="avatar" width="30" height="30" src="__PUBLIC__/Admin/img/user.jpg">
+                     <p class="name">小川</p>
+                     <span class="badge">1</span>
+                 </li>
              </ul>
          </div>
      </div>
      <div class="main">
+         <!--聊天对话信息-->
          <div class="m-message">
              <ul>
                  <li><p class="time"><span>17:00</span></p>
@@ -54,8 +67,36 @@
              </ul>
          </div>
          <div class="m-text">
-             <textarea placeholder="按Ctrl+Enter 发送"></textarea>
+             <!--表情包、字体选择按钮-->
+             <div class="m-title">
+                 <ul>
+                     <li id="emojiClick"><img width="20" height="20" src="__PUBLIC__/Home/img/xianyu/comui_emoji.png"></li>
+                     <li><img width="20" height="20" src="__PUBLIC__/Home/img/xianyu/ziti.png"></li>
+                 </ul>
+             </div>
+             <!--聊天输入框-->
+             <div class="m-con" contenteditable="true" id="send-input">
+
+             </div>
+             <!--发送消息按钮-->
+             <div class="m-foot">
+                 <button type="button" class="btn btn-send">发送(S)</button>
+             </div>
          </div>
+     </div>
+
+     <div class="rl_exp" id="rl_bq" style="display:none;">
+         <ul class="rl_exp_tab clearfix">
+             <li><a href="javascript:void(0);" class="selected">默认</a></li>
+             <li><a href="javascript:void(0);">拜年</a></li>
+             <li><a href="javascript:void(0);">浪小花</a></li>
+             <li><a href="javascript:void(0);">暴走漫画</a></li>
+         </ul>
+         <ul class="rl_exp_main clearfix rl_selected"></ul>
+         <ul class="rl_exp_main clearfix" style="display:none;"></ul>
+         <ul class="rl_exp_main clearfix" style="display:none;"></ul>
+         <ul class="rl_exp_main clearfix" style="display:none;"></ul>
+         <a href="javascript:void(0);" class="close">×</a>
      </div>
  </div>
 </body>
