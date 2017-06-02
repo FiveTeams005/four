@@ -21,3 +21,4 @@ function BubbleTip(num,appendID,top,left){
 	}
 	$(this.appendID).append(this.span);
 }
+

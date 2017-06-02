@@ -31,7 +31,7 @@ class PayController extends Controller {
 		$res1 = $db1->where("h_id = '{$h_id}'")->select();
 		$res2 = $db2->where("n_id = '{$n_id}'")->select();
 		$res3 = $db3->where("h_id = '{$h_id}'")->select();
-		$res4 = $db4->where("n_id = '{$h_id}'")->select();
+		$res4 = $db4->where("n_id = '{$n_id}'")->select();
 		$ary = array();
 		array_push($ary,$res1,$res2,$res3,$res4);
 		echo json_encode($ary); 

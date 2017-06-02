@@ -13,7 +13,7 @@ class IndexController extends Controller {
 	 * 加载主页
 	 */
     public function index(){
-		cookie('user',1);
+		cookie('user',128);
         $this->display('index');
     }
     public function advert(){
@@ -86,7 +86,7 @@ class IndexController extends Controller {
 		// 指明给谁推送，为空表示向所有在线用户推送
 		$to_uid = I('id');
 		$con = I('con');
-// 推送的url地址，使用自己的服务器地址
+		// 推送的url地址，使用自己的服务器地址
 		$push_api_url = "http://eh.liuzhi66.top:2121/";
 		$post_data = array(
 			"type" => "publish",
