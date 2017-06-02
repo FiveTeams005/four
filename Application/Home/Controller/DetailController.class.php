@@ -56,6 +56,56 @@ class DetailController extends Controller {
  		}
  		$this->ajaxreturn(array($goods_flag,$goodsRes,$imgRes));
  	}
+ 	/*
+ 	*	发送留言信息；
+ 	*/
+ 	public function sendMsg(){
+ 		$msg = I('msg');
+ 		$goodsId = I('id',0,'intval');
+ 		$flag = I('goodsFlag');
+ 		// $user = cookie('user');
+ 		$user = 1;
+ 		$arr = array();
+ 		$arr['m_message'] = $msg;
+ 		$arr['h_id'] = $user;
+ 		$leaveMsg = M('message');
+ 		if($flag == 'p'){
+ 			$arr['p_id'] = $goodsId;
+ 		}else if($flag == 'n'){
+ 			$arr['n_id'] = $goodsId;
+ 		}
+		$res = $leaveMsg -> add($arr);
+		if($res){
+			$this->ajaxreturn(true);
+		}else{
+			$this->ajaxreturn(false);
+		}
+ 	}
+ 	/*
+ 	*	获取留言信息；
+ 	*/
+ 	public function getLeaveMsg(){
+ 		$flag = I('goodsFlag');//商品标志;
+ 		$goodsId = I('goodsId',0,'intval');
 
+ 		$leaveMsg = M('message');
+ 		if($flag == 'p'){
+ 			$g_id = 'p_id';
+ 		}else{
+ 			$g_id = 'n_id';
+ 		}
+ 		$res = $leaveMsg ->field('f_huser.h_id,f_huser.h_head,f_huser.h_nick,f_message.*')->join('left join f_huser on f_huser.h_id=f_message.h_id') -> where("{$g_id} = {$goodsId}") -> select();
+ 		$this-> ajaxreturn($res);
+ 	}
+ 	/*
+ 	*	获取个人信息；
+ 	*/
+ 	public function getSelfInfo(){
+ 		// $user = cookie('user');
+ 		$user = 1;
+ 		$huser = M('huser');
+ 		$res = $huser -> where("h_id = $user") -> select();
+ 		$this->ajaxreturn($res);
+ 	}
 }
 ?>

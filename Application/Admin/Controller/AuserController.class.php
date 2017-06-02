@@ -49,6 +49,15 @@ class AuserController extends BaseController {
 		}
 		$delRes = $auser->where("a_id in({$a_id})")->delete();
 		if($delRes){
+			$name = array();
+			for($i = 0;$i < count($checkRes);$i++){
+				array_push($name,$checkRes[$i]['a_account']);
+			}
+			$name = implode("、",$name);
+			$log = M('log');
+			$data['a_id'] = $auserid;
+			$data['manipulation'] = "删除了后台用户:{$name}";
+			$logres = $log->data($data)->add();
 			echo "删除用户成功！";
 		}
 		else{
@@ -81,6 +90,10 @@ class AuserController extends BaseController {
 		}
 		$lockRes = $auser->data($data)->where("a_id in({$a_id})")->save();
 		if($lockRes){
+			$log = M('log');
+			$data['a_id'] = $auserid;
+			$data['manipulation'] = "{$str}了后台用户:{$checkRes[0]['a_account']}";
+			$logres = $log->data($data)->add();
 			echo $str."用户成功！";
 		}
 		else{
@@ -110,6 +123,10 @@ class AuserController extends BaseController {
 	    		$data['a_pwd'] = md5($data['a_pwd']);
 	    		$res = $user->add($data);
 	    		if($res){
+	    			$log = M('log');
+					$da['a_id'] = $_COOKIE['auserid'];
+					$da['manipulation'] = "添加了后台用户:{$_POST['account']}";
+					$logres = $log->data($da)->add();
 	    			$this->success('添加成功！');
 	    		}
 	    		else{
@@ -129,16 +146,21 @@ class AuserController extends BaseController {
 	}
 
 	/**
-	 * 添加修改
+	 * 修改用户
 	 */
 	public function update(){
 		$auser = M('auser');
 		if(IS_POST){
 			$aid = $_POST['aid'];
+			$accountName = $auser->where("a_id = {$aid}")->getfield('a_account');
 			$data['a_nick'] = $_POST['nick'];
 			$data['r_id'] = $_POST['rid'];
 			$res = $auser->data($data)->where("a_id = {$aid}")->save();
 			if($res){
+				$log = M('log');
+				$da['a_id'] = $_COOKIE['auserid'];
+				$da['manipulation'] = "修改了后台用户:{$accountName} 的信息";
+				$logres = $log->data($da)->add();
 				echo "修改成功！";
 			}
 			else{
@@ -163,9 +185,14 @@ class AuserController extends BaseController {
 	public function auserReset(){
 		$aid = $_POST['aid'];
 		$auser = M('auser');
+		$accountName = $auser->where("a_id = {$aid}")->getfield('a_account');
 		$data['a_pwd'] = md5('123456');
 		$res = $auser->data($data)->where("a_id = {$aid}")->save();
 		if($res){
+			$log = M('log');
+			$da['a_id'] = $_COOKIE['auserid'];
+			$da['manipulation'] = "重置了后台用户:{$accountName} 的登录密码";
+			$logres = $log->data($da)->add();
 			echo "重置密码成功！";
 		}
 		else{

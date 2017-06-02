@@ -90,7 +90,14 @@ class ChatController extends Controller {
 		$res2 = $db1->where("h_id = '{$h_id}'")->select();//对方用户
 		$res3 = $db1->where("h_id = '{$h_id2}'")->select();//自己
 		$ary = array();
-		array_push($ary,$res2,$res3,$res4,$h_id2);
+		$ary2 = array();
+		for($i=0;$i<count($res4);$i++){
+			$a = $res4[$i]['l_message'];
+			$b = htmlspecialchars_decode($a);
+			$arr = array('f_h_id'=>$res4[$i]['f_h_id'],'l_message'=>$b);
+			array_push($ary2,$arr);
+		}
+		array_push($ary,$res2,$res3,$ary2,$h_id2);
 		echo json_encode($ary);
 	}
 	/**
@@ -98,7 +105,7 @@ class ChatController extends Controller {
 	 * 点击发送
 	 */
 	public function send(){
-		$chat = I('chat');
+		$chat = I('chat','',NULL);
 		$ary['l_message'] = $chat;
 		$ary['f_h_id'] = cookie('user');
 		$ary['t_h_id'] = cookie('otherId');
@@ -106,5 +113,26 @@ class ChatController extends Controller {
 		$ary['l_status'] = 2;
 		$db = M('chat');
 		$res = $db->add($ary);
+
+
+		// 指明给谁推送，为空表示向所有在线用户推送
+		$to_uid = cookie('otherId');
+		// 推送的url地址，使用自己的服务器地址
+		$push_api_url = "http://eh.liuzhi66.top:2121/";
+		$post_data = array(
+			"type" => "publish",
+			"content" => '11',
+			"to" => $to_uid,
+		);
+		$ch = curl_init ();
+		curl_setopt ( $ch, CURLOPT_URL, $push_api_url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, $post_data );
+		curl_setopt ($ch, CURLOPT_HTTPHEADER, array("Expect:"));
+		$return = curl_exec ( $ch );
+		curl_close ( $ch );
+		echo $return;
 	}
 }

@@ -84,13 +84,13 @@ $(function(){
 			},
 			//发送消息按钮点击事件；
 			sendClick:function(){
-				if($("#send-input").val()==''){
+				if($("#send-input").html()==''){
 					layer.open({content:'输入不为空！'})
 				}else {
 					var send = MVC('Home','Chat','send');
-					$.post(send,{chat:$("#send-input").val()},function (data) {
+					$.post(send,{chat:$("#send-input").html()},function (data) {
 						chatLog();
-						$("#send-input").val("");
+						$("#send-input").html("");
 					})
 				}
 			},
@@ -119,8 +119,6 @@ $(function(){
 	// 		console.log($('.input-con').length);
 	// 	}
 	// });
-
-
     var rl_exp = {
         pace:		200,
         dir:		['mr','gnl','lxh','bzmh'],

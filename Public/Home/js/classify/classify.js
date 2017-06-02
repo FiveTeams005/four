@@ -142,13 +142,27 @@ $(function(){
 			})
 		},
 		methods:{
+			//如果没有图片；
 			noneImg:function(val){
 				// console.log(val);
 				if(val == undefined){
 					val = path+'Home/img/xianyu/page_item_deleted.png';
 				}
 				return val;
-			}
+			},
+			//单个商品点击事件；
+			goodsClick:function(key){
+				alert(key)
+				$.post(MVC('Home','Detail','saveInfo'),{goods_flag:'n',goods_id:key},function(res){
+                    if(res){
+                        window.location.href = MVC('Home','Detail','detail');
+                    }else{
+                        layer.open({
+                            content:'页面跳转失败',
+                        });
+                    }
+                });
+			},
 		},
 		mounted: function (){
 			//进来加载商品东西
@@ -171,8 +185,8 @@ $(function(){
 						}
 					}
 				}
-				// this.dataList = dataArr;
-				content.$set(content.$data,'dataList',dataArr);
+				content.dataList = dataArr;
+				// content.$set(content.$data,'dataList',dataArr);
 				$('#loading').remove();
 			},'json');
 		},
