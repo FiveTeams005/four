@@ -203,6 +203,7 @@ $(function(){
     });
     //时间差过滤器；
     Vue.filter('diffTime',function(value){
+        value=value.replace(/-/g, '/');
         var timestamp1 = Date.parse(new Date(new Date()));
         var timestamp2 = Date.parse(new Date(value));
         var t = timestamp1 - timestamp2;

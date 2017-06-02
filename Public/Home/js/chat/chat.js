@@ -119,7 +119,7 @@ $(function(){
 	// 		console.log($('.input-con').length);
 	// 	}
 	// });
-})
+
 
     var rl_exp = {
         pace:		200,
@@ -222,6 +222,5 @@ $(function(){
             $("#addPicClick").hide();
         }
     })
+
 })
-
-
