@@ -220,6 +220,5 @@ $(function(){
             $("#addPicClick").hide();
         }
     })
+
 })
-
-

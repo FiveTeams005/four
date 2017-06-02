@@ -43,8 +43,28 @@ $(function() {
             $("#content").html("");
         }
         else{
+            $("#content").html("");
             //将表单数据发送给后台
-            window.location.href=MVC("Home","Center","MyAddr");
+            $.post(MVC("Home","Center","addrAdd"),{city:$.trim($("#add-city").text()),detail:$.trim($("#add-detail").val()),name:$.trim($("#add-name").val()),tel:$.trim($("#add-tel").val())},function (data) {
+                if(data==1){
+                    layer.open({
+                        content: '添加成功'
+                        ,btn: ['确定']
+                        ,yes: function(index){
+                            layer.close(index);
+                            window.location.href=MVC("Home","Center","MyAddr");
+                        }
+                    });
+
+                }
+                else{
+                    layer.open({
+                        content: '添加新地址失败'
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    })
+                }
+            },'json')
         }
     })
     $('#loading').remove();

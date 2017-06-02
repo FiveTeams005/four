@@ -257,4 +257,29 @@ class CenterController extends Controller {
         $h_id = cookie('user');
         $res = $db->where("h_id = '{$h_id}' AND n_id = '{$n_id}'")->delete();
     }
+    /**
+     * 我买到的商品
+     */
+    public function showAddr(){
+        $db = M('address');
+        $h_id = cookie('user');
+        $res = $db->where("h_id= '1'")->order('d_status desc')->select();
+        echo json_encode($res);
+    }
+    public function addrAdd(){
+        $db = M('address');
+        $h_id = cookie('user');
+        $city=I('post.city');
+        $detail=I('post.detail');
+        $arr1=array($city,$detail);
+        $arr2=implode(",",$arr1);
+        $data = array('h_id' => 1,'d_address' =>$arr2, 'd_name' =>I('post.name'), 'd_tel' =>I('post.tel'));
+        $res=$db->data($data)->add();
+        if($res){
+            echo 1;
+        }
+        else{
+            echo 2;
+        }
+    }
 }

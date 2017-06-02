@@ -27,6 +27,9 @@
 .addr-tel{
     font-size: 18px;
 }
+#addr{
+    padding-bottom: 45px;
+}
 .addr-addr{
     font-size: 12px;
     padding-left: 5px;
