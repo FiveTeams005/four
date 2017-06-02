@@ -1,1 +1,62 @@
-11
+<!DOCTYPE html>
+<html>
+<head>
+    <title>客服聊天</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/chat.css">
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/layer/layer.js"></script>
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script type="text/javascript">
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+        var path = "__PUBLIC__/";
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/Admin/myjs/chat.js"></script>
+</head>
+<body>
+ <div id="chat">
+     <div class="sidebar">
+         <div class="m-card">
+             <header>
+                 <img class="avatar" width="40" height="40" src="__PUBLIC__/Admin/img/1.jpg">
+                 <p class="name">刘梽~</p>
+             </header>
+             <footer>
+                 <input class="search" placeholder="搜索用户..">
+             </footer>
+         </div>
+         <div class="m-list">
+             <ul>
+                 <li><img class="avatar" width="30" height="30" src="__PUBLIC__/Admin/img/user.jpg"><p class="name">小明</p></li>
+                 <li class="active"><img class="avatar" width="30" height="30" src="__PUBLIC__/Admin/img/user.jpg"><p class="name">小川</p></li>
+             </ul>
+         </div>
+     </div>
+     <div class="main">
+         <div class="m-message">
+             <ul>
+                 <li><p class="time"><span>17:00</span></p>
+                     <div class="main"><img class="avatar" width="30" height="30" src="__PUBLIC__/Admin/img/1.jpg">
+                     <div class="text">sssssssss</div></div>
+                 </li>
+                 <li>
+                     <p class="time"><span>18:00</span></p>
+                     <div class="main self">
+                         <img class="avatar" width="30" height="30" src="__PUBLIC__/Admin/img/user.jpg">
+                         <div class="text">sfff</div>
+                     </div>
+                 </li>
+             </ul>
+         </div>
+         <div class="m-text">
+             <textarea placeholder="按Ctrl+Enter 发送"></textarea>
+         </div>
+     </div>
+ </div>
+</body>
+</html>

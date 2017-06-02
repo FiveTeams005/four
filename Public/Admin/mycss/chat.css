@@ -1,0 +1,141 @@
+body{
+    color:#4d4d4d;
+    font-size: 14px;
+}
+body,ul{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+body{
+    overflow: hidden;
+}
+#chat{
+    overflow: hidden;
+    border-radius: 3px;
+    margin:20px auto;
+    width: 800px;
+    height: 520px;
+}
+.sidebar{
+    float: left;
+    width: 200px;
+    color: #f4f4f4;
+    background-color: #2e3238;
+    height: 100%;
+}
+.m-card{
+    padding: 9pt;
+    border-bottom: 1px solid #24272c;
+}
+.m-card .avatar,.m-list .avatar{
+    border-radius: 2px;
+}
+.m-card .avatar,.m-card .name,.m-list .avatar,.m-list .name{
+    vertical-align: middle;
+}
+.m-card .name{
+    display: inline-block;
+    margin: 0 0 0 15px;
+    font-size: 1pc;
+}
+.m-list .name{
+    display: inline-block;
+    margin: 0 0 0 15px;
+}
+.m-card .search{
+    padding: 0 10px;
+    width: 100%;
+    font-size: 9pt;
+    color:#fff;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    outline: 0;
+    background-color: #26292e;
+}
+.m-list li.active{
+    background-color: hsla(0,0%,100%,.1);
+}
+.m-list li{
+    display: list-item;
+    text-align: match-parent;
+    padding: 9pt 15px;
+    border-bottom: 1px solid #292c33;
+    cursor: pointer;
+    transition: background-color .1s;
+}
+p{
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+.main{
+    position: relative;
+    overflow: hidden;
+    background-color: #eee;
+    height:  100%;
+}
+.m-message{
+    height:400px;
+    padding: 10px 15px;
+    overflow-y: scroll;
+}
+.m-message .time{
+    margin: 7px 0;
+    text-align: center;
+}
+.m-message .time>span{
+    display: inline-block;
+    padding: 0 18px;
+    font-size: 9pt;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #dcdcdc;
+}
+.m-message .avatar{
+    float: left;
+    margin: 0 10px 0 0;
+    border-radius: 3px;
+}
+.m-message .self{
+    text-align: right;
+}
+.m-message .self .avatar{
+    float: right;
+    margin: 0 0 0 10px;
+}
+.m-message .text{
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    max-width: calc(100% - 40px);
+    min-height: 30px;
+    line-height: 2.5;
+    font-size: 9pt;
+    text-align: left;
+    word-break: break-all;
+    background-color: #fafafa;
+    border-radius: 4px;
+}
+.m-text{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 120px;
+    border-top: 1px solid #ddd;
+}
+textarea{
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: 0;
+    font-family: "Microsoft YaHei";
+    resize: none;
+}
