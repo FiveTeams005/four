@@ -121,12 +121,11 @@ var g_flag = '';
                     info:data[1][0].n_info,
                   }
                 }
-                // console.log(sellInfo);
                 bus.$emit('info',sellInfo);//发送信息给头部组件；
                 bus.$emit('footerInfo',[g_id,g_flag]);//发送商品id、商品类型 给脚部组件；
                 content.goodsInfo = sellInfo;
                 content.imgs = data[2];
-                console.log(data);
+                // console.log(data);
                 $('#loading').remove();
             })
           },
@@ -144,21 +143,46 @@ var g_flag = '';
         props:['todo'],
         template:' <div class="row row-msg">' +
         '<div class="col-xs-12 col-hn">' +
-        '<div class="col-xs-12 col-nick">' +
-        '<img src="'+path+'Home/img/xianyu/aliuser_place_holder.jpg" class="img-circle col-img">{{todo.nick}}</div>' +
+        '<div class="col-xs-12 col-nick" :user-id="todo.h_id">' +
+        '<img :src="todo.h_head" class="img-circle col-img">{{todo.h_nick}}</div>' +
         '</div>' +
-        '<div class="col-xs-12"><div class="col-xs-10 col-xs-offset-1 col-msg">{{todo.msg}}</div></div>' +
+        '<div class="col-xs-12"><div class="col-xs-10 col-xs-offset-1 col-msg">{{todo.m_message}}</div></div>' +
         '</div>',
     })
     var app1=new Vue({
         el:'#app1',
         data:{
+            goodsFlag:'',
+            goodsId:'',
             List:[
                 {nick:'lz的猫',msg:'哈哈哈哈红红火火',id:'1'},
                 {nick:'楚留香的狗',msg:'在嘛在嘛在嘛',id:'2'},
                 {nick:'流川枫的猪',msg:'嘻嘻嘻嘻嘻',id:'3'},
                 {nick:'耳边的呢喃细语',msg:'哈哈哈哈红红火火',id:'4'},
             ]
+        },
+        mounted:function(){
+          //接收发送过来的商品信息（id、类型）；
+          bus.$on('footerInfo',function(res){
+            app1.goodsId = res[0];
+            app1.goodsFlag =res[1];
+            $.post(MVC('Home','Detail','getLeaveMsg'),{goodsId:app1.goodsId,goodsFlag:app1.goodsFlag},function(data){
+              app1.List = data;
+            })
+          });
+          bus.$on('pushMsg',function(res){
+            var msg = res;
+            $.post(MVC('Home','Detail','getSelfInfo'),function(data){
+              var obj = {
+                h_id:data[0].h_id,
+                h_head:data[0].h_head,
+                h_nick:data[0].h_nick,
+                m_message:msg,
+                m_time:'',
+              }
+              app1.List.unshift(obj);
+            })
+          });
         },
 
     })
@@ -242,15 +266,25 @@ var g_flag = '';
       }
     }
     var componentB = {
+      props:['isP','id'],//id为商品id；
+      data:function(){
+        return{
+          leaveMsgList:'',//留言信息列表；
+        }
+      },
       template:'<div class="container-fluit">' +
            '<div class="row text-center">' +
            '<div class="col-xs-8 want-input">'+
            '<input ref="input" type="text" @blur="loseBlur" class="form-control msg-input" placeholder="想说点啥">' +
-           '</div><div class="col-xs-4  want-btn" @click="sendMsg">发 送</div></div></div>',
+           '</div><div class="col-xs-4  want-btn" @click.enter="sendMsg">发 送</div></div></div>',
+      mounted:function(){
+        bus.$on('msgList',function(data){
+          componentB.leaveMsgList = data;
+        });
+      },
       methods:{
         //失焦事件；
         loseBlur:function(){
-          // alert(this.$refs.input.value)
           if(this.$refs.input.value == ''){
             this.$emit('lose-blur');
           }else{
@@ -259,12 +293,22 @@ var g_flag = '';
         },
         //发送按钮点击事件；
         sendMsg:function(){
-          if(this.$refs.input.value != ''){
+          var msg = this.$refs.input.value
+          if( msg != ''){
+            $.post(MVC('Home','Detail','sendMsg'),{msg:msg,id:this.id,goodsFlag:this.isP},function(res){
+              if(res){
+                this.$emit('send-msg');
+                bus.$emit('pushMsg',msg);
+                this.$refs.input.value=='';
+              }else{
+                alert('留言失败');
+              }
+            }.bind(this));
+          }else{
+            this.$emit('send-msg');
+          }  
+        },
 
-            this.$refs.input.value=='';
-          }
-          this.$emit('send-msg');
-        }
       }
     }
     var footer = new Vue({
