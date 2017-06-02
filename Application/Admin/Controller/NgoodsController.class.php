@@ -74,14 +74,27 @@ class NgoodsController extends BaseController {
 	}
 
 	/**
-	 * 删除用户
+	 * 删除商品
 	 * @return string
 	 */
 	public function ngoodsDel(){
 		$n_id = $_POST['n_id'];
 		$ngoods = M('ngoods');
+
+		// 日志
+		$ngoodsName = $ngoods->where("n_id in({$n_id})")->select();
+		$name = array();
+		for($i = 0;$i < count($ngoodsName);$i++){
+			array_push($name,$ngoodsName[$i]['n_name']);
+		}
+		$name = implode("、",$name);
+
 		$delRes = $ngoods->where("n_id in({$n_id})")->delete();
 		if($delRes){
+			$log = M('log');
+			$data['a_id'] = $_COOKIE['auserid'];
+			$data['manipulation'] = "删除了普通商品:{$name}";
+			$logres = $log->data($data)->add();
 			echo "删除商品成功！";
 		}
 		else{

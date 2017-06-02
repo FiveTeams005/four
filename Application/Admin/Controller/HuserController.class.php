@@ -33,6 +33,22 @@ class HuserController extends BaseController {
 		$data['h_status'] = $_POST['h_stutas'];
 		$lockRes = $huser->data($data)->where("h_id in({$h_id})")->save();
 		if($lockRes){
+			if($_POST['h_stutas'] == 0){
+				$str = "锁定";
+			}
+			elseif($_POST['h_stutas'] == 1){
+				$str = "解锁";
+			}
+			$huserRes = $huser->where("h_id in({$h_id})")->select();
+			$name = array();
+			for($i = 0;$i < count($huserRes);$i++){
+				array_push($name,$huserRes[$i]['h_account']);
+			}
+			$name = implode("、",$name);
+			$log = M('log');
+			$da['a_id'] = $_COOKIE['auserid'];
+			$da['manipulation'] = "{$str}了前台用户:{$name}";
+			$logres = $log->data($da)->add();
 			echo "操作成功！";
 		}
 		else{

@@ -18,6 +18,10 @@ class LoginController extends Controller {
 				if($res){
 					if($res[0]['a_status'] == 1){
 						cookie("auserid",$res[0]['a_id']);
+						$log = M('log');
+						$data['a_id'] = $_COOKIE['auserid'];
+						$data['manipulation'] = "登录了后台管理系统";
+						$logres = $log->data($data)->add();
 						echo 1;
 					}
 					else{

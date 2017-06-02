@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>商品分类</title>
+	<title>拍卖商品分类</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
@@ -18,17 +18,9 @@
 			return "{:U('"+p+"/"+c+"/"+a+"')}";
 		}
 		var path = '__PUBLIC__/';
-		//点击商品跳转到详情页
-		function detail(id){
-			var detail = MVC('Home','Detail','detail');
-			$.post(detail,{id:id},function () {
-				window.location.href = detail;
-			})
-		}
-
 	</script>
 	<script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--页面加载等待-->
-    <script type="text/javascript" src="__PUBLIC__/Home/js/classify/classify.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js/classify/pclassify.js"></script>
 </head>
 <body>
 
@@ -40,10 +32,6 @@
 					<span class="sec-name" v-text="secConn"></span>
 				</div>
 				<div class="col-sm-8 col-xs-8 sec-group">
-					<!-- <div>
-						<input type="text" name="" id="sec">
-						<button class="sec-btn"><img src="__PUBLIC__/Home/img/xianyu/menu_search.png"></button>
-					</div> -->
 					<div class="input-group">
 						<input type="text" class="form-control" name="" id="input-box">
 						<span class="input-group-addon sec-btn" v-on:click="sec">
@@ -76,10 +64,10 @@
 	<!-- 中间部分 -->
 	<div class="container-fluid" id="content">
 		<div id="showGoods" class="row">
-			<div class="col-sm-6 col-xs-6 bg-info one-goods" v-for='v in dataList' @click="goodsClick(v.n_id)">
+			<div class="col-sm-6 col-xs-6 bg-info one-goods" v-for='v in dataList' @click="goodsClick(v.p_id)">
 				<img :src="noneImg(v.img)" class="img-responsive">
-				<div>{{v.n_name}}</div>
-				<p class="text-danger">&yen;<span>{{v.n_price}}</span></p>
+				<div>{{v.p_name}}</div>
+				<p class="text-danger">&yen;<span>{{v.p_bprice}}</span></p>
 			</div>
 		</div>
 	</div>

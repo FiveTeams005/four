@@ -144,16 +144,24 @@ class PendGoodsController extends BaseController {
 		if(isset($_POST['pid'])){
 			$id = $_POST['pid'];
 			$goods = M('pgoods');
+			$goodsName = $goods->where("p_id = {$id}")->getfield("p_name");
+			$str = "拍卖商品:{$goodsName}";
 			$data['p_status'] = 0;
 			$res = $goods->data($data)->where("p_id = {$id}")->save();
 		}
 		else{
 			$id = $_POST['nid'];
 			$goods = M('ngoods');
+			$goodsName = $goods->where("n_id = {$id}")->getfield("n_name");
+			$str = "普通商品:{$goodsName}";
 			$data['n_status'] = 1;
 			$res = $goods->data($data)->where("n_id = {$id}")->save();
 		}
 		if($res){
+			$log = M('log');
+			$da['a_id'] = $_COOKIE['auserid'];
+			$da['manipulation'] = "审核通过了{$str}";
+			$logres = $log->data($da)->add();
 			echo "审核通过！";
 		}
 		else{
@@ -168,16 +176,24 @@ class PendGoodsController extends BaseController {
 		if(isset($_POST['pid'])){
 			$id = $_POST['pid'];
 			$goods = M('pgoods');
+			$goodsName = $goods->where("p_id = {$id}")->getfield("p_name");
+			$str = "拍卖商品:{$goodsName}";
 			$data['p_status'] = 4;
 			$res = $goods->data($data)->where("p_id = {$id}")->save();
 		}
 		else{
 			$id = $_POST['nid'];
 			$goods = M('ngoods');
+			$goodsName = $goods->where("n_id = {$id}")->getfield("n_name");
+			$str = "普通商品:{$goodsName}";
 			$data['n_status'] = 3;
 			$res = $goods->data($data)->where("n_id = {$id}")->save();
 		}
 		if($res){
+			$log = M('log');
+			$da['a_id'] = $_COOKIE['auserid'];
+			$da['manipulation'] = "审核驳回了{$str}";
+			$logres = $log->data($da)->add();
 			echo "已驳回！";
 		}
 		else{

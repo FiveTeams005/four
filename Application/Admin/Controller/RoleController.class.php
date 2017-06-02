@@ -28,6 +28,12 @@ class RoleController extends BaseController {
 			$data['r_authority'] = $_POST['authority'];
 			$data['r_decribe'] = $_POST['decribe'];
 			$res = $db->add($data);
+			if($res){
+				$log = M('log');
+				$da['a_id'] = $_COOKIE['auserid'];
+				$da['manipulation'] = "添加了新角色:{$_POST['name']}";
+				$logres = $log->data($da)->add();
+			}
 			echo $res;
 		}
 		else{
@@ -66,6 +72,13 @@ class RoleController extends BaseController {
 		$db = M('role');
 		$data['r_authority'] = $authority;
 		$res = $db->data($data)->where("r_id = {$r_id}")->save();
+		if($res){
+			$roleName = $db->where("r_id = {$r_id}")->getfield("r_name");
+			$log = M('log');
+			$da['a_id'] = $_COOKIE['auserid'];
+			$da['manipulation'] = "修改了角色:{$roleName} 的权限";
+			$logres = $log->data($da)->add();
+		}
 		echo $res;
 	}
 
@@ -79,10 +92,19 @@ class RoleController extends BaseController {
 			$name = $_POST['name'];
 			$decribe = $_POST['decribe'];
 			$db = M('role');
+
+			$roleName = $db->where("r_id = {$id}")->getfield("r_name");
+
 			$where = "r_id = {$id}";
 			$data['r_name'] = $name;
 			$data['r_decribe'] = $decribe;
 			$res = $db->data($data)->where($where)->save();
+			if($res){
+				$log = M('log');
+				$da['a_id'] = $_COOKIE['auserid'];
+				$da['manipulation'] = "修改了角色:{$roleName} 的信息";
+				$logres = $log->data($da)->add();
+			}
 			echo $res;
 		}
 		else{
@@ -111,8 +133,15 @@ class RoleController extends BaseController {
 			}
 			else{
 				$role = M('role');
+
+				$roleName = $role->where("r_id = {$r_id}")->getfield("r_name");
+
 				$result = $role->where("r_id = {$r_id}")->delete();
 				if($result){
+					$log = M('log');
+					$da['a_id'] = $_COOKIE['auserid'];
+					$da['manipulation'] = "删除了角色:{$roleName}";
+					$logres = $log->data($da)->add();
 					echo "删除角色成功！";
 				}
 				else{

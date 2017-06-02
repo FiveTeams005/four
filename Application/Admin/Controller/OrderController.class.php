@@ -100,8 +100,21 @@ class OrderController extends BaseController {
 	public function orderDel(){
 		$o_id = $_POST['o_id'];
 		$order = M('order');
+
+		// 日志
+		$orderRes = $order->where("o_id in({$o_id})")->select();
+		$name = array();
+		for($i = 0;$i < count($orderRes);$i++){
+			array_push($name,$orderRes[$i]['o_number']);
+		}
+		$name = implode("、",$name);
+
 		$delRes = $order->where("o_id in({$o_id})")->delete();
 		if($delRes){
+			$log = M('log');
+			$data['a_id'] = $_COOKIE['auserid'];
+			$data['manipulation'] = "删除了订单:{$name}";
+			$logres = $log->data($data)->add();
 			echo "删除订单成功！";
 		}
 		else{
