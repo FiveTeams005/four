@@ -89,13 +89,15 @@ var g_flag = '';
             goodsInfo:'',
             imgs:'',
           },
-          beforeCreate:function(){
+          mounted:function(){
             $.post(MVC('Home','Detail','getInfo'),function(data){
                 var sellInfo = '';
+                var g_id = '';
                 g_flag = data[0];
                 if(data[0] == 'p'){
                   // content.timeShow = true;
                   content.addPrice = true;
+                  g_id = data[1][0].p_id;
                   sellInfo= {
                     type:data[0],
                     head:data[1][0].h_head,
@@ -109,6 +111,7 @@ var g_flag = '';
                 }else{
                   // content.timeShow = false;
                   content.addPrice = false;
+                  g_id = data[1][0].n_id;
                   sellInfo= {
                     type:data[0],
                     head:data[1][0].h_head,
@@ -118,12 +121,11 @@ var g_flag = '';
                     info:data[1][0].n_info,
                   }
                 }
-                console.log(sellInfo);
-                bus.$emit('info',sellInfo);
+                // console.log(sellInfo);
+                bus.$emit('info',sellInfo);//发送信息给头部组件；
+                bus.$emit('footerInfo',[g_id,g_flag]);//发送商品id、商品类型 给脚部组件；
                 content.goodsInfo = sellInfo;
                 content.imgs = data[2];
-
-
                 console.log(data);
                 $('#loading').remove();
             })
@@ -197,53 +199,105 @@ var g_flag = '';
             page++;
             console.log(page);
             //ajax加载数据
-            alert("到达底部");
+            // alert("到达底部");
 
         }
     };
 
-    alert(g_flag);
-    //点击留言按钮
-    $("footer").on("click",".l-btn",function () {
-       $("footer").html("");
-       var div1='<div class="container-fluit">' +
-           '<div class="row text-center">' +
-           '<div class="col-xs-8 want-input"><input type="text" class="form-control msg-input" placeholder="我想说点啥">' +
-           '</div><div class="col-xs-4  want-btn" rel="0">发 送</div></div></div>'
-        $("footer").append(div1);
-       $("footer").find('input').focus();
-    });
-    $("footer").on("blur",".want-input",function () {
-        $("footer").html("");
-        var div2='<div class="container-fluit"><div class="row text-center">' +
-            '<div class="col-xs-2 col-sm-2 text-right l-btn">' +
+
+    //脚部组件；
+    var componentA = {
+      props:['isP','id'],
+      template:'<div class="container-fluit"><div class="row text-center">' +
+            '<div class="col-xs-2 col-sm-2 text-right l-btn" @click="leaveMsg">' +
             '<img src="'+path+'Home/img/xianyu/comment.png" class="img-responsive"><br>' +
             '<span>留言&nbsp;</span></div>' +
             '<div class="col-xs-2 col-sm-2 text-center z-btn">' +
             '<img src="'+path+'Home/img/xianyu/love_gray.png" class="img-responsive"><br>' +
-            '<span>点赞</span></div><div class="col-xs-4 col-sm-4 auction-btn"></div>' +
-            '<div class="col-xs-4 col-sm-4 want-btn" rel="1">我 想 要</div></div></div>'
-        $('footer').append(div2);
+            '<span>点赞</span></div><div class="col-xs-4 col-sm-4 auction-btn" v-if="type(isP)">出 个 价</div>' +
+            '<div class="col-xs-4 col-sm-4" v-else></div>'+
+            '<div class="col-xs-4 col-sm-4 want-btn" @click="wantBtn">我 想 要</div></div></div>',
+      methods:{
+        //商品类型；
+        type:function(val){
+            if(val == 'p'){
+              return true;
+            }else if(val == 'n'){
+              return false;
+            }
+        },
+        //留言按钮点击事件；
+        leaveMsg:function(){
+          this.$emit('leave-msg');
+        },
+        //我想要按钮点击事件；
+        wantBtn:function(){
+          // alert(this.isP);
+          if(this.isP == 'p'){
+            window.location.href = MVC('Home','Pay','pay');
+          }else{
+            window.location.href = MVC('Home','Chat','chat');
+          }
+        }
+      }
+    }
+    var componentB = {
+      template:'<div class="container-fluit">' +
+           '<div class="row text-center">' +
+           '<div class="col-xs-8 want-input">'+
+           '<input ref="input" type="text" @blur="loseBlur" class="form-control msg-input" placeholder="想说点啥">' +
+           '</div><div class="col-xs-4  want-btn" @click="sendMsg">发 送</div></div></div>',
+      methods:{
+        //失焦事件；
+        loseBlur:function(){
+          // alert(this.$refs.input.value)
+          if(this.$refs.input.value == ''){
+            this.$emit('lose-blur');
+          }else{
+
+          }
+        },
+        //发送按钮点击事件；
+        sendMsg:function(){
+          if(this.$refs.input.value != ''){
+
+            this.$refs.input.value=='';
+          }
+          this.$emit('send-msg');
+        }
+      }
+    }
+    var footer = new Vue({
+      el:"footer",
+      data:{
+        goodsId:'',
+        goodsFlag:'',
+        component:'componentA',
+      },
+      components:{
+        componentA:componentA,
+        componentB:componentB,
+      },
+      mounted:function(){
+        //接收发送过来的商品信息（id、类型）；
+        bus.$on('footerInfo',function(res){
+          // console.log(111,res)
+          footer.goodsId = res[0];
+          footer.goodsFlag =res[1];
+        });
+      },
+      methods:{
+        //监听留言按钮 事件；
+        resLevEvent:function(){
+          footer.component = 'componentB'
+        },
+        //监听 失焦、发送按钮事件；
+        resSendEvent:function(){
+          footer.component = 'componentA'
+        },
+      }
+
     })
-   $('footer').on("click",".want-btn",function () {
-       // 点击发送留言按钮
-       if($(this).attr("rel")==0){
-           $("footer").html("");
-           var div2='<div class="container-fluit"><div class="row text-center">' +
-               '<div class="col-xs-2 col-sm-2 text-right l-btn">' +
-               '<img src="'+path+'Home/img/xianyu/comment.png" class="img-responsive"><br>' +
-               '<span>留言&nbsp;</span></div>' +
-               '<div class="col-xs-2 col-sm-2 text-center z-btn">' +
-               '<img src="'+path+'Home/img/xianyu/love_gray.png" class="img-responsive"><br>' +
-               '<span>点赞</span></div><div class="col-xs-4 col-sm-4 auction-btn"></div>' +
-               '<div class="col-xs-4 col-sm-4 want-btn" rel="1">我 想 要</div></div></div>'
-           $('footer').append(div2);
-       }
-       // 点击我想要按钮
-       else if($(this).attr("rel")==1){
-           window.location.href=MVC('Home','Chat','chat');
-       }
-   })
 
    
 })//ready
