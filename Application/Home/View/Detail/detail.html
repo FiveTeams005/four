@@ -94,30 +94,10 @@
 
 	<div class="kb-space"></div>
 	<!-- 底部 -->
-	<footer class="navbar-fixed-bottom">
-		<div class="container-fluit">
-			<div class="row text-center">
-				<div class="col-xs-2 col-sm-2 text-right l-btn">
-					<img src="__PUBLIC__/Home/img/xianyu/comment.png" class="img-responsive">
-					<br>
-					<span>留言&nbsp;</span>
-				</div>
-				<div class="col-xs-2 col-sm-2 text-center z-btn">
-					<img src="__PUBLIC__/Home/img/xianyu/love_gray.png" class="img-responsive">
-					<br>
-					<span>点赞</span>
-				</div>
-				<!-- <div class="col-xs-4 col-sm-4 auction-btn" v-if="userInfo.type == 'p'">
-					出 个 价
-				</div> -->
-				<div class="col-xs-4 col-sm-4" v-else>
-					
-				</div>
-				<div class="col-xs-4 col-sm-4 want-btn" rel="1">
-					我 想 要
-				</div>
-			</div>
-		</div>
+	<footer class="navbar-fixed-bottom" v-bind:switchFlag="component">
+		<keep-alive>
+			<component :is="component"  :is-p="goodsFlag" :id="goodsId" @leave-msg="resLevEvent" @lose-blur="resSendEvent" @send-msg="resSendEvent"></component>
+		</keep-alive>
 	</footer>
 </body>
 </html>
