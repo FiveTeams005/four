@@ -18,9 +18,6 @@ $(function(){
 						<p><b>{{list.username}}</b></p>\
 						<span>{{list.lastMessage}}</span> | <span>{{list.lastTime}}</span>\
 					</div>\
-					<div class="col-xs-3 col-sm-3">\
-						<img :src="list.goodsImg" class="img-responsive" >\
-					</div>\
 				</div>\
 				<div @click.stop="delList(list.otherId,list.goodsId)" class="del-btn"><img src="'+path+'Home/img/xianyu/template_clean_icon.png" class="img-responsive"></div>\
 				<hr />\
@@ -55,25 +52,19 @@ $(function(){
 	$.post(chat,{},function (data) {
 		for(var i=0;i<data[0].length;i++){
 			for(var j=0;j<data[1].length;j++){
-				if(data[1][j]['h_id']==data[3]){
-					if((data[1][j]['h_id']==data[0][i]['f_h_id'] || data[1][j]['h_id']==data[0][i]['t_h_id'])&&data[1][j]['h_id']==data[3]){
-						if(data[1][j]['h_id']==data[0][i]['f_h_id']){
-							var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['t_h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
-							chatList.push(a);
-						}else {
-							var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['f_h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
+				for(var k=0;k<data[3].length;k++){
+					if((data[0][i]['h_id1']==data[3][k]['f_h_id']&&data[0][i]['h_id2']==data[3][k]['t_h_id']) || (data[0][i]['h_id2']==data[3][k]['f_h_id']&&data[0][i]['h_id1']==data[3][k]['t_h_id'])){
+						if(data[0][i]['h_id2']==data[1][j]['h_id']&&data[0][i]['h_id2']!=data[2]){
+							var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['h_id2'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[3][k]['l_message'],lastTime:data[3][k]['l_time']};
 							chatList.push(a);
 						}
-
-					}
-				}else{
-					if((data[1][j]['h_id']==data[0][i]['f_h_id'] || data[1][j]['h_id']==data[0][i]['t_h_id'])&&data[1][j]['h_id']!=data[3]){
-						var a = {goodsId:data[0][i]['n_id'],otherId:data[1][j]['h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
-						chatList.push(a);
+						if(data[0][i]['h_id1']==data[1][j]['h_id']&&data[0][i]['h_id1']!=data[2]){
+							var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['h_id1'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[3][k]['l_message'],lastTime:data[3][k]['l_time']};
+							chatList.push(a);
+						}
 					}
 				}
 			}
-
 		}
 	},'json')
 	
