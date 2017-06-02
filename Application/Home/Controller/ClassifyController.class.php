@@ -16,6 +16,32 @@ class ClassifyController extends Controller {
 		 $this->display();
 	}
 	/**
+	 * 跳转到分类页面(拍卖商品)
+	 */
+	public function pclassify(){
+		 $this->display();
+	}
+	/**
+	 * 获取拍卖商品数据；
+	 */
+	public function pgoods(){
+		$flag = I('flag',0,'intval');//如果是刚进页面 加载商品 flag=0；
+		$pgoods = M('pgoods');//拍卖商品表
+		$images = M('images');//图片表
+		$classify = M('classify');//商品分类表；
+
+		$c_id = cookie('clickVal');//存储搜索的商品信息；
+		$res1 = array();
+		if($flag == 0){
+			$res1 = $pgoods->select();
+		}else{
+			$res1 = $pgoods->where("p_name like '%{$c_id}%'")->select();
+		}
+		$res2 = $images ->where('n_id != 0') -> select();
+
+		$this->ajaxreturn(array($res1,$res2));
+	}
+	/**
 	 * 存储点击跳转的条件内容；
 	 */
 	public function saveClassify(){
@@ -38,7 +64,7 @@ class ClassifyController extends Controller {
 		$images = M('images');//图片表
 		$classify = M('classify');//商品分类表；
 
-		$c_id = cookie('clickVal');
+		$c_id = cookie('clickVal');//存储搜索的商品信息；
 		$val = (int)$c_id;
 		$res1 = array();
 		$res3 = null;
@@ -62,6 +88,16 @@ class ClassifyController extends Controller {
 		$images = M('images');//图片表；
 		$res1 = $ngoods -> where("n_name like '%{$conn}%'") -> select();
 		$res2 = $images ->where('n_id != 0') -> select();
+		$this->ajaxreturn(array($res1,$res2));
+
+	}
+	// 显示搜索拍卖商品
+	public function pSecGoods(){
+		$conn = I('conn');
+		$ngoods = M('pgoods');//拍卖商品表
+		$images = M('images');//图片表；
+		$res1 = $ngoods -> where("p_name like '%{$conn}%'") -> select();
+		$res2 = $images ->where('p_id != 0') -> select();
 		$this->ajaxreturn(array($res1,$res2));
 
 	}

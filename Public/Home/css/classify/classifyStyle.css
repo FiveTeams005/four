@@ -1,5 +1,7 @@
 /* 商品分类页 */
-
+[v-cloak] {
+  display: none;
+}
 /* 头部样式 */
 header{
 	width: 100%;
