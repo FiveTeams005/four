@@ -16,31 +16,15 @@ class ChatController extends Controller {
 	 * 获取消息表的数据
 	 */
 	public function show(){
-		$db = M('chat');
+		$db = M('msglist');
 		$h_id = cookie('user');
-		$res = $db->query("SELECT * FROM (select * from f_chat where f_h_id='{$h_id}' OR t_h_id='{$h_id}' ORDER BY l_id desc) as a GROUP BY n_id;");
+		$res = $db->where("h_id1 = '{$h_id}' OR h_id2 = '{$h_id}'")->select();
 		$db2 = M('huser');
-		$db3 = M('ngoods');
-		$str = '';
-		for($i=0;$i<count($res);$i++){
-			if($i==count($res)-1){
-				$str = $str.$res[$i]['n_id'];
-			}else{
-				$str = $str.$res[$i]['n_id'].',';
-			}
-		}
-		$res2 = $db3->where("n_id in({$str})")->select();
-		$str2 = '';
-		for($i=0;$i<count($res2);$i++){
-			if($i==count($res2)-1){
-				$str2 = $str2.$res2[$i]['h_id'];
-			}else{
-				$str2 = $str2.$res2[$i]['h_id'].',';
-			}
-		}
-		$res3 = $db2->where("h_id in({$str2})")->select();
+		$res2 = $db2->select();
+		$db3 = M('chat');
+		$res3 = $db3->query("SELECT * FROM (select * from f_chat WHERE f_h_id = '{$h_id}' OR t_h_id = '{$h_id}' ORDER BY l_time desc) as a GROUP BY n_id;");
 		$ary = array();
-		array_push($ary,$res,$res3,$res2,$h_id);
+		array_push($ary,$res,$res2,$h_id,$res3);
 		echo json_encode($ary);
 	}
 
@@ -73,7 +57,7 @@ class ChatController extends Controller {
 		$res4 = $db3->where("n_id = '{$n_id}' AND ((f_h_id = '{$h_id}' AND t_h_id = '{$h_id2}') OR (f_h_id = '{$h_id2}' AND t_h_id = '{$h_id}'))")->select();
 		$res5 = $db4->where("n_id = '{$n_id}'")->select();
 		$ary = array();
-		array_push($ary,$res1,$res2,$res3,$res4,$res5);
+		array_push($ary,$res1,$res2,$res3,$res4,$res5,$h_id2);
 		echo json_encode($ary);
 	}
 	/**
@@ -134,5 +118,37 @@ class ChatController extends Controller {
 		$return = curl_exec ( $ch );
 		curl_close ( $ch );
 		echo $return;
+	}
+
+	/**
+	 * 注释
+	 * 点击我想要，跳转到聊天交流页面，判断是否生成消息列表
+	 */
+	public function msglist(){
+		$n_id = I('goodsId');
+		cookie('goodsId',$n_id);
+		$h_id = cookie('user');
+		$db1 = M('ngoods');
+		$db2 = M('msglist');
+		$res2 = $db2->select();
+		$res = $db1->where("n_id = '{$n_id}'")->select();
+		if($res[0]['h_id'] == $h_id){
+			echo 1;
+		}else{
+			$flag = 0;
+			for($i=0;$i<count($res2);$i++){
+				if($res2[$i]['h_id1']==$h_id&&$res2[$i]['h_id2']==$res[0]['h_id']){
+					$flag=1;
+					break;
+				}
+			}
+			if($flag==0){
+				$ary['h_id1']=$h_id;
+				$ary['h_id2']=$res[0]['h_id'];
+				$ary['n_id']=$n_id;
+				$db2->add($ary);
+			}
+			echo 2;
+		}
 	}
 }

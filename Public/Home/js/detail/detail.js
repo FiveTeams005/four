@@ -232,11 +232,18 @@ var g_flag = '';
         },
         //我想要按钮点击事件；
         wantBtn:function(){
-          // alert(this.isP);
+          // alert(this.id);
           if(this.isP == 'p'){
             window.location.href = MVC('Home','Pay','pay');
           }else{
-            window.location.href = MVC('Home','Chat','chat');
+              var msglist = MVC('Home','Chat','msglist');
+              $.post(msglist,{goodsId:this.id},function (data) {
+                  if(data==1){
+                      layer.open({content:'不能购买自己的商品！'});
+                  }else {
+                      window.location.href = MVC('Home','Chat','chat');
+                  }
+              })
           }
         }
       }

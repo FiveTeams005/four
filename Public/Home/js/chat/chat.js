@@ -7,9 +7,12 @@ $(function(){
 	setTimeout(function(){
         $('#loading').remove();
     },600);
-//进来加载信息
+    //进来加载信息
     var chatDes = MVC('Home','Chat','chatDes');
     $.post(chatDes,{},function (data) {
+        if(data[0][0]['h_id']==data[5]){
+            $("#buy").css("display","none");
+        }
         $("#nick").html(data[1][0]['h_nick']);
         $("#price").html("￥"+data[0][0]['n_price']);
         $("#img").attr("src",data[4][0]['n_img']);
@@ -45,6 +48,7 @@ $(function(){
                     $("#chat").append(b);
                 }
             }
+            $("body").scrollTop($('body')[0].scrollHeight);//滚动条自动在最底部
         },'json');
     }
     chatLog();
@@ -220,6 +224,28 @@ $(function(){
             $("#addPicClick").hide();
         }
     })
+
+    //聊天模块
+    var userid = MVC('Home','index','userid');
+    var uid;
+    $.ajax({
+        url:userid,
+        type:'POST',
+        async:false,
+        success:function (data) {
+            uid = data;
+        }
+    })
+    //连接服务端
+    var socket = io('http://'+document.domain+':2120');
+    // 连接后登录
+    socket.on('connect', function(){
+        socket.emit('login', uid);
+    });
+    // 接收发送来消息时
+    socket.on('new_msg', function(msg){
+        chatLog();
+    });
 })
 
 
