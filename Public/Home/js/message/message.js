@@ -55,9 +55,22 @@ $(function(){
 	$.post(chat,{},function (data) {
 		for(var i=0;i<data[0].length;i++){
 			for(var j=0;j<data[1].length;j++){
-				if((data[1][j]['h_id']==data[0][i]['f_h_id'] || data[1][j]['h_id']==data[0][i]['t_h_id'])&&data[1][j]['h_id']!=data[3]){
-					var a = {goodsId:data[0][i]['n_id'],otherId:data[1][j]['h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
-					chatList.push(a);
+				if(data[1][j]['h_id']==data[3]){
+					if((data[1][j]['h_id']==data[0][i]['f_h_id'] || data[1][j]['h_id']==data[0][i]['t_h_id'])&&data[1][j]['h_id']==data[3]){
+						if(data[1][j]['h_id']==data[0][i]['f_h_id']){
+							var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['t_h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
+							chatList.push(a);
+						}else {
+							var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['f_h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
+							chatList.push(a);
+						}
+
+					}
+				}else{
+					if((data[1][j]['h_id']==data[0][i]['f_h_id'] || data[1][j]['h_id']==data[0][i]['t_h_id'])&&data[1][j]['h_id']!=data[3]){
+						var a = {goodsId:data[0][i]['n_id'],otherId:data[1][j]['h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
+						chatList.push(a);
+					}
 				}
 			}
 
@@ -71,4 +84,15 @@ $(function(){
 		},
 		
 	});
+	//气泡提示；
+	var num1 = 0;
+	var num2 = 0;
+	if(num1 > 0){
+		new BubbleTip(num1,'#Ocontainer1 a:eq(1)','-6px','77%');
+	}
+	if(num2 > 0){
+		new BubbleTip(num2,'#Ocontainer1 a:eq(2)','-6px','77%');
+	}
+	
+
 })
