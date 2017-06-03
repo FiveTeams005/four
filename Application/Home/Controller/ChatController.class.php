@@ -151,4 +151,30 @@ class ChatController extends Controller {
 			echo 2;
 		}
 	}
+	/**
+	 * 注释
+	 * 获取登录人id 以及商品id；
+	 */
+	public function getIdGoodsAndUser(){
+		$n_id = cookie('goodsId');
+		$h_id = cookie('user');
+		$this -> ajaxreturn([$n_id,$h_id]);
+	}
+	public function redirect(){
+		$flag = I('flag');//商品类型的标志；
+		cookie('goodsFlag',$flag);
+		$n_id = cookie('goodsId');
+		$n_id = 24;
+		$h_id = cookie('user');
+		$h_id = 1;
+		$order = M('order');
+		$where = array('n_id'=>$n_id,'h_id'=>$h_id);
+		$res = $order -> where($where)->select();
+		if(count($res) > 0){
+			echo 1;
+		}else{
+			echo 0;
+		}
+	}
+
 }
