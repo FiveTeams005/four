@@ -4,7 +4,7 @@
 $(function () {
     Vue.component('todo-item',{
         props:['todo'],
-        template:'  <div class="row" v-bind:class="{active:isDefault(todo.d_status)}">' +
+        template:'  <div class="row" v-on:click="open(todo.d_id)" v-bind:class="{active:isDefault(todo.d_status)}">' +
         '<div class="col-xs-11 addr-detail">' +
         '<div class="col-xs-6 text-left addr-name">收货人：{{todo.d_name}}</div>' +
         '<div class="col-xs-6  text-right addr-tel">{{todo.d_tel}}</div>' +
@@ -27,7 +27,15 @@ $(function () {
                  else{
                      return false
                  }
-            }
+            },
+          // 存储点击地址的id
+          open:function (id) {
+             $.post(MVC("Home","Center","saveAddrId"),{id:id},function (data) {
+                 if(data==1){
+                     window.location.href=MVC("Home","Center","EditAddr");
+                 }
+             })
+          }
       }
     })
     var app1=new Vue({

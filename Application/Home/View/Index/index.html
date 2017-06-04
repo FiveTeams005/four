@@ -202,15 +202,6 @@
                             </a>
                         </div>
                     </template>
-                    <!-- <div class="col-xs-6 col-sm-6 auction-goods">
-                        <a href="">
-                            <img src="__PUBLIC__/Home/img/images/e.jpg" class='img-responsive' >
-                            <h5 class="text-right text-danger">正在拍卖...</h5>
-                            <p class="text-left">
-                                    info开机连接上了飞机啊林凤娇
-                            </p>
-                        </a>
-                    </div> -->
                 </div>
                 <div class="col-sm-12 col-xs-12 text-right more">
                     <a href="{:U('Home/Classify/pclassify')}">更多拍卖 >>></a>
@@ -228,11 +219,11 @@
                 <div class="menu">
                     <nav class="navbar navbar-default" role="navigation">
                         <ul class="nav navbar-nav">
-                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-1 col-xs-offset-1 active text-center" flag='0' v-on:click="get($event)">
+                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-1 col-xs-offset-1  text-center" flag='0' v-on:click="get($event)" :class="{active:isActive}">
                                 <a href="javascript:">新鲜的</a>
                             </li>
 
-                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-2 col-xs-offset-2 text-center" flag='1' v-on:click='get($event)'>
+                            <li  role="presentation" class="col-sm-4 col-xs-4 col-sm-offset-2 col-xs-offset-2 text-center" flag='1' v-on:click='get($event)' :class="{active:!isActive}">
                                 <a href="javascript:">附近的</a>
                             </li>
                         </ul>

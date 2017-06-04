@@ -260,12 +260,18 @@ class CenterController extends Controller {
     /**
      * 我买到的商品
      */
+    /**
+     * 显示用户所有的地址
+     */
     public function showAddr(){
         $db = M('address');
         $h_id = cookie('user');
-        $res = $db->where("h_id= '1'")->order('d_status desc')->select();
+        $res = $db->where("h_id= '{$h_id}'")->order('d_status desc')->select();
         echo json_encode($res);
     }
+    /**
+     * 添加地址
+     */
     public function addrAdd(){
         $db = M('address');
         $h_id = cookie('user');
@@ -273,7 +279,7 @@ class CenterController extends Controller {
         $detail=I('post.detail');
         $arr1=array($city,$detail);
         $arr2=implode(",",$arr1);
-        $data = array('h_id' => 1,'d_address' =>$arr2, 'd_name' =>I('post.name'), 'd_tel' =>I('post.tel'));
+        $data = array('h_id' => $h_id,'d_address' =>$arr2, 'd_name' =>I('post.name'), 'd_tel' =>$_POST['tel']);
         $res=$db->data($data)->add();
         if($res){
             echo 1;
@@ -281,5 +287,50 @@ class CenterController extends Controller {
         else{
             echo 2;
         }
+    }
+    /**
+     * 存储地址id
+     */
+    public function  saveAddrId(){
+        $d_id=$_POST['id'];
+        setcookie('d_id',$d_id, time()+60);
+        echo 1;
+    }
+    /**
+     * 展示编辑地址的页面
+     */
+    public function showEdit(){
+        $db = M('address');
+        $d_id=cookie('d_id');
+        $res= $db->find($d_id);
+       echo  json_encode($res);
+    }
+    /**
+     * 保存更改后地址
+     */
+    public function saveAddr(){
+        $db = M('address');
+        $h_id = cookie('user');
+        $d_id=cookie('d_id');
+        $city=I('post.city');
+        $detail=I('post.detail');
+        $arr1=array($city,$detail);
+        $arr2=implode(",",$arr1);
+        $data1= array('d_status' =>1);
+        $data2= array('d_address' =>$arr2, 'd_name' =>I('post.name'), 'd_tel' =>$_POST['tel'],'d_status'=>$_POST['d_status']);
+        $res1=$db->data($data1)->where("h_id='{$h_id}'")->save();
+        $res2=$db->data($data2)->where("d_id='$d_id'")->save();
+        if($res2){
+            echo 1;
+        }
+    }
+    /**
+     * 删除地址
+     */
+    public function delAddr(){
+        $db = M('address');
+        $d_id=cookie('d_id');
+        $res = $db->where("d_id='$d_id'")->delete();
+        echo $res;
     }
 }

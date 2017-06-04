@@ -205,7 +205,7 @@ $(function(){
     });
     //时间差过滤器；
     Vue.filter('diffTime',function(value){
-        value=value.replace(/-/g, '/'); 
+        value=value.replace(/-/g, '/');     //兼容IOS;
         var timestamp1 = Date.parse(new Date(new Date()));
         var timestamp2 = Date.parse(new Date(value));
         var t = timestamp1 - timestamp2;
@@ -300,6 +300,7 @@ $(function(){
             'signalGoods':signalGoods
         },
         data:{
+            isActive:true,
             goodsList:[],
             imgArr: []
         },
@@ -313,9 +314,14 @@ $(function(){
             });
         },
         methods:{
-            //获取商品；
+            //点击标题获取相应商品；
             get: function () {
                 var index = event.currentTarget.getAttribute('flag');
+                if(index == 0){
+                    app2.isActive = true;
+                }else{
+                    app2.isActive = false;
+                }
                 this.$http.post(MVC('Home','Index','loadGoods'),{flag:index},{emulateJSON:true}).then(function(res){
                     
                     if(res.body[0]) {

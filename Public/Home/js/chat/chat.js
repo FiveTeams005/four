@@ -4,9 +4,8 @@
 **/
 $(function(){
 	new Loading();
-	setTimeout(function(){
-        $('#loading').remove();
-    },600);
+        
+    
     //进来加载信息
     var chatDes = MVC('Home','Chat','chatDes');
     $.post(chatDes,{},function (data) {
@@ -22,6 +21,7 @@ $(function(){
     function chatLog() {
         var ChatLog = MVC('Home','Chat','ChatLog');
         $.post(ChatLog,{},function (data) {
+            // console.log(data)
             $("#chat").html("");
             for(var i=0;i<data[2].length;i++){
                 if(data[2][i]['f_h_id']==data[3]){
@@ -31,7 +31,7 @@ $(function(){
 						<p class='pull-right'>"+data[2][i]['l_message']+"</p><i></i>\
 					</div>\
 					<div class='heard_img col-sm-2 col-xs-2' style='padding: 0;'>\
-						<img src='"+data[1][0]['h_head']+"' class='img-responsive'>\
+						<img src='"+data[1][0]['h_head']+"' class='img-responsive img-circle'>\
 					</div>\
 				</div>")
                     $("#chat").append(a);
@@ -39,7 +39,7 @@ $(function(){
                     var b = $('\
 				<div class="row a-div">\
 					<div class="heard_img col-sm-2 col-xs-2" style="padding: 0;">\
-						<img src="'+data[0][0]['h_head']+'" class="img-responsive">\
+						<img src="'+data[0][0]['h_head']+'" class="img-responsive img-circle">\
 					</div>\
 					<div class="a-text col-sm-10 col-xs-10">\
 						<i></i><p class="pull-left">'+data[2][i]['l_message']+'</p>\
@@ -47,7 +47,9 @@ $(function(){
 				</div>')
                     $("#chat").append(b);
                 }
+                
             }
+            $('#loading').remove();
             $("body").scrollTop($('body')[0].scrollHeight);//滚动条自动在最底部
         },'json');
     }
@@ -55,6 +57,17 @@ $(function(){
 
 	var vm = new Vue({
 		el:"#app",
+        data:{
+            goodsId:'',
+            userId:'',
+        },
+        mounted:function(){
+            $.post(MVC('Home','Chat','getIdGoodsAndUser'),function(data){
+                // console.log(data);
+                vm.goodsId = data[0];//商品id；
+                vm.userId = data[1];//登录用户id
+            })
+        },
 		methods:{
 			//同步显示输入内容 及 显示发送按钮；
 			//头部更多按钮点击事件；
@@ -78,10 +91,6 @@ $(function(){
 			voiceClick:function(){
 				alert("正在开发，敬请期待。。。");
 			},
-			//表情包点击事件；
-			emojiClick:function(){
-				alert('biaoqingbao');
-			},
 			//添加图pain按钮点击事件；
 			addPicClick:function(){
 				alert("正在开发，敬请期待。。。");
@@ -100,15 +109,14 @@ $(function(){
 			},
 			//点击 商品信息跳转页面事件；
 			infoClick:function(){
-				alert(2);
-				window.location.href = MVC('Home','OrderDetail','orderDetail');
-				/*$.post(MVC('Home','Goods','getGoods'),{goodsId:goodsId},function(data){
-					if(true){
-						window.location.href = MVC('Home','Detail','detail');
-					}else{
-						window.location.href = MVC('Home','OrderDetail','orderDetail');
-					}
-				})*/
+				$.post(MVC('Home','Chat','redirect'),{flag
+                    :'n'},function(data){
+                    if(data == 1){
+                        window.location.href = MVC('Home','OrderDetail','orderDetail');
+                    }else{
+
+                    }
+                })
 			},
 			//
 			
