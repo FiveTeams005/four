@@ -22,7 +22,7 @@ class ChatController extends Controller {
 		$db2 = M('huser');
 		$res2 = $db2->select();
 		$db3 = M('chat');
-		$res3 = $db3->query("SELECT * FROM (select * from f_chat WHERE f_h_id = '{$h_id}' OR t_h_id = '{$h_id}' ORDER BY l_time desc) as a GROUP BY n_id;");
+		$res3 = $db3->select();
 		$ary = array();
 		array_push($ary,$res,$res2,$h_id,$res3);
 		echo json_encode($ary);
@@ -132,12 +132,13 @@ class ChatController extends Controller {
 		$db2 = M('msglist');
 		$res2 = $db2->select();
 		$res = $db1->where("n_id = '{$n_id}'")->select();
+		cookie('otherId',$res[0]['h_id']);
 		if($res[0]['h_id'] == $h_id){
 			echo 1;
 		}else{
 			$flag = 0;
 			for($i=0;$i<count($res2);$i++){
-				if($res2[$i]['h_id1']==$h_id&&$res2[$i]['h_id2']==$res[0]['h_id']){
+				if($res2[$i]['h_id1']==$h_id&&$res2[$i]['h_id2']==$res[0]['h_id']&&$res2[$i]['n_id']==$n_id){
 					$flag=1;
 					break;
 				}
@@ -151,6 +152,19 @@ class ChatController extends Controller {
 			echo 2;
 		}
 	}
+
+	//判断是否在线
+	public function state(){
+		$user = I('user');
+		$h_id = cookie('otherId');
+		$ary = explode(',',$user);
+		if(in_array($h_id,$ary)){
+			echo 1;
+		}else{
+			echo 2;
+		}
+	}
+  
 	/**
 	 * 注释
 	 * 获取登录人id 以及商品id；
@@ -160,6 +174,7 @@ class ChatController extends Controller {
 		$h_id = cookie('user');
 		$this -> ajaxreturn([$n_id,$h_id]);
 	}
+  
 	public function redirect(){
 		$flag = I('flag');//商品类型的标志；
 		cookie('goodsFlag',$flag);
