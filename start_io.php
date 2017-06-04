@@ -36,7 +36,7 @@ $sender_io->on('connection', function($socket){
         $socket->join($uid);
         $socket->uid = $uid;
         // 更新这个socket对应页面的在线数据
-        $socket->emit('update_online_count', "当前<b>{$last_online_count}</b>人在线，共打开<b>{$last_online_page_count}</b>个页面");
+//        $socket->emit('update_online_count', "当前<b>{$last_online_count}</b>人在线，共打开<b>{$last_online_page_count}</b>个页面");
     });
     
     // 当客户端断开连接是触发（一般是关闭网页或者跳转刷新导致）
@@ -95,11 +95,18 @@ $sender_io->on('workerStart', function(){
         // 只有在客户端在线数变化了才广播，减少不必要的客户端通讯
         if($last_online_count != $online_count_now || $last_online_page_count != $online_page_count_now)
         {
+            $i = 0;
             $a = '';
             foreach ($uidConnectionMap as $k=>$v){
-                $a = $a.$k.',';
+                $i++;
+                if($i == count($uidConnectionMap)){
+                    $a = $a.$k;
+                }else{
+                    $a = $a.$k.',';
+                }
+
             }
-            $sender_io->emit('update_online_count', "$a.<b>{$online_page_count_now}</b>个页面");
+            $sender_io->emit('update_online_count', $a);
             $last_online_count = $online_count_now;
             $last_online_page_count = $online_page_count_now;
         }

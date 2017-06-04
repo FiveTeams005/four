@@ -13,7 +13,7 @@ class IndexController extends Controller {
 	 * 加载主页
 	 */
     public function index(){
-		cookie('user',139);
+		cookie('user',128);
         $this->display('index');
     }
     public function advert(){
@@ -211,5 +211,19 @@ class IndexController extends Controller {
  			$this->ajaxreturn(true);
  		}
  	}
-	
+
+
+	/*
+	 * 气泡提示事件
+	 */
+	public function prompt(){
+		$db = M('chat');
+		$h_id = cookie('user');
+		$res = $db->where("t_h_id = '{$h_id}' AND l_status = 2")->select();
+		$db2 = M('service');
+		$res2 = $db2->where("h_id = '{$h_id}' AND  falg=2 AND status = 2")->select();
+		$ary = array();
+		array_push($ary,$res,$res2);
+		echo json_encode($ary);
+	}
 }

@@ -108,5 +108,74 @@ $(function(){
             $("#addPicClick").hide();
         }
     })
+
+    function ChatContent() {
+        var ChatContent = MVC('Home','Server','ChatContent');
+        $.post(ChatContent,{},function (data) {
+            $("#chat").html("");
+            for(var i=0;i<data[0].length;i++){
+                if(data[0][i].sta==1){
+                    var a = $("<div class='row q-div'>\
+                                    <div class='q-text col-sm-10 col-xs-10'>\
+                                        <p class='pull-right'>"+data[0][i]['msg']+"</p><i></i>\
+                                    </div>\
+                                    <div class='heard_img col-sm-2 col-xs-2' style='padding: 0;'>\
+                                        <img src='"+data[1][0]['h_head']+"' class='img-responsive'>\
+                                    </div>\
+                                </div>")
+                    $("#chat").append(a);
+                }else{
+                    var b = $("<div class='row a-div'>\
+                                    <div class='heard_img col-sm-2 col-xs-2' style='padding: 0;'>\
+                                        <img src='http://eh.liuzhi66.top/Public/Home/img/xianyu/aliuser_custom_head.png' class='img-responsive'>\
+                                    </div>\
+                                    <div class='a-text col-sm-10 col-xs-10'>\
+                                        <i></i><p class='pull-left'>"+data[0][i]['msg']+"</p>\
+                                    </div>\
+                            </div>")
+                    $("#chat").append(b);
+                }
+            }
+            $(document).scrollTop(999999999);
+        },'json');
+    }
+
+    ChatContent();
+
+    $("#sendClick").click(function () {
+        var msg = $("#send-input").html();
+        var send = MVC('Home','Server','send');
+        if($("#send-input").html()==''){
+            layer.open({content:'输入不为空！'})
+        }else {
+            $.post(send,{msg:msg},function (data) {
+                ChatContent();
+                $("#send-input").html("");
+            })
+        }
+    })
+
+
+    var userid = MVC('Home','index','userid');
+    var uid;
+    $.ajax({
+        url:userid,
+        type:'POST',
+        async:false,
+        success:function (data) {
+            uid = data;
+        }
+    })
+    //连接服务端
+    var socket = io('http://'+document.domain+':2120');
+    // 连接后登录
+    socket.on('connect', function(){
+        socket.emit('login', uid);
+    });
+    // 接收发送来消息时
+    socket.on('new_msg', function(msg){
+        ChatContent();
+    });
+
 });
 
