@@ -82,7 +82,7 @@ function Package_MyZan(img,title,price,zid,nid) {
     this.price=price;
     this.zid=zid;
     this.Ocontainer=$('<div class="container">' +
-        '<div class="row" rel='+nid+'>' +
+        '<div class="row goodshref" id='+nid+' rel="n">' +
         '<div class="col-xs-3">' +
         '<img width="95" height="95" src='+this.img+' style="padding:10px 10px 10px 0"></div> ' +
         '<div class="col-xs-9" style="margin-top: 10px;"> ' +
@@ -104,7 +104,7 @@ function Package_MyZanP(img,title,status,zid,nid) {
     this.status=status;
     this.zid=zid;
     this.Ocontainer=$('<div class="container">' +
-        '<div class="row" rel='+nid+'>' +
+        '<div class="row goodshref" id='+nid+' rel="p">' +
         '<div class="col-xs-3">' +
         '<img width="95" height="95" src='+this.img+' style="padding:10px 10px 10px 0"></div> ' +
         '<div class="col-xs-9" style="margin-top: 10px;"> ' +

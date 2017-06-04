@@ -338,8 +338,8 @@ class CenterController extends Controller {
      */
     public function showZan(){
         $h_id = cookie('user');
-        $data1 = M()->table('f_images')->join('f_ngoods on f_images.n_id=f_ngoods.n_id')->join('f_praise  on  f_praise.n_id=f_ngoods.n_id')->where('f_praise.h_id = 1 ')->field('f_ngoods.n_id,f_ngoods.n_status,f_ngoods.n_name,f_ngoods.n_price,f_ngoods.h_id,f_praise.z_id,f_images.n_img')->group('f_praise.z_id')->select();
-        $data2= M()->table('f_images')->join('f_pgoods on f_images.p_id=f_pgoods.p_id')->join('f_praise  on  f_praise.p_id=f_pgoods.p_id')->where('f_praise.h_id = 1 ')->field('f_pgoods.p_id,f_pgoods.p_name,f_pgoods.p_status,f_praise.z_id,f_images.n_img,f_pgoods.h_id')->group('f_praise.z_id')->select();
+        $data1 = M()->table('f_images')->join('f_ngoods on f_images.n_id=f_ngoods.n_id')->join('f_praise  on  f_praise.n_id=f_ngoods.n_id')->where("f_praise.h_id='{$h_id}'")->field('f_ngoods.n_id,f_ngoods.n_status,f_ngoods.n_name,f_ngoods.n_price,f_ngoods.h_id,f_praise.z_id,f_images.n_img')->group('f_praise.z_id')->select();
+        $data2= M()->table('f_images')->join('f_pgoods on f_images.p_id=f_pgoods.p_id')->join('f_praise  on  f_praise.p_id=f_pgoods.p_id')->where("f_praise.h_id='{$h_id}'")->field('f_pgoods.p_id,f_pgoods.p_name,f_pgoods.p_status,f_praise.z_id,f_images.n_img,f_pgoods.h_id')->group('f_praise.z_id')->select();
         $ary=array($data1,$data2);
         echo json_encode($ary);
     }
@@ -347,5 +347,18 @@ class CenterController extends Controller {
         $model = M('praise');
         $res = $model ->where("z_id={$_POST['id']}")->delete();
         echo $res;
+    }
+    public function showGoods(){
+        $goods_flag = I('goods_flag');//商品标志（‘n’普通，‘p’拍卖);
+        $goods_id =  I('goods_id',0,'intval');
+        cookie('goodsId',$goods_id);
+        cookie('goodsFlag',$goods_flag);
+        $goodsId =cookie('goodsId');
+        $goodsFlag = cookie('goodsFlag');
+        if($goodsId !=0 && !empty($goodsFlag)){
+            echo true;
+        }else{
+            echo false;
+        }
     }
 }
