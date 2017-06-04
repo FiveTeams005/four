@@ -66,4 +66,26 @@ $(function () {
             }
         })
     })
+
+    // 广告推送
+    var position = 3;
+    var msg=path+"Home/img/images/a.jpg";
+    var effect="lightSpeedIn";
+    $('.notify').click(function (event) {
+        Notification.create(
+            // Text
+            "钻石1用户刘梽刚刚发布了商品：洗刷刷",
+            // Illustration
+            msg,
+            // Effect
+            effect,
+            // Position
+            position,
+            //商品id
+            2
+        );
+    });
+    $("body").on("click",".dismiss",function () {
+        $(this).parent().remove();
+    })
 })
