@@ -16,6 +16,7 @@ $(function () {
             console.log(data);
             if(data[0].length==0&&data[1].length==0){
                 $(".showno").show();
+                $(".baby-span").text("还没有赞过宝贝哦~")
             }
             else{
                 $(".showno").hide();
@@ -58,4 +59,11 @@ $(function () {
           }
        })
    })
+    $("#goods").on("click",".goodshref",function () {
+        $.post(MVC("Home","Center","showGoods"),{goods_id:$(this).attr("id"),goods_flag:$(this).attr("rel")},function (data) {
+            if(data){
+                window.location.href=MVC("Home","Detail","detail");
+            }
+        })
+    })
 })
