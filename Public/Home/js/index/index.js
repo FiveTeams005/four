@@ -329,16 +329,55 @@ $(function(){
         }
     });
 
-    
-    //气泡提示；
-    var num1 = 10;
-    var num2 = 6;
-    if(num1 > 0){
-        new BubbleTip(num1,'#Ocontainer1 a:eq(1)','-6px','77%');
+    //气泡提示函数
+    function Prompt(){
+        var num1;
+        var num2;
+        var Prompt = MVC('Home','Index','prompt');
+        $.post(Prompt,{},function (data) {
+            if(data[0]==''){
+                num2=0;
+            }else {
+                num2 = data[0].length;
+            }
+          
+            if(data[1]==''){
+                num1=0;
+            }else {
+                num1 = data[1].length;
+            }
+            if(num1 > 0){
+                new BubbleTip(num1,'#Ocontainer1 a:eq(1)','-6px','77%');
+            }
+            if(num2 > 0){
+                new BubbleTip(num2,'#Ocontainer1 a:eq(2)','-6px','77%');
+            }
+        },'json')
     }
-    if(num2 > 0){
-        new BubbleTip(num2,'#Ocontainer1 a:eq(2)','-6px','77%');
-    }
+    Prompt();
+
+
+    var userid = MVC('Home','index','userid');
+    var uid;
+    $.ajax({
+        url:userid,
+        type:'POST',
+        async:false,
+        success:function (data) {
+            uid = data;
+        }
+    })
+    //连接服务端
+    var socket = io('http://'+document.domain+':2120');
+    // 连接后登录
+    socket.on('connect', function(){
+        socket.emit('login', uid);
+    });
+    // 接收发送来消息时
+    socket.on('new_msg', function(msg){
+        Prompt();
+    });
+
 })
 //点击定位显示地图
     function map(){

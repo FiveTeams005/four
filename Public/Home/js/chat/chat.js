@@ -246,5 +246,18 @@ $(function(){
     socket.on('new_msg', function(msg){
         chatLog();
     });
+
+    // 后端推送来在线数据时
+    socket.on('update_online_count', function(online_stat){
+        var state = MVC('Home','Chat','state');
+        var user = online_stat;
+        $.post(state,{user:user},function (data) {
+            if(data==1){
+                $("#state").html('（在线）')
+            }else{
+                $("#state").html('（离线）')
+            }
+        })
+    })
 })
 
