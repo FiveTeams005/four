@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 	new Loading();
 
-var g_flag = '';
+
 //时间差过滤器；
     Vue.filter('diffTime',function(value){
         var timestamp1 = Date.parse(new Date(new Date()));
