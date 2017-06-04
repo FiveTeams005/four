@@ -283,7 +283,7 @@ $(document).ready(function(){
            '<div class="row text-center">' +
            '<div class="col-xs-8 want-input">'+
            '<input ref="input" type="text" @blur="loseBlur" class="form-control msg-input" placeholder="想说点啥">' +
-           '</div><div class="col-xs-4  want-btn" @click.enter="sendMsg">发 送</div></div></div>',
+           '</div><div class="col-xs-4  want-btn" @click="sendMsg">发 送</div></div></div>',
       mounted:function(){
         bus.$on('msgList',function(data){
           componentB.leaveMsgList = data;
