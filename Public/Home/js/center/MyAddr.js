@@ -55,5 +55,7 @@ $(function () {
             },'json')
         }
     })
-
+     $("#back").click(function () {
+         window.location.href=MVC("Home","Center","Center")
+     })
 })
