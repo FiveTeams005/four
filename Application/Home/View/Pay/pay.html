@@ -36,11 +36,11 @@
 
 			<div class="row goods-info">
 				<div class="col-sm-4 col-xs-4">
-					<img id="img" src='' class="img-responsive">
+					<img id="img" :src='goodsImg.n_img' class="img-responsive">
 				</div>
 				<div class="col-sm-8 col-xs-8">
-					<p id="goodsName">goodsname</p>
-					<p id="price">price</p>
+					<p id="goodsName">{{flag=='n'?goodsInfo.n_name:goodsInfo.p_name}}</p>
+					<p id="price">{{flag=='n'?goodsInfo.n_price:goodsInfo.p_eprice}}</p>
 				</div> 
 			</div>
 
@@ -49,8 +49,8 @@
 					<p class="title">收货地址</p>
 				</div>
 				<div class="col-sm-7 col-xs-7 show-address-div" style="padding-left: 0;">
-					<p><span id="nick"></span>&nbsp;&nbsp;<span id="phone"></span></p>
-					<p id="add">福建省 厦门市 思明区 软件园二期 xx号楼 xx楼</p>
+					<p><span id="nick">{{defaultAdd.d_name}}</span>&nbsp;&nbsp;<span id="phone">{{defaultAdd.d_tel}}</span></p>
+					<p id="add">{{defaultAdd.d_address}}</p>
 				</div>
 				<div class="col-xs-1 col-sm-1 select-address" v-on:click="showList" style="padding:0;">
 					<img src="__PUBLIC__/Home/img/xianyu/bottom_right.png" >
@@ -62,7 +62,7 @@
 					运费
 				</div>
 				<div class="col-sm-8 col-xs-8 text-right">
-					<span class="text-danger">￥0.00</span>
+					<span class="text-danger">￥{{transportCost}}</span>
 				</div>
 			</div>
 		</div>
@@ -71,7 +71,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-7 col-xs-7">
-					<p><b>实付款：</b><span class="text-danger">￥00.00</span></p>
+					<p><b>实付款：</b><span class="text-danger">￥{{flag=='n'?goodsInfo.n_price:goodsInfo.p_eprice + transportCost}}</span></p>
 				</div>
 				<div class="col-sm-5 col-xs-5" style="padding-right: 0">
 					<button v-on:click="payment">确认付款</button>
@@ -85,12 +85,10 @@
 			<hr />
 			<todo-item v-for="v in addressList" v-bind:list="v"></todo-item>
 			<div class="row" style="border:0">
-				<div class="col-xs-6 col-sm-6 text-right">
+				<div class="col-xs-12 col-sm-12 text-center">
 					<button class="btn-warning" @click="close">取消</button>
 				</div>
-				<div class="col-xs-6 col-sm-6 text-left">
-					<button class="btn-info">新增地址</button>
-				</div>
+				
 			</div>
 		</div>
 </div>

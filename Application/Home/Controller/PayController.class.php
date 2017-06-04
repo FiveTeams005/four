@@ -27,14 +27,21 @@ class PayController extends Controller {
 		$db3 = M('address');
 		$db4 = M('images');
 		$h_id = cookie('user');
-		$n_id = cookie('goodsId');
-		$res1 = $db1->where("h_id = '{$h_id}'")->select();
-		$res2 = $db2->where("n_id = '{$n_id}'")->select();
-		$res3 = $db3->where("h_id = '{$h_id}'")->select();
-		$res4 = $db4->where("n_id = '{$n_id}'")->select();
-		$ary = array();
-		array_push($ary,$res1,$res2,$res3,$res4);
-		echo json_encode($ary); 
+		$goods_id = cookie('goodsId');
+		$goodsFlag = cookie('goodsFlag');
+		if($goodsFlag == 'n'){
+			$res2 = $db2->where("n_id = {$goods_id}")->select();
+			$res4 = $db4->where("n_id = {$goods_id}")->select();//图片
+		}else if($goodsFlag == 'p'){
+			$res2 = $db2->where("n_id = {$goods_id}")->select();
+			$res4 = $db4->where("p_id = {$goods_id}")->select();//图片
+		}
+		$res1 = $db1->where("h_id = {$h_id}")->select();
+		
+		$res3 = $db3->where("h_id = {$h_id}")->select();
+		
+		$ary = array($res1,$res2,$res3,$res4,$goodsFlag);
+		echo json_encode($ary);
 	}
 
 	//点击立即支付，存地址

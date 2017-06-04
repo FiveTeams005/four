@@ -63,8 +63,8 @@ class DetailController extends Controller {
  		$msg = I('msg');
  		$goodsId = I('id',0,'intval');
  		$flag = I('goodsFlag');
- 		// $user = cookie('user');
- 		$user = 1;
+ 		$user = cookie('user');
+ 		
  		$arr = array();
  		$arr['m_message'] = $msg;
  		$arr['h_id'] = $user;
@@ -101,8 +101,8 @@ class DetailController extends Controller {
  	*	获取个人信息；
  	*/
  	public function getSelfInfo(){
- 		// $user = cookie('user');
- 		$user = 1;
+ 		$user = cookie('user');
+ 		
  		$huser = M('huser');
  		$res = $huser -> where("h_id = $user") -> select();
  		$this->ajaxreturn($res);
