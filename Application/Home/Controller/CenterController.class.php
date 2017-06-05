@@ -343,11 +343,17 @@ class CenterController extends Controller {
         $ary=array($data1,$data2);
         echo json_encode($ary);
     }
+    /**
+     * 取消赞
+     */
     public function cancleZan(){
         $model = M('praise');
         $res = $model ->where("z_id={$_POST['id']}")->delete();
         echo $res;
     }
+    /**
+     * 查看赞过的商品详情
+     */
     public function showGoods(){
         $goods_flag = I('goods_flag');//商品标志（‘n’普通，‘p’拍卖);
         $goods_id =  I('goods_id',0,'intval');
@@ -360,5 +366,23 @@ class CenterController extends Controller {
         }else{
             echo false;
         }
+    }
+    /**
+     * 查看余额
+     */
+    public function showMoney(){
+        $model = M('huser');
+        $h_id = cookie('user');
+        $res=$model->where("h_id=1")->field('h_id,h_money')->find();
+        echo json_encode($res);
+    }
+    public function addMoney(){
+        $db=M('huser');
+        $h_id = cookie('user');
+        $res1=$db->where("h_id=1")->field('h_money')->find();
+        $money=intval(I('post.h_money'))+intval($res1["h_money"]);
+        $data= array('h_money' =>$money);
+        $res2=$db->data($data)->where("h_id='1'")->save();
+        echo $res2;
     }
 }
