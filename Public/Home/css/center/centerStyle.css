@@ -80,6 +80,7 @@ h4{
 .bg{
     background-color: #f7f7f7;
     padding: 0;
+    padding-bottom: 80px;
 }
 .bg header{
     padding: 0;
