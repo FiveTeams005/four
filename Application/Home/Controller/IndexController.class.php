@@ -153,22 +153,31 @@ class IndexController extends Controller {
  		$img = M('images');
  		$res1 = array();
  		if($flag == 0){
- 			$res1 = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->order("n_time desc")->select();
+ 			$res1 = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->page((isset($_POST['page'])?$_POST['page']:1).',4')->order("n_time desc")->select();
  		}else if($flag == 1){
+ 			$currPage = isset($_GET['page'])?$_GET['page']:1;
+
+ 			$res = array();//计算距离后的结果数组;
  			$user = M('huser');
  			$address = $user -> where("h_id = $me_id") -> getField('h_id,h_loginlongitude,h_loginlatitude');
 			$result = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->select();
 			for($i = 0; $i <count($result); $i++){
 				$distance = GetDistance($address[1]['h_loginlongitude'],$address[1]['h_loginlatitude'],$result[$i]['lng'],$result[$i]['lat']);
-				if(floor ($distance) <= 5){
-					array_push($res1,$result[$i]);
+				if(floor ($distance) <= 3){
+					array_push($res,$result[$i]);
 				}
+			}
+			$len = $currPage*4 >= count($res)?count($res): $currPage*4;//遍历当前数组的长度;
+			for($j = ($currPage-1)*4; $j < $len ; $j++){
+				array_push($res1,$res[$j]);//最终的返回结果;
 			}
  		}
  		// var_dump($address);die();
  		$res2 = $img -> select();//图片；
 
  		$res = array($res1,$res2);
+ 		
+		$this->assign('log',$res);
 
  		$this->ajaxreturn($res);
  	}

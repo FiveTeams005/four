@@ -76,7 +76,7 @@
 	<!-- 中间部分 -->
 	<div class="container-fluid" id="content">
 		<div id="showGoods" class="row">
-			<div class="col-sm-6 col-xs-6 bg-info one-goods" v-for='v in dataList' @click="goodsClick(v.n_id)">
+			<div class="col-sm-6 col-xs-6 one-goods" v-for='v in dataList' @click="goodsClick(v.n_id)">
 				<img :src="noneImg(v.img)" class="img-responsive">
 				<div>{{v.n_name}}</div>
 				<p class="text-danger">&yen;<span>{{v.n_price}}</span></p>

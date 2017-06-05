@@ -4,9 +4,7 @@
 
 $(function(){
     new Loading();//加载等待
-    // setTimeout(function(){
-    //     $('#loading').remove();
-    // },1000);
+
     // 轮播滑动函数
     slide();
     function slide(){
@@ -300,30 +298,43 @@ $(function(){
             'signalGoods':signalGoods
         },
         data:{
+            loadState:0,//加载商品状态;
             isActive:true,
             goodsList:[],
-            imgArr: []
+            imgArr: [],
+            flag : 0,//默认新鲜的,1为附近的;
+            currentPage:1,//加载(新鲜的)的当前页
+           
         },
         mounted: function () {
+            // flag 0新鲜的 1附近的;
             this.$http.post(MVC('Home','Index','loadGoods'),{flag:0},{emulateJSON:true}).then(function(res){
+                this.currentPage++;
                 this.goodsList = res.body[0];
                 this.imgArr = res.body[1];
                 $('#loading').remove();
             },function(res){
                 console.log(res.status);
             });
+             //
+                this.$nextTick(function () {
+                  window.addEventListener('scroll', this.scrollEvent)
+                })
         },
         methods:{
             //点击标题获取相应商品；
             get: function () {
                 var index = event.currentTarget.getAttribute('flag');
+                app2.flag = index;
+                app2.currentPage = 1;
                 if(index == 0){
                     app2.isActive = true;
                 }else{
                     app2.isActive = false;
                 }
+                //获取数据;
                 this.$http.post(MVC('Home','Index','loadGoods'),{flag:index},{emulateJSON:true}).then(function(res){
-                    
+                    this.currentPage++;
                     if(res.body[0]) {
                         this.goodsList = res.body[0];
                         this.imgArr = res.body[1];
@@ -331,6 +342,29 @@ $(function(){
                 },function(res){
                     console.log(res.status);
                 }).bind(this)
+
+
+            },
+            //滚动事件;
+            scrollEvent:function(){
+                this.loadState = 1;
+                if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+                    this.$http.post(MVC('Home','Index','loadGoods'),{flag:this.index,page:this.currentPage},{emulateJSON:true}).then(function(res){                    
+                        
+                        if(res.body[0].length > 0) {
+                            this.loadState = 0;
+                            console.log(res.body[0])
+                            this.goodsList = this.goodsList.concat(res.body[0]);//对商品列表重新赋值,不然视图不会更新;
+                            this.imgArr=res.body[1];
+                            this.currentPage++;
+                        }else{
+                            this.loadState = 2;
+                        }
+                    },function(res){
+                        console.log(res.status);
+                    }).bind(this)
+                   
+                }
             }
         }
     });
@@ -361,6 +395,48 @@ $(function(){
         },'json')
     }
     Prompt();
+
+    //判断滚动条状态，是否滑动到底部
+    function getScrollTop() {
+        var scrollTop = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        }
+        else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        return scrollTop;
+    }
+
+    //获取当前可是范围的高度
+    function getClientHeight() {
+        var clientHeight = 0;
+        if (document.body.clientHeight && document.documentElement.clientHeight) {
+            clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+        }
+        else {
+            clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+        }
+        return clientHeight;
+    }
+
+    //获取文档完整的高度
+    function getScrollHeight() {
+        return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    }
+    //var page=0;//page为当前页面，滚动到底部时+1；
+    // window.onscroll = function () {
+    //     var yy = $(this).scrollTop();//获得滚动条top值
+    //         $(".con-input").css({"position":"absolute",top:yy+250+"px",});
+    //     if (getScrollTop() + getClientHeight() == getScrollHeight()) {
+    //         page++;
+    //         console.log(page);
+    //         //ajax加载数据
+    //         // alert("到达底部");
+
+    //     }
+    // };
+
 
 
     var userid = MVC('Home','index','userid');
