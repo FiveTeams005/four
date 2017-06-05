@@ -373,16 +373,16 @@ class CenterController extends Controller {
     public function showMoney(){
         $model = M('huser');
         $h_id = cookie('user');
-        $res=$model->where("h_id=1")->field('h_id,h_money')->find();
+        $res=$model->where("h_id='{$h_id}'")->field('h_id,h_money')->find();
         echo json_encode($res);
     }
     public function addMoney(){
         $db=M('huser');
         $h_id = cookie('user');
-        $res1=$db->where("h_id=1")->field('h_money')->find();
+        $res1=$db->where("h_id='{$h_id}'")->field('h_money')->find();
         $money=intval(I('post.h_money'))+intval($res1["h_money"]);
         $data= array('h_money' =>$money);
-        $res2=$db->data($data)->where("h_id='1'")->save();
+        $res2=$db->data($data)->where("h_id='{$h_id}'")->save();
         echo $res2;
     }
 }
