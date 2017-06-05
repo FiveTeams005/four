@@ -68,9 +68,11 @@ $(document).ready(function(){
               let m = this.formate(parseInt(leftTime/60%60))
               let s = this.formate(parseInt(leftTime%60))
               if(leftTime <= 0){
-                  this.flag = true
+                this.flag = true
+                header.timeStr = title;
+              }else{
+                header.timeStr = `${title}:${h}小时${m}分${s}秒`;
               }
-              header.timeStr = `${title}:${h}小时${m}分${s}秒`;
             },
             formate (time) {
               if(time>=10){
