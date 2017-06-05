@@ -233,7 +233,7 @@
             <!-- 商品 -->
             <div class="col-sm-12 col-xs-12 show-goods">
 
-                <div class="row signal-goods">
+                <!-- <div class="row signal-goods">
                     <div class="col-sm-12 col-xs-12">
                         <div class="row">
                             <div class="col-sm-3 col-xs-3 text-center">
@@ -274,8 +274,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <signal-goods v-for="val in goodsList" :goods="val" :imgs='imgArr'></signal-goods>
+                <div class="row text-center" v-if="loadState == 1" style="background-color: #eee;line-height: 40px">
+                    正在加载...
+                </div>
+                <div class="row text-center" v-else-if="loadState == 2" style="background-color: #eee;line-height: 40px">
+                    暂无更多数据.
+                </div>
             </div>
 
         </div>

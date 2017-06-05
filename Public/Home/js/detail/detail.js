@@ -23,119 +23,120 @@ $(document).ready(function(){
     });
   var bus = new Vue();//中转组件;
         //头部组件；
-        var header = new Vue({
-          el:'header',
-          data:{
-            flag : false,
-            userInfo:'',
-            bTime:'',//拍卖开始时间；
-            eTime:'',//拍卖结束时间；
-            timeStr: '',
-          },
-          mounted:function(){
-            bus.$on('info',function(res){
-              header.userInfo = res;
-              header.bTime = res.bTime;
-              header.eTime = res.eTime;
-            });
-            let time = setInterval(()=>{
-              if(this.flag == true){
-                  clearInterval(time);
-              }
-              this.timeDown();
-            },500)
+  var header = new Vue({
+    el:'header',
+    data:{
+      flag : false,
+      userInfo:'',
+      bTime:'',//拍卖开始时间；
+      eTime:'',//拍卖结束时间；
+      timeStr: '',
+    },
+    mounted:function(){
+      bus.$on('info',function(res){
+        header.userInfo = res;
+        header.bTime = res.bTime;
+        header.eTime = res.eTime;
+      });
+      let time = setInterval(()=>{
+        if(this.flag == true){
+            clearInterval(time);
+        }
+        this.timeDown();
+      },500)
 
-          },
-          methods:{
-            timeDown () {
-              const nowTime   = new Date();
-              const beginTime = new Date(this.userInfo.bTime);
-              const endTime   = new Date(this.userInfo.eTime);
-              var leftTime = '';
-              var title = '';
-              if(beginTime.getTime() > nowTime.getTime()){
-                title = '距拍卖开始';
-                leftTime = parseInt((nowTime.getTime()-beginTime.getTime())/1000);
-              }else if(beginTime.getTime() <= nowTime.getTime() && endTime.getTime() >= nowTime.getTime()){
-                title = '距拍卖结束';
-                leftTime = parseInt((endTime.getTime() - nowTime.getTime())/1000);
-              }else{
-                title = '拍卖结束';
-                leftTime = '';
-              }
-              // let d = parseInt(leftTime/(24*60*60))
-              let h = this.formate(parseInt(leftTime/(60*60)%24))
-              let m = this.formate(parseInt(leftTime/60%60))
-              let s = this.formate(parseInt(leftTime%60))
-              if(leftTime <= 0){
-                this.flag = true
-                header.timeStr = title;
-              }else{
-                header.timeStr = `${title}:${h}小时${m}分${s}秒`;
-              }
-            },
-            formate (time) {
-              if(time>=10){
-                  return time
-              }else{
-                  return `0${time}`
-              }
-            },
+    },
+    methods:{
+      timeDown () {
+        const nowTime   = new Date();
+        const beginTime = new Date(this.userInfo.bTime);
+        const endTime   = new Date(this.userInfo.eTime);
+        var leftTime = '';
+        var title = '';
+        if(beginTime.getTime() > nowTime.getTime()){
+          title = '距拍卖开始';
+          leftTime = parseInt((nowTime.getTime()-beginTime.getTime())/1000);
+        }else if(beginTime.getTime() <= nowTime.getTime() && endTime.getTime() >= nowTime.getTime()){
+          title = '距拍卖结束';
+          leftTime = parseInt((endTime.getTime() - nowTime.getTime())/1000);
+        }else{
+          title = '拍卖结束';
+          leftTime = '';
+        }
+        // let d = parseInt(leftTime/(24*60*60))
+        let h = this.formate(parseInt(leftTime/(60*60)%24))
+        let m = this.formate(parseInt(leftTime/60%60))
+        let s = this.formate(parseInt(leftTime%60))
+        if(leftTime <= 0){
+          this.flag = true
+          header.timeStr = title;
+        }else{
+          header.timeStr = `${title}:${h}小时${m}分${s}秒`;
+        }
+      },
+      formate (time) {
+        if(time>=10){
+            return time
+        }else{
+            return `0${time}`
+        }
+      },
+    }
+  });
+  //中间组件；
+  var content = new Vue({
+    el:'#content',
+    data:{
+      addPrice  :false,//显示加价按钮；
+      goodsInfo :'',
+      imgs      :'',
+      
+    },
+    mounted:function(){
+      $.post(MVC('Home','Detail','getInfo'),function(data){
+          var sellInfo = '';
+          var g_id = '';
+          g_flag = data[0];
+          if(data[0] == 'p'){
+            // content.timeShow = true;
+            content.addPrice = true;
+            g_id = data[1][0].p_id;
+            sellInfo= {
+              type:data[0],
+              head:data[1][0].h_head,
+              nick:data[1][0].h_nick,
+              price:data[1][0].p_bprice,
+              time:data[1][0].p_time,
+              info:data[1][0].p_info,
+              bTime:data[1][0].p_btime,
+              eTime:data[1][0].p_etime,
+            }
+          }else{
+            // content.timeShow = false;
+            content.addPrice = false;
+            g_id = data[1][0].n_id;
+            sellInfo= {
+              type:data[0],
+              head:data[1][0].h_head,
+              nick:data[1][0].h_nick,
+              price:data[1][0].n_price,
+              time:data[1][0].n_time,
+              info:data[1][0].n_info,
+            }
           }
-        });
-        //中间组件；
-        var content = new Vue({
-          el:'#content',
-          data:{
-            addPrice:false,//显示加价按钮；
-            goodsInfo:'',
-            imgs:'',
-          },
-          mounted:function(){
-            $.post(MVC('Home','Detail','getInfo'),function(data){
-                var sellInfo = '';
-                var g_id = '';
-                g_flag = data[0];
-                if(data[0] == 'p'){
-                  // content.timeShow = true;
-                  content.addPrice = true;
-                  g_id = data[1][0].p_id;
-                  sellInfo= {
-                    type:data[0],
-                    head:data[1][0].h_head,
-                    nick:data[1][0].h_nick,
-                    price:data[1][0].p_bprice,
-                    time:data[1][0].p_time,
-                    info:data[1][0].p_info,
-                    bTime:data[1][0].p_btime,
-                    eTime:data[1][0].p_etime,
-                  }
-                }else{
-                  // content.timeShow = false;
-                  content.addPrice = false;
-                  g_id = data[1][0].n_id;
-                  sellInfo= {
-                    type:data[0],
-                    head:data[1][0].h_head,
-                    nick:data[1][0].h_nick,
-                    price:data[1][0].n_price,
-                    time:data[1][0].n_time,
-                    info:data[1][0].n_info,
-                  }
-                }
-                bus.$emit('info',sellInfo);//发送信息给头部组件；
-                bus.$emit('footerInfo',[g_id,g_flag]);//发送商品id、商品类型 给脚部组件；
-                content.goodsInfo = sellInfo;
-                content.imgs = data[2];
-                // console.log(data);
-                $('#loading').remove();
-            })
-          },
-          methods:{
-            
+          bus.$emit('info',sellInfo);//发送信息给头部组件；
+          bus.$emit('footerInfo',[g_id,g_flag]);//发送商品id、商品类型 给脚部组件；
+          content.goodsInfo = sellInfo;
+          content.imgs = data[2];
+          // console.log(data);
+          $('#loading').remove();
+      })
+    },
+    methods:{
+      
 
-          }
-        })
+    }
+  })
 
 	//判断登陆;
 
@@ -154,8 +155,9 @@ $(document).ready(function(){
     var app1=new Vue({
         el:'#app1',
         data:{
-            goodsFlag:'',
-            goodsId:'',
+            page      :1,//当前页;
+            goodsFlag :'',
+            goodsId   :'',
             List:[
                 {nick:'lz的猫',msg:'哈哈哈哈红红火火',id:'1'},
                 {nick:'楚留香的狗',msg:'在嘛在嘛在嘛',id:'2'},
@@ -172,6 +174,7 @@ $(document).ready(function(){
               app1.List = data;
             })
           });
+          //
           bus.$on('pushMsg',function(res){
             var msg = res;
             $.post(MVC('Home','Detail','getSelfInfo'),function(data){
