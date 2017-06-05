@@ -1,6 +1,7 @@
 // 注册脚本
 
     $(function() {
+        layer.alert('请先手机验证下！');
         //手机验证码全局棉量
         var phoneCode;
         var phone;
@@ -83,7 +84,7 @@
         //下一步按钮；
         $('.code-header button').click(function(){
             var setPhone = MVC('Home','Login','setPhone');
-            var reg = MVC('Home','Login','reg');
+            var index = MVC('Home','Index','index');
             if(phoneCode&&phone){
                 if(phoneCode!=$("#tel-verify").val()){
                     layer.alert('验证码错误！');
@@ -95,7 +96,7 @@
                         data:{phone:$("#tel").val()},
                         type:'POST',
                         success:function () {
-                            window.location.href = reg;
+                            window.location.href = index;
                         }
                     })
                 }
