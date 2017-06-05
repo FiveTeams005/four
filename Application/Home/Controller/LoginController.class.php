@@ -27,7 +27,7 @@ class LoginController extends Controller {
 	 */
 	public function getCode(){
 		$this->display('regGetCode');
-		var_dump(cookie('openid'));
+//		var_dump(cookie('openid'));
 	}
 
 	/**
@@ -108,6 +108,15 @@ class LoginController extends Controller {
 	public function setPhone(){
 		setcookie('phone',I('phone'));
 		echo $_COOKIE['phone'];
+		$db = M('huser');
+		$ary = array();
+		$ary['h_tel'] = I('phone');
+		$h_id = cookie('user');
+		$res = $db->data($ary)->where("h_id = '{$h_id}'")->save();
+		if($res){
+			cookie('flag',1);
+			echo 1;
+		}
 	}
 
 	/**
