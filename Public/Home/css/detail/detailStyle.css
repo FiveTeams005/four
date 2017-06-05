@@ -25,8 +25,8 @@ header img.img-head{
 	font-size: 16px;
 }
 .user-info p:nth-child(1) span.icon img{
-	width: 21px;
-	max-height:21px;
+	width: 15px;
+	max-height:15px;
 	vertical-align: middle;
 }
 .user-info p:nth-child(2) span.icon img{

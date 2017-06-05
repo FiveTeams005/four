@@ -26,6 +26,7 @@ class PayController extends Controller {
 		$db2 = M('ngoods');
 		$db3 = M('address');
 		$db4 = M('images');
+		$db5 = M('pgoods');
 		$h_id = cookie('user');
 		$goods_id = cookie('goodsId');
 		$goodsFlag = cookie('goodsFlag');
@@ -33,7 +34,7 @@ class PayController extends Controller {
 			$res2 = $db2->where("n_id = {$goods_id}")->select();
 			$res4 = $db4->where("n_id = {$goods_id}")->select();//图片
 		}else if($goodsFlag == 'p'){
-			$res2 = $db2->where("n_id = {$goods_id}")->select();
+			$res2 = $db5->where("p_id = {$goods_id}")->select();
 			$res4 = $db4->where("p_id = {$goods_id}")->select();//图片
 		}
 		$res1 = $db1->where("h_id = {$h_id}")->select();
