@@ -56,7 +56,7 @@ function showBtm(aflag) {
     this.ofb2=$('<nav><ul class="cd-bouncy-nav">' +
         '<li><a href="'+MVC("Home","Publish","Publish")+'">卖二手</a></li>' +
         '<li><a href="'+MVC("Home","Publish","PublishAuction")+'">拍卖</a></li>' +
-        '<li><a href="#">发布流程</a></li>' +
+        '<li class="publishMd"><a href="#">发布流程</a></li>' +
         '</ul></nav>');
     this.ofb3=$('<a href="#0" class="cd-close">Close modal</a>');
     this.ofb1.append(this.ofb2).append(this.ofb3);
@@ -69,6 +69,12 @@ function showBtm(aflag) {
         if ($(event.target).is('.cd-bouncy-nav-modal')) {
             triggerBouncyNav(false);
         }
+    })
+    $(this.ofb2).on("click","ul .publishMd",function () {
+        $(".publish-img").show();
+    })
+    $(".close").click(function () {
+        $(".publish-img").hide();
     })
     //拼接给父元素
     this.setFather=function(id){
