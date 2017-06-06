@@ -244,7 +244,7 @@ $(document).ready(function(){
 
     //脚部组件；
     var componentA = {
-      props:['isP','id','bail','step','currentPrice'],
+      props:['isP','id','bail','step','currentPrice','flag'],
 			data: function () {
 				return {
 					confirm : 0,//保证金;
@@ -255,13 +255,15 @@ $(document).ready(function(){
             				'<div class="col-xs-2 col-sm-2 text-right l-btn" @click="leaveMsg">' +
             					'<img src="'+path+'Home/img/xianyu/comment.png" class="img-responsive"><br>' +
             					'<span>留言&nbsp;</span></div>' +
-            				'<div class="col-xs-2 col-sm-2 text-center z-btn">' +
-            					'<img src="'+path+'Home/img/xianyu/love_gray.png" class="img-responsive"><br>' +
+            				'<div class="col-xs-2 col-sm-2 text-center z-btn" @click="changeZan(flag)">' +
+            					'<img src="'+path+'Home/img/xianyu/favor_love.png"  class="img-responsive" v-if="flag">' +
+                                 '<img src="'+path+'Home/img/xianyu/favor_unlove.png" class="img-responsive" v-else >'+
+                                    '<br>' +
             					'<span>点赞</span>'+
-										'</div>' +
-										'<div class="col-xs-4 col-sm-4 text-center" v-if="type(isP)">'+
-											'<span>当前拍卖价格:</span><br/><span style="color:red">￥<span v-text="currentPrice"></span></span>'+
-										'</div>'+
+                            '</div>' +
+                            '<div class="col-xs-4 col-sm-4 text-center" v-if="type(isP)">'+
+                                '<span>当前拍卖价格:</span><br/><span style="color:red">￥<span v-text="currentPrice"></span></span>'+
+                            '</div>'+
             				'<div class="col-xs-4 col-sm-4" v-else></div>'+
 										'<div class="col-xs-4 col-sm-4 auction-btn" v-if="type(isP)" v-on:click="auctionBtn(id)">出 个 价</div>'+
             				'<div class="col-xs-4 col-sm-4 want-btn" @click="wantBtn" v-else>我 想 要</div>'+
@@ -296,6 +298,23 @@ $(document).ready(function(){
               })
           }
         },
+          //点赞事件；
+          changeZan:function (flag) {
+            // var self=this;
+            if(flag){
+                $.post(MVC('Home','Detail','delZan'),function (data) {
+                     if(data==1){
+                         this.flag=false;
+                     }
+                }.bind(this))
+            }
+            else{
+
+                $.post(MVC('Home','Detail','zan'),function (data) {
+                    this.flag=true;
+                }.bind(this))
+            }
+          },
         //拍卖事件;
         auctionBtn:function(g_id){
 					var self = this;
@@ -372,16 +391,25 @@ $(document).ready(function(){
       data:{
         goodsId:'',
         goodsFlag:'',
-				pBail:'',
-				pStep:'',
-				currentPrice:'',//拍卖的当前价格;
+        pBail:'',
+        pStep:'',
+        currentPrice:'',//拍卖的当前价格;
         component:'componentA',
+          myFlag:false
       },
       components:{
         componentA:componentA,
         componentB:componentB,
       },
       mounted:function(){
+          $.post(MVC("Home","Detail","zanInfo"),function (data) {
+              if(data==1){
+                  footer.myFlag=true;
+              }
+              else{
+                  footer.myFlag=false;
+              }
+          })
         //接收发送过来的商品信息（id、类型）；
         bus.$on('footerInfo',function(res){
           // console.log(111,res)
