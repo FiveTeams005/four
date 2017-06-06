@@ -208,10 +208,11 @@ class DetailController extends Controller {
 	public function addPrice(){
 		$step = I('step');
 		$goodsId = cookie('goodsId');
+		$user = cookie('user');
 		$pgoods = M('pgoods');
 		$res = $pgoods->where("p_id = $goodsId")->select();//要拍卖的商品；
 		$addPrice = $res[0]['p_eprice'] + $step;
-		$res = $pgoods->where("p_id = $goodsId")->save(array('p_eprice'=>$addPrice));
+		$res = $pgoods->where("p_id = $goodsId")->save(array('p_eprice'=>$addPrice,'p_hid'=>$user));
 		if($res){
 			$this -> ajaxreturn($addPrice);
 		}
