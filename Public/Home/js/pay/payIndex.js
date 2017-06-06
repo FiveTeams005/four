@@ -30,7 +30,14 @@ $(function(){
             setTimeout(function(){
                 var buy = MVC('Home','Pay','buy')
                 $.post(buy,{},function (data) {
-                    location.href=MVC("Home","Pay","paySuccess");
+                    if(data==1){
+                        layer.open({
+                            content:'余额不足，请充值！'
+                        })
+                        location.href=MVC("Home","Center","MyMoney");
+                    }else {
+                        location.href=MVC("Home","Pay","paySuccess");
+                    }
                 })
             },500);
         }
