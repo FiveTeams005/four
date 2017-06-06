@@ -44,16 +44,13 @@ class PayController extends Controller {
 		echo json_encode($ary);
 	}
 
-	//点击立即支付，存地址
+	//点击立即支付，存地址，存订单
 	public function depAdd(){
 		$add = I('add');
 		$price = I('price');
 		cookie('price',$price);
 		cookie('add',$add);
-	}
 
-	//输入支付密码后，存入订单
-	public function buy(){
 		$add = cookie('add');
 		$db = M('ngoods');
 		$n_id = cookie('goodsId');
@@ -66,16 +63,45 @@ class PayController extends Controller {
 		$ary['p_id'] =0;
 		$ary['h_id'] =cookie('user');
 		$ary['o_money'] =$price;
-		$ary['o_status'] =2;
+		$ary['o_status'] =1;
 		$ary['h_id_m'] =$h_id_m;
 		$ary['o_add'] =$add;
 		$order = date('Ymdhis',time()).rand(1000,9999);
 		$ary['o_number'] =$order;
 		$res = $db2->add($ary);
+		cookie('order',$res);
+
+	}
+
+	//输入支付密码后，修改订单状态
+	public function buy(){
+		$o_id = cookie('order');
+		$db = M('order');
+		$ary['o_status'] = 2;
+		$res = $db->where("o_id = '{$o_id}'")->save($ary);
+		$db2 = M('ngoods');
+		$res2 =$db->where("o_id = '{$o_id}'")->select();
+		$ary2['n_status']=4;
+		$n_id = $res2[0]['n_id'];
+		$res3 = $db2->where("n_id = '{$n_id}'")->save($ary2);
+
 	}
 	//付款页面加载金额
 	public function price(){
 		$price = cookie('price');
 		echo $price;
+	}
+
+	//获取订单的详情
+	public function order(){
+		$o_id = cookie('order');
+		$db = M('order');
+		$db2 = M('ngoods');
+		$res = $db->where("o_id = '{$o_id}'")->select();
+		$n_id = $res[0]['n_id'];
+		$res2 = $db2->where("n_id = '{$n_id}'")->select();
+		$ary = array();
+		array_push($ary,$res,$res2);
+		echo json_encode($ary);
 	}
 }

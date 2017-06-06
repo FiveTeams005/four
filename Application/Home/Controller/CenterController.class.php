@@ -58,7 +58,7 @@ class CenterController extends Controller {
         //我的信息
         array_push($ary,$res);
         $db2 = M('ngoods');
-        $res2 = $db2->where("h_id='{$h_id}' AND n_status =1")->select();
+        $res2 = $db2->where("h_id='{$h_id}' AND n_status in(1,2,3)")->select();
         $res7 = $db2->where("h_id='{$h_id}'")->select();
         //我发布的
         array_push($ary,$res2);
@@ -205,7 +205,7 @@ class CenterController extends Controller {
                 $str=$str.$res[$i]['n_id'].',';
             }
         }
-        $res2 = $db->where("n_id in({$str})")->select();
+        $res2 = $db->where("n_id in({$str}) AND n_status='4'")->select();
         $res3 = $db3->where("n_id in({$str})")->select();
         array_push($ary,$res2);
         array_push($ary,$res3);

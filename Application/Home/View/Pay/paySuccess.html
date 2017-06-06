@@ -36,7 +36,7 @@
 <div class="cgzf_info">
     <div class="wenx_xx">
         <div class="mz">二货网</div>
-        <div class="wxzf_price">￥<span id="price">11.90</span></div>
+        <div class="wxzf_price">￥<span id="price"></span></div>
     </div>
 
     <div class="spxx_shop">
@@ -44,11 +44,11 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td>商   品</td>
-                    <td align="right">去年买了一个表</td>
+                    <td id="nick" align="right"></td>
                 </tr>
                 <tr>
                     <td>交易时间</td>
-                    <td align="right">2015-12-16 22：41：45</td>
+                    <td id="time" align="right"></td>
                 </tr>
                 <tr>
                     <td>支付方式</td>
@@ -56,7 +56,7 @@
                 </tr>
                 <tr>
                     <td>交易单号</td>
-                    <td align="right">1205329821521545465665855444</td>
+                    <td id="order" align="right"></td>
                 </tr>
             </table>
 
@@ -65,5 +65,15 @@
     </div>
 </div>
 <div class="wzxfcgde_tb"><img src="__PUBLIC__/Home/img/images/cg_07.jpg" ></div>
+
+<script type="text/javascript">
+    var order = MVC('Home','Pay','order');
+    $.post(order,{},function (data) {
+        $("#price").html(data[0][0]['o_money']);
+        $("#nick").html(data[1][0]['n_name']);
+        $("#time").html(data[0][0]['o_time']);
+        $("#order").html(data[0][0]['o_number']);
+    },'json');
+</script>
 </body>
 </html>

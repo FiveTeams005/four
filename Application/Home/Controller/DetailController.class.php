@@ -36,6 +36,16 @@ class DetailController extends Controller {
  		}
 
  	}
+	
+	/*
+	 * 
+	 */
+	public function push(){
+		$n_id = I('id');
+		$goods_flag = 'n';
+		cookie('goodsId',$n_id);
+		cookie('goodsFlag',$goods_flag);
+	}
  	/*
  	*获取商品信息；
  	*/
@@ -107,5 +117,30 @@ class DetailController extends Controller {
  		$res = $huser -> where("h_id = $user") -> select();
  		$this->ajaxreturn($res);
  	}
+
+	/*
+	 * 测距方法
+	 */
+	public function distance(){
+		$goodsFlag = cookie('goodsFlag');
+		$goodsId = cookie('goodsId');
+		$h_id = cookie('user');
+		$db = M('huser');
+		$db2 = M('ngoods');
+		$db3 = M('pgoods');
+		$res = $db->where("h_id = '{$h_id}'")->select();
+		if($goodsFlag=='n'){
+			$res2 = $db2->where("n_id = '{$goodsId}'")->select();
+		}else{
+			$res2 = $db3->where("p_id = '{$goodsId}'")->select();
+		}
+		$ary = array($res,$res2);
+		echo json_encode($ary);
+	}
+
+	//跳转到导航地图
+	public function map(){
+		$this->display('map');
+	}
 }
 ?>

@@ -74,6 +74,7 @@ $sender_io->on('workerStart', function(){
                 // 否则向所有uid推送数据
                 }else{
                     $sender_io->emit('new_msg', @$_POST['content']);
+                    $sender_io->emit('push', @$_POST['content']);
                 }
                  //http接口返回，如果用户离线socket返回fail
                 if($to && !isset($uidConnectionMap[$to])){

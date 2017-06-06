@@ -14,7 +14,7 @@ function Package_Publish(img,title,price,zan,message,scan,h_id) {
       '<div class="col-xs-3 goods-img">' +
       '<img  src='+this.img+'></div> ' +
       '<div class="col-xs-9 goods-detail"> ' +
-      '<p>'+this.title+'</p><p style="color:rgb(224, 18, 34);font-weight:800;">￥'+this.price+'</p><p><span>点赞'+this.zan+'</span><span>·留言'+this.message+'</span><span>·浏览'+this.scan+'</span></p> ' +
+      '<p>'+this.title+'</p><p style="color:rgb(224, 18, 34);font-weight:800;">￥'+this.price+'</p><p><span>点赞'+this.zan+'</span><span>·留言'+this.message+'</span><span>·状态:'+this.scan+'</span></p> ' +
       '</div> </div> <div class="row edit-goods"> ' +
       '<div class="col-xs-12 text-right"> ' +
       '<button type="button" class="btn">编辑</button> <button sign='+this.h_id+' type="button" class="btn shelves">下架</button> ' +
@@ -89,7 +89,7 @@ function Package_MyZan(img,title,price,zid,nid) {
         '<p>'+this.title+'</p><p style="color:rgb(224, 18, 34);font-weight:800;">￥'+this.price+'</p>' +
         '</div> </div> <div class="row" style="border-top: 1px solid #eee"><div class="col-xs-4 text-left" style="line-height: 30px"></div> ' +
         '<div class="col-xs-8 text-right"> ' +
-        '<button id='+this.zid+' type="button" class="btn" style="margin: 4px 0;background-color: #fff;border: 1px solid #eee;border-radius: 0;height:30px;"><img width="10" height="10" src="'+path+'home/img/xianyu/favor_love.png" style="vertical-align: middle">取消赞</button> ' +
+        '<button id='+this.zid+' type="button" class="btn" style="margin: 4px 0;background-color: #fff;border: 1px solid #eee;border-radius: 0;height:30px;"><img width="10" height="10" src="'+path+'Home/img/xianyu/favor_love.png" style="vertical-align: middle">取消赞</button> ' +
         '</div> </div> </div>')
     this.Ocontainer.css({
         "background-color":"#fff","border":"1px solid #eee","margin":"5px"
@@ -111,7 +111,7 @@ function Package_MyZanP(img,title,status,zid,nid) {
         '<p>'+this.title+'</p><p>'+this.status+'</p> ' +
         '</div> </div> <div class="row" style="border-top: 1px solid #eee"><div class="col-xs-4 text-left" style="line-height: 30px"></div> ' +
         '<div class="col-xs-8 text-right"> ' +
-        '<button id='+this.zid+' type="button" class="btn" style="margin: 4px 0;background-color: #fff;border: 1px solid #eee;border-radius: 0;height:30px;"><img width="10" height="10" src="'+path+'home/img/xianyu/favor_love.png" style="vertical-align: middle">取消赞</button> ' +
+        '<button id='+this.zid+' type="button" class="btn" style="margin: 4px 0;background-color: #fff;border: 1px solid #eee;border-radius: 0;height:30px;"><img width="10" height="10" src="'+path+'Home/img/xianyu/favor_love.png" style="vertical-align: middle">取消赞</button> ' +
         '</div> </div> </div>')
     this.Ocontainer.css({
         "background-color":"#fff","border":"1px solid #eee","margin":"5px"

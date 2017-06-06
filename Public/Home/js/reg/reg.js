@@ -1,7 +1,9 @@
 // 注册脚本
 
     $(function() {
-        layer.alert('请先手机验证下！');
+        layer.open({
+            content: '请先手机验证下！'
+        });
         //手机验证码全局棉量
         var phoneCode;
         var phone;

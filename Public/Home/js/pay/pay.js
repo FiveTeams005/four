@@ -27,8 +27,8 @@ new Loading();
 			template:
 				'<div class="row" :class="{checked:list.d_status!=1}">\
 					<div class="col-xs-12 col-sm-12"  v-on:click="getAddress">\
-						<p><span>{{list.d_name}}</span>&nbsp;&nbsp<span>{{list.d_tel}}</span></p>\
-						<p>{{list.d_address}}</p>\
+						<p><span id="nick">{{list.d_name}}</span>&nbsp;&nbsp<span id="phone">{{list.d_tel}}</span></p>\
+						<p id="add">{{list.d_address}}</p>\
 					</div>\
 				</div>',
 			methods:{
