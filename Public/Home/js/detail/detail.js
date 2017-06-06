@@ -100,7 +100,8 @@ $(document).ready(function(){
           var g_id = '';
 					var bail = '';
 					var step = '';
-					var currentPrice = '';//当前的拍卖价格；
+					var currentPrice = '';//当前的拍卖价格
+					var userId = data[1][0].h_id;
           g_flag = data[0];
           if(data[0] == 'p'){
             // content.timeShow = true;
@@ -132,8 +133,9 @@ $(document).ready(function(){
               info:data[1][0].n_info,
             }
           }
+
           bus.$emit('info',sellInfo);//发送信息给头部组件；
-          bus.$emit('footerInfo',[g_id,g_flag,bail,step,currentPrice]);//发送商品id、商品类型 给脚部组件；
+          bus.$emit('footerInfo',[g_id,g_flag,bail,step,currentPrice,userId]);//发送商品id、商品类型 给脚部组件；
           content.goodsInfo = sellInfo;
           content.imgs = data[2];
           // console.log(data);
@@ -311,6 +313,7 @@ $(document).ready(function(){
 					 			   }
 					 			})
 						}else {
+							$.post(MVC('Home','Redis','redis'),{''});
 							$.post(MVC('Home','Detail','addPrice'),{step:self.step},function(data){
 									self.currentPrice = data;
 									alert('加价成功！');
@@ -375,6 +378,7 @@ $(document).ready(function(){
 				pBail:'',
 				pStep:'',
 				currentPrice:'',//拍卖的当前价格;
+				userId:'',
         component:'componentA',
       },
       components:{
@@ -384,12 +388,12 @@ $(document).ready(function(){
       mounted:function(){
         //接收发送过来的商品信息（id、类型）；
         bus.$on('footerInfo',function(res){
-          // console.log(111,res)
           footer.goodsId = res[0];
           footer.goodsFlag =res[1];
 					footer.pBail = res[2];
 					footer.pStep = res[3];
 					footer.currentPrice = res[4];
+					footer.userId = res[5];
         });
       },
       methods:{
