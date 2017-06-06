@@ -248,10 +248,10 @@ class DetailController extends Controller {
         $goodsId =cookie('goodsId');
         $goodsFlag = cookie('goodsFlag');
         if ($goodsFlag=="n"){
-            $data = array('h_id' =>1, 'n_id'=>$goodsId);
+            $data = array('h_id' =>$h_id, 'n_id'=>$goodsId);
 		}
 		else{
-			$data = array('h_id' =>1, 'p_id'=>$goodsId);
+			$data = array('h_id' =>$h_id, 'p_id'=>$goodsId);
 			}
 
         $res=$db->data($data)->add();
@@ -263,10 +263,10 @@ class DetailController extends Controller {
         $goodsId =cookie('goodsId');
         $goodsFlag = cookie('goodsFlag');
         if ($goodsFlag=="n"){
-            $data = array('h_id' =>1, 'n_id'=>$goodsId);
+            $data = array('h_id' =>$h_id, 'n_id'=>$goodsId);
         }
         else{
-            $data = array('h_id' =>1, 'p_id'=>$goodsId);
+            $data = array('h_id' =>$h_id, 'p_id'=>$goodsId);
         }
         $res=$db->where($data)->delete();
         echo $res;
