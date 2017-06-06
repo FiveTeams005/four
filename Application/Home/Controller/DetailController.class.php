@@ -181,6 +181,61 @@ class DetailController extends Controller {
 			$this -> ajaxreturn($addPrice);
 		}
 	}
+	public function zanInfo(){
+		$db=M('praise');
+		$h_id=cookie('user');
+        $goodsId =cookie('goodsId');
+        $goodsFlag = cookie('goodsFlag');
+        if($goodsFlag=="n"){
+            $where = array('n_id'=>$goodsId,'h_id'=>$h_id);
+            $res = $db->where($where)->find();
+            if($res){
+            	echo 1;
+			}
+			else{
+            	echo 0;
+			}
+		}
+		else if($goodsFlag=="p"){
+            $where = array('p_id'=>$goodsId,'h_id'=>$h_id);
+            $res = $db->where($where)->find();
+            if($res){
+            	echo 1;
+			}
+			else{
+            	echo 0;
+			}
+		}
+	}
+	public function  zan(){
+        $db=M('praise');
+        $h_id=cookie('user');
+        $goodsId =cookie('goodsId');
+        $goodsFlag = cookie('goodsFlag');
+        if ($goodsFlag=="n"){
+            $data = array('h_id' =>1, 'n_id'=>$goodsId);
+		}
+		else{
+			$data = array('h_id' =>1, 'p_id'=>$goodsId);
+			}
+
+        $res=$db->data($data)->add();
+        echo $res;
+	}
+	public function delZan(){
+        $db=M('praise');
+        $h_id=cookie('user');
+        $goodsId =cookie('goodsId');
+        $goodsFlag = cookie('goodsFlag');
+        if ($goodsFlag=="n"){
+            $data = array('h_id' =>1, 'n_id'=>$goodsId);
+        }
+        else{
+            $data = array('h_id' =>1, 'p_id'=>$goodsId);
+        }
+        $res=$db->where($data)->delete();
+        echo $res;
+	}
 }
 
 
