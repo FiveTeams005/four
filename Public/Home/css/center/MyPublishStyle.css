@@ -44,7 +44,7 @@ footer{
     top:35%
 }
 .edit-goods{
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #eee;
 }
 .goods-img{
     padding: 0;
@@ -63,7 +63,7 @@ footer{
 .edit-goods button{
     margin: 4px 0;
     background-color: #fff;
-    border: 1px solid #0f0f0f;
+    border: 1px solid #eee;
     border-radius: 0;
     height:30px;
 }

@@ -16,10 +16,7 @@ $(function(){
 					</div>\
 					<div class="col-xs-6 col-sm-6" style="padding:0">\
 						<p><b>{{list.username}}</b></p>\
-						<span>{{list.lastMessage}}</span> | <span>{{list.lastTime}}</span>\
-					</div>\
-					<div class="col-xs-3 col-sm-3">\
-						<img :src="list.goodsImg" class="img-responsive" >\
+						<span>{{list.lastMessage}}</span> | <span>{{list.lastTime}}条</span>\
 					</div>\
 				</div>\
 				<div @click.stop="delList(list.otherId,list.goodsId)" class="del-btn"><img src="'+path+'Home/img/xianyu/template_clean_icon.png" class="img-responsive"></div>\
@@ -28,22 +25,23 @@ $(function(){
 		methods:{
 			//聊天列表点击事件（跳转至聊天页面）；
 			listSingle:function(uId,goodsId){
-				
+
 				$.post(MVC('Home','Chat','getInfo'),{otherId:uId,goodsId:goodsId},function(){
 					window.location.href = MVC('Home','Chat','chat');
 				});
 			},
 			//删除该聊天列表；
 			delList:function(uId,goodId){
+				var a = uId;
+				var b = goodId;
 				layer.open({
 				    content: '确定要删除么，删除后聊天信息将不能找回'
 				    ,btn: ['删除', '取消']
 				    ,yes: function(index){
-                        // $.post(MVC('Home','Message','delList'),{meId:1,otherId:uId},function(){
-                        //
+                        $.post(MVC('Home','Message','delList'),{goodsid:b,otherId:a},function(){
 					  		layer.open({content: '删除成功！'});
-                        //
-						// });
+							window.location.reload();
+						});
 				    }
 				});
 			},
@@ -54,45 +52,92 @@ $(function(){
 	var chatList=[];
 	$.post(chat,{},function (data) {
 		for(var i=0;i<data[0].length;i++){
-			for(var j=0;j<data[1].length;j++){
-				if(data[1][j]['h_id']==data[3]){
-					if((data[1][j]['h_id']==data[0][i]['f_h_id'] || data[1][j]['h_id']==data[0][i]['t_h_id'])&&data[1][j]['h_id']==data[3]){
-						if(data[1][j]['h_id']==data[0][i]['f_h_id']){
-							var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['t_h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
-							chatList.push(a);
-						}else {
-							var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['f_h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
-							chatList.push(a);
-						}
-
-					}
-				}else{
-					if((data[1][j]['h_id']==data[0][i]['f_h_id'] || data[1][j]['h_id']==data[0][i]['t_h_id'])&&data[1][j]['h_id']!=data[3]){
-						var a = {goodsId:data[0][i]['n_id'],otherId:data[1][j]['h_id'],headImg:data[1][j]['h_head'],username:data[1][j]['h_nick'],lastMessage:data[0][i]['l_message'],lastTime:data[0][i]['l_time'],goodsImg:path+'Home/img/images/f.jpg'};
-						chatList.push(a);
-					}
+			var len = 0;
+			for(var j=0;j<data[3].length;j++){
+				if(data[3][j]['t_h_id']==data[2]&&data[3][j]['n_id']==data[0][i]['n_id']&&data[3][j]['l_status']==2){
+					len++;
 				}
 			}
 
+			for(var k=0;k<data[1].length;k++){
+				if(data[0][i]['h_id2']==data[1][k]['h_id']&&data[0][i]['h_id2']!=data[2]){
+					var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['h_id2'],headImg:data[1][k]['h_head'],username:data[1][k]['h_nick'],lastMessage:'未读消息',lastTime:len};
+					chatList.push(a);
+				}
+				if(data[0][i]['h_id1']==data[1][k]['h_id']&&data[0][i]['h_id2']==data[2]){
+					var a = {goodsId:data[0][i]['n_id'],otherId:data[0][i]['h_id1'],headImg:data[1][k]['h_head'],username:data[1][k]['h_nick'],lastMessage:'未读消息',lastTime:len};
+					chatList.push(a);
+				}
+			}
 		}
+
 	},'json')
-	
+
 	var vm = new Vue({
 		el:"#content",
 		data:{
 			chatList:chatList,
 		},
-		
+
 	});
-	//气泡提示；
-	var num1 = 0;
-	var num2 = 0;
-	if(num1 > 0){
-		new BubbleTip(num1,'#Ocontainer1 a:eq(1)','-6px','77%');
+	//气泡提示函数
+	function Prompt(){
+		var num1;
+		var num2;
+		var Prompt = MVC('Home','Index','prompt');
+		$.post(Prompt,{},function (data) {
+			if(data[0]==''){
+				num2=0;
+			}else {
+				num2 = data[0].length;
+			}
+
+			if(data[1]==''){
+				num1=0;
+			}else {
+				num1 = data[1].length;
+			}
+			if(num1 > 0){
+				new BubbleTip(num1,'#Ocontainer1 a:eq(1)','-6px','77%');
+			}
+			if(num2 > 0){
+				new BubbleTip(num2,'#Ocontainer1 a:eq(2)','-6px','77%');
+			}
+		},'json')
 	}
-	if(num2 > 0){
-		new BubbleTip(num2,'#Ocontainer1 a:eq(2)','-6px','77%');
-	}
-	
+	Prompt();
+
+	var userid = MVC('Home','index','userid');
+	var uid;
+	$.ajax({
+		url:userid,
+		type:'POST',
+		async:false,
+		success:function (data) {
+			uid = data;
+		}
+	})
+	//连接服务端
+	var socket = io('http://'+document.domain+':2120');
+	// 连接后登录
+	socket.on('connect', function(){
+		socket.emit('login', uid);
+	});
+	// 接收发送来消息时
+	socket.on('new_msg', function(msg){
+		Prompt();
+		//一进来气泡清零
+		var zero = 	MVC('Home','Message','zero');
+		$.post(zero,{},function () {
+
+		})
+	});
+
+
+	//一进来气泡清零
+	var zero = 	MVC('Home','Message','zero');
+	$.post(zero,{},function () {
+
+	})
 
 })

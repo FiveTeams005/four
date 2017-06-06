@@ -72,4 +72,24 @@ $(function(){
 
 	// 分页居中样式
 	$("#pageBox>div").css("margin-left",(parseFloat($("#pageBox>div").css("width"))/-2)+"px");
+
+
+	//推送函数
+	$("body").on('click','.push',function () {
+		$.ajax({
+			url:push,
+			type:'POST',
+			data:{id:$(this).attr('nid')},
+			success:function(data){
+				layer.alert('推送成功！',{
+					time:0,
+					btn: ['确定'],
+					yes:function(index){
+						layer.close(index);
+						location.href = url;
+					}
+				})
+			}
+		})
+	})
 })

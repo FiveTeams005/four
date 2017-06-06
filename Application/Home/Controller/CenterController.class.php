@@ -58,7 +58,7 @@ class CenterController extends Controller {
         //我的信息
         array_push($ary,$res);
         $db2 = M('ngoods');
-        $res2 = $db2->where("h_id='{$h_id}' AND n_status =1")->select();
+        $res2 = $db2->where("h_id='{$h_id}' AND n_status in(1,2,3)")->select();
         $res7 = $db2->where("h_id='{$h_id}'")->select();
         //我发布的
         array_push($ary,$res2);
@@ -205,7 +205,7 @@ class CenterController extends Controller {
                 $str=$str.$res[$i]['n_id'].',';
             }
         }
-        $res2 = $db->where("n_id in({$str})")->select();
+        $res2 = $db->where("n_id in({$str}) AND n_status='4'")->select();
         $res3 = $db3->where("n_id in({$str})")->select();
         array_push($ary,$res2);
         array_push($ary,$res3);
@@ -260,12 +260,18 @@ class CenterController extends Controller {
     /**
      * 我买到的商品
      */
+    /**
+     * 显示用户所有的地址
+     */
     public function showAddr(){
         $db = M('address');
         $h_id = cookie('user');
-        $res = $db->where("h_id= '1'")->order('d_status desc')->select();
+        $res = $db->where("h_id= '{$h_id}'")->order('d_status desc')->select();
         echo json_encode($res);
     }
+    /**
+     * 添加地址
+     */
     public function addrAdd(){
         $db = M('address');
         $h_id = cookie('user');
@@ -273,7 +279,7 @@ class CenterController extends Controller {
         $detail=I('post.detail');
         $arr1=array($city,$detail);
         $arr2=implode(",",$arr1);
-        $data = array('h_id' => 1,'d_address' =>$arr2, 'd_name' =>I('post.name'), 'd_tel' =>I('post.tel'));
+        $data = array('h_id' => $h_id,'d_address' =>$arr2, 'd_name' =>I('post.name'), 'd_tel' =>$_POST['tel']);
         $res=$db->data($data)->add();
         if($res){
             echo 1;
@@ -281,5 +287,102 @@ class CenterController extends Controller {
         else{
             echo 2;
         }
+    }
+    /**
+     * 存储地址id
+     */
+    public function  saveAddrId(){
+        $d_id=$_POST['id'];
+        setcookie('d_id',$d_id, time()+60);
+        echo 1;
+    }
+    /**
+     * 展示编辑地址的页面
+     */
+    public function showEdit(){
+        $db = M('address');
+        $d_id=cookie('d_id');
+        $res= $db->find($d_id);
+       echo  json_encode($res);
+    }
+    /**
+     * 保存更改后地址
+     */
+    public function saveAddr(){
+        $db = M('address');
+        $h_id = cookie('user');
+        $d_id=cookie('d_id');
+        $city=I('post.city');
+        $detail=I('post.detail');
+        $arr1=array($city,$detail);
+        $arr2=implode(",",$arr1);
+        $data1= array('d_status' =>1);
+        $data2= array('d_address' =>$arr2, 'd_name' =>I('post.name'), 'd_tel' =>$_POST['tel'],'d_status'=>$_POST['d_status']);
+        $res1=$db->data($data1)->where("h_id='{$h_id}'")->save();
+        $res2=$db->data($data2)->where("d_id='$d_id'")->save();
+        if($res2){
+            echo 1;
+        }
+    }
+    /**
+     * 删除地址
+     */
+    public function delAddr(){
+        $db = M('address');
+        $d_id=cookie('d_id');
+        $res = $db->where("d_id='$d_id'")->delete();
+        echo $res;
+    }
+    /**
+     * 我赞过的商品
+     */
+    public function showZan(){
+        $h_id = cookie('user');
+        $data1 = M()->table('f_images')->join('f_ngoods on f_images.n_id=f_ngoods.n_id')->join('f_praise  on  f_praise.n_id=f_ngoods.n_id')->where("f_praise.h_id='{$h_id}'")->field('f_ngoods.n_id,f_ngoods.n_status,f_ngoods.n_name,f_ngoods.n_price,f_ngoods.h_id,f_praise.z_id,f_images.n_img')->group('f_praise.z_id')->select();
+        $data2= M()->table('f_images')->join('f_pgoods on f_images.p_id=f_pgoods.p_id')->join('f_praise  on  f_praise.p_id=f_pgoods.p_id')->where("f_praise.h_id='{$h_id}'")->field('f_pgoods.p_id,f_pgoods.p_name,f_pgoods.p_status,f_praise.z_id,f_images.n_img,f_pgoods.h_id')->group('f_praise.z_id')->select();
+        $ary=array($data1,$data2);
+        echo json_encode($ary);
+    }
+    /**
+     * 取消赞
+     */
+    public function cancleZan(){
+        $model = M('praise');
+        $res = $model ->where("z_id={$_POST['id']}")->delete();
+        echo $res;
+    }
+    /**
+     * 查看赞过的商品详情
+     */
+    public function showGoods(){
+        $goods_flag = I('goods_flag');//商品标志（‘n’普通，‘p’拍卖);
+        $goods_id =  I('goods_id',0,'intval');
+        cookie('goodsId',$goods_id);
+        cookie('goodsFlag',$goods_flag);
+        $goodsId =cookie('goodsId');
+        $goodsFlag = cookie('goodsFlag');
+        if($goodsId !=0 && !empty($goodsFlag)){
+            echo true;
+        }else{
+            echo false;
+        }
+    }
+    /**
+     * 查看余额
+     */
+    public function showMoney(){
+        $model = M('huser');
+        $h_id = cookie('user');
+        $res=$model->where("h_id='{$h_id}'")->field('h_id,h_money')->find();
+        echo json_encode($res);
+    }
+    public function addMoney(){
+        $db=M('huser');
+        $h_id = cookie('user');
+        $res1=$db->where("h_id='{$h_id}'")->field('h_money')->find();
+        $money=intval(I('post.h_money'))+intval($res1["h_money"]);
+        $data= array('h_money' =>$money);
+        $res2=$db->data($data)->where("h_id='{$h_id}'")->save();
+        echo $res2;
     }
 }

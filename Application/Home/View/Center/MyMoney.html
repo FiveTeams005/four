@@ -9,22 +9,18 @@
     <link rel="stylesheet" href="__PUBLIC__/Home/css/center/MyMoneyStyle.css">
     <link rel="stylesheet" href="__PUBLIC__/static/loading/css/loading.css">
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+        var path = "__PUBLIC__/";
+    </script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
     <script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--页面加载等待-->
     <script src="__PUBLIC__/Home/static/Package.js"></script>
-    <script>
-        $(function () {
-            $('#menu-wrap').on('click','nav ul li',function () {
-                $(this).addClass('active').siblings().removeClass('active');
-                if($(this).index() == 0){   //我的优惠券
-                    alert(1);
-                }else if($(this).index() == 1){     //如何获取优惠券
-                    alert(2);
-                }
-            })
-        })
-    </script>
+    <script src="__PUBLIC__/Home/js/center/MyMoney.js"></script>
 </head>
 <body class="bg">
 <header>
@@ -38,7 +34,7 @@
     <div class="row con-row">
         <div class="col-xs-6 text-center">
             <img src="__PUBLIC__/Home/img/xianyu/icon_big_coins.png">
-            <span>￥</span><span id="money">200</span>
+            <span>￥</span><span id="money"></span>
         </div>
         <div class="col-xs-6 text-center">
             <button type="button" class="btn btn-money">充值余额</button>

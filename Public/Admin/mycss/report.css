@@ -1,0 +1,10 @@
+footer{
+    width: 200px;
+    position: fixed;
+    right: 40px;
+    top: 30%
+}
+footer ul li{
+    list-style: none;
+    padding-top: 10px;
+}

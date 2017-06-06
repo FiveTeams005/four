@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>支付失败</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pay/payIndexStyle.css">
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script type="text/javascript">
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <div class="all_w" style="position:relative; z-index:1;">
+        <div class="ttwenz" style=" text-align:center; width:100%;">
+            <h4>交易详情</h4>
+            <h5>微信安全支付</h5>
+        </div>
+        <a href="{:U('Home/Pay/payIndex')}" class="fh_but">返回</a> </div>
+</div>
+
+<div class="container" style="margin-top: 30px">
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <img src="__PUBLIC__/Home/img/xianyu/comui_face_d3.png">
+        </div>
+        <div class="col-xs-12" style="margin-top: 15px;font-size: 18px">
+            <span>密码粗错了~</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

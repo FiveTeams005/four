@@ -1,5 +1,19 @@
 $(function() {
     $('#loading').remove();
+
+    $.post(MVC("Home","Center","showEdit"),function (data) {
+        console.log(data);
+       var str=data.d_address;
+        var ary=str.split(",");
+        $("#add-city").text(ary[0]);
+        $("#add-detail").val(ary[1]);
+        $("#add-name").val(data.d_name);
+        $("#add-tel").val(data.d_tel);
+        if(data.d_status==2){
+            $("#add-default").prop("checked","checked")
+        }
+    },'json');
+
     /*打开省市区选项*/
     $("#expressArea").click(function() {
         $("#areaMask").fadeIn();
@@ -16,8 +30,26 @@ $(function() {
             ,btn: ['删除', '取消']
             ,skin: 'footer'
             ,yes: function(index){
-                alert(1);
-                window.location.href=MVC("Home","Center","MyAddr");
+                $.post(MVC("Home","Center","delAddr"),function (data) {
+                    if(data==1){
+                        layer.open({
+                            content: '删除成功'
+                            ,btn: ['确定']
+                            ,yes: function(index){
+                                layer.close(index);
+                                window.location.href=MVC("Home","Center","MyAddr");
+                            }
+                        });
+                    }
+                    else{
+                        layer.open({
+                            content: '删除失败'
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        })
+                    }
+                })
+                // window.location.href=MVC("Home","Center","MyAddr");
             }
         })
     })
@@ -56,7 +88,33 @@ $(function() {
         }
         else{
             //将表单数据发送给后台
-            window.location.href=MVC("Home","Center","MyAddr");
+            $("#content").html("");
+            var d_status;
+            if($("#add-default").is(':checked')){
+                d_status=2;
+            }
+            else {
+               d_status=1;
+            }
+            $.post(MVC("Home","Center","saveAddr"),{city:$.trim($("#add-city").text()),detail:$.trim($("#add-detail").val()),name:$.trim($("#add-name").val()),tel:$.trim($("#add-tel").val()),d_status:d_status},function (data) {
+                if(data==1){
+                    layer.open({
+                        content: '保存成功'
+                        ,btn: ['确定']
+                        ,yes: function(index){
+                            layer.close(index);
+                            window.location.href=MVC("Home","Center","MyAddr");
+                        }
+                    });
+                }
+                else{
+                    layer.open({
+                        content: '添加新地址失败'
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    })
+                }
+            })
         }
     })
     $('#loading').remove();

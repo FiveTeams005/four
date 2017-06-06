@@ -8,11 +8,17 @@
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/classify/classifyStyle.css">
 	<link rel="stylesheet" href="__PUBLIC__/static/loading/css/loading.css">
+	<script src='//cdn.bootcss.com/socket.io/1.3.7/socket.io.js'></script>
+	<script src='//cdn.bootcss.com/jquery/1.11.3/jquery.js'></script>
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="__PUBLIC__/Home/js/static/city/zepto.js"></script>
     <script src="__PUBLIC__/static/vue/vue.js"></script>
+	<link rel='stylesheet' href='__PUBLIC__/static/sendMsg/css/animate.min.css'>
+	<link rel="stylesheet" href="__PUBLIC__/static/sendMsg/css/notification.css">
+	<script src="__PUBLIC__/static/sendMsg/js/notification.js"></script>
+	<script src="__PUBLIC__/Home/static/push.js"></script>
 	<script>
 		function MVC(p,c,a){
 			return "{:U('"+p+"/"+c+"/"+a+"')}";
@@ -76,7 +82,7 @@
 	<!-- 中间部分 -->
 	<div class="container-fluid" id="content">
 		<div id="showGoods" class="row">
-			<div class="col-sm-6 col-xs-6 bg-info one-goods" v-for='v in dataList' @click="goodsClick(v.n_id)">
+			<div class="col-sm-6 col-xs-6 one-goods" v-for='v in dataList' @click="goodsClick(v.n_id)">
 				<img :src="noneImg(v.img)" class="img-responsive">
 				<div>{{v.n_name}}</div>
 				<p class="text-danger">&yen;<span>{{v.n_price}}</span></p>

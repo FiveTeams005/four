@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>可拖拽的路线规划</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=25570139c46c9bc652ded0d3be576696"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<div id="tip"></div>
+<script type="text/javascript">
+    function MVC(p,c,a){
+        return "{:U('"+p+"/"+c+"/"+a+"')}";
+    }
+
+    var lat1;
+    var lng1;
+    var lat2;
+    var lng2;
+    var distance = MVC('Home','Detail','distance');
+    $.ajax({
+        url:distance,
+        type:'POST',
+        dataType:'json',
+        async:false,
+        success:function (data) {
+            lat1 = data[0][0]['h_loginlatitude'];
+            lng1 = data[0][0]['h_loginlongitude'];
+            lat2 = data[1][0]['lat'];
+            lng2 = data[1][0]['lng'];
+        }
+    })
+
+    var map, route, marker;
+    //基本地图加载
+    map = new AMap.Map("container", {
+        resizeEnable: true
+    });
+    //绘制初始路径
+    var path = [];
+    path.push([lng1,lat1]);
+    path.push([lng2,lat2]);
+    map.plugin("AMap.DragRoute", function() {
+        route = new AMap.DragRoute(map, path, AMap.DrivingPolicy.LEAST_FEE); //构造拖拽导航类
+        route.search(); //查询导航路径并开启拖拽导航
+    });
+</script>
+</body>
+</html>

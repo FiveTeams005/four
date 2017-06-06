@@ -26,27 +26,32 @@ class PayController extends Controller {
 		$db2 = M('ngoods');
 		$db3 = M('address');
 		$db4 = M('images');
+		$db5 = M('pgoods');
 		$h_id = cookie('user');
-		$n_id = cookie('goodsId');
-		$res1 = $db1->where("h_id = '{$h_id}'")->select();
-		$res2 = $db2->where("n_id = '{$n_id}'")->select();
-		$res3 = $db3->where("h_id = '{$h_id}'")->select();
-		$res4 = $db4->where("n_id = '{$n_id}'")->select();
-		$ary = array();
-		array_push($ary,$res1,$res2,$res3,$res4);
-		echo json_encode($ary); 
+		$goods_id = cookie('goodsId');
+		$goodsFlag = cookie('goodsFlag');
+		if($goodsFlag == 'n'){
+			$res2 = $db2->where("n_id = {$goods_id}")->select();
+			$res4 = $db4->where("n_id = {$goods_id}")->select();//图片
+		}else if($goodsFlag == 'p'){
+			$res2 = $db5->where("p_id = {$goods_id}")->select();
+			$res4 = $db4->where("p_id = {$goods_id}")->select();//图片
+		}
+		$res1 = $db1->where("h_id = {$h_id}")->select();
+		
+		$res3 = $db3->where("h_id = {$h_id}")->select();
+		
+		$ary = array($res1,$res2,$res3,$res4,$goodsFlag);
+		echo json_encode($ary);
 	}
 
-	//点击立即支付，存地址
+	//点击立即支付，存地址，存订单
 	public function depAdd(){
 		$add = I('add');
 		$price = I('price');
 		cookie('price',$price);
 		cookie('add',$add);
-	}
 
-	//输入支付密码后，存入订单
-	public function buy(){
 		$add = cookie('add');
 		$db = M('ngoods');
 		$n_id = cookie('goodsId');
@@ -59,16 +64,45 @@ class PayController extends Controller {
 		$ary['p_id'] =0;
 		$ary['h_id'] =cookie('user');
 		$ary['o_money'] =$price;
-		$ary['o_status'] =2;
+		$ary['o_status'] =1;
 		$ary['h_id_m'] =$h_id_m;
 		$ary['o_add'] =$add;
 		$order = date('Ymdhis',time()).rand(1000,9999);
 		$ary['o_number'] =$order;
 		$res = $db2->add($ary);
+		cookie('order',$res);
+
+	}
+
+	//输入支付密码后，修改订单状态
+	public function buy(){
+		$o_id = cookie('order');
+		$db = M('order');
+		$ary['o_status'] = 2;
+		$res = $db->where("o_id = '{$o_id}'")->save($ary);
+		$db2 = M('ngoods');
+		$res2 =$db->where("o_id = '{$o_id}'")->select();
+		$ary2['n_status']=4;
+		$n_id = $res2[0]['n_id'];
+		$res3 = $db2->where("n_id = '{$n_id}'")->save($ary2);
+
 	}
 	//付款页面加载金额
 	public function price(){
 		$price = cookie('price');
 		echo $price;
+	}
+
+	//获取订单的详情
+	public function order(){
+		$o_id = cookie('order');
+		$db = M('order');
+		$db2 = M('ngoods');
+		$res = $db->where("o_id = '{$o_id}'")->select();
+		$n_id = $res[0]['n_id'];
+		$res2 = $db2->where("n_id = '{$n_id}'")->select();
+		$ary = array();
+		array_push($ary,$res,$res2);
+		echo json_encode($ary);
 	}
 }
