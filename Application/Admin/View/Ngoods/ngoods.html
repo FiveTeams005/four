@@ -4,6 +4,8 @@
 	<title>普通商品管理</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script src='//cdn.bootcss.com/socket.io/1.3.7/socket.io.js'></script>
+	<script src='//cdn.bootcss.com/jquery/1.11.3/jquery.js'></script>
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/mycss/huser.css">
@@ -11,8 +13,9 @@
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
     <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
     <script>
-    	var url = "{:U('Admin/ngoods/ngoods')}";
-    	var urlDel = "{:U('Admin/ngoods/ngoodsDel')}";
+    	var url = "{:U('Admin/Ngoods/ngoods')}";
+    	var urlDel = "{:U('Admin/Ngoods/ngoodsDel')}";
+		var push = "{:U('Admin/Ngoods/push')}";
     </script>
     <script type="text/javascript" src='__PUBLIC__/static/layer/layer.js'></script>
     <script type="text/javascript" src="__PUBLIC__/Admin/myjs/ngoods.js"></script>
@@ -24,7 +27,7 @@
 				<h3 class="text-center">普通商品管理</h3>
 			</div>
 		</div>
-		<form class="row search-div" method='get' action="{:U('Admin/ngoods/ngoods')}">
+		<form class="row search-div" method='get' action="{:U('Admin/Ngoods/ngoods')}">
 			<div class="col-md-1 col-lg-1 ">
 				<input type='button' value='删除' class="btn btn-info" id='del' />
 			</div>
@@ -84,7 +87,6 @@
 						<th class="text-center">商品分类</th>
 						<th class="text-center">发布用户</th>
 						<th class="text-center">发布时间</th>
-						<th class="text-center">赞</th>
 						<th class="text-center">商品状态</th>
 						<th class="text-center">操作</th>
 					</tr>
@@ -102,11 +104,10 @@
 							<td class="text-center">{$classify[$v['c_id']]}</td>
 							<td class="text-center">{$huser[$v['h_id']]}</td>
 							<td class="text-center">{$v.n_time}</td>
-							<td class="text-center">{$v.n_praise}</td>
 							<td class="text-center">{$status[$v['n_status']]}</td>
 
 							<td class="text-center">
-								<a href="#">推送</a>&nbsp;&nbsp;
+								<a href="#" class='push' nId="{$v['n_id']}">推送</a>&nbsp;&nbsp;
 								<a href="{:U('Admin/ngoods/ngoodsDetail',array("id"=>$v['n_id']))}">查看详情</a>&nbsp;&nbsp;
 								<a href="#" class='del' nId="{$v['n_id']}">删除</a>
 							</td>

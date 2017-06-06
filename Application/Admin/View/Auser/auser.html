@@ -43,16 +43,23 @@
 			</div>
 			<div class="col-md-2 col-lg-2 ">
 				<select class="selectpicker" name='userStatus' onchange="this.form.submit()">
-					<option value="">用户状态</option>
-			    	<option value="1">正 常</option>
-			    	<option value="0">锁 定</option>
+					<option value="none">用户状态</option>
+			    	<if condition="$_GET['userStatus'] eq 1"><option value="1" selected>正 常</option>
+						<else /><option value="1">正 常</option>
+					</if>
+					<if condition="isset($_GET['userStatus']) and $_GET['userStatus'] eq 0 and $_GET['userStatus'] neq 'none'"><option value="0" selected>锁 定</option>
+						<else /><option value="0">锁 定</option>
+					</if>
 			  	</select>
 			</div>
 			<div class="col-md-2 col-lg-2 ">
 				<select class="selectpicker" name='userRole' onchange="this.form.submit()">
-					<option value="">用户角色</option>
+					<option value="none">用户角色</option>
 					<foreach name='role' item='vo'>
-						<option value="{$vo['r_id']}">{$vo.r_name}</option>
+						<if condition="isset($_GET['userRole']) and $_GET['userRole'] - $vo['r_id'] eq 0">
+							<option value="{$vo.r_id}" selected>{$vo.r_name}</option>
+							<else /><option value="{$vo.r_id}">{$vo.r_name}</option>
+						</if>
 					</foreach>
 			  	</select>
 			</div>
