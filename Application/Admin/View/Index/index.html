@@ -1,27 +1,27 @@
 <!doctype html>
 <html class="no-js">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Amaze UI Admin index Examples</title>
-<meta name="description" content="这是一个 index 页面">
-<meta name="keywords" content="index">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="renderer" content="webkit">
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<link rel="icon" type="image/png" href="__PUBLIC__/Admin/i/favicon.png">
-<link rel="apple-touch-icon-precomposed" href="__PUBLIC__/Admin/i/app-icon72x72@2x.png">
-<meta name="apple-mobile-web-app-title" content="Amaze UI" />
-<link rel="stylesheet" href="__PUBLIC__/Admin/css/amazeui.min.css"/>
-<link rel="stylesheet" href="__PUBLIC__/Admin/css/admin.css">
-<link rel="stylesheet" href="__PUBLIC__/Admin/mycss/index.css">
-<script src="__PUBLIC__/Admin/js/jquery.min.js"></script>
-<script src="__PUBLIC__/Admin/js/app.js"></script>
-<script>
-  var url = "__URL__/";
-  var urlLogin = "{:U('Admin/login/login')}";
-</script>
-<script src="__PUBLIC__/Admin/myjs/index.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Amaze UI Admin index Examples</title>
+  <meta name="description" content="这是一个 index 页面">
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="__PUBLIC__/Admin/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/Admin/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="__PUBLIC__/Admin/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="__PUBLIC__/Admin/css/admin.css">
+  <link rel="stylesheet" href="__PUBLIC__/Admin/mycss/index.css">
+  <script src="__PUBLIC__/Admin/js/jquery.min.js"></script>
+  <script src="__PUBLIC__/Admin/js/app.js"></script>
+  <script>
+    var url = "__URL__/";
+    var urlLogin = "{:U('Admin/login/login')}";
+  </script>
+  <script src="__PUBLIC__/Admin/myjs/index.js"></script>
 </head>
 <body>
 <!--[if lte IE 9]><p class="browsehappy">升级你的浏览器吧！ <a href="http://se.360.cn/" target="_blank">升级浏览器</a>以获得更好的体验！</p><![endif]-->
@@ -37,12 +37,12 @@
    <li class="am-dropdown tognzhi" data-am-dropdown>
   <button class="am-btn am-btn-primary am-dropdown-toggle am-btn-xs am-radius am-icon-bell-o" data-am-dropdown-toggle> 消息管理<span class="am-badge am-badge-danger am-round">6</span></button>
   <ul class="am-dropdown-content">
-  	
-  	
-  	
+
+
+
     <li class="am-dropdown-header">所有消息都在这里</li>
 
-    
+
 
     <li><a href="#">未激活会员 <span class="am-badge am-badge-danger am-round">556</span></a></li>
     <li><a href="#">未激活代理 <span class="am-badge am-badge-danger am-round">69</span></a></a></li>
@@ -51,31 +51,31 @@
     <li><a href="#">未发货订单</a></li>
     <li><a href="#">低库存产品</a></li>
     <li><a href="#">信息反馈</a></li>
-    
-    
-    
+
+
+
   </ul>
 </li>
 
  <li class="kuanjie">
- 	
- 	<a href="#">会员管理</a>          
- 	<a href="#">奖金管理</a> 
- 	<a href="#">订单管理</a>   
- 	<a href="#">产品管理</a> 
- 	<a href="#">个人中心</a> 
+
+ 	<a href="#">会员管理</a>
+ 	<a href="#">奖金管理</a>
+ 	<a href="#">订单管理</a>
+ 	<a href="#">产品管理</a>
+ 	<a href="#">个人中心</a>
  	 <a href="#">系统设置</a>
  </li>
 
  <li class="soso">
- 	
-<p>   
-	
+
+<p>
+
 	<select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">
           <option value="b">全部</option>
           <option value="o">产品</option>
           <option value="o">会员</option>
-          
+
         </select>
 
 </p>
@@ -92,7 +92,7 @@
   </div>
 </header>
 
-<div class="am-cf admin-main"> 
+<div class="am-cf admin-main">
 
 <div class="nav-navicon admin-main admin-sidebar">
     <foreach name='user' item='vo'>
@@ -122,8 +122,8 @@
         </ul>
       </foreach>
     </div>
-    <!-- sideMenu End --> 
-    
+    <!-- sideMenu End -->
+
     <script type="text/javascript">
 			jQuery(".sideMenu").slide({
 				titCell:"h3", //鼠标触发对象
@@ -138,14 +138,14 @@
 </div>
 
 <div class=" admin-content">
-	
+
 		<div class="daohang">
 			<ul>
 				<li path="{:U('admin/Index/main')}"><button type="button" class="am-btn am-btn-default am-radius am-btn-xs navTop"> 首页 </li>
 			</ul>
     </div>
-	
-	
+
+
 <div class="admin">
   <iframe src="{:U('admin/Index/main')}"></iframe>
 </div>
@@ -164,9 +164,9 @@
 <script src="__PUBLIC__/Admin/js/polyfill/rem.min.js"></script>
 <script src="__PUBLIC__/Admin/js/polyfill/respond.min.js"></script>
 <script src="__PUBLIC__/Admin/js/amazeui.legacy.js"></script>
-<![endif]--> 
+<![endif]-->
 
-<!--[if (gte IE 9)|!(IE)]><!--> 
+<!--[if (gte IE 9)|!(IE)]><!-->
 <script src="__PUBLIC__/Admin/js/amazeui.min.js"></script>
 <!--<![endif]-->
 

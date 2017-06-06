@@ -123,17 +123,17 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <a href="">
-                            <img src="__PUBLIC__/Home/img/xianyu/banner1.jpg" class="img-responsive" style="width:100%" alt="First slide">
+                            <img src="__PUBLIC__/Home/img/images/banner_scroll_1.jpg" class="img-responsive" style="width:100%" alt="First slide">
                         </a>
                     </div>
                     <div class="item">
                         <a href="">
-                            <img src="__PUBLIC__/Home/img/xianyu/banner2.jpg" class="img-responsive" style="width:100%" alt="Second slide">
+                            <img src="__PUBLIC__/Home/img/images/banner_scroll_2.jpg" class="img-responsive" style="width:100%" alt="Second slide">
                         </a>
                     </div>
                     <div class="item">
                         <a href="">
-                            <img src="__PUBLIC__/Home/img/xianyu/banner3.jpg" class="img-responsive" style="width:100%" alt="Third slide">
+                            <img src="__PUBLIC__/Home/img/images/banner_scroll_4.jpg" class="img-responsive" style="width:100%" alt="Third slide">
                         </a>
                     </div>
                 </div>
@@ -143,50 +143,50 @@
         <div class="row text-center classify-bar">
             <div class="col-sm-3 col-xs-3">
                 <a href="#" onclick='detail(1)' class="indexcase text-center">
-                    <img src="__PUBLIC__/Home/img/images/bar_icon_2.png" class="img-responsive" />
-                    <span>数码</span>
+                    <img src="__PUBLIC__/Home/img/images/s1.jpg" class="img-responsive" />
+                    <!-- <span>数码</span> -->
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
                 <a href="#" onclick='detail(2)' >
-                    <img src="__PUBLIC__/Home/img/images/bar_icon_1.png" class="img-responsive" />
-                    <span>户外</span>
+                    <img src="__PUBLIC__/Home/img/images/s4.jpg" class="img-responsive" />
+                    <!-- <span>户外</span> -->
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
                 <a href="#" onclick='detail(3)' >
-                    <img src="__PUBLIC__/Home/img/images/bar_icon_3.png" class="img-responsive" />
-                    <span>服饰</span>
+                    <img src="__PUBLIC__/Home/img/images/s3.jpg" class="img-responsive" />
+                    <!-- <span>服饰</span> -->
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
                 <a href="#" onclick='detail(4)' >
-                    <img src="__PUBLIC__/Home/img/images/bar_icon_4.png" class="img-responsive" />
-                    <span>家具</span>
+                    <img src="__PUBLIC__/Home/img/images/s5.jpg" class="img-responsive" />
+                    <!-- <span>家具</span> -->
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
                 <a href="#" onclick='detail(5)' >
-                    <img src="__PUBLIC__/Home/img/images/bar_icon_5.png" class="img-responsive" />
-                    <span>手表</span>
+                    <img src="__PUBLIC__/Home/img/images/s6.jpg" class="img-responsive" />
+                    <!-- <span>手表</span> -->
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
                 <a href="#" onclick='detail(6)' >
-                    <img src="__PUBLIC__/Home/img/images/bar_icon_6.png" class="img-responsive" />
-                    <span>箱包</span>
+                    <img src="__PUBLIC__/Home/img/images/s7.jpg" class="img-responsive" />
+                    <!-- <span>箱包</span> -->
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
                 <a href="#" onclick='detail(7)' >
-                    <img src="__PUBLIC__/Home/img/images/bar_icon_7.png" class="img-responsive" />
-                    <span>家电</span>
+                    <img src="__PUBLIC__/Home/img/images/s8.jpg" class="img-responsive" />
+                    <!-- <span>家电</span> -->
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
                 <a href="#" onclick='detail(8)' >
-                    <img src="__PUBLIC__/Home/img/images/bar_icon_1.png" class="img-responsive" />
-                    <span>玩具</span>
+                    <img src="__PUBLIC__/Home/img/images/s2.jpg" class="img-responsive" />
+                    <!-- <span>玩具</span> -->
                 </a>
             </div>
         </div>
@@ -195,14 +195,14 @@
             <div class="col-xs-12 col-sm-12 auction">
                 <h3 class='text-center'>
                     <img src="__PUBLIC__/Home/img/images/star2.png">
-                    <span>拍卖品</span>  
+                    <span><img src="__PUBLIC__/Home/img/images/p_goods.png"></span>
                 </h3>
-                <div class='row auction'>
+                <div class='row'>
                     <template v-for="v in resivedGoods">
                         <div class="col-xs-6 col-sm-6 auction-goods" :p_id="v.p_id" @click="goodsDetail(v.p_id)">
                             <a href="javascript:">
                                 <img :src="v.img" class='img-responsive' >
-                                <h5 class="text-right text-danger">正在拍卖...</h5>
+                                <!-- <h5 class="text-right text-danger"><img src="__PUBLIC__/Home/img/images/now_p.png" ></h5> -->
                                 <p class="text-left">
                                     {{v.p_name}}
                                 </p>
@@ -211,14 +211,14 @@
                     </template>
                 </div>
                 <div class="col-sm-12 col-xs-12 text-right more">
-                    <a href="{:U('Home/Classify/pclassify')}">更多拍卖 >>></a>
+                    <a href="{:U('Home/Classify/pclassify')}"></a>
                 </div>
-            </div> 
+            </div>
         </div>
         <!--广告-->
-        <div class="row">
-            <img src="__PUBLIC__/Home/img/xianyu/ad.jpg" class="img-responsive" style="width:100%">
-        </div>
+        <!-- <div class="row">
+            <img src="__PUBLIC__/Home/img/images/ad.jpg" class="img-responsive" style="width:100%">
+        </div> -->
         <!--新鲜的、附近的-->
         <div class="row" id="app2">
             <!-- 标题 -->
@@ -240,48 +240,6 @@
             <!-- 商品 -->
             <div class="col-sm-12 col-xs-12 show-goods">
 
-                <!-- <div class="row signal-goods">
-                    <div class="col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="col-sm-3 col-xs-3 text-center">
-                                <img src="__PUBLIC__/Home/img/xianyu/aliuser_place_holder.jpg" alt="头像" class="img-responsive img-circle img-head">
-                            </div>
-                            <div class="col-sm-6 col-xs-6 user-info ">
-                                <p>
-                                    <span class="nick">昵称</span>
-                                    <span class="icon">
-                                        <img src="__PUBLIC__/Home/img/xianyu/person_confirmed.png" class="img-responsive">
-                                    </span>
-                                </p>
-                                <p>
-                                    <span class="icon">
-                                        <img src="__PUBLIC__/Home/img/xianyu/items_exposure_care.png">
-                                    </span>
-                                    <span style="font-size: 11px;">已上架1小时</span>
-                                </p>
-                            </div>
-                            <div class="col-sm-3 col-xs-3" style="padding:0;overflow:hidden;">
-                                <p style="color: red">￥<span>1000.00</span></p>
-                            </div>
-                        </div>
-                        <div class="row goods-img">
-                            <div class="col-sm-4 col-xs-4">
-                                <img src="__PUBLIC__/Home/img/images/a.jpg" alt="showImg1"  class="img-responsive">
-                            </div>
-                            <div class="col-sm-4 col-xs-4">
-                                <img src="__PUBLIC__/Home/img/images/b.jpg" alt="showImg2"  class="img-responsive">
-                            </div>
-                            <div class="col-sm-4 col-xs-4">
-                                <img src="__PUBLIC__/Home/img/images/c.jpg" alt="showImg3"  class="img-responsive">
-                            </div>
-                        </div>
-                        <div clas="row">
-                            <div class="col-sm-12 col-xs-12">
-                                描述；
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 <signal-goods v-for="val in goodsList" :goods="val" :imgs='imgArr'></signal-goods>
                 <div class="row text-center" v-if="loadState == 1" style="background-color: #eee;line-height: 40px">
                     正在加载...
