@@ -302,16 +302,17 @@ $(document).ready(function(){
           changeZan:function (flag) {
             // var self=this;
             if(flag){
+                this.flag=false;
                 $.post(MVC('Home','Detail','delZan'),function (data) {
                      if(data==1){
-                         this.flag=false;
+
                      }
                 }.bind(this))
             }
             else{
-
+                this.flag=true;
                 $.post(MVC('Home','Detail','zan'),function (data) {
-                    this.flag=true;
+
                 }.bind(this))
             }
           },
