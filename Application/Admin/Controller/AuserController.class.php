@@ -7,10 +7,10 @@ class AuserController extends BaseController {
 	 */
 	public function auser(){
 		$where = "";
-		if(isset($_GET['userStatus']) && $_GET['userStatus'] != ""){
+		if(isset($_GET['userStatus']) && $_GET['userStatus'] != "none"){
 			$where['a_status'] = array('eq',$_GET['userStatus']);
 		}
-		if(isset($_GET['userRole']) && $_GET['userRole'] != ""){
+		if(isset($_GET['userRole']) && $_GET['userRole'] != "none"){
 			$where['f_role.r_id'] = array('eq',$_GET['userRole']);
 		}
 		if(isset($_GET['selectInp'])){

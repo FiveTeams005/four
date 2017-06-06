@@ -7,7 +7,7 @@ class HuserController extends BaseController {
 	 */
 	public function huser(){
 		$where = "";
-		if(isset($_GET['userStatus']) && $_GET['userStatus'] != ""){
+		if(isset($_GET['userStatus']) && $_GET['userStatus'] != "none"){
 			$where['h_status'] = array('eq',$_GET['userStatus']);
 		}
 		if(isset($_GET['selectInp'])){
