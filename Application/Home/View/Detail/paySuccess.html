@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>支付成功</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
+    <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/pay/payIndexStyle.css">
+    <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
+    <script src="__PUBLIC__/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
+    <script src="__PUBLIC__/static/vue/vue.js"></script>
+    <script type="text/javascript">
+        function MVC(p,c,a){
+            return "{:U('"+p+"/"+c+"/"+a+"')}";
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <div class="all_w" style="position:relative; z-index:1;">
+        <div class="ttwenz" style=" text-align:center; width:100%;">
+            <h4>交易详情</h4>
+            <h5>微信安全支付</h5>
+        </div>
+        <a href="{:U('Home/Center/MyBuy')}" class="fh_but">返回</a> </div>
+</div>
+
+<div class="zfcg_box ">
+    <div class="all_w">
+        <img src="__PUBLIC__/Home/img/images/cg_03.jpg" > 支付成功 </div>
+
+</div>
+<div class="cgzf_info">
+    <div class="wenx_xx">
+        <div class="mz">二货网</div>
+        <div class="wxzf_price">￥<span id="price" v-text="bailMoney"></span></div>
+    </div>
+
+    <div class="spxx_shop">
+        <div class=" mlr_pm">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>商   品</td>
+                    <td align="right">去年买了一个表</td>
+                </tr>
+                <tr>
+                    <td>交易时间</td>
+                    <td align="right">2015-12-16 22：41：45</td>
+                </tr>
+                <tr>
+                    <td>支付方式</td>
+                    <td align="right">招商银行</td>
+                </tr>
+                <tr>
+                    <td>交易单号</td>
+                    <td align="right">1205329821521545465665855444</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+<div class="wzxfcgde_tb"><img src="__PUBLIC__/Home/img/images/cg_07.jpg" ></div>
+<script type="text/javascript">
+  var vm = new Vue({
+    el:'.cgzf_info',
+    data:{
+      bailMoney:0,
+    },
+    mounted:function(){
+      $.post(MVC('Home','Detail','getBailMoney'),function(data){
+        vm.bailMoney = data;
+      })
+    },
+  })
+</script>
+</body>
+</html>
