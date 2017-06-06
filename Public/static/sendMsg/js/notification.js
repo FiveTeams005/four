@@ -11,7 +11,7 @@ Notification = function () {
     'use strict';
 
     var number = 0;
-    var incPosition = 0;
+    var incPosition = 78;
 
     var template = function ( text, image, position,rel) {
         // incPosition = number * 120;

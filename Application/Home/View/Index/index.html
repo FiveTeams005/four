@@ -59,6 +59,9 @@
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.3&key=5dfe3acbd9f803a2de729dada42b04da"></script>
 </head>
 <body>
+<div class="publish-img"><img src="__PUBLIC__/Home/img/images/public_secret.png">
+    <div class="close"><img src="__PUBLIC__/Home/img/xianyu/taolive_close.png"></div>
+</div>
     <!--头部-->
     <div id="header">
         <header >
@@ -237,7 +240,7 @@
             <!-- 商品 -->
             <div class="col-sm-12 col-xs-12 show-goods">
 
-                <div class="row signal-goods">
+                <!-- <div class="row signal-goods">
                     <div class="col-sm-12 col-xs-12">
                         <div class="row">
                             <div class="col-sm-3 col-xs-3 text-center">
@@ -278,8 +281,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <signal-goods v-for="val in goodsList" :goods="val" :imgs='imgArr'></signal-goods>
+                <div class="row text-center" v-if="loadState == 1" style="background-color: #eee;line-height: 40px">
+                    正在加载...
+                </div>
+                <div class="row text-center" v-else-if="loadState == 2" style="background-color: #eee;line-height: 40px">
+                    暂无更多数据.
+                </div>
             </div>
 
         </div>

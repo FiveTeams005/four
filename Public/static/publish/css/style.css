@@ -63,7 +63,7 @@ header h1 {
 
 .cd-bouncy-nav-modal {
   position: fixed;
-  z-index: 9999;
+  z-index: 9000;
   top: 0;
   left: 0;
   width: 100%;

@@ -52,13 +52,25 @@ class DetailController extends Controller {
  	public function getInfo(){
  		$goods_id =cookie('goodsId');
  		$goods_flag = cookie('goodsFlag');
+		// $userId = cookie('user');
+		$userId = 1;
  		$img = M('images');
  		$goodsRes = '';
  		$imgRes = '';
+		$bail = M('bail');//保证金表;
  		if($goods_flag == 'p'){
  			$pgoods = M('pgoods');
  			$goodsRes = $pgoods -> join('left join f_huser on f_pgoods.h_id=f_huser.h_id')->where("p_id = '{$goods_id}'")->select();
  			$imgRes = $img -> where("p_id = '{$goods_id}'")->select();
+
+			$where= array('p_id'=>$goods_id,'h_id'=>$userId,'j_status'=>1);//查询保证金的条件;
+
+			$bailRes = $bail->where($where)->count();//查询保证金的结果,如果有 cookie 存'1',没有就存'0';
+			if($bailRes > 0){
+				cookie('bailFlag',1);
+			}else{
+				cookie('bailFlag',0);
+			}
  		}elseif($goods_flag == 'n'){
  			$ngoods = M('ngoods');
  			$goodsRes = $ngoods -> join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->where("n_id = '{$goods_id}'")->select();
@@ -74,7 +86,7 @@ class DetailController extends Controller {
  		$goodsId = I('id',0,'intval');
  		$flag = I('goodsFlag');
  		$user = cookie('user');
- 		
+
  		$arr = array();
  		$arr['m_message'] = $msg;
  		$arr['h_id'] = $user;
@@ -112,7 +124,6 @@ class DetailController extends Controller {
  	*/
  	public function getSelfInfo(){
  		$user = cookie('user');
- 		
  		$huser = M('huser');
  		$res = $huser -> where("h_id = $user") -> select();
  		$this->ajaxreturn($res);
@@ -141,6 +152,126 @@ class DetailController extends Controller {
 	//跳转到导航地图
 	public function map(){
 		$this->display('map');
+  }
+	/*
+	*获取个人保证金;
+	*/
+	public function confirm(){
+		$bailFlag = cookie('bailFlag');
+		$this->ajaxreturn($bailFlag);
+	}
+	// 存保证金
+	public function saveBail(){
+		$money = I('money');
+		cookie('bailMoney',$money);
+	}
+	//跳转支付页'
+	public function payBail(){
+		$this->display();
+	}
+	//获取余额;
+	public function selectMoney(){
+		$userId = cookie('user');
+		$huser = M('huser');
+		$res = $huser->where("h_id = {$userId}")->select();
+		$this->ajaxreturn($res[0]['h_money']);
+	}
+	//获取 存储的 保证金;
+	public function getBailMoney(){
+		$money = cookie('bailMoney');
+		$this -> ajaxreturn($money);
+	}
+	//输入支付密码后，保证金;
+	public function payBailMoney(){
+		$money = cookie('bailMoney');
+		$userId = cookie('user');
+		$goodsId = cookie('goodsId');
+		$bail = M('bail');
+		$where = array('p_id'=>$goodsId,'h_id'=>$userId,'j_status'=>1);//先查询有没有,没有在存入;
+		$res1 = $bail -> where($where)->select();
+		if(count($res1) == 0){
+			$data = array('p_id'=>$goodsId,'h_id'=>$userId,'j_status'=>1,'j_money'=>$money);
+			$res2 = $bail->add($data);//存入成功之后再扣钱;
+			if($res2 > 0){
+				$huser = M('huser');
+				$res3 = $huser->where("h_id = {$userId}")->select();
+				$balance = $res3[0]['h_money'] - $money;
+				$res = $huser->where("h_id = {$userId}")->save(array('h_money'=> $balance));//计算 金额 后再存入数据库;
+				if($res){
+					cookie('bailFlag',1);
+					$this->ajaxreturn($res);
+				}
+			}
+		}
+	}
+	//拍卖加价；
+	public function addPrice(){
+		$step = I('step');
+		$goodsId = cookie('goodsId');
+		$pgoods = M('pgoods');
+		$res = $pgoods->where("p_id = $goodsId")->select();//要拍卖的商品；
+		$addPrice = $res[0]['p_eprice'] + $step;
+		$res = $pgoods->where("p_id = $goodsId")->save(array('p_eprice'=>$addPrice));
+		if($res){
+			$this -> ajaxreturn($addPrice);
+		}
+	}
+	public function zanInfo(){
+		$db=M('praise');
+		$h_id=cookie('user');
+        $goodsId =cookie('goodsId');
+        $goodsFlag = cookie('goodsFlag');
+        if($goodsFlag=="n"){
+            $where = array('n_id'=>$goodsId,'h_id'=>$h_id);
+            $res = $db->where($where)->find();
+            if($res){
+            	echo 1;
+			}
+			else{
+            	echo 0;
+			}
+		}
+		else if($goodsFlag=="p"){
+            $where = array('p_id'=>$goodsId,'h_id'=>$h_id);
+            $res = $db->where($where)->find();
+            if($res){
+            	echo 1;
+			}
+			else{
+            	echo 0;
+			}
+		}
+	}
+	public function  zan(){
+        $db=M('praise');
+        $h_id=cookie('user');
+        $goodsId =cookie('goodsId');
+        $goodsFlag = cookie('goodsFlag');
+        if ($goodsFlag=="n"){
+            $data = array('h_id' =>1, 'n_id'=>$goodsId);
+		}
+		else{
+			$data = array('h_id' =>1, 'p_id'=>$goodsId);
+			}
+
+        $res=$db->data($data)->add();
+        echo $res;
+	}
+	public function delZan(){
+        $db=M('praise');
+        $h_id=cookie('user');
+        $goodsId =cookie('goodsId');
+        $goodsFlag = cookie('goodsFlag');
+        if ($goodsFlag=="n"){
+            $data = array('h_id' =>1, 'n_id'=>$goodsId);
+        }
+        else{
+            $data = array('h_id' =>1, 'p_id'=>$goodsId);
+        }
+        $res=$db->where($data)->delete();
+        echo $res;
 	}
 }
+
+
 ?>
