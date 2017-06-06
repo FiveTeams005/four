@@ -36,9 +36,9 @@ class DetailController extends Controller {
  		}
 
  	}
-	
+
 	/*
-	 * 
+	 *
 	 */
 	public function push(){
 		$n_id = I('id');
@@ -52,8 +52,8 @@ class DetailController extends Controller {
  	public function getInfo(){
  		$goods_id =cookie('goodsId');
  		$goods_flag = cookie('goodsFlag');
-		// $userId = cookie('user');
-		$userId = 1;
+		$userId = cookie('user');
+		// $userId = 1;
  		$img = M('images');
  		$goodsRes = '';
  		$imgRes = '';
