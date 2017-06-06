@@ -15,7 +15,8 @@ window.onload = function(){
   $(".ljzf_but").click(function(){
     var price =  $('#price').children('span').text();
     $.post(MVC('Home','Detail','selectMoney'),{},function(data){
-      if(data < price){
+
+      if(parseFloat(data) < parseFloat(price)){
         layer.open({
           content:'余额('+data+')不足,请及时充值!',
         })
@@ -49,9 +50,13 @@ window.onload = function(){
           setTimeout(function(){
               var buy = MVC('Home','Detail','payBailMoney');
               $.post(buy,{},function (data) {
-                alert(data);
                 if(data){
-                  // location.href=MVC("Home","Detail","paySuccess");
+                  layer.open({
+                    content:'支付成功，即将跳转回拍卖页面...',
+                  });
+                  setTimeout(function(){
+                    window.location.href = MVC('Home','Detail','detail');
+                  },1000);
                 }else{
                   layer.open({
                     content:'支付失败',

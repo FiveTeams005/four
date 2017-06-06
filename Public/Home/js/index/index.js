@@ -19,7 +19,7 @@ $(function(){
     }
     //自动轮播；每隔3秒自动轮播
     $('#myCarousel').carousel({interval:3000});
-  
+
     //导航滚动顶部置顶；
     $(window).scroll(function () {
         var menu_top = $('#menu-wrap').offset().top;
@@ -42,7 +42,7 @@ $(function(){
         }else{
             $('.search-info').slideUp(200);
         }
-       
+
     });
     //点击搜索按钮时；
     $('#sec-btn').click(function(){
@@ -124,7 +124,7 @@ $(function(){
                             content:'页面跳转失败',
                         })
                     }
-                    
+
                 });
             }
         }
@@ -168,7 +168,7 @@ $(function(){
                 }
                  return this.auctionGoods;
             }
-               
+
         },
         methods: {
             //点击商品跳转详情页；
@@ -276,7 +276,7 @@ $(function(){
                 },function(res){
                     console.log(res.status);
                 });
-                
+
 
             },
             //判断图片显示；
@@ -304,7 +304,7 @@ $(function(){
             imgArr: [],
             flag : 0,//默认新鲜的,1为附近的;
             currentPage:1,//加载(新鲜的)的当前页
-           
+
         },
         mounted: function () {
             // flag 0新鲜的 1附近的;
@@ -316,10 +316,10 @@ $(function(){
             },function(res){
                 console.log(res.status);
             });
-             //
-                this.$nextTick(function () {
-                  window.addEventListener('scroll', this.scrollEvent)
-                })
+             //监听滚动事件；
+              this.$nextTick(function () {
+                window.addEventListener('scroll', this.scrollEvent)
+              })
         },
         methods:{
             //点击标题获取相应商品；
@@ -338,7 +338,7 @@ $(function(){
                     if(res.body[0]) {
                         this.goodsList = res.body[0];
                         this.imgArr = res.body[1];
-                    }  
+                    }
                 },function(res){
                     console.log(res.status);
                 }).bind(this)
@@ -349,11 +349,11 @@ $(function(){
             scrollEvent:function(){
                 this.loadState = 1;
                 if (getScrollTop() + getClientHeight() == getScrollHeight()) {
-                    this.$http.post(MVC('Home','Index','loadGoods'),{flag:this.index,page:this.currentPage},{emulateJSON:true}).then(function(res){                    
-                        
+                    this.$http.post(MVC('Home','Index','loadGoods'),{flag:this.index,page:this.currentPage},{emulateJSON:true}).then(function(res){
+
                         if(res.body[0].length > 0) {
                             this.loadState = 0;
-                            console.log(res.body[0])
+                            // console.log(res.body[0])
                             this.goodsList = this.goodsList.concat(res.body[0]);//对商品列表重新赋值,不然视图不会更新;
                             this.imgArr=res.body[1];
                             this.currentPage++;
@@ -363,7 +363,7 @@ $(function(){
                     },function(res){
                         console.log(res.status);
                     }).bind(this)
-                   
+
                 }
             }
         }
@@ -380,7 +380,7 @@ $(function(){
             }else {
                 num2 = data[0].length;
             }
-          
+
             if(data[1]==''){
                 num1=0;
             }else {
@@ -424,20 +424,6 @@ $(function(){
     function getScrollHeight() {
         return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
     }
-    //var page=0;//page为当前页面，滚动到底部时+1；
-    // window.onscroll = function () {
-    //     var yy = $(this).scrollTop();//获得滚动条top值
-    //         $(".con-input").css({"position":"absolute",top:yy+250+"px",});
-    //     if (getScrollTop() + getClientHeight() == getScrollHeight()) {
-    //         page++;
-    //         console.log(page);
-    //         //ajax加载数据
-    //         // alert("到达底部");
-
-    //     }
-    // };
-
-
 
     var userid = MVC('Home','index','userid');
     var uid;

@@ -77,7 +77,7 @@ class IndexController extends Controller {
 		}
 	}
 
-	
+
 	//测试
 	public function userid(){
 		echo cookie('user');
@@ -137,29 +137,29 @@ class IndexController extends Controller {
  	//拍卖商品；
  	public function loadAuctionGoods(){
  		$pgoods = M('pgoods');
- 		$res1 = $pgoods ->order("p_time desc")->limit(0,2)-> select();
- 		$img = M('images');	
+ 		$res1 = $pgoods ->order("p_time desc")->limit(0,2)->where("p_status = 1") -> select();
+ 		$img = M('images');
 		$res2 = $img -> select();//图片；
 		$this->ajaxreturn( array($res1,$res2) );
  	}
 
  	//普通商品
  	public function loadGoods(){
- 		$flag = I('flag',0,'intval');
- 		
+ 		$flag = I('flag',0,'intval');//判断点击的是新鲜的 还是附近的；
+
  		$me_id = cookie('user');
  		$ngoods = M('ngoods');
  		$img = M('images');
  		$res1 = array();
  		if($flag == 0){
- 			$res1 = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->page((isset($_POST['page'])?$_POST['page']:1).',4')->order("n_time desc")->select();
+ 			$res1 = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->page((isset($_POST['page'])?$_POST['page']:1).',4')->order("n_time desc")->where("n_status = 1")->select();
  		}else if($flag == 1){
  			$currPage = isset($_GET['page'])?$_GET['page']:1;
 
  			$res = array();//计算距离后的结果数组;
  			$user = M('huser');
  			$address = $user -> where("h_id = $me_id") -> getField('h_id,h_loginlongitude,h_loginlatitude');
-			$result = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->select();
+			$result = $ngoods->join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->where('n_status = 1')->select();
 			for($i = 0; $i <count($result); $i++){
 				$distance = GetDistance($address[1]['h_loginlongitude'],$address[1]['h_loginlatitude'],$result[$i]['lng'],$result[$i]['lat']);
 				if(floor ($distance) <= 3){
@@ -175,7 +175,7 @@ class IndexController extends Controller {
  		$res2 = $img -> select();//图片；
 
  		$res = array($res1,$res2);
- 		
+
 		$this->assign('log',$res);
 
  		$this->ajaxreturn($res);
@@ -190,7 +190,7 @@ class IndexController extends Controller {
  		$pgoods = M('pgoods');
  		$res1 = $ngoods->where("n_name like '%{$g_name}%'")->select();
  		$res2 = $pgoods->where("p_name like '%{$g_name}%'")->select();
- 		
+
  		$result = array();
  		if(count($res1) != 0 && count($res2) != 0){
  			$result = array_merge($res2,$res1);
