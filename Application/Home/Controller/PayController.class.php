@@ -77,14 +77,29 @@ class PayController extends Controller {
 	//输入支付密码后，修改订单状态
 	public function buy(){
 		$o_id = cookie('order');
-		$db = M('order');
-		$ary['o_status'] = 2;
-		$res = $db->where("o_id = '{$o_id}'")->save($ary);
+		$h_id = cookie('user');
 		$db2 = M('ngoods');
+		$db3 = M('huser');
+		$db = M('order');
 		$res2 =$db->where("o_id = '{$o_id}'")->select();
-		$ary2['n_status']=4;
+		$res4 = $db3->where("h_id = '{$h_id}'")->select();
 		$n_id = $res2[0]['n_id'];
-		$res3 = $db2->where("n_id = '{$n_id}'")->save($ary2);
+		$res5 = $db2->where("n_id='{$n_id}'")->select();
+
+		$money = $res4[0]['h_money'];
+		$money2 = $res5[0]['n_price'];
+		if($money-$money2>0){
+			$ary['o_status'] = 2;
+			$res = $db->where("o_id = '{$o_id}'")->save($ary);
+			$ary2['n_status']=4;
+			$res3 = $db2->where("n_id = '{$n_id}'")->save($ary2);
+			$money3 = $money-$money2;
+			$ary3['h_money']=$money3;
+			$res6 = $db3->where("h_id = '{$h_id}'")->save($ary3);
+		}else{
+			echo 1;
+		}
+		
 
 	}
 	//付款页面加载金额
