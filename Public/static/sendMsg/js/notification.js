@@ -16,7 +16,7 @@ Notification = function () {
     var template = function ( text, image, position,rel) {
         // incPosition = number * 120;
         number = number + 1;
-        var textHtml = '<div class="text" rel='+rel+'>' + text + '</div>';
+        var textHtml = '<div class="text push" rel='+rel+'>' + text + '</div>';
         // var titleHtml = (!title ? '' : '<div class="title">' + title + '</div>');
         var imageHtml = (!image ? '' : '<div class="illustration"><img src="' + image + '" width="30" height="30" /></div>');
         var style;

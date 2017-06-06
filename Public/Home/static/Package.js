@@ -14,7 +14,7 @@ function Package_Publish(img,title,price,zan,message,scan,h_id) {
       '<div class="col-xs-3 goods-img">' +
       '<img  src='+this.img+'></div> ' +
       '<div class="col-xs-9 goods-detail"> ' +
-      '<p>'+this.title+'</p><p style="color:rgb(224, 18, 34);font-weight:800;">￥'+this.price+'</p><p><span>点赞'+this.zan+'</span><span>·留言'+this.message+'</span><span>·浏览'+this.scan+'</span></p> ' +
+      '<p>'+this.title+'</p><p style="color:rgb(224, 18, 34);font-weight:800;">￥'+this.price+'</p><p><span>点赞'+this.zan+'</span><span>·留言'+this.message+'</span><span>·状态:'+this.scan+'</span></p> ' +
       '</div> </div> <div class="row edit-goods"> ' +
       '<div class="col-xs-12 text-right"> ' +
       '<button type="button" class="btn">编辑</button> <button sign='+this.h_id+' type="button" class="btn shelves">下架</button> ' +

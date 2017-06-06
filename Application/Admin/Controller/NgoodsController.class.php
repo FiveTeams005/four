@@ -101,4 +101,29 @@ class NgoodsController extends BaseController {
 			echo "删除商品失败！";
 		}
 	}
+
+	/**
+	 * 删除商品
+	 * @return string
+	 */
+	public function push(){
+		$n_id = I('id');
+		// 推送的url地址，使用自己的服务器地址
+		$push_api_url = "http://eh.liuzhi66.top:2121/";
+		$post_data = array(
+			"type" => "publish",
+			"content" => $n_id,
+			"to" => '',
+		);
+		$ch = curl_init ();
+		curl_setopt ( $ch, CURLOPT_URL, $push_api_url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		curl_setopt ( $ch, CURLOPT_HEADER, 0 );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, $post_data );
+		curl_setopt ($ch, CURLOPT_HTTPHEADER, array("Expect:"));
+		$return = curl_exec ( $ch );
+		curl_close ( $ch );
+		echo $return;
+	}
 }

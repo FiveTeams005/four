@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="__PUBLIC__/static/resetcss/normalize.css">
     <link rel="stylesheet" href="__PUBLIC__/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/detail/detailStyle.css">
-
+	<script src='//cdn.bootcss.com/socket.io/1.3.7/socket.io.js'></script>
+	<script src='//cdn.bootcss.com/jquery/1.11.3/jquery.js'></script>
 	<link rel="stylesheet" href="__PUBLIC__/static/loading/css/loading.css">
 	<script src="__PUBLIC__/static/layer/mobile/layer.js"></script>
     <script src="__PUBLIC__/static/jquery/jquery.min.js"></script>
@@ -22,6 +23,10 @@
 	<script src="__PUBLIC__/static/loading/js/Loading.js"></script> <!--页面加载等待-->
 
 	<script src="__PUBLIC__/Home/js/detail/detail.js"></script>
+	<link rel='stylesheet' href='__PUBLIC__/static/sendMsg/css/animate.min.css'>
+	<link rel="stylesheet" href="__PUBLIC__/static/sendMsg/css/notification.css">
+	<script src="__PUBLIC__/static/sendMsg/js/notification.js"></script>
+	<script src="__PUBLIC__/Home/static/push.js"></script>
 </head>
 <body>
 	<header v-cloak>
@@ -58,6 +63,9 @@
 	</header>
 	<!-- 中间 -->
 	<div class="container" id="content">
+		<div class="row">
+			<div id="distance" class="col-xs-12"></div>
+		</div>
 		<div class="row">
 			<div class="col-xs-12">
 				<blockquote>{{goodsInfo.info}}</blockquote>

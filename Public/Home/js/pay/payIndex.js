@@ -1,7 +1,8 @@
 $(function(){
     var price = MVC('Home','Pay','price');
     $.post(price,{},function (data) {
-        $("#price").html(data);
+        $("#price").html('￥:'+data);
+        $("#price2").html(data);
     })
     //出现浮动层
     $(".ljzf_but").click(function(){
