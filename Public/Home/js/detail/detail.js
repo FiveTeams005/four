@@ -246,7 +246,7 @@ $(document).ready(function(){
 
     //脚部组件；
     var componentA = {
-      props:['isP','id','bail','step','currentPrice','flag'],
+      props:['isP','id','bail','step','currentPrice','flag','userId'],
 			data: function () {
 				return {
 					confirm : 0,//保证金;
@@ -333,11 +333,20 @@ $(document).ready(function(){
 					 			   }
 					 			})
 						}else {
-							$.post(MVC('Home','Redis','redis'),{''});
-							$.post(MVC('Home','Detail','addPrice'),{step:self.step},function(data){
-									self.currentPrice = data;
-									alert('加价成功！');
-							})
+							$.post(MVC('Home','Redis','redis'),{goodsId:self.id,userId:self.userId},function(data1){
+								//返回'1'说明可以加价，返回'0',说明系统繁忙不可以加价；
+								if(data1 = 1){
+									$.post(MVC('Home','Detail','addPrice'),{step:self.step},function(data2){
+											self.currentPrice = data2;
+											alert('加价成功！');
+									})
+								}else{
+									layer.open({
+										content:'系统繁忙，请稍后再试！',
+									})
+								}
+							});
+
 						}
 					});
 
@@ -395,13 +404,10 @@ $(document).ready(function(){
       data:{
         goodsId:'',
         goodsFlag:'',
-
 				userId:'',
-
         pBail:'',
         pStep:'',
         currentPrice:'',//拍卖的当前价格;
-
         component:'componentA',
           myFlag:false
       },

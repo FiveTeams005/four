@@ -104,7 +104,7 @@
 	<!-- 底部 -->
 	<footer class="navbar-fixed-bottom" v-bind:switchFlag="component">
 		<keep-alive>
-			<component :is="component"  :is-p="goodsFlag" :id="goodsId" :bail="pBail" :step="pStep" :current-price="currentPrice" :flag="myFlag" @leave-msg="resLevEvent" @lose-blur="resSendEvent" @send-msg="resSendEvent"></component>
+			<component :is="component"  :is-p="goodsFlag" :id="goodsId" :bail="pBail" :step="pStep" :current-price="currentPrice" :flag="myFlag" :userId="userId" @leave-msg="resLevEvent" @lose-blur="resSendEvent" @send-msg="resSendEvent"></component>
 		</keep-alive>
 	</footer>
 </body>
