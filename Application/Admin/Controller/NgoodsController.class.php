@@ -13,7 +13,7 @@ class NgoodsController extends BaseController {
 		$this->assign('status',C('NG_STATUS'));
 
 		$huser = M('huser');
-		$huserRes = $huser->getfield("h_id,h_account");
+		$huserRes = $huser->getfield("h_id,h_nick");
 		$this->assign('huser',$huserRes);
 
 		$img = M('images');
@@ -67,8 +67,8 @@ class NgoodsController extends BaseController {
 		$this->assign('img',$imgRes);
 
 		$huser = M('huser');
-		$huserRes = $huser->field('h_account')->where("h_id = {$res[0]['h_id']}")->select();
-		$this->assign('huser',$huserRes[0]['h_account']);
+		$huserRes = $huser->field('h_nick')->where("h_id = {$res[0]['h_id']}")->select();
+		$this->assign('huser',$huserRes[0]['h_nick']);
 
 		$this->display();
 	}

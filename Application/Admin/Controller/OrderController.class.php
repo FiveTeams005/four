@@ -83,7 +83,7 @@ class OrderController extends BaseController {
 		}
 
 		$huser = M('huser');
-		$huserRes = $huser->where("h_id = {$res[0]['h_id']}")->getfield('h_account');
+		$huserRes = $huser->where("h_id = {$res[0]['h_id']}")->getfield('h_nick');
 		$this->assign('huser',$huserRes);
 
 		$add = M('address');
