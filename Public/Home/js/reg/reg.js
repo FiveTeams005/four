@@ -72,7 +72,6 @@
                                 data:{phone:$("#tel").val()},
                                 success:function (data) {
                                     phoneCode = data;
-                                    $("#aaa").html(data);
                                     phone=$("#tel").val();
                                 }
                             })

@@ -32,9 +32,13 @@ $(function(){
                 $.post(buy,{},function (data) {
                     if(data==1){
                         layer.open({
-                            content:'余额不足，请充值！'
-                        })
-                        location.href=MVC("Home","Center","MyMoney");
+                            content: '余额不足，请充值！'
+                            ,btn: ['确定']
+                            ,yes: function(index){
+                                location.href=MVC("Home","Center","MyMoney");
+                            }
+                        });
+
                     }else {
                         location.href=MVC("Home","Pay","paySuccess");
                     }
