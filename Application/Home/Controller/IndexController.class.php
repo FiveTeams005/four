@@ -13,7 +13,7 @@ class IndexController extends Controller {
 	 * 加载主页
 	 */
     public function index(){
-		cookie('user',1);
+//		cookie('user',1);
         $this->display('index');
     }
     public function advert(){
