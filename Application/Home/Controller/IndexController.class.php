@@ -137,7 +137,7 @@ class IndexController extends Controller {
  	//拍卖商品；
  	public function loadAuctionGoods(){
  		$pgoods = M('pgoods');
- 		$res1 = $pgoods ->order("p_time desc")->limit(0,2)->where("p_status = 1") -> select();
+ 		$res1 = $pgoods ->order("p_time desc")->limit(0,2)->where("p_status in (0,1,2)") -> select();
  		$img = M('images');
 		$res2 = $img -> select();//图片；
 		$this->ajaxreturn( array($res1,$res2) );
