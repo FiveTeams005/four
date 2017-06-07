@@ -56,12 +56,15 @@ $(document).ready(function(){
         var title = '';
         if(beginTime.getTime() > nowTime.getTime()){
           title = '距拍卖开始';
+					bus.$emit('timeOut',0);
           leftTime = parseInt((nowTime.getTime()-beginTime.getTime())/1000);
         }else if(beginTime.getTime() <= nowTime.getTime() && endTime.getTime() >= nowTime.getTime()){
           title = '距拍卖结束';
+					bus.$emit('timeOut',1);
           leftTime = parseInt((endTime.getTime() - nowTime.getTime())/1000);
         }else{
           title = '拍卖结束';
+					bus.$emit('timeOut',2);
           leftTime = '';
         }
         // let d = parseInt(leftTime/(24*60*60))
@@ -184,7 +187,7 @@ $(document).ready(function(){
               app1.List = data;
             })
           });
-          //
+          //就收发送的留言消息；
           bus.$on('pushMsg',function(res){
             var msg = res;
             $.post(MVC('Home','Detail','getSelfInfo'),function(data){
@@ -250,6 +253,7 @@ $(document).ready(function(){
 			data: function () {
 				return {
 					confirm : 0,//保证金;
+					auctionFlag:0,//拍卖的标志；
 				}
 			},
       template:'<div class="container-fluit">'+
@@ -271,6 +275,11 @@ $(document).ready(function(){
             				'<div class="col-xs-4 col-sm-4 want-btn" @click="wantBtn" v-else>我 想 要</div>'+
 									'</div>'+
 								'</div>',
+			mounted:function(){
+				bus.$on('timeOut',function(res){
+					this.auctionFlag = res;
+				})
+			},
       methods:{
         //商品类型；
         type:function(val){
@@ -321,35 +330,43 @@ $(document).ready(function(){
         //拍卖事件;
         auctionBtn:function(g_id){
 					var self = this;
-					$.post(MVC('Home','Detail','confirm'),function(data){
-						if(data == 0){
-					 			layer.open({
-					 				content: '参与拍卖,要先交'+self.bail+'元 保证金!'
-					 			  ,btn: ['确定', '不要']
-					 			  ,yes: function(){
-												$.post(MVC('Home','Detail','saveBail'),{money:self.bail},function(){
-													window.location.href = MVC('Home','Detail','payBail');
-												})
-					 			   }
-					 			})
-						}else {
-							$.post(MVC('Home','Redis','redis'),{goodsId:self.id,userId:self.userId},function(data1){
-								//返回'1'说明可以加价，返回'0',说明系统繁忙不可以加价；
-								if(data1 = 1){
-									$.post(MVC('Home','Detail','addPrice'),{step:self.step},function(data2){
-											self.currentPrice = data2;
-											alert('加价成功！');
-									})
-								}else{
-									layer.open({
-										content:'系统繁忙，请稍后再试！',
-									})
-								}
-							});
-
-						}
-					});
-
+					if(this.auctionFlag == 0){
+						layer.open({
+							content:'拍卖还未开始',
+						})
+					}else if(this.auctionFlag == 1){
+						$.post(MVC('Home','Detail','confirm'),function(data){
+							if(data == 0){
+						 			layer.open({
+						 				content: '参与拍卖,要先交'+self.bail+'元 保证金!'
+						 			  ,btn: ['确定', '不要']
+						 			  ,yes: function(){
+													$.post(MVC('Home','Detail','saveBail'),{money:self.bail},function(){
+														window.location.href = MVC('Home','Detail','payBail');
+													})
+						 			   }
+						 			})
+							}else {
+								$.post(MVC('Home','Redis','redis'),{goodsId:self.id,userId:self.userId},function(data1){
+									//返回'1'说明可以加价，返回'0',说明系统繁忙不可以加价；
+									if(data1 = 1){
+										$.post(MVC('Home','Detail','addPrice'),{step:self.step},function(data2){
+												self.currentPrice = data2;
+												alert('加价成功！');
+										})
+									}else{
+										layer.open({
+											content:'系统繁忙，请稍后再试！',
+										})
+									}
+								});
+							}
+						});
+					}else if(this.auctionFlag == 2){
+						layer,open({
+							content:'拍卖已结束',
+						})
+					}
         },
       }
     };//end componentA;
@@ -484,4 +501,3 @@ $(document).ready(function(){
     })
 
 })//ready
-
