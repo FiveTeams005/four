@@ -275,14 +275,15 @@ $(document).ready(function(){
             				'<div class="col-xs-4 col-sm-4 want-btn" @click="wantBtn" v-else>我 想 要</div>'+
 									'</div>'+
 								'</div>',
-			beforeCreate:function(){
-				// //接收拍卖标志；
-				// this.$nextTick(function () {
-				// 	bus.$on('timeOut',function(res){
-				// 		console.log(res);
-				// 		componentA.auctionFlag = res;
-				// 	})
-				// })
+			mounted:function(){
+				 //接收拍卖标志；
+				this.$nextTick(function () {
+					bus.$on('timeOut',function(res){
+						console.log(res);
+						componentA.auctionFlag = res;
+						// this.$set(componentA.$data,'auctionFlag',res);
+					})
+				})
 
 			},
       methods:{
