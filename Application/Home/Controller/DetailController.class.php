@@ -76,7 +76,7 @@ class DetailController extends Controller {
  			$goodsRes = $ngoods -> join('left join f_huser on f_ngoods.h_id=f_huser.h_id')->where("n_id = '{$goods_id}'")->select();
  			$imgRes = $img -> where("n_id = '{$goods_id}'")->select();
  		}
- 		$this->ajaxreturn(array($goods_flag,$goodsRes,$imgRes));
+ 		$this->ajaxreturn(array($goods_flag,$goodsRes,$imgRes,$userId));
  	}
  	/*
  	*	发送留言信息；
