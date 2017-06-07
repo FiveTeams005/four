@@ -65,7 +65,7 @@ $(function(){
         $('.search-info').slideUp(200);
         $.post(MVC('Home','Index','searchGoods'),{goodsname:$('#sch-input').val()},function(data){
            if(data){
-               window.location.href = "index.php?p=Home&c=Classify&a=classify&name="+$('#sch-input').val();
+               window.location.href = MVC('Home','Classify','classify');
            }else{
                // alert('搜索的'+this.v+'不存在');
                layer.open({
