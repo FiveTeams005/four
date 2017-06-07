@@ -7,7 +7,7 @@ class LoginController extends Controller {
      */
     public function login(){
     	if(IS_AJAX){
-    		if(!check_verify($_POST['code'],1)){  
+    		if(!check_verify($_POST['code'],1)){
 			    echo "验证码错误！";  
 			}
 			else{
