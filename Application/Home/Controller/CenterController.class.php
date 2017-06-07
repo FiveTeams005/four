@@ -83,8 +83,10 @@ class CenterController extends Controller {
             }
 
         }
-        $res6 = $db4->where("n_id in({$str})")->select();
-        array_push($ary,$res6);
+        if($str!=""){
+            $res6 = $db4->where("n_id in({$str})")->select();
+            array_push($ary,$res6);
+        }
         echo json_encode($ary);
     }
     /**

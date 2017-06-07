@@ -28,7 +28,7 @@ $(function(){
         var effect="lightSpeedIn";
             Notification.create(
                 // Text
-                "二货有精品商品推荐哦，点击查看详情！",
+                "二货有精品商品推荐哦，查看详情！",
                 // Illustration
                 msg,
                 // Effect
