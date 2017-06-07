@@ -4,8 +4,8 @@
 **/
 $(function(){
 	new Loading();
-        
-    
+
+
     //进来加载信息
     var chatDes = MVC('Home','Chat','chatDes');
     $.post(chatDes,{},function (data) {
@@ -30,7 +30,7 @@ $(function(){
 					<div class='q-text col-sm-10 col-xs-10'>\
 						<p class='pull-right'>"+data[2][i]['l_message']+"</p><i></i>\
 					</div>\
-					<div class='heard_img col-sm-2 col-xs-2' style='padding-left: 0;'>\
+					<div class='heard_img col-sm-2 col-xs-2' style='padding-right: 0;'>\
 						<img src='"+data[1][0]['h_head']+"' class='img-responsive img-circle'>\
 					</div>\
 				</div>")
@@ -38,7 +38,7 @@ $(function(){
                 }else {
                     var b = $('\
 				<div class="row a-div">\
-					<div class="heard_img col-sm-2 col-xs-2" style="padding-right: 0;">\
+					<div class="heard_img col-sm-2 col-xs-2" style="padding-left: 0;">\
 						<img src="'+data[0][0]['h_head']+'" class="img-responsive img-circle">\
 					</div>\
 					<div class="a-text col-sm-10 col-xs-10">\
@@ -47,7 +47,7 @@ $(function(){
 				</div>')
                     $("#chat").append(b);
                 }
-                
+
             }
             $('#loading').remove();
             $("body").scrollTop($('body')[0].scrollHeight);//滚动条自动在最底部
@@ -119,14 +119,14 @@ $(function(){
                 })
 			},
 			//
-			
+
 		}
 	});
-	
+
 	// $('#send-input').keyup(function(){
 	// 	if($('.input-con').length == 1){
 	// 		$('.input-con').html($('#send-input').val());
-			
+
 	// 	}else{
 	// 		console.log($('.input-con').length);
 	// 	}
@@ -268,4 +268,3 @@ $(function(){
         })
     })
 })
-
