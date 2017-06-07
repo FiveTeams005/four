@@ -38,7 +38,7 @@ function Package_MyBuy(img,title,price,status,id) {
         '<img  src='+this.img+' style="width: 100%"></div> ' +
         '<div class="col-xs-9" style="margin-top: 10px;"> ' +
         '<p>'+this.title+'</p><p style="color:rgb(224, 18, 34);font-weight:800;">￥'+this.price+'</p><p>'+this.status+'</p> ' +
-        '</div> </div> <div class="row" style="border-top: 1px solid #eee"><div class="col-xs-4 text-left" style="line-height: 30px"><img src="'+path+'home/img/xianyu/comment_small.png">联系卖家</div> ' +
+        '</div> </div> <div class="row" style="border-top: 1px solid #eee"><div class="col-xs-4 text-left" style="line-height: 30px"><img src="'+path+'Home/img/xianyu/comment_small.png">联系卖家</div> ' +
         '<div class="col-xs-8 text-right"> ' +
         '<button onclick="fun1('+this.id+')" type="button" class="btn" style="margin: 4px 0;background-color: #fff;border: 1px solid #eee;border-radius: 0;height:30px;">删除订单</button> ' +
         '</div> </div> </div>')
