@@ -79,6 +79,9 @@ $(function(){
     				,style: 'position:fixed; bottom:46%; left:5%; width: 90%; height: auto; padding:10px 0; border:none;border-radius:8px;'
 				});
 			},
+            back:function () {
+              window.location.href=MVC("Home","Message","message");
+            },
 			//商品图片点击 显示详情事件
 			goodsImgClick:function(){
 				window.location.href = MVC('Home','Detail','detail');
