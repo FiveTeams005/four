@@ -76,7 +76,9 @@
                     })
                 })
             })
-
+            $('.back').click(function () {
+                window.location.href=MVC("Home","Center","Center");
+            })
         })
     </script>
 </head>
@@ -84,7 +86,8 @@
 <header>
     <div class="container con-my-publish">
         <div class="row my-publish">
-            <div class="col-xs-4 col-xs-offset-4 text-center my-publish-title">我发布的</div>
+            <div class="col-xs-2 back"><img src="__PUBLIC__/Home/img/xianyu/aliuser_title_back_normal.9.png" width="20" height="20"></div>
+            <div class="col-xs-4 col-xs-offset-2 text-center my-publish-title">我发布的</div>
             <a href="{:U('Home/Center/UnderSale')}" class="col-xs-4 text-right" style="display: block;color:#2a3542">下架宝贝</a>
         </div>
     </div>
