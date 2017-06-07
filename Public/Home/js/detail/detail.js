@@ -104,7 +104,7 @@ $(document).ready(function(){
 					var bail = '';
 					var step = '';
 					var currentPrice = '';//当前的拍卖价格
-					var userId = data[1][0].h_id;
+					var userId = data[3];
           g_flag = data[0];
           if(data[0] == 'p'){
             // content.timeShow = true;
@@ -253,7 +253,7 @@ $(document).ready(function(){
 			data: function () {
 				return {
 					confirm : 0,//保证金;
-					auctionFlag:0,//拍卖的标志；
+					auctionFlag:1,//拍卖的标志；
 				}
 			},
       template:'<div class="container-fluit">'+
@@ -275,10 +275,15 @@ $(document).ready(function(){
             				'<div class="col-xs-4 col-sm-4 want-btn" @click="wantBtn" v-else>我 想 要</div>'+
 									'</div>'+
 								'</div>',
-			mounted:function(){
-				bus.$on('timeOut',function(res){
-					this.auctionFlag = res;
-				})
+			beforeCreate:function(){
+				// //接收拍卖标志；
+				// this.$nextTick(function () {
+				// 	bus.$on('timeOut',function(res){
+				// 		console.log(res);
+				// 		componentA.auctionFlag = res;
+				// 	})
+				// })
+
 			},
       methods:{
         //商品类型；
@@ -330,11 +335,12 @@ $(document).ready(function(){
         //拍卖事件;
         auctionBtn:function(g_id){
 					var self = this;
-					if(this.auctionFlag == 0){
+					// alert(self.auctionFlag)
+					if(self.auctionFlag == 0){
 						layer.open({
 							content:'拍卖还未开始',
 						})
-					}else if(this.auctionFlag == 1){
+					}else if(self.auctionFlag == 1){
 						$.post(MVC('Home','Detail','confirm'),function(data){
 							if(data == 0){
 						 			layer.open({
@@ -362,7 +368,7 @@ $(document).ready(function(){
 								});
 							}
 						});
-					}else if(this.auctionFlag == 2){
+					}else if(self.auctionFlag == 2){
 						layer,open({
 							content:'拍卖已结束',
 						})
@@ -426,7 +432,8 @@ $(document).ready(function(){
         pStep:'',
         currentPrice:'',//拍卖的当前价格;
         component:'componentA',
-          myFlag:false
+        myFlag:false,
+				auctionFlag:0,
       },
       components:{
         componentA:componentA,
@@ -450,6 +457,7 @@ $(document).ready(function(){
 					footer.currentPrice = res[4];
 					footer.userId = res[5];
         });
+
       },
       methods:{
         //监听留言按钮 事件；

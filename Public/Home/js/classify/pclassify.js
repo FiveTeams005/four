@@ -2,7 +2,7 @@
 
 $(function(){
 	new Loading();
-	
+
 	//选择城市 start
 	// $('body').on('click', '.city-list p', function () {
 	// 	var type = $('.city-box').data('type');
@@ -47,7 +47,7 @@ $(function(){
 			                            break;
 			                        }
 			                    }
-			                } 
+			                }
 							bus.$emit("list",dataArr);
 						}else{
 							bus.$emit("list",[]);
@@ -65,7 +65,7 @@ $(function(){
 				$('.icon-2-asc').css('border-top-color','');
 				$(event.currentTarget).addClass('bold').siblings().removeClass('bold');;
 				var rotate = $('.icon-1').css('transform');
-				if(rotate == 'matrix(1, 0, 0, 1, 0, 0)'){ 
+				if(rotate == 'matrix(1, 0, 0, 1, 0, 0)'){
 					$('.icon-1').css({'transform':'rotate(180deg)'});
 					$('.city-box').css('display','block');
 				}else{
@@ -134,7 +134,7 @@ $(function(){
 			},
 			//单个商品点击事件；
 			goodsClick:function(key){
-				alert('p'+key)
+				// alert('p'+key)
 				$.post(MVC('Home','Detail','saveInfo'),{goods_flag:'p',goods_id:key},function(res){
                     if(res){
                         window.location.href = MVC('Home','Detail','detail');
@@ -153,7 +153,7 @@ $(function(){
 			//进来加载商品东西
 			var showGoods = MVC('Home','Classify','pgoods');
 			$.post(showGoods,{flag:0},function (res) {
-				
+
 				var dataArr = res[0];
 						// console.log(dataArr);
 				for(let j = 0; j < dataArr.length;j++){
