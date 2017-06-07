@@ -67,7 +67,7 @@ header nav div[class^='col-']{
 header nav .icon-2{
 	display:inline-block;
 	width: 10px;
-	height: 14px; 
+	height: 14px;
 	line-height: 7px;
 }
 header nav .icon-2-desc{
@@ -76,7 +76,7 @@ header nav .icon-2-desc{
 	height: 0;
 	border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 3px solid #ccc; 
+    border-bottom: 3px solid #ccc;
 }
 header nav .icon-2-asc{
 	display:inline-block;
@@ -84,21 +84,21 @@ header nav .icon-2-asc{
 	height: 0;
 	border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 3px solid #ccc; 
+    border-top: 3px solid #ccc;
 }
 /* 中间部分 */
 #content{
 	padding-top: 76px;
-	background-color:#F8F8F8;
+	/*background-color:#F8F8F8;*/
 }
 #content .one-goods{
 	background-color: #fff;
 	width:50%;
-	height: 160px;
+	height: 170px;
 }
 #content .one-goods img{
-	width: 100%;
-	height: 63%;
+	width: 120px;
+	height:120px;
 	margin-top: 6px;
 }
 #content .one-goods div{

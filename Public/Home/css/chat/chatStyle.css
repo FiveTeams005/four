@@ -55,7 +55,7 @@ header .buy-btn{
 }
 /* 主要内容 信息展示框 */
 #content{
-	padding-top: 130px;
+	padding-top: 140px;
 	padding-bottom: 50px;
 	background-color: #fafafa;
 }
@@ -111,12 +111,10 @@ footer input{
 }
 /* //弹出框样式 */
 .pop-div{
-	padding: 15px 30px 10px 10px; 
+	padding: 15px 30px 10px 10px;
 }
 .pop-div a{
 	text-decoration: none;
 	font-size:16px;
 	color: #333;
 }
-
-				 		
