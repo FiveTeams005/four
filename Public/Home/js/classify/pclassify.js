@@ -126,7 +126,7 @@ $(function(){
 		methods:{
 			//如果没有图片；
 			noneImg:function(val){
-				// console.log(val);
+				console.log(val);
 				if(val == undefined){
 					val = path+'Home/img/xianyu/page_item_deleted.png';
 				}

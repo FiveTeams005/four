@@ -37,7 +37,7 @@ class ClassifyController extends Controller {
 		}else{
 			$res1 = $pgoods->where("p_name like '%{$c_id}%'")->select();
 		}
-		$res2 = $images ->where('n_id != 0') -> select();
+		$res2 = $images ->where('p_id != 0') -> select();
 
 		$this->ajaxreturn(array($res1,$res2));
 	}
@@ -77,7 +77,7 @@ class ClassifyController extends Controller {
 			$res3 = $classify ->field('c_name')->where("c_id='{$c_id}'")->select();
 		}
 		$res2 = $images ->where('n_id != 0') -> select();
-		
+
 		$this->ajaxreturn(array($res1,$res2,$res3));
 	}
 
