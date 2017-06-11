@@ -78,6 +78,15 @@ class DetailController extends Controller {
  		}
  		$this->ajaxreturn(array($goods_flag,$goodsRes,$imgRes,$userId));
  	}
+	/**
+	*获取商品拍卖标志；
+	**/
+	public function getAuctionFlag(){
+		$goodsId = cookie('goodsId');
+		$pgoods = M('pgoods');
+		$res = $pgoods -> where("p_id = $goodsId") -> select();
+		$this -> ajaxreturn($res);
+	}
  	/*
  	*	发送留言信息；
  	*/
