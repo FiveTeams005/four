@@ -49,33 +49,32 @@ $(document).ready(function(){
     },
     methods:{
       timeDown () {
+				var b_time = this.bTime.replace(/-/g, '/');
+				var e_time = this.eTime.replace(/-/g, '/');
         const nowTime   = new Date();
-        const beginTime = new Date(this.userInfo.bTime);
-        const endTime   = new Date(this.userInfo.eTime);
+        const beginTime = new Date(b_time);
+        const endTime   = new Date(e_time);
         var leftTime = '';
         var title = '';
         if(beginTime.getTime() > nowTime.getTime()){
           title = '距拍卖开始';
-					bus.$emit('timeOut',0);
-          leftTime = parseInt((nowTime.getTime()-beginTime.getTime())/1000);
+          leftTime = parseInt((beginTime.getTime()-nowTime.getTime())/1000);
         }else if(beginTime.getTime() <= nowTime.getTime() && endTime.getTime() >= nowTime.getTime()){
           title = '距拍卖结束';
-					bus.$emit('timeOut',1);
           leftTime = parseInt((endTime.getTime() - nowTime.getTime())/1000);
         }else{
           title = '拍卖结束';
-					bus.$emit('timeOut',2);
-          leftTime = '';
+          leftTime = ''
         }
         // let d = parseInt(leftTime/(24*60*60))
         let h = this.formate(parseInt(leftTime/(60*60)%24))
         let m = this.formate(parseInt(leftTime/60%60))
         let s = this.formate(parseInt(leftTime%60))
         if(leftTime <= 0){
-          this.flag = true
+          this.flag = true;
           header.timeStr = title;
         }else{
-          header.timeStr = `${title}:${h}小时${m}分${s}秒`;
+          header.timeStr = title+":"+h+"小时"+m+"分"+s+"秒";
         }
       },
       formate (time) {
@@ -253,7 +252,7 @@ $(document).ready(function(){
 			data: function () {
 				return {
 					confirm : 0,//保证金;
-					auctionFlag:1,//拍卖的标志；
+					auctionFlag:0,//拍卖的标志；
 				}
 			},
       template:'<div class="container-fluit">'+
@@ -276,13 +275,10 @@ $(document).ready(function(){
 									'</div>'+
 								'</div>',
 			mounted:function(){
+				var self = this;
 				 //接收拍卖标志；
-				this.$nextTick(function () {
-					bus.$on('timeOut',function(res){
-						console.log(res);
-						componentA.auctionFlag = res;
-						// this.$set(componentA.$data,'auctionFlag',res);
-					})
+				$.post(MVC('Home','Detail','getAuctionFlag'),function(data){
+					self.auctionFlag = data[0].p_status;
 				})
 
 			},
@@ -336,7 +332,6 @@ $(document).ready(function(){
         //拍卖事件;
         auctionBtn:function(g_id){
 					var self = this;
-					// alert(self.auctionFlag)
 					if(self.auctionFlag == 0){
 						layer.open({
 							content:'拍卖还未开始',
